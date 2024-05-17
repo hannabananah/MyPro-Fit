@@ -19,5 +19,5 @@ from django.urls import path
 from ..apis import views
 
 urlpatterns = [
-    path('api/v1/exchange_rate/today/', views.today_exchange_rate),
+    path('api/v1/today/', views.today_exchange_rate),
 ]
