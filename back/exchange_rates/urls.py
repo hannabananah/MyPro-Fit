@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ..apis import views
+from . import views
 
 urlpatterns = [
-    path('api/v1/today/', views.today_exchange_rate),
+    path('api/v1/today/', views.today_exchange),
+    path('api/v1/last-week/', views.last_week_exchange),
+    path('api/v1/last-month/', views.last_month_exchange),
 ]
