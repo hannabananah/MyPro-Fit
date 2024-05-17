@@ -1,9 +1,11 @@
 <template>
   <div>
-    <HomeView />
+    <RouterLink :to="{ name: 'home' }">Home</RouterLink>
+    <RouterLink :to="{ name: 'exchange' }">환율</RouterLink>
+    <RouterView />
   </div>
 </template>
 
 <script setup>
-import HomeView from '@/views/HomeView.vue';
+import { RouterLink, RouterView } from 'vue-router';
 </script>
