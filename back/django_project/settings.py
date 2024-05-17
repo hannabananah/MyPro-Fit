@@ -40,7 +40,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
-    'apis',
+    'exchange_rates',
     'articles',
     'accounts',
     'rest_framework',

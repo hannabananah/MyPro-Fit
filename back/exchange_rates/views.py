@@ -10,11 +10,10 @@ from django.utils.dateformat import DateFormat
 # 환율 가져오는 api
 SECRET_KEY = settings.SECRET_KEY
 @api_view(['GET'])
-def exchange_rate(request):
+def today_exchange_rate(request):
     max_retries = 7  # 최대 7일 전까지 시도
     retries = 0
     today_datetime = datetime.now()
-
     while retries < max_retries:
         today = DateFormat(today_datetime).format('Ymd')
         url = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON/'
@@ -33,6 +32,5 @@ def exchange_rate(request):
         # 데이터를 찾지 못한 경우 하루 전으로 이동
         today_datetime -= timedelta(days=1)
         retries += 1
-
     # 모든 시도에서 데이터를 찾지 못한 경우
-    return Response({"error": "No exchange rate data available for the past week."}, status=404)
+    return Response({"error": "데이터를 찾지 못 했습니다."}, status=404)
