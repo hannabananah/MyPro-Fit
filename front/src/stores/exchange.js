@@ -15,7 +15,7 @@ export const useExchangeStore = defineStore(
       })
         .then(res => {
           console.log(res.data);
-          today = res.data;
+          today.value = res.data;
         })
         .catch(err => {
           console.log(err);
@@ -26,7 +26,7 @@ export const useExchangeStore = defineStore(
       })
         .then(res => {
           console.log(res.data);
-          lastWeek = res.data;
+          lastWeek.value = res.data;
         })
         .catch(err => {
           console.log(err);
@@ -37,14 +37,21 @@ export const useExchangeStore = defineStore(
       })
         .then(res => {
           console.log(res.data);
-          lastMonth = res.data;
+          lastMonth.value = res.data;
         })
         .catch(err => {
           console.log(err);
         });
     };
 
-    return { fetchExchangeRate };
+    // 특정시간의 특정국가의 환율 객체를 뽑는다
+    const getCountryEx = function (time, country) {
+      console.log(time.value);
+      // const obj = time.value.filter(exc => exc.cur_unit === country);
+      // console.log('선택한 국가의 환율: ', obj);
+    };
+
+    return { fetchExchangeRate, lastWeek, today, lastMonth, getCountryEx };
   },
   { persist: true },
 );
