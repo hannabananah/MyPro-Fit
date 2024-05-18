@@ -26,11 +26,15 @@
         type="number"
         placeholder="외화"
         v-model.number="foreignAmount"
-        @input="convertTokwr"
+        @input="convertToKrw"
       />
-      <input type="number" placeholder="원화" id="kor" /><label for="kor"
-        >원</label
-      >
+      <input
+        type="number"
+        placeholder="원화"
+        id="kor"
+        v-model="krwAmount"
+        @input="convertToForeign"
+      /><label for="kor">원</label>
     </form>
     <hr />
     <ExchangeList />
@@ -38,7 +42,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useExchangeStore } from '@/stores/exchange';
 import ExchangeList from '@/components/ExchangeList.vue';
 
@@ -46,9 +50,9 @@ const store = useExchangeStore();
 const selectedCur = ref(null); // 선택한 통화 저장
 const selectedStd = ref('deal_bas_r'); // 선택한 기준 저장
 const foreignAmount = ref(0); // 외화 입출력값
+const krwAmount = ref(0); // 원화 입출력값
 
-// 나중에 해당 코드가 서버 켜질때 자동으로 호출되게 바꿔야함
-store.fetchExchangeRate();
+// 환율불러오는거
 
 // 해당 국가의 환율 계산
 const thisCountryRate = computed(() => {
@@ -81,6 +85,50 @@ const thisCountryRate = computed(() => {
   }
 
   return result;
+});
+// 외화를 원화로 변환하는 함수
+const convertToKrw = function () {
+  const exchangeRateString = thisCountryRate.value.today;
+  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+  if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
+    krwAmount.value = parseFloat(
+      (foreignAmount.value * exchangeRate).toFixed(2),
+    );
+  } else {
+    krwAmount.value = null;
+    console.error('Invalid input value or exchange rate');
+  }
+};
+
+// 원화를 외화로 변환하는 함수
+const convertToForeign = function () {
+  const exchangeRateString = thisCountryRate.value.today;
+  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+  if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
+    foreignAmount.value = parseFloat(
+      (krwAmount.value / exchangeRate).toFixed(2),
+    );
+  } else {
+    foreignAmount.value = null;
+    console.error('Invalid input value or exchange rate');
+  }
+};
+
+// Watchers to handle the changes
+watch([foreignAmount, thisCountryRate], () => {
+  const exchangeRateString = thisCountryRate.value.today;
+  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+  if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
+    krwAmount.value = (foreignAmount.value * exchangeRate).toFixed(2);
+  }
+});
+
+watch([krwAmount, thisCountryRate], () => {
+  const exchangeRateString = thisCountryRate.value.today;
+  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+  if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
+    foreignAmount.value = (krwAmount.value / exchangeRate).toFixed(2);
+  }
 });
 </script>
 

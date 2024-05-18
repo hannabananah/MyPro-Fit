@@ -4,4 +4,8 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useExchangeStore } from '@/stores/exchange';
+const store = useExchangeStore();
+store.fetchExchangeRate();
+</script>
