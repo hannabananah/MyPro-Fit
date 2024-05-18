@@ -21,11 +21,12 @@
         </option>
       </select>
     </form>
-    <form>
+    <!-- 사용자가 외화를 입력할 때 -->
+    <form v-if="!isKwrToFor">
       <input
         type="number"
         placeholder="외화"
-        v-model.number="foreignAmount"
+        v-model.number="inputForeignAmount"
         @input="convertToKrw"
       />
       <input
@@ -33,6 +34,25 @@
         placeholder="원화"
         id="kor"
         v-model="krwAmount"
+        @click="isKwrToFor = true"
+        @keydown.tab="isKwrToFor = true"
+      /><label for="kor">원</label>
+    </form>
+
+    <!-- 사용자가 원화를 입력할 때 -->
+    <form v-if="isKwrToFor">
+      <input
+        type="number"
+        placeholder="외화"
+        v-model.number="foreignAmount"
+        @click="isKwrToFor = false"
+        @keydown.tab="isKwrToFor = false"
+      />
+      <input
+        type="number"
+        placeholder="원화"
+        id="kor"
+        v-model="inputKrwAmount"
         @input="convertToForeign"
       /><label for="kor">원</label>
     </form>
@@ -49,8 +69,11 @@ import ExchangeList from '@/components/ExchangeList.vue';
 const store = useExchangeStore();
 const selectedCur = ref(null); // 선택한 통화 저장
 const selectedStd = ref('deal_bas_r'); // 선택한 기준 저장
+const inputForeignAmount = ref(0);
 const foreignAmount = ref(0); // 외화 입출력값
-const krwAmount = ref(0); // 원화 입출력값
+const inputKrwAmount = ref(0); // 사용자 입력 원화값
+const krwAmount = ref(0); // 원화
+const isKwrToFor = ref(false); // 사용자가 원화를 입력했을 때
 
 // 환율불러오는거
 
@@ -90,9 +113,9 @@ const thisCountryRate = computed(() => {
 const convertToKrw = function () {
   const exchangeRateString = thisCountryRate.value.today;
   const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-  if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
+  if (!isNaN(inputForeignAmount.value) && !isNaN(exchangeRate)) {
     krwAmount.value = parseFloat(
-      (foreignAmount.value * exchangeRate).toFixed(2),
+      (inputForeignAmount.value * exchangeRate).toFixed(2),
     );
   } else {
     krwAmount.value = null;
@@ -104,9 +127,9 @@ const convertToKrw = function () {
 const convertToForeign = function () {
   const exchangeRateString = thisCountryRate.value.today;
   const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-  if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
+  if (!isNaN(inputKrwAmount.value) && !isNaN(exchangeRate)) {
     foreignAmount.value = parseFloat(
-      (krwAmount.value / exchangeRate).toFixed(2),
+      (inputKrwAmount.value / exchangeRate).toFixed(2),
     );
   } else {
     foreignAmount.value = null;
