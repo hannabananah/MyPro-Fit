@@ -1,7 +1,8 @@
 <template>
   <div class="py-12">
     <div
-      style="border-radius: 60px; overflow: hidden"
+      style="border-radius: 60px; overflow: hidden;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);"
       class="container mx-auto w-4/5 flex items-center flex-col"
     >
       <img width="100%" src="@/assets/images/exchange.svg" alt="" />
@@ -9,11 +10,14 @@
         <p class="text-2xl text-center my-8">환율 계산기</p>
         <div style="width: 60%" class="flex justify-between">
           <div
-            class="border border-solid border-sky-700 min-w-40 min-h-10 flex items-center justify-center"
-            style="border-radius: 16px"
+            class="border border-solid border-sky-700 min-h-10 flex items-center justify-center"
+            style="border-radius: 16px;
+            width:40%;"
           >
             <form>
-              <select id="standard" v-model="selectedStd">
+              <select
+              style="background-color:transparent;"
+               id="standard" v-model="selectedStd">
                 <option value="deal_bas_r">매매기준율</option>
                 <option value="tts">보내실때</option>
                 <option value="ttb">받으실때</option>
@@ -21,15 +25,16 @@
             </form>
           </div>
           <div
-            class="border border-solid border-sky-700 min-w-40 min-h-10 flex items-center justify-center px-5"
-            style="border-radius: 16px"
+            class="border border-solid border-sky-700 min-h-10 flex items-center justify-center px-5"
+            style="border-radius: 16px; width:60%; margin-left:1px;"
           >
             <form>
               <select
-                style="text-align-last: center; margin-right: 10px"
+                style="text-align-last: center; margin-right: 10px; background-color:transparent;"
                 name="exchange"
                 id="cur"
                 v-model="selectedCur"
+                
               >
                 <option disabled value="">외화 선택</option>
                 <option
