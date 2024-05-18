@@ -1,72 +1,142 @@
 <template>
-  <div>
-    <h1>환율계산기 페이지</h1>
-    <form>
-      <select id="standard" v-model="selectedStd">
-        <option value="deal_bas_r">매매기준율</option>
-        <option value="tts">보내실때</option>
-        <option value="ttb">받으실때</option>
-      </select>
-    </form>
-    <form>
-      <label for="cur">송금할 외화 : </label>
-      <select name="exchange" id="cur" v-model="selectedCur">
-        <option disabled value="">외화 선택</option>
-        <option
-          v-for="cur in store.today"
-          :key="cur.cur_unit"
-          :value="cur.cur_unit"
-        >
-          {{ cur.cur_unit }} {{ cur.cur_nm }}
-        </option>
-      </select>
-    </form>
-    <!-- 사용자가 외화를 입력할 때 -->
-    <form v-if="!isKwrToFor">
-      <input
-        id="foreign"
-        type="number"
-        placeholder="외화"
-        v-model.number="inputForeignAmount"
-        @input="convertToKrw"
-      />
-      <label for="foreign">{{ selectedCurName }}</label>
+  <div class="py-12">
+    <div
+      style="border-radius: 60px; overflow: hidden"
+      class="container mx-auto w-4/5 flex items-center flex-col"
+    >
+      <img width="100%" src="@/assets/images/exchange.svg" alt="" />
+      <div style="width: 50%" class="my-8 flex flex-col items-center">
+        <p class="text-2xl text-center my-8">환율 계산기</p>
+        <div style="width: 60%" class="flex justify-between">
+          <div
+            class="border border-solid border-sky-700 min-w-40 min-h-10 flex items-center justify-center"
+            style="border-radius: 16px"
+          >
+            <form>
+              <select id="standard" v-model="selectedStd">
+                <option value="deal_bas_r">매매기준율</option>
+                <option value="tts">보내실때</option>
+                <option value="ttb">받으실때</option>
+              </select>
+            </form>
+          </div>
+          <div
+            class="border border-solid border-sky-700 min-w-40 min-h-10 flex items-center justify-center px-5"
+            style="border-radius: 16px"
+          >
+            <form>
+              <select
+                style="text-align-last: center; margin-right: 10px"
+                name="exchange"
+                id="cur"
+                v-model="selectedCur"
+              >
+                <option disabled value="">외화 선택</option>
+                <option
+                  v-for="cur in store.today"
+                  :key="cur.cur_unit"
+                  :value="cur.cur_unit"
+                >
+                  {{ cur.cur_unit }} {{ cur.cur_nm }}
+                </option>
+              </select>
+            </form>
+          </div>
+        </div>
 
-      <hr />
-      <input
-        type="number"
-        placeholder="원화"
-        id="kor"
-        v-model="krwAmount"
-        @click="inputForeignToKwr"
-        @keydown.tab="inputForeignToKwr"
-      /><label for="kor">원</label>
-    </form>
+        <!-- 사용자가 외화를 입력할 때 -->
 
-    <!-- 사용자가 원화를 입력할 때 -->
-    <form v-if="isKwrToFor">
-      <input
-        type="number"
-        placeholder="외화"
-        v-model.number="foreignAmount"
-        @click="inputKwrToForeign"
-        @keydown.tab="inputKwrToForeign"
-      />
-      <label for="foreign">{{ selectedCurName }}</label>
-      <hr />
-      <input
-        type="number"
-        placeholder="원화"
-        id="kor"
-        v-model="inputKrwAmount"
-        @input="convertToForeign"
-      /><label for="kor">원</label>
-    </form>
+        <form v-show="!isKwrToFor" style="width: 60%; margin-top: 1rem">
+          <div
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-6"
+            style="border-radius: 16px"
+          >
+            <input
+              type="number"
+              placeholder="원화"
+              id="kor"
+              v-model="krwAmount"
+              @click="inputForeignToKwr"
+              @keydown.tab="inputForeignToKwr"
+              style="width: 70%; padding-left: 10%"
+            />
+            <label style="padding-right: 10%" for="kor">원</label>
+          </div>
+          <p style="margin-top: 1rem" class="text-center text-gray-500">
+            1 KOR = {{ krwExchangeRate }} {{ selectedCur }}
+            <div class="flex justify-center mt-4">
+            <img src="@/assets/icons/exchange-icon.svg" alt="" />
+          </div>
+          </p>
+          <div
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-4"
+            style="border-radius: 16px"
+          >
+            <input
+              id="foreign"
+              type="number"
+              placeholder="외화"
+              v-model.number="inputForeignAmount"
+              @input="convertToKrw"
+              style="width: 70%; padding-left: 10%"
+            />
+            <label style="padding-right: 10%" for="foreign">{{
+              selectedCurName
+            }}</label>
+          </div>
+          <p style="margin-top: 1rem" class="text-center text-gray-500">
+            1 {{ selectedCur }} = {{ thisCountryRate.today }} KOR
+          </p>
+        </form>
+
+        <!-- 사용자가 원화를 입력할 때 -->
+        <form v-show="isKwrToFor" style="width: 60%; margin-top: 1rem">
+          <div
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-6"
+            style="border-radius: 16px"
+          >
+            <input
+              type="number"
+              placeholder="원화"
+              id="kor"
+              v-model="inputKrwAmount"
+              @input="convertToForeign"
+              style="width: 70%; padding-left: 10%"
+            /><label style="padding-right: 10%" for="kor">원</label>
+          </div>
+          <p style="margin-top: 1rem" class="text-center text-gray-500">
+            1 KOR = {{ krwExchangeRate }} {{ selectedCur }}
+            <div class="flex justify-center mt-4">
+            <img src="@/assets/icons/exchange-icon.svg" alt="" />
+          </div>
+          </p>
+          <div
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-4"
+            style="border-radius: 16px"
+          >
+            <input
+              type="number"
+              placeholder="외화"
+              v-model.number="foreignAmount"
+              @click="inputKwrToForeign"
+              @keydown.tab="inputKwrToForeign"
+              style="width: 70%; padding-left: 10%"
+            />
+            <label style="padding-right: 10%" for="foreign">{{
+              selectedCurName
+            }}</label>
+          </div>
+          <p style="margin-top: 1rem" class="text-center text-gray-500">
+            1 {{ selectedCur }} = {{ thisCountryRate.today }} KOR
+          </p>
+        </form>
+      </div>
+    </div>
 
     <ExchangeList />
   </div>
 </template>
-
+<style scoped></style>
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { useExchangeStore } from '@/stores/exchange';
@@ -81,6 +151,13 @@ const foreignAmount = ref(0); // 외화 입출력값
 const inputKrwAmount = ref(0); // 사용자 입력 원화값
 const krwAmount = ref(0); // 원화
 const isKwrToFor = ref(false); // 사용자가 원화를 입력했을 때
+const krwExchangeRate = computed(() => {
+  const exchangeRateString = thisCountryRate.value.today;
+  if (exchangeRateString) {
+    const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+    return (1000 / exchangeRate).toFixed(2);
+  }
+});
 
 // 환율불러오는거
 
@@ -119,28 +196,32 @@ const thisCountryRate = computed(() => {
 // 외화를 원화로 변환하는 함수
 const convertToKrw = function () {
   const exchangeRateString = thisCountryRate.value.today;
-  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-  if (!isNaN(inputForeignAmount.value) && !isNaN(exchangeRate)) {
-    krwAmount.value = parseFloat(
-      (inputForeignAmount.value * exchangeRate).toFixed(2),
-    );
-  } else {
-    krwAmount.value = null;
-    console.error('Invalid input value or exchange rate');
+  if (exchangeRateString) {
+    const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+    if (!isNaN(inputForeignAmount.value) && !isNaN(exchangeRate)) {
+      krwAmount.value = parseFloat(
+        (inputForeignAmount.value * exchangeRate).toFixed(2),
+      );
+    } else {
+      krwAmount.value = null;
+      console.error('Invalid input value or exchange rate');
+    }
   }
 };
 
 // 원화를 외화로 변환하는 함수
 const convertToForeign = function () {
   const exchangeRateString = thisCountryRate.value.today;
-  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-  if (!isNaN(inputKrwAmount.value) && !isNaN(exchangeRate)) {
-    foreignAmount.value = parseFloat(
-      (inputKrwAmount.value / exchangeRate).toFixed(2),
-    );
-  } else {
-    foreignAmount.value = null;
-    console.error('Invalid input value or exchange rate');
+  if (exchangeRateString) {
+    const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+    if (!isNaN(inputKrwAmount.value) && !isNaN(exchangeRate)) {
+      foreignAmount.value = parseFloat(
+        (inputKrwAmount.value / exchangeRate).toFixed(2),
+      );
+    } else {
+      foreignAmount.value = null;
+      console.error('Invalid input value or exchange rate');
+    }
   }
 };
 
@@ -148,19 +229,23 @@ const convertToForeign = function () {
 // 원화 업데이트
 watch([foreignAmount, thisCountryRate], () => {
   const exchangeRateString = thisCountryRate.value.today;
-  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-  if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
-    // 원화 업데이트
-    krwAmount.value = (foreignAmount.value * exchangeRate).toFixed(2);
+  if (exchangeRateString) {
+    const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+    if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
+      // 원화 업데이트
+      krwAmount.value = (foreignAmount.value * exchangeRate).toFixed(2);
+    }
   }
 });
 
 // 외화 업데이트
 watch([krwAmount, thisCountryRate], () => {
   const exchangeRateString = thisCountryRate.value.today;
-  const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-  if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
-    foreignAmount.value = (krwAmount.value / exchangeRate).toFixed(2);
+  if (exchangeRateString) {
+    const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
+    if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
+      foreignAmount.value = (krwAmount.value / exchangeRate).toFixed(2);
+    }
   }
 });
 
@@ -187,5 +272,3 @@ watch(selectedCur, newVal => {
   }
 });
 </script>
-
-<style scoped></style>
