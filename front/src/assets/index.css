@@ -79,6 +79,6 @@
   }
 
   .text-input {
-    @apply w-full h-10 box-border pl-10 pr-4 py-2 outline-none caret-gray-900 rounded-lg text-gray-900 border border-sky-200 bg-slate-50 focus:border-sky-700 focus:ring-1 focus:ring-sky-500 focus:ring-opacity-50 placeholder-gray-500 text-sm;
+    @apply w-full h-10 box-border px-10 py-2 outline-none caret-gray-900 rounded-lg text-gray-900 border border-sky-200 bg-slate-50 focus:border-sky-700 focus:ring-1 focus:ring-sky-500 focus:ring-opacity-50 placeholder-gray-500 text-sm;
   }
 }
