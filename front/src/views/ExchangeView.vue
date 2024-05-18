@@ -31,6 +31,8 @@
         @input="convertToKrw"
       />
       <label for="foreign">{{ selectedCurName }}</label>
+
+      <hr />
       <input
         type="number"
         placeholder="원화"
@@ -50,6 +52,8 @@
         @click="inputKwrToForeign"
         @keydown.tab="inputKwrToForeign"
       />
+      <label for="foreign">{{ selectedCurName }}</label>
+      <hr />
       <input
         type="number"
         placeholder="원화"
@@ -58,7 +62,7 @@
         @input="convertToForeign"
       /><label for="kor">원</label>
     </form>
-    <hr />
+
     <ExchangeList />
   </div>
 </template>
