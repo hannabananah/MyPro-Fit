@@ -24,18 +24,20 @@
     <!-- 사용자가 외화를 입력할 때 -->
     <form v-if="!isKwrToFor">
       <input
+        id="foreign"
         type="number"
         placeholder="외화"
         v-model.number="inputForeignAmount"
         @input="convertToKrw"
       />
+      <label for="foreign">{{ selectedCurName }}</label>
       <input
         type="number"
         placeholder="원화"
         id="kor"
         v-model="krwAmount"
-        @click="isKwrToFor = true"
-        @keydown.tab="isKwrToFor = true"
+        @click="inputForeignToKwr"
+        @keydown.tab="inputForeignToKwr"
       /><label for="kor">원</label>
     </form>
 
@@ -45,8 +47,8 @@
         type="number"
         placeholder="외화"
         v-model.number="foreignAmount"
-        @click="isKwrToFor = false"
-        @keydown.tab="isKwrToFor = false"
+        @click="inputKwrToForeign"
+        @keydown.tab="inputKwrToForeign"
       />
       <input
         type="number"
@@ -68,6 +70,7 @@ import ExchangeList from '@/components/ExchangeList.vue';
 
 const store = useExchangeStore();
 const selectedCur = ref(null); // 선택한 통화 저장
+const selectedCurName = ref(null); // 선택한 통화의 이름
 const selectedStd = ref('deal_bas_r'); // 선택한 기준 저장
 const inputForeignAmount = ref(0);
 const foreignAmount = ref(0); // 외화 입출력값
@@ -137,20 +140,46 @@ const convertToForeign = function () {
   }
 };
 
-// Watchers to handle the changes
+// 양방향 데이터 바인딩: 두 개의 watch 함수가 상호 작용하여 한쪽 값이 변경될 때 다른 쪽 값이 자동으로 업데이트
+// 원화 업데이트
 watch([foreignAmount, thisCountryRate], () => {
   const exchangeRateString = thisCountryRate.value.today;
   const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
   if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
+    // 원화 업데이트
     krwAmount.value = (foreignAmount.value * exchangeRate).toFixed(2);
   }
 });
 
+// 외화 업데이트
 watch([krwAmount, thisCountryRate], () => {
   const exchangeRateString = thisCountryRate.value.today;
   const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
   if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
     foreignAmount.value = (krwAmount.value / exchangeRate).toFixed(2);
+  }
+});
+
+// 외화입력 -> 원화입력 전환
+const inputForeignToKwr = function () {
+  isKwrToFor.value = true;
+  inputKrwAmount.value = krwAmount.value;
+};
+
+// 원화입력 -> 외화입력 전환
+const inputKwrToForeign = function () {
+  isKwrToFor.value = false;
+  inputForeignAmount.value = foreignAmount.value;
+};
+
+// 외화 변경할 때마다 그에 맞는 화폐 단위 출력
+watch(selectedCur, newVal => {
+  const thisCountry = store.today.find(obj => obj.cur_unit === newVal);
+  if (thisCountry) {
+    const parts = thisCountry.cur_nm.split(' ');
+    selectedCurName.value = parts.slice(1).join(' ');
+  } else {
+    selectedCurName.value = 'Unknown Currency';
   }
 });
 </script>
