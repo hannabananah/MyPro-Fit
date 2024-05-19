@@ -141,7 +141,7 @@ export const useUserStore = defineStore(
     const logOut = function () {
       token.value = null;
       username.value = null;
-      router.push({ name: 'login' });
+      router.push({ name: 'home' });
     };
 
     const deleteAccount = function () {
