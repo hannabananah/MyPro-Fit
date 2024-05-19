@@ -15,11 +15,13 @@
             <h2 class="mb-6 text-2xl font-bold text-center lg:text-left">Create your Account</h2>
             <form @submit.prevent="signUp" class="flex flex-col w-full max-w-md gap-12">
                 <div class="flex flex-col gap-2 lg:gap-4">
-                    <div class="relative">
+                    <div class="relative h-14">
                         <Email class="absolute top-2.5 left-3" fillColor="#6B7280" :size="20" />
                         <input type="text" v-model.trim="email" placeholder="이메일 형식의 아이디를 입력해주세요." class="text-input" />
+                        <p class="pt-[1.5px] pl-2 text-xs text-red-500" v-if="store.shouldShowError('email')">
+                            {{ store.errorFields.email }}</p>
                     </div>
-                    <div class="relative">
+                    <div class="relative h-14">
                         <Lock class="absolute top-2.5 left-3" fillColor="#6B7280" :size="20" />
                         <input :type="password1Visible ? 'text' : 'password'" v-model.trim="password1"
                             placeholder="8~15자 사이의 특수문자를 포함한 비밀번호를 입력해주세요." maxLength="20" class="text-input" />
@@ -27,8 +29,11 @@
                             class="absolute top-2.5 right-3.5 cursor-pointer" fillColor="#6B7280" :size="20" />
                         <Eye v-else @click="password1Visible = false" class="absolute top-2.5 right-3.5 cursor-pointer"
                             fillColor="#111827" :size="20" />
+                        <p class="pt-[1.5px] pl-2 text-xs text-red-500" v-if="store.shouldShowError('password1')">
+                            {{ store.errorFields.password1 }}
+                        </p>
                     </div>
-                    <div class="relative">
+                    <div class="relative h-14">
                         <LockPlus class="absolute top-2.5 left-3" fillColor="#6B7280" :size="20" />
                         <input :type="password2Visible ? 'text' : 'password'" v-model.trim="password2"
                             placeholder="비밀번호를 한 번 더 입력해주세요." maxLength="20" class="text-input" />
@@ -36,18 +41,24 @@
                             class="absolute top-2.5 right-3.5 cursor-pointer" fillColor="#6B7280" :size="20" />
                         <Eye v-else @click="password2Visible = false" class="absolute top-2.5 right-3.5 cursor-pointer"
                             fillColor="#111827" :size="20" />
+                        <p class="pt-[1.5px] pl-2 text-xs text-red-500" v-if="store.shouldShowError('password2')">
+                            {{ store.errorFields.password2 }}</p>
                     </div>
-                    <div class="relative">
+                    <div class="relative h-14">
                         <Account class="absolute top-2.5 left-3" fillColor="#6B7280" :size="20" />
                         <input type="text" v-model.trim="username" placeholder="닉네임을 입력해주세요." maxLength="20"
                             class="text-input" />
+                        <p class="pt-[1.5px] pl-2 text-xs text-red-500" v-if="store.shouldShowError('username')">
+                            {{ store.errorFields.username }}
+                        </p>
                     </div>
                     <p class="text-xs underline text-sky-700 text-end">비밀번호를 잊어버리셨습니까?</p>
                 </div>
                 <div class="flex flex-col gap-2">
                     <input type="submit" class="btn-active" value="Sign up" />
                     <div class="h-4">
-                        <p v-if="store.errorMessage" class="text-xs text-red-500">{{ store.errorMessage }}</p>
+                        <p v-if="store.shouldShowError('general')" class="text-xs text-red-500">
+                            {{ store.errorFields.general }}</p>
                     </div>
                 </div>
             </form>
@@ -90,6 +101,7 @@ const updateWidth = () => {
 
 onMounted(() => {
     store.errorMessage = null;
+    store.errorFields = {}
     window.addEventListener('resize', updateWidth)
     updateWidth()
 })

@@ -15,11 +15,15 @@
             <h2 class="mb-6 text-2xl font-bold text-center lg:text-left">Log in to your Account</h2>
             <form @submit.prevent="logIn" class="flex flex-col w-full max-w-md gap-12">
                 <div class="flex flex-col gap-2 lg:gap-4">
-                    <div class="relative">
+                    <div class="relative h-14">
                         <Email class="absolute top-2.5 left-3" fillColor="#6B7280" :size="20" />
                         <input type="text" v-model.trim="email" placeholder="이메일 형식의 아이디를 입력해주세요." class="text-input" />
+                        <div class="h-4">
+                            <p class="pt-[1.5px] pl-2 text-xs text-red-500" v-if="store.shouldShowError('email')">
+                                {{ store.errorFields.email }}</p>
+                        </div>
                     </div>
-                    <div class="relative">
+                    <div class="relative h-14">
                         <Lock class="absolute  top-2.5 left-3" fillColor="#6B7280" :size="20" />
                         <input :type="passwordVisible ? 'text' : 'password'" v-model.trim="password"
                             placeholder="비밀번호를 입력해주세요." maxLength="20" class="text-input" />
@@ -27,13 +31,18 @@
                             class="absolute top-2.5 right-3.5 cursor-pointer" fillColor="#6B7280" :size="20" />
                         <Eye v-else @click="passwordVisible = false" class="absolute top-2.5 right-3.5 cursor-pointer"
                             fillColor="#111827" :size="20" />
+                        <div class="h-4">
+                            <p class="pt-[1.5px] pl-2 text-xs text-red-500" v-if="store.shouldShowError('password')">
+                                {{ store.errorFields.password }}</p>
+                        </div>
                     </div>
                     <p class="text-xs underline text-sky-700 text-end">비밀번호를 잊어버리셨습니까?</p>
                 </div>
                 <div class="flex flex-col gap-2">
                     <input type="submit" class="btn-active" value="Log in" />
                     <div class="h-4">
-                        <p v-if="store.errorMessage" class="text-xs text-red-500">{{ store.errorMessage }}</p>
+                        <p v-if="store.shouldShowError('general')" class="text-xs text-red-500">
+                            {{ store.errorFields.general }}</p>
                     </div>
                 </div>
             </form>
@@ -71,6 +80,7 @@ const updateWidth = () => {
 
 onMounted(() => {
     store.errorMessage = null;
+    store.errorFields = {}
     window.addEventListener('resize', updateWidth)
     updateWidth()
 })
@@ -79,7 +89,6 @@ onUnmounted(() => {
     window.removeEventListener('resize', updateWidth)
 })
 
-
 const logIn = () => {
     const payload = {
         email: email.value,
@@ -87,4 +96,5 @@ const logIn = () => {
     }
     store.logIn(payload)
 }
+
 </script>
