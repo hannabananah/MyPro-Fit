@@ -93,15 +93,15 @@ export const useUserStore = defineStore(
         method: 'post',
         url: `${API_URL}/accounts/signup/`,
         data: {
-          email,
-          password1,
-          password2,
-          username,
+          email: payload.email,
+          password1: payload.password1,
+          password2: payload.password2,
+          username: payload.username,
         },
       })
         .then(res => {
           console.log('회원가입 성공!');
-          logIn({ email, password: password1 });
+          logIn({ email: payload.email, password: payload.password1 });
         })
         .catch(error => {
           console.log('error.response', error);
