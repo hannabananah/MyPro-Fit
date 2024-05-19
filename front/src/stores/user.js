@@ -104,14 +104,11 @@ export const useUserStore = defineStore(
           logIn({ email: payload.email, password: payload.password1 });
         })
         .catch(error => {
-          console.log('error.response', error);
           if (error.response && error.response.status === 500) {
             errorFields.value.general = '이미 존재하는 이메일 주소입니다.';
-          } else if (error.response && error.response.status === 400) {
-            errorFields.value.general = error.response.data.password1.join(' ');
           } else {
-            console.error('회원가입 중 오류 발생:', error);
-            errorFields.value.general = error;
+            console.log('response', error.message);
+            errorFields.value.general = error.message;
           }
         });
     };
