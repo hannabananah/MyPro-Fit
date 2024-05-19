@@ -8,11 +8,15 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import { useCounterStore } from '@/stores/counter';
-const store = useCounterStore();
-const isLogin = store.isLogin;
+import { useUserStore } from '@/stores/user';
+import { useExchangeStore } from '@/stores/exchange';
+const userStore = useUserStore();
+const isLogin = userStore.isLogin;
 
 const logOut = () => {
-  store.logOut();
+  userStore.logOut();
 };
+
+const store = useExchangeStore();
+store.fetchExchangeRate();
 </script>

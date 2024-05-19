@@ -60,7 +60,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useCounterStore } from '@/stores/counter'
+import { useUserStore } from '@/stores/user'
 import LoginSvg from '@/assets/images/login.svg'
 import LogoSvg from '@/assets/images/logo.svg'
 import Email from 'vue-material-design-icons/EmailOutline.vue';
@@ -72,7 +72,7 @@ const email = ref(null)
 const password = ref(null)
 const passwordVisible = ref(false)
 const isLg = ref(window.innerWidth >= 1024)
-const store = useCounterStore()
+const store = useUserStore()
 
 const updateWidth = () => {
     isLg.value = window.innerWidth >= 1024
