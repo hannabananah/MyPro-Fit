@@ -135,14 +135,12 @@
       </div>
     </div>
 
-    <ExchangeList />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { useExchangeStore } from '@/stores/exchange';
-import ExchangeList from '@/components/ExchangeList.vue';
 import { formatNumberWithCommas, parseNumberWithCommas } from '@/utils/formatNumber';
 
 const store = useExchangeStore();
@@ -166,29 +164,13 @@ const krwExchangeRate = computed(() => {
 const thisCountryRate = computed(() => {
   const result = {
     today: null,
-    lastWeek: null,
-    lastMonth: null,
   };
-
   if (selectedCur.value && selectedStd.value) {
     const filteredToday = store.today.filter(
       obj => obj.cur_unit === selectedCur.value,
     );
-    const filteredLastWeek = store.lastWeek.filter(
-      obj => obj.cur_unit === selectedCur.value,
-    );
-    const filteredLastMonth = store.lastMonth.filter(
-      obj => obj.cur_unit === selectedCur.value,
-    );
-
     if (filteredToday.length > 0) {
       result.today = filteredToday[0][selectedStd.value];
-    }
-    if (filteredLastWeek.length > 0) {
-      result.lastWeek = filteredLastWeek[0][selectedStd.value];
-    }
-    if (filteredLastMonth.length > 0) {
-      result.lastMonth = filteredLastMonth[0][selectedStd.value];
     }
   }
 

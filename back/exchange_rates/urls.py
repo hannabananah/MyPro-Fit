@@ -20,6 +20,4 @@ from . import views
 
 urlpatterns = [
     path('api/v1/today/', views.today_exchange),
-    path('api/v1/last-week/', views.last_week_exchange),
-    path('api/v1/last-month/', views.last_month_exchange),
 ]
