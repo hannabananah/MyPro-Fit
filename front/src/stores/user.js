@@ -144,6 +144,23 @@ export const useUserStore = defineStore(
       router.push({ name: 'login' });
     };
 
+    const deleteAccount = function () {
+      axios({
+        method: 'delete',
+        url: `${API_URL}/accounts/delete/`,
+        headers: {
+          Authorization: `Token ${token.value}`,
+        },
+      })
+        .then(() => {
+          console.log('계정 삭제 성공!');
+          logOut();
+        })
+        .catch(error => {
+          console.error('계정 삭제 중 오류 발생:', error);
+        });
+    };
+
     return {
       signUp,
       logIn,
@@ -154,6 +171,7 @@ export const useUserStore = defineStore(
       token,
       isLogin,
       username,
+      deleteAccount,
     };
   },
   { persist: true },
