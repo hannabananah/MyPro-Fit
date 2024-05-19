@@ -75,6 +75,12 @@ export const useCounterStore = defineStore(
 
     const logIn = function (payload) {
       const { email, password } = payload;
+
+      if (!email || !password) {
+        errorMessage.value = '모든 필드를 입력해주세요.';
+        return;
+      }
+
       axios({
         method: 'post',
         url: `${API_URL}/accounts/login/`,
@@ -91,6 +97,10 @@ export const useCounterStore = defineStore(
         })
         .catch(error => {
           console.log(error);
+          if (error.response && error.response.status === 400) {
+            errorMessage.value =
+              '존재하지 않는 ID이거나 올바르지 않은 비밀번호입니다.';
+          }
         });
     };
 
