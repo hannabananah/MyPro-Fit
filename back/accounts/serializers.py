@@ -1,10 +1,17 @@
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.serializers import LoginSerializer
 from rest_framework import serializers
+from django.contrib.auth import get_user_model
+from django.contrib.auth.password_validation import validate_password
 
+User = get_user_model()
 class CustomRegisterSerializer(RegisterSerializer):
     username = serializers.CharField(required=True)
     
+    def validate_password1(self, password):
+            validate_password(password)
+            return password
+        
     def get_cleaned_data(self):
         super(CustomRegisterSerializer, self).get_cleaned_data()
         return {

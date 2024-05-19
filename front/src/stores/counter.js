@@ -9,6 +9,7 @@ export const useCounterStore = defineStore(
     const API_URL = 'http://127.0.0.1:8000';
     const token = ref(null);
     const username = ref(null);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const errorMessage = ref(null);
     const isLogin = computed(() => {
       return token.value !== null;
@@ -17,6 +18,33 @@ export const useCounterStore = defineStore(
 
     const signUp = function (payload) {
       const { email, password1, password2, username } = payload;
+
+      if (!email || !password1 || !password2 || !username) {
+        errorMessage.value = '모든 필드를 입력해주세요.';
+        return;
+      }
+      if (!emailRegex.test(email)) {
+        errorMessage.value = '올바른 이메일 주소를 입력해주세요.';
+        return;
+      }
+      if (password1.length < 8) {
+        errorMessage.value = '비밀번호는 최소 8자 이상이어야 합니다.';
+        return;
+      } else if (password1.length > 15) {
+        errorMessage.value = '비밀번호는 최대 15자 이하이어야 합니다.';
+        return;
+      }
+      if (password1 !== password2) {
+        errorMessage.value = '비밀번호가 일치하지 않습니다.';
+        return;
+      }
+      if (username.length < 2) {
+        errorMessage.value = '닉네임은 최소 두 글자 이상이어야 합니다.';
+        return;
+      } else if (username.length > 20) {
+        errorMessage.value = '닉네임은 최대 20자 이하이어야 합니다.';
+        return;
+      }
 
       axios({
         method: 'post',
@@ -34,9 +62,11 @@ export const useCounterStore = defineStore(
           logIn({ email, password });
         })
         .catch(error => {
+          console.log('error.response', error);
           if (error.response && error.response.status === 500) {
-            // 이미 존재하는 이메일 주소인 경우
             errorMessage.value = '이미 존재하는 이메일 주소입니다.';
+          } else if (error.response && error.response.status === 400) {
+            errorMessage.value = error.response.data.password1.join(' ');
           } else {
             console.error('회원가입 중 오류 발생:', error);
           }
@@ -56,7 +86,7 @@ export const useCounterStore = defineStore(
         .then(response => {
           console.log('로그인 성공!');
           token.value = response.data.key;
-          getUserInfo();
+          // getUserInfo();
           router.push({ name: 'home' });
         })
         .catch(error => {
@@ -87,7 +117,16 @@ export const useCounterStore = defineStore(
     //     });
     // };
 
-    return { signUp, API_URL, logIn, logOut, token, isLogin, username };
+    return {
+      signUp,
+      API_URL,
+      logIn,
+      logOut,
+      token,
+      isLogin,
+      username,
+      errorMessage,
+    };
   },
   { persist: true },
 );
