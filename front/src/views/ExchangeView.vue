@@ -16,8 +16,8 @@
           >
             <form>
               <select
-              style="background-color:transparent;"
-               id="standard" v-model="selectedStd">
+                style="background-color:transparent;"
+                id="standard" v-model="selectedStd">
                 <option value="deal_bas_r">매매기준율</option>
                 <option value="tts">보내실때</option>
                 <option value="ttb">받으실때</option>
@@ -34,7 +34,6 @@
                 name="exchange"
                 id="cur"
                 v-model="selectedCur"
-                
               >
                 <option disabled value="">외화 선택</option>
                 <option
@@ -50,19 +49,17 @@
         </div>
 
         <!-- 사용자가 외화를 입력할 때 -->
-
         <form v-show="!isKwrToFor" style="width: 60%; margin-top: 1rem">
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-6"
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-6"
             style="border-radius: 16px"
           >
             <input
-              type="number"
+              type="text"
               placeholder="원화"
               id="kor"
-              v-model="krwAmount"
-              @click="inputForeignToKwr"
-              @keydown.tab="inputForeignToKwr"
+              :value="formatNumberWithCommas(krwAmount)"
+              @input="e => { krwAmount = e.target.value.replace(/,/g, ''); inputForeignToKwr(); }"
               style="width: 70%; padding-left: 10%"
             />
             <label style="padding-right: 10%" for="kor">원</label>
@@ -70,19 +67,19 @@
           <p style="margin-top: 1rem" class="text-center text-gray-500">
             1 KOR = {{ krwExchangeRate }} {{ selectedCur }}
             <div class="flex justify-center mt-4">
-            <img src="@/assets/icons/exchange-icon.svg" alt="" />
-          </div>
+              <img src="@/assets/icons/exchange-icon.svg" alt="" />
+            </div>
           </p>
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-4"
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-4"
             style="border-radius: 16px"
           >
-            <input
+          <input
               id="foreign"
-              type="number"
+              type="text"
               placeholder="외화"
-              v-model.number="inputForeignAmount"
-              @input="convertToKrw"
+              :value="formatNumberWithCommas(inputForeignAmount)"
+              @input.prevent="e => { inputForeignAmount = e.target.value.replace(/,/g, ''); convertToKrw(); }"
               style="width: 70%; padding-left: 10%"
             />
             <label style="padding-right: 10%" for="foreign">{{
@@ -97,34 +94,34 @@
         <!-- 사용자가 원화를 입력할 때 -->
         <form v-show="isKwrToFor" style="width: 60%; margin-top: 1rem">
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-6"
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-6"
             style="border-radius: 16px"
           >
             <input
-              type="number"
+              type="text"
               placeholder="원화"
               id="kor"
-              v-model="inputKrwAmount"
-              @input="convertToForeign"
+              :value="formatNumberWithCommas(inputKrwAmount)"
+              @input="e => { inputKrwAmount = e.target.value.replace(/,/g, ''); convertToForeign(); }"
               style="width: 70%; padding-left: 10%"
             /><label style="padding-right: 10%" for="kor">원</label>
           </div>
           <p style="margin-top: 1rem" class="text-center text-gray-500">
             1 KOR = {{ krwExchangeRate }} {{ selectedCur }}
             <div class="flex justify-center mt-4">
-            <img src="@/assets/icons/exchange-icon.svg" alt="" />
-          </div>
+              <img src="@/assets/icons/exchange-icon.svg" alt="" />
+            </div>
           </p>
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between itmes-center mt-4"
+            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-4"
             style="border-radius: 16px"
           >
-            <input
-              type="number"
+          <input
+              id="foreign"
+              type="text"
               placeholder="외화"
-              v-model.number="foreignAmount"
-              @click="inputKwrToForeign"
-              @keydown.tab="inputKwrToForeign"
+              :value="formatNumberWithCommas(foreignAmount)"
+              @input="e => { foreignAmount = e.target.value.replace(/,/g, ''); inputKwrToForeign(); }"
               style="width: 70%; padding-left: 10%"
             />
             <label style="padding-right: 10%" for="foreign">{{
@@ -141,32 +138,31 @@
     <ExchangeList />
   </div>
 </template>
-<style scoped></style>
+
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { useExchangeStore } from '@/stores/exchange';
 import ExchangeList from '@/components/ExchangeList.vue';
+import { formatNumberWithCommas, parseNumberWithCommas } from '@/utils/formatNumber';
 
 const store = useExchangeStore();
-const selectedCur = ref(null); // 선택한 통화 저장
-const selectedCurName = ref(null); // 선택한 통화의 이름
-const selectedStd = ref('deal_bas_r'); // 선택한 기준 저장
-const inputForeignAmount = ref(0);
-const foreignAmount = ref(0); // 외화 입출력값
-const inputKrwAmount = ref(0); // 사용자 입력 원화값
-const krwAmount = ref(0); // 원화
-const isKwrToFor = ref(false); // 사용자가 원화를 입력했을 때
+const selectedCur = ref(null);
+const selectedCurName = ref(null);
+const selectedStd = ref('deal_bas_r');
+const inputForeignAmount = ref('');
+const foreignAmount = ref('');
+const inputKrwAmount = ref('');
+const krwAmount = ref('');
+const isKwrToFor = ref(false);
+
 const krwExchangeRate = computed(() => {
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-    return (1000 / exchangeRate).toFixed(2);
+    return formatNumberWithCommas((1000 / exchangeRate).toFixed(2));
   }
 });
 
-// 환율불러오는거
-
-// 해당 국가의 환율 계산
 const thisCountryRate = computed(() => {
   const result = {
     today: null,
@@ -198,14 +194,14 @@ const thisCountryRate = computed(() => {
 
   return result;
 });
-// 외화를 원화로 변환하는 함수
+
 const convertToKrw = function () {
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-    if (!isNaN(inputForeignAmount.value) && !isNaN(exchangeRate)) {
-      krwAmount.value = parseFloat(
-        (inputForeignAmount.value * exchangeRate).toFixed(2),
+    if (!isNaN(parseNumberWithCommas(inputForeignAmount.value)) && !isNaN(exchangeRate)) {
+      krwAmount.value = formatNumberWithCommas(
+        (parseNumberWithCommas(inputForeignAmount.value) * exchangeRate).toFixed(2)
       );
     } else {
       krwAmount.value = null;
@@ -214,14 +210,13 @@ const convertToKrw = function () {
   }
 };
 
-// 원화를 외화로 변환하는 함수
 const convertToForeign = function () {
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-    if (!isNaN(inputKrwAmount.value) && !isNaN(exchangeRate)) {
-      foreignAmount.value = parseFloat(
-        (inputKrwAmount.value / exchangeRate).toFixed(2),
+    if (!isNaN(parseNumberWithCommas(inputKrwAmount.value)) && !isNaN(exchangeRate)) {
+      foreignAmount.value = formatNumberWithCommas(
+        (parseNumberWithCommas(inputKrwAmount.value) / exchangeRate).toFixed(2)
       );
     } else {
       foreignAmount.value = null;
@@ -230,43 +225,40 @@ const convertToForeign = function () {
   }
 };
 
-// 양방향 데이터 바인딩: 두 개의 watch 함수가 상호 작용하여 한쪽 값이 변경될 때 다른 쪽 값이 자동으로 업데이트
-// 원화 업데이트
 watch([foreignAmount, thisCountryRate], () => {
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-    if (!isNaN(foreignAmount.value) && !isNaN(exchangeRate)) {
-      // 원화 업데이트
-      krwAmount.value = (foreignAmount.value * exchangeRate).toFixed(2);
+    if (!isNaN(parseNumberWithCommas(foreignAmount.value)) && !isNaN(exchangeRate)) {
+      krwAmount.value = formatNumberWithCommas(
+        (parseNumberWithCommas(foreignAmount.value) * exchangeRate).toFixed(2)
+      );
     }
   }
 });
 
-// 외화 업데이트
 watch([krwAmount, thisCountryRate], () => {
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
-    if (!isNaN(krwAmount.value) && !isNaN(exchangeRate)) {
-      foreignAmount.value = (krwAmount.value / exchangeRate).toFixed(2);
+    if (!isNaN(parseNumberWithCommas(krwAmount.value)) && !isNaN(exchangeRate)) {
+      foreignAmount.value = formatNumberWithCommas(
+        (parseNumberWithCommas(krwAmount.value) / exchangeRate).toFixed(2)
+      );
     }
   }
 });
 
-// 외화입력 -> 원화입력 전환
 const inputForeignToKwr = function () {
   isKwrToFor.value = true;
   inputKrwAmount.value = krwAmount.value;
 };
 
-// 원화입력 -> 외화입력 전환
 const inputKwrToForeign = function () {
   isKwrToFor.value = false;
   inputForeignAmount.value = foreignAmount.value;
 };
 
-// 외화 변경할 때마다 그에 맞는 화폐 단위 출력
 watch(selectedCur, newVal => {
   const thisCountry = store.today.find(obj => obj.cur_unit === newVal);
   if (thisCountry) {
