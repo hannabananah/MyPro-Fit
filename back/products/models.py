@@ -30,12 +30,8 @@ class Product(models.Model):
     btrm_prft_rate_3 = models.FloatField(null=True) # 전전전년도 수익률
     prdt_type_nm = models.TextField(null=True) # 상품 유형명 (연금)
     avg_prft_rate = models.FloatField(null=True) # 평균 수익률 (연금)
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_products') # 좋아요 한 유저
-
-# 가입한 상품
-class JoinedProduct(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_products') # 장바구니 한 유저
+    joined_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='join_products') # 가입한 유저
 
 # 상품 옵션 (예금, 적금)
 class ProductOption(models.Model):

@@ -4,9 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 import requests, json
-from datetime import datetime, timedelta
-from django.utils.dateformat import DateFormat
-from .models import Product, JoinedProduct, ProductOption
+from .models import Product, ProductOption
 
 # Create your views here.
 PRODUCT_KEY = settings.PRODUCT_KEY
@@ -155,3 +153,6 @@ def fetch_annuity(request):
 
     # 모든 시도에서 데이터를 찾지 못한 경우
     return Response({"error": "데이터를 찾지 못 했습니다."}, status=404)
+
+def product_list(request):
+    pass
