@@ -11,11 +11,11 @@
     v-model="isModalOpen"
     @confirm="handleConfirm"
     @cancel="handleCancel"
-    :modalTitle="'회원탈퇴를 하시겠습니까'"
-    :modalContent="'확인을 누르면 계정에 대한 모든 정보가 삭제됩니다.'"
+    :modalTitle="'회원탈퇴를 하시겠습니까?'"
     :confirmText="'확인'"
     :cancelText="'취소'"
-  ></CustomModal>
+    >확인을 누르면 계정에 대한 모든 정보가 삭제됩니다.</CustomModal
+  >
 </template>
 
 <script setup>

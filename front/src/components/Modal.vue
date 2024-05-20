@@ -9,7 +9,7 @@
       {{ modalTitle }}
     </span>
     <div class="flex-grow overflow-y-auto text-sm">
-      {{ modalContent }}
+      <slot></slot>
     </div>
     <div class="flex items-center justify-center flex-shrink-0 gap-2 pt-4">
       <v-button
@@ -33,7 +33,6 @@ import Close from 'vue-material-design-icons/WindowClose.vue';
 
 const props = defineProps({
   modalTitle: String,
-  modalContent: String,
   confirmText: String,
   cancelText: String,
 });
