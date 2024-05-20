@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 import requests, json
-from .models import Product, ProductOption
+from .models import Product
 
 # Create your views here.
 PRODUCT_KEY = settings.PRODUCT_KEY
@@ -19,12 +19,14 @@ def fetch_deposit(request):
             data = response.json()
             if data:  # 비어 있지 않으면 데이터를 반환
                 for pdt in data['result']['baseList']:
-                    fin_prdt_nm = pdt['fin_prdt_nm']
-                    if Product.objects.filter(fin_prdt_nm = fin_prdt_nm).exists():
+                    print(pdt)
+                    if Product.objects.filter(fin_prdt_cd = pdt['fin_prdt_cd']).exists():
                         continue
                     type = 1
+                    dcls_month = pdt.get('dcls_month')
                     fin_co_no = pdt.get('fin_co_no')
                     fin_prdt_cd = pdt.get('fin_prdt_cd')
+                    fin_prdt_nm = pdt.get('fin_prdt_nm')
                     kor_co_nm = pdt.get('kor_co_nm', None)
                     prdt_type_nm = pdt.get('prdt_type_nm', None)
                     avg_prft_rate = pdt.get('avg_prft_rate', None)
@@ -38,7 +40,7 @@ def fetch_deposit(request):
                     btrm_prft_rate_2 = pdt.get('btrm_prft_rate_2', None)
                     btrm_prft_rate_3 = pdt.get('btrm_prft_rate_3', None)
                     saving_product = Product(type=type, kor_co_nm=kor_co_nm, prdt_type_nm=prdt_type_nm, avg_prft_rate=avg_prft_rate,
-                                             join_deny=join_deny, mtrt_int=mtrt_int, max_limit=max_limit, 
+                                             join_deny=join_deny, mtrt_int=mtrt_int, max_limit=max_limit, dcls_month=dcls_month,
                                             join_way=join_way, spcl_cnd=spcl_cnd, pnsn_kind_nm=pnsn_kind_nm,
                                             btrm_prft_rate_1=btrm_prft_rate_1, btrm_prft_rate_2=btrm_prft_rate_2,
                                             btrm_prft_rate_3=btrm_prft_rate_3, fin_co_no=fin_co_no, fin_prdt_cd=fin_prdt_cd , fin_prdt_nm=fin_prdt_nm)
@@ -49,8 +51,8 @@ def fetch_deposit(request):
                         if opt['save_trm'] in ["6", "12", "24", "36"]:  # 해당 기간이 있는지 확인합니다.
                             month = opt['save_trm']
                             # 해당 기간에 대한 필드를 업데이트합니다.
-                            ProductOption.objects.update_or_create(
-                                product=product,
+                            Product.objects.update_or_create(
+                                fin_prdt_cd=opt['fin_prdt_cd'],
                                 defaults={f'month_{month}': opt['intr_rate']},
                             )
                         
@@ -74,6 +76,7 @@ def fetch_saving(request):
                     if Product.objects.filter(fin_prdt_nm = fin_prdt_nm).exists():
                         continue
                     type = 2
+                    dcls_month = pdt.get('dcls_month')
                     fin_co_no = pdt.get('fin_co_no')
                     fin_prdt_cd = pdt.get('fin_prdt_cd')
                     kor_co_nm = pdt.get('kor_co_nm', None)
@@ -89,7 +92,7 @@ def fetch_saving(request):
                     btrm_prft_rate_2 = pdt.get('btrm_prft_rate_2', None)
                     btrm_prft_rate_3 = pdt.get('btrm_prft_rate_3', None)
                     deposit_product = Product(type=type, kor_co_nm=kor_co_nm, prdt_type_nm=prdt_type_nm, avg_prft_rate=avg_prft_rate,
-                                             join_deny=join_deny, mtrt_int=mtrt_int, max_limit=max_limit, 
+                                             join_deny=join_deny, mtrt_int=mtrt_int, max_limit=max_limit, dcls_month=dcls_month,
                                             join_way=join_way, spcl_cnd=spcl_cnd, pnsn_kind_nm=pnsn_kind_nm,
                                             btrm_prft_rate_1=btrm_prft_rate_1, btrm_prft_rate_2=btrm_prft_rate_2,
                                             btrm_prft_rate_3=btrm_prft_rate_3, fin_co_no=fin_co_no, fin_prdt_cd=fin_prdt_cd)
@@ -101,14 +104,12 @@ def fetch_saving(request):
                         if opt['save_trm'] in ["6", "12", "24", "36"]:  # 해당 기간이 있는지 확인합니다.
                             month = opt['save_trm']
                             # 해당 기간에 대한 필드를 업데이트합니다.
-                            ProductOption.objects.update_or_create(
-                                product=product,
+                            Product.objects.update_or_create(
+                                fin_prdt_cd=opt['fin_prdt_cd'],
                                 defaults={f'month_{month}': opt['intr_rate']},
                             )
                         
                 return Response({'result': '데이터 저장 성공'})
-
-
 
     # 모든 시도에서 데이터를 찾지 못한 경우
     return Response({"error": "데이터를 찾지 못 했습니다."}, status=404)
@@ -129,6 +130,7 @@ def fetch_annuity(request):
                     if Product.objects.filter(fin_prdt_nm = fin_prdt_nm).exists():
                         continue
                     type = 3
+                    dcls_month = pdt.get('dcls_month')
                     fin_co_no = pdt.get('fin_co_no')
                     fin_prdt_cd = pdt.get('fin_prdt_cd')
                     kor_co_nm = pdt.get('kor_co_nm', None)
@@ -144,7 +146,7 @@ def fetch_annuity(request):
                     btrm_prft_rate_2 = pdt.get('btrm_prft_rate_2', None)
                     btrm_prft_rate_3 = pdt.get('btrm_prft_rate_3', None)
                     deposit_product = Product(type=type, kor_co_nm=kor_co_nm, prdt_type_nm=prdt_type_nm, avg_prft_rate=avg_prft_rate,
-                                             join_deny=join_deny, mtrt_int=mtrt_int, max_limit=max_limit, 
+                                             join_deny=join_deny, mtrt_int=mtrt_int, max_limit=max_limit, dcls_month=dcls_month,
                                             join_way=join_way, spcl_cnd=spcl_cnd, pnsn_kind_nm=pnsn_kind_nm,
                                             btrm_prft_rate_1=btrm_prft_rate_1, btrm_prft_rate_2=btrm_prft_rate_2,
                                             btrm_prft_rate_3=btrm_prft_rate_3, fin_co_no=fin_co_no, fin_prdt_cd=fin_prdt_cd)

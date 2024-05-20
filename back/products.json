@@ -3,1639 +3,8 @@
     "model": "products.product",
     "pk": 1,
     "fields": {
-        "type": 3,
-        "fin_co_no": "0011317",
-        "fin_prdt_cd": "K55232C99568",
-        "kor_co_nm": "엔에이치아문디자산운용주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": null,
-        "mtrt_int": null,
-        "max_limit": null,
-        "join_way": "영업점",
-        "spcl_cnd": null,
-        "pnsn_kind_nm": "연금저축펀드",
-        "btrm_prft_rate_1": 73.65,
-        "btrm_prft_rate_2": 0.0,
-        "btrm_prft_rate_3": 0.0,
-        "prdt_type_nm": "주식형",
-        "avg_prft_rate": 54.33,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 2,
-    "fields": {
-        "type": 3,
-        "fin_co_no": "0011972",
-        "fin_prdt_cd": "K55365BC8353",
-        "kor_co_nm": "케이씨지아이자산운용 주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": null,
-        "mtrt_int": null,
-        "max_limit": null,
-        "join_way": "영업점",
-        "spcl_cnd": null,
-        "pnsn_kind_nm": "연금저축펀드",
-        "btrm_prft_rate_1": 33.0,
-        "btrm_prft_rate_2": -20.69,
-        "btrm_prft_rate_3": 29.87,
-        "prdt_type_nm": "주식형",
-        "avg_prft_rate": 34.99,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 3,
-    "fields": {
-        "type": 3,
-        "fin_co_no": "0010205",
-        "fin_prdt_cd": "K55301BV2863",
-        "kor_co_nm": "미래에셋자산운용",
-        "fin_prdt_nm": "",
-        "join_deny": null,
-        "mtrt_int": null,
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰,모집인,전화(텔레뱅킹)",
-        "spcl_cnd": null,
-        "pnsn_kind_nm": "연금저축펀드",
-        "btrm_prft_rate_1": 29.56,
-        "btrm_prft_rate_2": -32.34,
-        "btrm_prft_rate_3": 34.65,
-        "prdt_type_nm": "주식형",
-        "avg_prft_rate": 34.12,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 4,
-    "fields": {
-        "type": 3,
-        "fin_co_no": "0011972",
-        "fin_prdt_cd": "K55365BC8338",
-        "kor_co_nm": "케이씨지아이자산운용 주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": null,
-        "mtrt_int": null,
-        "max_limit": null,
-        "join_way": "영업점",
-        "spcl_cnd": null,
-        "pnsn_kind_nm": "연금저축펀드",
-        "btrm_prft_rate_1": 33.98,
-        "btrm_prft_rate_2": -19.65,
-        "btrm_prft_rate_3": 29.13,
-        "prdt_type_nm": "주식형",
-        "avg_prft_rate": 33.93,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 5,
-    "fields": {
-        "type": 3,
-        "fin_co_no": "0010205",
-        "fin_prdt_cd": "K55301BX0477",
-        "kor_co_nm": "미래에셋자산운용",
-        "fin_prdt_nm": "",
-        "join_deny": null,
-        "mtrt_int": null,
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰,모집인,전화(텔레뱅킹)",
-        "spcl_cnd": null,
-        "pnsn_kind_nm": "연금저축펀드",
-        "btrm_prft_rate_1": 35.99,
-        "btrm_prft_rate_2": -32.33,
-        "btrm_prft_rate_3": 40.46,
-        "prdt_type_nm": "주식형",
-        "avg_prft_rate": 33.87,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 6,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010001",
-        "fin_prdt_cd": "WR0001F",
-        "kor_co_nm": "우리은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후\n- 1개월이내 : 만기시점약정이율×50%\n- 1개월초과 6개월이내: 만기시점약정이율×30%\n- 6개월초과 : 만기시점약정이율×20%\n\n※ 만기시점 약정이율 : 일반정기적금 금리",
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰,전화(텔레뱅킹)",
-        "spcl_cnd": "1. 아래 각 항(가, 나)의 조건을 충족하는 경우 합산 최대 연 1.9%p 우대\n가. 우리은행을 처음 거래하시는 고객 : 연 1.0%p\n나. 거래실적 인정기간 동안 아래 거래실적을 계약기간별 필수기간(1년 : 6개월, 2년 : 12개월, 3년 : 18개월)이상 충족하는 경우 최대 연 0.9%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 7,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010001",
-        "fin_prdt_cd": "WR0001L",
-        "kor_co_nm": "우리은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후\n- 1개월이내 : 만기시점약정이율×50%\n- 1개월초과 6개월이내: 만기시점약정이율×30%\n- 6개월초과 : 만기시점약정이율×20%\n\n※ 만기시점 약정이율 : 일반정기적금 금리",
-        "max_limit": null,
-        "join_way": "스마트폰,전화(텔레뱅킹)",
-        "spcl_cnd": "1. 아래 각 항(가, 나)의 조건을 충족하는 경우 합산 최대 연 0.2%p 우대\n가. 이 적금을 우리꿈통장, WON통장에 연결하여 가입하는 경우 : 0.1%p\n나. 우리 오픈뱅킹 서비스에 타행계좌가 등록되어 있는 경우 : 연 0.1%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 8,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010002",
-        "fin_prdt_cd": "00266451",
-        "kor_co_nm": "한국스탠다드차타드은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후 1개월: 약정이율의 50%\n만기 후 1개월 초과 1년 이내: 약정이율의 30%\n만기 후 1년 초과: 약정이율의 10%",
-        "max_limit": "10000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "없음",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 9,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010016",
-        "fin_prdt_cd": "10521001000846001",
-        "kor_co_nm": "대구은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
-        "max_limit": "1000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "* 최고우대금리 : 연0.55%p\n -대구은행 인터넷뱅킹,스마트뱅킹을 통하여 최초로 적립식예금 가입 시 : 연0.20%p\n - 상품 가입 전 최근 3개월 이내 대구은행 인터넷,스마트 뱅킹을 통한 이체거래 3회 이상 : 연0.10%p\n- 상품 가입 전 수수료우대 통장 보유 고객 : 연0.20%p\n* 상품을 스마트뱅킹을 통해 가입 시 : 연0.05%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 10,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010016",
-        "fin_prdt_cd": "10527001000925000",
-        "kor_co_nm": "대구은행",
-        "fin_prdt_nm": "",
-        "join_deny": "3",
-        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
-        "max_limit": "500000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "* 최고우대금리 : 연0.55%p\n- 상품 가입 전 영플러스통장 보유 또는 재예치일 기준 영플러스통장 전월 평잔 10만원 이상 : 연0.10%p\n- 예금기간 중 입금횟수 10회 이상 : 연0.10%p\n- 입학 및 졸업 축하금리 : 연0.30%p\n*상품을 인터넷/스마트뱅크를 통해 가입시 우대 : 연0.05%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 11,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010016",
-        "fin_prdt_cd": "10527001001272000",
-        "kor_co_nm": "대구은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
-        "max_limit": "200000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "*최고우대금리 : 연0.80%p\n -비대면 채널로 신규 : 연0.20%p\n -상품 가입 전 마케팅활용[개인(신용)정보,수집,이용동의] 전체 동의 : 연0.20%p\n(계약기간 1년인 경우 만기일 기준)\n -대구은행 계좌로 자동이체 8회 이상 입금 : 연0.20%p\n - 원금 합계 100만원이상 : 연0.10%p 또는 원금합계 200만원이상 : 연0.20%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 12,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010016",
-        "fin_prdt_cd": "10527001001278000",
-        "kor_co_nm": "대구은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
-        "max_limit": "1000000",
-        "join_way": "인터넷,스마트폰",
-        "spcl_cnd": "* 최고우대금리 : 연0.45%p\n- 가입일로부터 3개월 이내 1가지 이상 요건 충족시 : 연0.20%p\n① 대구은행 주택청약종합저축 보유\n② 대구은행 신용(체크)카드 결제실적 보유\n- 전체 계약월수 중 1/2이상 DGB대구은행 계좌에서 자동이체 납입 시 : 연0.20%p\n* 상품을 인터넷/스마트뱅크를 통해 가입시 우대 : 연0.05%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 13,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010017",
-        "fin_prdt_cd": "01020400490001",
-        "kor_co_nm": "부산은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
-        "max_limit": "500000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "*우대이율 6개월제 최대 0.55%, 12개월제 최대 0.90%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 14,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010017",
-        "fin_prdt_cd": "01020400490002",
-        "kor_co_nm": "부산은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
-        "max_limit": "500000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "*우대이율 6개월제 최대 0.55%, 12개월제 최대 0.90%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 15,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010017",
-        "fin_prdt_cd": "01020400510001",
-        "kor_co_nm": "부산은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
-        "max_limit": "10000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "조건 달성여부에 따라 우대금리 적용\n*개인형 우대이율: 최대0.4%\n*기업형(개인사업자 및 법인)우대이율: 최대0.4%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 16,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010017",
-        "fin_prdt_cd": "01020400530001",
-        "kor_co_nm": "부산은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "*우대이율 최대 0.2%\n- 신규시 우대이율 0.05% 및 해지시 우대이율 최대 0.15%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 17,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010019",
-        "fin_prdt_cd": "TD11330029000",
-        "kor_co_nm": "광주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "*만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n*만기후 1개월 초과: 0.1%",
-        "max_limit": "5000000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "▶ 최고우대금리 1.20%p  \n①해피라이프_여행스케치외화적금V 동일자가입 0.5%p \n②해지원금 기준 500만원이상 : 최고0.2%p\n③신용(체크)카드사용실적300만원이상:최고 0.3%p\n④개인(신용)정보 동의: 0.2%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 18,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010019",
-        "fin_prdt_cd": "TD11330030000",
-        "kor_co_nm": "광주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n만기후 1개월 초과: 0.1%",
-        "max_limit": "1000000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "▶ 최고우대금리 1.9%p \n①예금가입일~만기일전일까지 당행이선정한 전라남도 관광지 방문 인증시 : 최고 1.5%p\n②신용(체크)카드사용실적300만원이상:최고 0.3%p\n③개인(신용)정보 동의: 0.1%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 19,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010019",
-        "fin_prdt_cd": "TD11330031000",
-        "kor_co_nm": "광주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "*만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n*만기후 1개월 초과: 0.1%",
-        "max_limit": "5000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "▶ 최고우대금리 0.50%p  \n①이 예금가입시 VIP고객이거나 가입일 이후부터 만기일전일까지 VIP고객에 선정된 경험이 있는 경우 : 0.3%p \n②이 예금 가입일에 정기예금 500만원이상(만기 1년이상) 가입하고 만기일 전일까지 유지한 경우 : 0.2%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 20,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010019",
-        "fin_prdt_cd": "TD11330032000",
-        "kor_co_nm": "광주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n만기후 1개월 초과: 0.1%",
-        "max_limit": "500000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "▶ 최고우대금리 0.80%p  \n ①전전월말 기준 예적금 등 계좌 및 거래가 없는경우: 0.8%p \n ②당행 적금계좌 만기 해지일로부터 1개월 이내 이 예금으로 재가입한 고객: 0.5%p\n▶ 퀴즈이벤트금리 최고 2.00%p\n  - 최대 참여가능 횟수 20회 X 회당 우대금리 연 0.1%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 21,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010020",
-        "fin_prdt_cd": "220002101",
-        "kor_co_nm": "제주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1개월 이내 : (일반)정기적금 기본이자율의 50%\n(단, 최저금리 0.1%)\n- 만기후 1개월 초과 3개월 이내 : (일반)정기적금 기본이자율의 25%\n(단, 최저금리 0.1%)\n- 만기후 3개월 초과 : 0.1%",
-        "max_limit": "500000",
-        "join_way": "인터넷,스마트폰",
-        "spcl_cnd": "* 거래조건에 따라 최고 2.1%p 우대금리 적용\n① 자투리 출금계좌 평잔 50만원 이상 유지 : 0.8%p\n② 첫거래고객 or JBANK저금통적금 1개월 내 재신규 : 0.5%p\n③ 신규가입 시점에서 적금 목표금액 최소 30만원 이상 설정하고, 적금 신규일로부터 3개월 내 잔액이 목표금액 이상인 경우 :0.5%p\n④ 추천인 우대금리 : 0.30%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 22,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010020",
-        "fin_prdt_cd": "220002501",
-        "kor_co_nm": "제주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1개월 이내 : (일반)정기적금 기본이자율의 50%\n(단, 최저금리 0.1%)\n- 만기후 1개월 초과 3개월 이내 : (일반)정기적금 기본이자율의 25%\n(단, 최저금리 0.1%)\n- 만기후 3개월 초과 : 0.1%",
-        "max_limit": "300000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "①매월 1회이상 지속적 납입시:1년제: 0.50%\n② 목표 금액 달성:0.50%\n③ 신용카드,체크카드 합산 사용액 월10만원 이상 사용: 0.50%\n* 청년이니까응원합니다 이벤트 : 0.50%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 23,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010020",
-        "fin_prdt_cd": "220002701",
-        "kor_co_nm": "제주은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기후 1개월 이내 : (일반)정기적금 기본이자율의 50%\n(단, 최저금리 0.1%)\n- 만기후 1개월 초과 3개월 이내 : (일반)정기적금 기본이자율의 25%\n(단, 최저금리 0.1%)\n- 만기후 3개월 초과 : 0.1%",
-        "max_limit": "1000000",
-        "join_way": "인터넷,스마트폰",
-        "spcl_cnd": "아래의 우대요건 충족시 최고 2.7%p 추가 우대(만기시 제공)\n(공통)매월 JBANK로그인 시 0.2%\n 한 가지라도 수행시 2.5% 제공\n①추천인 코드로 3명 이상 가입시 \n②탐나는전 체크카드 월30만원 이상 사용 유지 시 \n③탐나는전 선불카드 충전계좌를 당행 입출금계좌로 등록 후 평잔 50만원 이상 유지 시",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 24,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010022",
-        "fin_prdt_cd": "10-01-30-031-0018-0000",
-        "kor_co_nm": "전북은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(자유적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
-        "max_limit": "10000000",
-        "join_way": "인터넷,스마트폰",
-        "spcl_cnd": "추가우대금리 :\n당행 계좌간 자동이체를 통해 이 예금으로 자동이체 된 금액에 0.1% 금리 우대",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 25,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010022",
-        "fin_prdt_cd": "10-01-30-031-0036",
-        "kor_co_nm": "전북은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
-        "max_limit": "5000000",
-        "join_way": "인터넷,스마트폰",
-        "spcl_cnd": "추가우대금리 :\n당행 계좌간 자동이체를 통해 6회이상 입금한 경우 \n연 0.1% 금리우대",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 26,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010022",
-        "fin_prdt_cd": "10-01-30-031-0038-0000",
-        "kor_co_nm": "전북은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
-        "max_limit": "500000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "우대조건 충족시 최고 연1.2% 이내(단, 우대이율은 만기해지시 제공)\n1. 6회이상 급여또는 연금이체 실적 연 0.50%\n2. JB카드 사용금액 조건을 충족한 경우 (연0.30% ~ 연0.50%)\n3. 신규시 당행 입출금 통장으로 자동해지를 신청한 경우 연 0.20%\n\n※거래실적 인정기준 세부내용은 홈페이지 참조",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 27,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010022",
-        "fin_prdt_cd": "10-01-30-031-0048-0000",
-        "kor_co_nm": "전북은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
-        "max_limit": "1000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "우대조건 충족시 최고 연1.8% 이내(단, 우대이율은 만기해지시 제공)\n1. 전북현대모터스 득점골수 우대 (최고 0.40%)\n2. 전북현대모터스 우승우대(최고 1.00%우대)\n3. 전북현대 도움왕/득점왕 연 0.20%\n4. 6회이상 당행 자동이체 납부를 통해 월부금 납입시 연 0.20%\n\n※거래실적 인정기준 세부내용은 홈페이지 참조",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 28,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010022",
-        "fin_prdt_cd": "10-01-30-031-0049-0000",
-        "kor_co_nm": "전북은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
-        "max_limit": "500000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "1. 만기 전전월까지 게임 50회 참여시 0.9%\n2. 3초 플레이 적금 게임에 참여하여 획득한 점수 총 합에 따라 추가 우대금리 (연0.5% ~ 연3.0%)\n3. 가입기간 내 오픈뱅킹을 통해 계좌 추가 등록/유지시 우대 0.1%\n\n※거래실적 인정기준 세부내용은 홈페이지 참조",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 29,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010024",
-        "fin_prdt_cd": "21000111",
-        "kor_co_nm": "경남은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "①신규일로부터 6개월전까지 당행 적금 미보유 0.2%\n②월부금이 50만원 이상인 경우 0.20%\n③이 예금을 자동이체로 납입하는 경우 0.2%\n④신용(체크)카드 최초발급 후 10만원 이내 이용 0.2%\n⑤ 전자명함을 통한 신규 시 0.2%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 30,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010024",
-        "fin_prdt_cd": "21001116",
-        "kor_co_nm": "경남은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
-        "max_limit": "5000000",
-        "join_way": "인터넷,스마트폰",
-        "spcl_cnd": "①오픈뱅킹서비스 가입 0.20%(만기까지 유지)\n②당행 입출금통장에서 자동이체시 입금건별 0.20%\n③이 상품 신규시 금리우대쿠폰을 등록할 경우 0.30%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 31,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010024",
-        "fin_prdt_cd": "21001199",
-        "kor_co_nm": "경남은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
-        "max_limit": "1000000",
-        "join_way": "영업점,인터넷,스마트폰,기타",
-        "spcl_cnd": "①ESG 실천 우대금리 0.50%\n②신규고객 우대금리 0.50%\n- 당행 1년 이내예적금(청약포함)신규해지 이력미보유\n③공동가입우대금리 1.50%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 32,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010024",
-        "fin_prdt_cd": "21001236",
-        "kor_co_nm": "경남은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "①주거래우대 0.50%\n②공과금 자동이체 0.40~0.60%\n③신규고객 0.20%\n④주택청약종합저축 보유 0.10%\n⑤ 전자명함을 통한 신규 시 0.2%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 33,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010024",
-        "fin_prdt_cd": "21001259",
-        "kor_co_nm": "경남은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
-        "max_limit": null,
-        "join_way": "인터넷,스마트폰,기타",
-        "spcl_cnd": "①마케팅동의 0.15%\n②목돈마련 축하이율 0.30~1.00%\n③친구 추천번호 0.30~0.60%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 34,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010024",
-        "fin_prdt_cd": "21001268",
-        "kor_co_nm": "경남은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "①첫거래고객(적금가입 전일기준 당행 활동계좌 미보유) 2.50%\n②기간내 적금 입금일마다 0.10%씩 우대(최대2.50%)\n③마케팅동의 및 모바일메세지 수신동의 만기유지 시 0.50%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 35,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010026",
-        "fin_prdt_cd": "01211210113",
-        "kor_co_nm": "중소기업은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기일 당시 정기적금 만기후금리 적용\n- 1개월 이내: 만기일 당시 약정금리x50%\n- 1월 초과 6개월 이내: 만기일 당시 약정금리x30%\n- 6개월 초과: 만기일 당시 약정금리x20%",
-        "max_limit": "600000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "최고 연 1.5%p\n1. 목표달성 축하금리 : 연 1.0%p\n  - 당행 입출금식 계좌에서 이 적금으로 자동이체를 통해 3회 이상 납입하고 만기일 전일까지 목표금액(신규 시 직접 설정) 이상 납입하는 경우\n2. 최초거래고객 우대금리 : 연 0.5%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 36,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010026",
-        "fin_prdt_cd": "01211210121",
-        "kor_co_nm": "중소기업은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기일 당시 정기적금 만기후금리 적용\n- 1개월 이내: 만기일 당시 약정금리x50%\n- 1월 초과 6개월 이내: 만기일 당시 약정금리x30%\n- 6개월 초과: 만기일 당시 약정금리x20%",
-        "max_limit": "1000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "최고 연 4.00%p\n1. 에너지 절감 우대금리 : 최대 연 0.20%p\n2. 최초거래고객 우대금리 : 연 0.10%p\n3. 지로 또는 공과금 자동이체 우대금리 : 연 1.00%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 37,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010026",
-        "fin_prdt_cd": "01211210122",
-        "kor_co_nm": "중소기업은행",
-        "fin_prdt_nm": "",
-        "join_deny": "3",
-        "mtrt_int": "만기일 당시 정기적금 만기후금리 적용\n- 1개월 이내: 만기일 당시 약정금리x50%\n- 1월 초과 6개월 이내: 만기일 당시 약정금리x30%\n- 6개월 초과: 만기일 당시 약정금리x20%",
-        "max_limit": "1000000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "최고 연 2.20%p\n1. 가입시점 중소기업 근로자로 확인된 경우 : 재직기간에 따라 최고 연 1.2%p\n2. 당행 급여이체 실적(월50만원 이상) 6개월 이상\n   인 경우 : 연 1.0%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 38,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010030",
-        "fin_prdt_cd": "03101",
-        "kor_co_nm": "한국산업은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내 : 만기일 현재 고시된 일반 정기적금 해당예금기간 기본이율의 1/2\n* 만기후 1년 초과 : 만기일 현재 고시된 보통예금 이율",
-        "max_limit": null,
-        "join_way": "영업점,인터넷",
-        "spcl_cnd": "해당없음",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 39,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010030",
-        "fin_prdt_cd": "03700",
-        "kor_co_nm": "한국산업은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내 : 만기일 현재 고시된 일반 정기적금 해당예금기간 기본이율의 1/2\n* 만기후 1년 초과 : 만기일 현재 고시된 보통예금 이율",
-        "max_limit": "5000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "해당없음",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 40,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010927",
-        "fin_prdt_cd": "010200100051",
-        "kor_co_nm": "국민은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰,전화(텔레뱅킹)",
-        "spcl_cnd": "① 단체가입/나라사랑/쿠폰 우대이율: \n    1년: 연 0.6%p, 2년: 연 0.7%p,\n    3년: 연 0.9%p, 5년: 연 1.0%p \n   (중복적용되지 않음, 계약기간별차등적용)\n② 교차거래 우대이율: 연 0.3%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 41,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010927",
-        "fin_prdt_cd": "010200100084",
-        "kor_co_nm": "국민은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
-        "max_limit": null,
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "맑은하늘을 위한 미션별 제공조건을 달성하는 경우 각 미션별 우대이율 제공\n -1년제 최고 연 0.8%p, 2년제 최고 연 0.9%p, 3년제 최고 연 1.0%p\n① 종이통장 줄이기 미션: 연 0.1%p\n② 종이서식 줄이기 미션: 연 0.2%p\n③ 대중교통 미션: 1년제 연 0.4%p, 2년제 연 0.5%p, 3년제 연 0.6%p\n④ 퀴즈미션: 연 0.1%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 42,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010927",
-        "fin_prdt_cd": "010200100092",
-        "kor_co_nm": "국민은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "항목별 적용 조건 충족시, 최고 연 1.5%p\n① 반려동물 등록: 연 0.2%p\n② 미지(유기)입양: 연 0.2%p\n③ 반려동물애정활동: 연 0.2%p\n④ 반려동물요금제: 연 0.2%p\n⑤ KB거래감사: 연 0.2%p\n⑥ KB첫거래: 연 0.5%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 43,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010927",
-        "fin_prdt_cd": "010200100104",
-        "kor_co_nm": "국민은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "항목별 적용 조건 충족시, 최고 연 4.0%p\n① 목표달성 축하 우대이율: 최고 연 1.0%p\n    50만원 이하: 연 0.5%p, 50만원 초과: 연 1.0%p \n② 별 모으기 우대이율 : 최고 연 1.0%p\n    10개: 연 0.5%p, 20개: 연 1.0%p\n③ 함께해요 우대이율: 최고 연 2.0%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 44,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0010927",
-        "fin_prdt_cd": "010200100109",
-        "kor_co_nm": "국민은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "항목별 적용 조건 충족시, 최고 연 5.5%p\n① 혜택수신 우대이율: 연 1.0%p\n② KB패밀리 우대이율: 연 1.0%p\n③ KB국민인증 우대이율: 연0.5%p \n④ 내차든든 우대이율: 연 3.0%P",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 45,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0011625",
-        "fin_prdt_cd": "230-0118-14",
-        "kor_co_nm": "신한은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "-1개월 이하:(일반) 정기적금 기본금리 1/2\n(단, 최저금리 0.10%)\n-1개월 초과~6개월 이하: (일반) 정기적금 기본금리의 1/4\n(단, 최저금리 0.10%)\n-6개월 초과 0.10%",
-        "max_limit": "100000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "※가산금리 최고 연 2.0%\n- 주 납입: 총 납입 회차의 90%이상 납입 달성",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 46,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0011625",
-        "fin_prdt_cd": "230-0119-85",
-        "kor_co_nm": "신한은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "-1개월 이하:(일반) 정기적금 기본금리 1/2\n(단, 최저금리 0.10%)\n-1개월 초과~6개월 이하: (일반) 정기적금 기본금리의 1/4\n(단, 최저금리 0.10%)\n-6개월 초과 0.10%",
-        "max_limit": "3000000",
-        "join_way": "영업점,스마트폰",
-        "spcl_cnd": "※가산금리 최고 연 1.30%\n- 소득이체 : 연 0.6%\n- 카드이용 : 연 0.3%\n- 오픈뱅킹 : 연 0.6%\n- 청약보유 : 연 0.3%\n- 마케팅동의 : 연 0.1%\n※ 우대금리 항목별 자세한 적용 조건은 상품설명서 참조",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 47,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013175",
-        "fin_prdt_cd": "10-047-1360-0002",
-        "kor_co_nm": "농협은행주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 자유로우대적금 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
-        "max_limit": "1550000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "1. 자동이체 입금횟수 우대금리 : 최고 0.5%p\n - 5회이상 : 0.2%p, 10회이상 : 0.3%p, 15회이상 0.5%p\n2. 목표금액 달성 축하금리  : 0.5%p\n3. MZ세대(만 19~34세)) 우대금리 : 0.5%p\n4. 직전 1년간 당행 예적금(청약포함) 미보유 고객 : 0.2%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 48,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013175",
-        "fin_prdt_cd": "10-047-1365-0001",
-        "kor_co_nm": "농협은행주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "3",
-        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
-        "max_limit": "500000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "1. 급여실적 : 1.0%p (①/② 중복 적용 불가)\n ① 급여이체 실적 : 1.0%p\n ② 개인사업자 계좌 실적 :1.0%p\n2. 비대면 채널 이체 실적 : 0.3%p\n3. 마케팅 동의 : 0.2%p\n4. 농업계고 및 청년농부사관학교 졸업자 : 2.0%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 49,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013175",
-        "fin_prdt_cd": "10-047-1381-0001",
-        "kor_co_nm": "농협은행주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
-        "max_limit": "500000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "※ 우대금리 최대한도 : 1.0%p(연%, 세전)\n1. 온실가스 줄이기 실천서약서 동의 : 0.1%p\n2. 통장미발급 : 0.3%p\n3. 손하나로인증 서비스 등록 : 0.2%p\n4. 대중교통이용 : 0.2%p\n5. NH내가Green초록세상예금 동시 보유 : 0.2%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 50,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013175",
-        "fin_prdt_cd": "10-047-1387-0001",
-        "kor_co_nm": "농협은행주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
-        "max_limit": "500000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "1. 고향사랑기부금 납부고객 우대 : 0.5%p\n\n2-1. 만 65세 이상 고령자 우대 : 0.1%p\n2-2. 만 19~34세 MZ고객 우대 : 0.3%p\n\n3. NH채움카드 또는 [zgm.고향으로 카드] 이용실적 우대 : 0.1%p\n\n4. 고향사랑특별금리 : 0.1%p(금리시장상황에 따라 변동 가능)\n - 고향사랑특별금리는 상품 가입고객 모두에게 적용",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 51,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013175",
-        "fin_prdt_cd": "10-059-1264-0001",
-        "kor_co_nm": "농협은행주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "3",
-        "mtrt_int": "만기후 3개월 이내 : 만기시점 국고채 1년물 금리\n만기후 1년 이내 : 만기시점 채움적금 계약기간별 고시금리의 50%\n만기후 1년 초과 : 만기시점 보통예금 금리",
-        "max_limit": "3000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "1. 급여입금실적 보유 고객 중\n - 가입기간 중 3개월 이상 급여이체시 : 0.3%p\n - 주택청약종합저축 또는 펀드가입 : 0.2%p\n - NH채움카드 결제실적 1백만원 이상 : 0.2%p\n2. 인터넷(스마트)뱅킹 또는 올원뱅크로 가입 : 0.1%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 52,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013909",
-        "fin_prdt_cd": "52",
-        "kor_co_nm": "하나은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "1개월 이내 : 지급당시 해당기간별 일반정기적금 기본금리 1/2\n1개월 초과 : 지급당시 해당기간별 일반정기적금 기본금리 1/4",
-        "max_limit": "3000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "최고 연1.0%\n- 주거래하나우대(연 0.5%) : 적금만기 전전월말기준 본인명의 당행입출금통장을 통해 계약기간 1/2이상 이체된 주거래실적 1종  - 주거래플러스우대(연 0.9%) : 주거래 하나우대와 동일요건의 거래실적 2종이상 경우 \n- 온라인.재예치우대 연 최대 0.1%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 53,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0013909",
-        "fin_prdt_cd": "53",
-        "kor_co_nm": "하나은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "1개월 이내 : 지급당시 해당기간별 일반정기적금 기본금리 1/2\n1개월 초과 : 지급당시 해당기간별 일반정기적금 기본금리 1/4",
-        "max_limit": "10000000",
-        "join_way": "영업점,인터넷,스마트폰,전화(텔레뱅킹)",
-        "spcl_cnd": "하나은행 통장에서 계약기간의 1/2이상 월부금 자동이체실적 충족 시 연 0.50%",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 54,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014674",
-        "fin_prdt_cd": "01012000200000000003",
-        "kor_co_nm": "주식회사 케이뱅크",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후 \n- 1개월 이내: 만기시점 기본금리 X 50% \n- 1개월 초과 ~ 6개월 이내: 만기시점 기본금리 X 30%\n- 6개월 초과: 연 0.20%",
-        "max_limit": "300000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "금리우대 코드를 입력하는 경우 우대금리 적용",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 55,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014674",
-        "fin_prdt_cd": "01012000210000000000",
-        "kor_co_nm": "주식회사 케이뱅크",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "만기 후 \n- 1개월 이내: 만기시점 기본금리 X 50% \n- 1개월 초과 ~ 6개월 이내: 만기시점 기본금리 X 30%\n- 6개월 초과: 연 0.20%",
-        "max_limit": "3000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "급여이체 또는 통신비 자동이체, 체크카드 고객에게 우대금리 제공 (최고 연 0.6%)",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 56,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014807",
-        "fin_prdt_cd": "10140110400011",
-        "kor_co_nm": "수협은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 정기적금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
-        "max_limit": "1000000",
-        "join_way": "영업점",
-        "spcl_cnd": "*최대우대금리:1.2%\n신규시적용금리\n-자동이체출금3건이상:0.2%\n-최초예적금고객/재예치/장기거래각0.05%(최대0.1%)\n만기시적용금리:최대0.9%\n-급여,연금이체/수협카드결제각0.3%\n-공과금이체최대0.3%\n※단위:연%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 57,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014807",
-        "fin_prdt_cd": "10140114300011",
-        "kor_co_nm": "수협은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 정기적금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
-        "max_limit": "1000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "* 최대우대금리:0.5%\n1. 해양플라스틱감축서약 : 0.1% (신규시) \n2. 봉사활동 또는 상품홍보 : 0.2% (만기시) \n3. 입출금통장 최초신규 : 0.2% (만기시)\n4. 자동이체 출금실적 : 0.2% (만기시)\n - 수협신용카드 / 당행 펀드 / 수협체크카드\n※단위:연%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 58,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014807",
-        "fin_prdt_cd": "10140114700031",
-        "kor_co_nm": "수협은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 정기적금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
-        "max_limit": "1000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "* 최대우대금리:0.9%\n1. 마케팅동의 : 0.1% (신규시) \n2. 자동이체 납입 : 0.8% (만기시) \n\n※단위:연%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 59,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014807",
-        "fin_prdt_cd": "10141109800021",
-        "kor_co_nm": "수협은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 상호부금\n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
-        "max_limit": "1000000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "*최대우대금리:0.7%\n-첫거래고객:0.3%\n-카드거래:최대0.3%\n-복수거래:0.1%\n-요구불거래:최대0.2%\n-인터넷뱅킹고객:0.1%\n-자동이체실적:0.1%\n※단위:연%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 60,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014807",
-        "fin_prdt_cd": "10141114300011",
-        "kor_co_nm": "수협은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 상호부금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
-        "max_limit": "200000",
-        "join_way": "영업점,인터넷,스마트폰",
-        "spcl_cnd": "* 최대우대금리:0.5%\n1. 해양플라스틱감축서약 : 0.1% (신규시) \n2. 봉사활동 또는 상품홍보 : 0.2% (만기시) \n3. 입출금통장 최초신규 : 0.2% (만기시)\n4. 자동이체 출금실적 : 0.2% (만기시)\n - 수협신용카드 / 당행 펀드 / 수협체크카드\n※단위:연%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 61,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0014807",
-        "fin_prdt_cd": "10141114700031",
-        "kor_co_nm": "수협은행",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 상호부금\n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
-        "max_limit": "1000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "* 최대우대금리:0.9%\n1. 마케팅동의 : 0.1% (신규시) \n2. 자동이체 납입 : 0.8% (만기시) \n\n※단위:연%p",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 62,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0015130",
-        "fin_prdt_cd": "10-01-30-355-0002",
-        "kor_co_nm": "주식회사 카카오뱅크",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기 후 1개월 이내 : 가입(또는 자동연장)시점 기본금리x50%\n- 만기 후 1개월초과 3개월 이내 : 가입(또는 자동연장)시점 기본금리x30%\n- 만기 후 3개월 초과 : 0.20%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "자동이체시 우대금리 제공 : 연 0.20%p\n - 제공조건 : 전체 계약월수의 1/2이상을 자동이체로 납입하고 만기 해지하는 경우\n - 유의사항 : 만기 자동연장된 원리금은 우대금리를 제공하지 않음",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 63,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0015130",
-        "fin_prdt_cd": "10-01-30-355-0005",
-        "kor_co_nm": "주식회사 카카오뱅크",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기 후 1개월 이내 : 가입시점 기본금리x50%\n- 만기 후 1개월초과 3개월 이내 : 가입시점 기본금리x30%\n- 만기 후 3개월 초과 : 0.20%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "자동이체 연속 성공 우대금리 제공 : 최고 연 3.00%p\n- 제공조건\n① 7주차까지 자동이체 납입을 연속 성공하고 만기해지 하는 경우 연 1.00%p 제공\n② 26주차까지 자동이체 납입을 연속 성공하고 만기해지 하는 경우 연 2.00%p 추가 제공\n- 유의사항 : 자동이체 실패한 주차를 빈자리채우기 하여도 성공으로 인정되지 않음",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 64,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0015130",
-        "fin_prdt_cd": "10-01-30-355-0006",
-        "kor_co_nm": "주식회사 카카오뱅크",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "- 만기 후 1개월 이내 : 가입시점 기본금리x50%\n- 만기 후 1개월초과 3개월 이내 : 가입시점 기본금리x30%\n- 만기 후 3개월 초과 : 0.20%",
-        "max_limit": null,
-        "join_way": "스마트폰",
-        "spcl_cnd": "매일/보너스 우대금리 제공 : 최고 연 5.50%p\n- 제공조건\n① 매일 우대금리 : 매 입금 시 마다 연 0.10%p 제공(최대 연 3.10%p)\n② 보너스 우대금리 : 누적하여 5/10/15/20/25/31회 입금 시 해당 우대금리 제공(최대 연 2.40%p)\n- 유의사항 : 만기 해지하는 경우에만 제공",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 65,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0017801",
-        "fin_prdt_cd": "1001303001001",
-        "kor_co_nm": "토스뱅크 주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
-        "max_limit": "1000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "· 적금 가입 시 설정되는 주 단위 자동이체를 통하여 25회 이상 적립한 경우 : 연 2.00% 제공",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 66,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0017801",
-        "fin_prdt_cd": "1001303001003",
-        "kor_co_nm": "토스뱅크 주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
-        "max_limit": "300000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "· 만기 해지 시 : 연 2.50% 제공",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 67,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0017801",
-        "fin_prdt_cd": "1001303001004",
-        "kor_co_nm": "토스뱅크 주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "1",
-        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
-        "max_limit": "3000000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "· 적금 가입 시 설정되는 월 단위 자동이체를 모두 성공하는 경우 : 연 0.50% 제공",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 68,
-    "fields": {
-        "type": 2,
-        "fin_co_no": "0017801",
-        "fin_prdt_cd": "1001303001005",
-        "kor_co_nm": "토스뱅크 주식회사",
-        "fin_prdt_nm": "",
-        "join_deny": "3",
-        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
-        "max_limit": "200000",
-        "join_way": "스마트폰",
-        "spcl_cnd": "· 적금 가입 시 설정되는 월 단위 자동이체를 모두 성공하는 경우 : 연 2.50% 제공",
-        "pnsn_kind_nm": null,
-        "btrm_prft_rate_1": null,
-        "btrm_prft_rate_2": null,
-        "btrm_prft_rate_3": null,
-        "prdt_type_nm": null,
-        "avg_prft_rate": null,
-        "like_users": [],
-        "joined_users": []
-    }
-},
-{
-    "model": "products.product",
-    "pk": 69,
-    "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010001",
         "fin_prdt_cd": "WR0001B",
         "kor_co_nm": "우리은행",
@@ -1651,15 +20,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.5,
+        "month_12": 3.55,
+        "month_24": 3.0,
+        "month_36": 3.0,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 70,
+    "pk": 2,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010002",
         "fin_prdt_cd": "00320342",
         "kor_co_nm": "한국스탠다드차타드은행",
@@ -1675,15 +49,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.4,
+        "month_12": 3.4,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 71,
+    "pk": 3,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010016",
         "fin_prdt_cd": "10511008000996000",
         "kor_co_nm": "대구은행",
@@ -1699,15 +78,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.46,
+        "month_12": 3.2,
+        "month_24": 3.22,
+        "month_36": 3.24,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 72,
+    "pk": 4,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010016",
         "fin_prdt_cd": "10511008001004000",
         "kor_co_nm": "대구은행",
@@ -1723,15 +107,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.42,
+        "month_12": 3.16,
+        "month_24": 3.18,
+        "month_36": 3.2,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 73,
+    "pk": 5,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010016",
         "fin_prdt_cd": "10511008001166004",
         "kor_co_nm": "대구은행",
@@ -1747,15 +136,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.35,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 74,
+    "pk": 6,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010016",
         "fin_prdt_cd": "10511008001278000",
         "kor_co_nm": "대구은행",
@@ -1771,15 +165,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.25,
+        "month_12": 3.4,
+        "month_24": 3.2,
+        "month_36": 3.2,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 75,
+    "pk": 7,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010017",
         "fin_prdt_cd": "01030500510002",
         "kor_co_nm": "부산은행",
@@ -1795,15 +194,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.55,
+        "month_12": 2.75,
+        "month_24": 2.8,
+        "month_36": 2.8,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 76,
+    "pk": 8,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010017",
         "fin_prdt_cd": "01030500560002",
         "kor_co_nm": "부산은행",
@@ -1819,15 +223,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.0,
+        "month_12": 3.0,
+        "month_24": 2.25,
+        "month_36": 1.95,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 77,
+    "pk": 9,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010019",
         "fin_prdt_cd": "TD11300027000",
         "kor_co_nm": "광주은행",
@@ -1843,15 +252,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.41,
+        "month_24": 3.41,
+        "month_36": 3.36,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 78,
+    "pk": 10,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010019",
         "fin_prdt_cd": "TD11300031000",
         "kor_co_nm": "광주은행",
@@ -1867,15 +281,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.23,
+        "month_12": 3.31,
+        "month_24": 3.31,
+        "month_36": 3.26,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 79,
+    "pk": 11,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010019",
         "fin_prdt_cd": "TD11300035000",
         "kor_co_nm": "광주은행",
@@ -1891,15 +310,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.21,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 80,
+    "pk": 12,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010019",
         "fin_prdt_cd": "TD11300036000",
         "kor_co_nm": "광주은행",
@@ -1915,15 +339,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.45,
+        "month_12": 3.45,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 81,
+    "pk": 13,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010020",
         "fin_prdt_cd": "101272000006",
         "kor_co_nm": "제주은행",
@@ -1939,15 +368,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.85,
+        "month_12": 3.05,
+        "month_24": 3.15,
+        "month_36": 3.25,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 82,
+    "pk": 14,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010020",
         "fin_prdt_cd": "101272000057",
         "kor_co_nm": "제주은행",
@@ -1963,15 +397,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.0,
+        "month_12": 3.1,
+        "month_24": 3.0,
+        "month_36": 3.0,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 83,
+    "pk": 15,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010020",
         "fin_prdt_cd": "101272000058",
         "kor_co_nm": "제주은행",
@@ -1987,15 +426,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.75,
+        "month_12": 2.95,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 84,
+    "pk": 16,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010022",
         "fin_prdt_cd": "10-01-20-024-0046-0000",
         "kor_co_nm": "전북은행",
@@ -2011,15 +455,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.55,
+        "month_12": 3.4,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 85,
+    "pk": 17,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010022",
         "fin_prdt_cd": "10-01-20-024-0059-0000",
         "kor_co_nm": "전북은행",
@@ -2035,15 +484,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.4,
+        "month_24": 3.4,
+        "month_36": 3.4,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 86,
+    "pk": 18,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010024",
         "fin_prdt_cd": "21001115",
         "kor_co_nm": "경남은행",
@@ -2059,15 +513,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.6,
+        "month_12": 2.95,
+        "month_24": 3.05,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 87,
+    "pk": 19,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010024",
         "fin_prdt_cd": "21001203",
         "kor_co_nm": "경남은행",
@@ -2083,15 +542,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.15,
+        "month_12": 3.4,
+        "month_24": 3.45,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 88,
+    "pk": 20,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010024",
         "fin_prdt_cd": "21001265",
         "kor_co_nm": "경남은행",
@@ -2107,15 +571,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.55,
+        "month_12": 2.55,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 89,
+    "pk": 21,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010024",
         "fin_prdt_cd": "21001266",
         "kor_co_nm": "경남은행",
@@ -2131,15 +600,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.55,
+        "month_12": 2.55,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 90,
+    "pk": 22,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010026",
         "fin_prdt_cd": "01211310121",
         "kor_co_nm": "중소기업은행",
@@ -2155,15 +629,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.45,
+        "month_24": 3.5,
+        "month_36": 3.6,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 91,
+    "pk": 23,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010026",
         "fin_prdt_cd": "01211310130",
         "kor_co_nm": "중소기업은행",
@@ -2179,15 +658,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.33,
+        "month_12": 3.35,
+        "month_24": 3.36,
+        "month_36": 3.33,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 92,
+    "pk": 24,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010030",
         "fin_prdt_cd": "06492",
         "kor_co_nm": "한국산업은행",
@@ -2203,15 +687,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.4,
+        "month_12": 3.6,
+        "month_24": 3.35,
+        "month_36": 3.35,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 93,
+    "pk": 25,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0010927",
         "fin_prdt_cd": "010300100335",
         "kor_co_nm": "국민은행",
@@ -2227,15 +716,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.3,
+        "month_12": 2.6,
+        "month_24": 2.7,
+        "month_36": 2.8,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 94,
+    "pk": 26,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0011625",
         "fin_prdt_cd": "200-0135-12",
         "kor_co_nm": "신한은행",
@@ -2251,15 +745,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.75,
+        "month_12": 2.9,
+        "month_24": 2.95,
+        "month_36": 3.0,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 95,
+    "pk": 27,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0013175",
         "fin_prdt_cd": "10-003-1225-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -2275,15 +774,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.35,
+        "month_12": 3.5,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 96,
+    "pk": 28,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0013175",
         "fin_prdt_cd": "10-003-1381-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -2299,15 +803,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.1,
+        "month_24": 3.15,
+        "month_36": 3.4,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 97,
+    "pk": 29,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0013175",
         "fin_prdt_cd": "10-003-1384-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -2323,15 +832,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.45,
+        "month_12": 3.6,
+        "month_24": 3.23,
+        "month_36": 3.4,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 98,
+    "pk": 30,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0013175",
         "fin_prdt_cd": "10-003-1387-0001",
         "kor_co_nm": "농협은행주식회사",
@@ -2347,15 +861,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 3.1,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 99,
+    "pk": 31,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0013909",
         "fin_prdt_cd": "4",
         "kor_co_nm": "하나은행",
@@ -2371,15 +890,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 2.3,
+        "month_12": 2.6,
+        "month_24": 2.7,
+        "month_36": 2.8,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 100,
+    "pk": 32,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0014674",
         "fin_prdt_cd": "01013000110000000001",
         "kor_co_nm": "주식회사 케이뱅크",
@@ -2395,15 +919,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.55,
+        "month_12": 3.55,
+        "month_24": 3.2,
+        "month_36": 3.2,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 101,
+    "pk": 33,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0014807",
         "fin_prdt_cd": "10120110400011",
         "kor_co_nm": "수협은행",
@@ -2419,15 +948,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 2.4,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 102,
+    "pk": 34,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0014807",
         "fin_prdt_cd": "10120114300011",
         "kor_co_nm": "수협은행",
@@ -2443,15 +977,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.4,
+        "month_12": 3.4,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 103,
+    "pk": 35,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0014807",
         "fin_prdt_cd": "10120114700011",
         "kor_co_nm": "수협은행",
@@ -2467,15 +1006,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.65,
+        "month_12": 3.65,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 104,
+    "pk": 36,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0014807",
         "fin_prdt_cd": "10120116100011",
         "kor_co_nm": "수협은행",
@@ -2491,15 +1035,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": 2.85,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 105,
+    "pk": 37,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0015130",
         "fin_prdt_cd": "10-01-20-388-0002",
         "kor_co_nm": "주식회사 카카오뱅크",
@@ -2515,15 +1064,20 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.3,
+        "month_12": 3.3,
+        "month_24": 3.0,
+        "month_36": 3.0,
         "like_users": [],
         "joined_users": []
     }
 },
 {
     "model": "products.product",
-    "pk": 106,
+    "pk": 38,
     "fields": {
         "type": 1,
+        "dcls_month": "202404",
         "fin_co_no": "0017801",
         "fin_prdt_cd": "1001202000002",
         "kor_co_nm": "토스뱅크 주식회사",
@@ -2539,1097 +1093,1984 @@
         "btrm_prft_rate_3": null,
         "prdt_type_nm": null,
         "avg_prft_rate": null,
+        "month_6": 3.0,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
         "like_users": [],
         "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 1,
+    "model": "products.product",
+    "pk": 39,
     "fields": {
-        "product": 6,
+        "type": 3,
+        "dcls_month": "202010",
+        "fin_co_no": "0011317",
+        "fin_prdt_cd": "K55232C99568",
+        "kor_co_nm": "엔에이치아문디자산운용주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": null,
+        "mtrt_int": null,
+        "max_limit": null,
+        "join_way": "영업점",
+        "spcl_cnd": null,
+        "pnsn_kind_nm": "연금저축펀드",
+        "btrm_prft_rate_1": 73.65,
+        "btrm_prft_rate_2": 0.0,
+        "btrm_prft_rate_3": 0.0,
+        "prdt_type_nm": "주식형",
+        "avg_prft_rate": 54.33,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 40,
+    "fields": {
+        "type": 3,
+        "dcls_month": "202010",
+        "fin_co_no": "0011972",
+        "fin_prdt_cd": "K55365BC8353",
+        "kor_co_nm": "케이씨지아이자산운용 주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": null,
+        "mtrt_int": null,
+        "max_limit": null,
+        "join_way": "영업점",
+        "spcl_cnd": null,
+        "pnsn_kind_nm": "연금저축펀드",
+        "btrm_prft_rate_1": 33.0,
+        "btrm_prft_rate_2": -20.69,
+        "btrm_prft_rate_3": 29.87,
+        "prdt_type_nm": "주식형",
+        "avg_prft_rate": 34.99,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 41,
+    "fields": {
+        "type": 3,
+        "dcls_month": "202010",
+        "fin_co_no": "0010205",
+        "fin_prdt_cd": "K55301BV2863",
+        "kor_co_nm": "미래에셋자산운용",
+        "fin_prdt_nm": "",
+        "join_deny": null,
+        "mtrt_int": null,
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰,모집인,전화(텔레뱅킹)",
+        "spcl_cnd": null,
+        "pnsn_kind_nm": "연금저축펀드",
+        "btrm_prft_rate_1": 29.56,
+        "btrm_prft_rate_2": -32.34,
+        "btrm_prft_rate_3": 34.65,
+        "prdt_type_nm": "주식형",
+        "avg_prft_rate": 34.12,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 42,
+    "fields": {
+        "type": 3,
+        "dcls_month": "202010",
+        "fin_co_no": "0011972",
+        "fin_prdt_cd": "K55365BC8338",
+        "kor_co_nm": "케이씨지아이자산운용 주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": null,
+        "mtrt_int": null,
+        "max_limit": null,
+        "join_way": "영업점",
+        "spcl_cnd": null,
+        "pnsn_kind_nm": "연금저축펀드",
+        "btrm_prft_rate_1": 33.98,
+        "btrm_prft_rate_2": -19.65,
+        "btrm_prft_rate_3": 29.13,
+        "prdt_type_nm": "주식형",
+        "avg_prft_rate": 33.93,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 43,
+    "fields": {
+        "type": 3,
+        "dcls_month": "202010",
+        "fin_co_no": "0010205",
+        "fin_prdt_cd": "K55301BX0477",
+        "kor_co_nm": "미래에셋자산운용",
+        "fin_prdt_nm": "",
+        "join_deny": null,
+        "mtrt_int": null,
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰,모집인,전화(텔레뱅킹)",
+        "spcl_cnd": null,
+        "pnsn_kind_nm": "연금저축펀드",
+        "btrm_prft_rate_1": 35.99,
+        "btrm_prft_rate_2": -32.33,
+        "btrm_prft_rate_3": 40.46,
+        "prdt_type_nm": "주식형",
+        "avg_prft_rate": 33.87,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 44,
+    "fields": {
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010001",
+        "fin_prdt_cd": "WR0001F",
+        "kor_co_nm": "우리은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후\n- 1개월이내 : 만기시점약정이율×50%\n- 1개월초과 6개월이내: 만기시점약정이율×30%\n- 6개월초과 : 만기시점약정이율×20%\n\n※ 만기시점 약정이율 : 일반정기적금 금리",
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰,전화(텔레뱅킹)",
+        "spcl_cnd": "1. 아래 각 항(가, 나)의 조건을 충족하는 경우 합산 최대 연 1.9%p 우대\n가. 우리은행을 처음 거래하시는 고객 : 연 1.0%p\n나. 거래실적 인정기간 동안 아래 거래실적을 계약기간별 필수기간(1년 : 6개월, 2년 : 12개월, 3년 : 18개월)이상 충족하는 경우 최대 연 0.9%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 2.55,
         "month_24": 2.6,
-        "month_36": 2.65
+        "month_36": 2.65,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 2,
+    "model": "products.product",
+    "pk": 45,
     "fields": {
-        "product": 7,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010001",
+        "fin_prdt_cd": "WR0001L",
+        "kor_co_nm": "우리은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후\n- 1개월이내 : 만기시점약정이율×50%\n- 1개월초과 6개월이내: 만기시점약정이율×30%\n- 6개월초과 : 만기시점약정이율×20%\n\n※ 만기시점 약정이율 : 일반정기적금 금리",
+        "max_limit": null,
+        "join_way": "스마트폰,전화(텔레뱅킹)",
+        "spcl_cnd": "1. 아래 각 항(가, 나)의 조건을 충족하는 경우 합산 최대 연 0.2%p 우대\n가. 이 적금을 우리꿈통장, WON통장에 연결하여 가입하는 경우 : 0.1%p\n나. 우리 오픈뱅킹 서비스에 타행계좌가 등록되어 있는 경우 : 연 0.1%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 4.0,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 3,
+    "model": "products.product",
+    "pk": 46,
     "fields": {
-        "product": 8,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010002",
+        "fin_prdt_cd": "00266451",
+        "kor_co_nm": "한국스탠다드차타드은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후 1개월: 약정이율의 50%\n만기 후 1개월 초과 1년 이내: 약정이율의 30%\n만기 후 1년 초과: 약정이율의 10%",
+        "max_limit": "10000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "없음",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.2,
         "month_12": 3.5,
         "month_24": 3.55,
-        "month_36": 3.6
+        "month_36": 3.6,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 4,
+    "model": "products.product",
+    "pk": 47,
     "fields": {
-        "product": 9,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010016",
+        "fin_prdt_cd": "10521001000846001",
+        "kor_co_nm": "대구은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
+        "max_limit": "1000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "* 최고우대금리 : 연0.55%p\n -대구은행 인터넷뱅킹,스마트뱅킹을 통하여 최초로 적립식예금 가입 시 : 연0.20%p\n - 상품 가입 전 최근 3개월 이내 대구은행 인터넷,스마트 뱅킹을 통한 이체거래 3회 이상 : 연0.10%p\n- 상품 가입 전 수수료우대 통장 보유 고객 : 연0.20%p\n* 상품을 스마트뱅킹을 통해 가입 시 : 연0.05%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.46,
         "month_24": 3.48,
-        "month_36": 3.5
+        "month_36": 3.5,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 5,
+    "model": "products.product",
+    "pk": 48,
     "fields": {
-        "product": 10,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010016",
+        "fin_prdt_cd": "10527001000925000",
+        "kor_co_nm": "대구은행",
+        "fin_prdt_nm": "",
+        "join_deny": "3",
+        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
+        "max_limit": "500000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "* 최고우대금리 : 연0.55%p\n- 상품 가입 전 영플러스통장 보유 또는 재예치일 기준 영플러스통장 전월 평잔 10만원 이상 : 연0.10%p\n- 예금기간 중 입금횟수 10회 이상 : 연0.10%p\n- 입학 및 졸업 축하금리 : 연0.30%p\n*상품을 인터넷/스마트뱅크를 통해 가입시 우대 : 연0.05%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.66,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 6,
+    "model": "products.product",
+    "pk": 49,
     "fields": {
-        "product": 11,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010016",
+        "fin_prdt_cd": "10527001001272000",
+        "kor_co_nm": "대구은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
+        "max_limit": "200000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "*최고우대금리 : 연0.80%p\n -비대면 채널로 신규 : 연0.20%p\n -상품 가입 전 마케팅활용[개인(신용)정보,수집,이용동의] 전체 동의 : 연0.20%p\n(계약기간 1년인 경우 만기일 기준)\n -대구은행 계좌로 자동이체 8회 이상 입금 : 연0.20%p\n - 원금 합계 100만원이상 : 연0.10%p 또는 원금합계 200만원이상 : 연0.20%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.05,
         "month_12": 3.8,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 7,
+    "model": "products.product",
+    "pk": 50,
     "fields": {
-        "product": 12,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010016",
+        "fin_prdt_cd": "10527001001278000",
+        "kor_co_nm": "대구은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후 1개월 미만 경과: 약정이자율 x 50%\n만기 후 3개월 미만 경과: 약정이자율 x 25%\n만기 후 3개월 이상 경과: 약정이자율 x 10%",
+        "max_limit": "1000000",
+        "join_way": "인터넷,스마트폰",
+        "spcl_cnd": "* 최고우대금리 : 연0.45%p\n- 가입일로부터 3개월 이내 1가지 이상 요건 충족시 : 연0.20%p\n① 대구은행 주택청약종합저축 보유\n② 대구은행 신용(체크)카드 결제실적 보유\n- 전체 계약월수 중 1/2이상 DGB대구은행 계좌에서 자동이체 납입 시 : 연0.20%p\n* 상품을 인터넷/스마트뱅크를 통해 가입시 우대 : 연0.05%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.75,
         "month_12": 3.45,
         "month_24": 3.5,
-        "month_36": 3.55
+        "month_36": 3.55,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 8,
+    "model": "products.product",
+    "pk": 51,
     "fields": {
-        "product": 13,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010017",
+        "fin_prdt_cd": "01020400490001",
+        "kor_co_nm": "부산은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
+        "max_limit": "500000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "*우대이율 6개월제 최대 0.55%, 12개월제 최대 0.90%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.0,
         "month_12": 3.5,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 9,
+    "model": "products.product",
+    "pk": 52,
     "fields": {
-        "product": 14,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010017",
+        "fin_prdt_cd": "01020400490002",
+        "kor_co_nm": "부산은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
+        "max_limit": "500000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "*우대이율 6개월제 최대 0.55%, 12개월제 최대 0.90%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.1,
         "month_12": 3.6,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 10,
+    "model": "products.product",
+    "pk": 53,
     "fields": {
-        "product": 15,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010017",
+        "fin_prdt_cd": "01020400510001",
+        "kor_co_nm": "부산은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
+        "max_limit": "10000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "조건 달성여부에 따라 우대금리 적용\n*개인형 우대이율: 최대0.4%\n*기업형(개인사업자 및 법인)우대이율: 최대0.4%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.05,
         "month_12": 3.35,
         "month_24": 3.05,
-        "month_36": 3.05
+        "month_36": 3.05,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 11,
+    "model": "products.product",
+    "pk": 54,
     "fields": {
-        "product": 16,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010017",
+        "fin_prdt_cd": "01020400530001",
+        "kor_co_nm": "부산은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1년이내:가입기간별 일반정기적금 기본이율 x 50%\n- 만기후 1년초과:가입기간별 일반정기적금 기본이율 x 20%",
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "*우대이율 최대 0.2%\n- 신규시 우대이율 0.05% 및 해지시 우대이율 최대 0.15%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.9,
         "month_12": 3.0,
         "month_24": 2.5,
-        "month_36": 2.5
+        "month_36": 2.5,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 12,
+    "model": "products.product",
+    "pk": 55,
     "fields": {
-        "product": 17,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010019",
+        "fin_prdt_cd": "TD11330029000",
+        "kor_co_nm": "광주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "*만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n*만기후 1개월 초과: 0.1%",
+        "max_limit": "5000000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "▶ 최고우대금리 1.20%p  \n①해피라이프_여행스케치외화적금V 동일자가입 0.5%p \n②해지원금 기준 500만원이상 : 최고0.2%p\n③신용(체크)카드사용실적300만원이상:최고 0.3%p\n④개인(신용)정보 동의: 0.2%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.9,
         "month_12": 3.1,
         "month_24": 3.2,
-        "month_36": 3.3
+        "month_36": 3.3,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 13,
+    "model": "products.product",
+    "pk": 56,
     "fields": {
-        "product": 18,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010019",
+        "fin_prdt_cd": "TD11330030000",
+        "kor_co_nm": "광주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n만기후 1개월 초과: 0.1%",
+        "max_limit": "1000000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "▶ 최고우대금리 1.9%p \n①예금가입일~만기일전일까지 당행이선정한 전라남도 관광지 방문 인증시 : 최고 1.5%p\n②신용(체크)카드사용실적300만원이상:최고 0.3%p\n③개인(신용)정보 동의: 0.1%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.2,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 14,
+    "model": "products.product",
+    "pk": 57,
     "fields": {
-        "product": 19,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010019",
+        "fin_prdt_cd": "TD11330031000",
+        "kor_co_nm": "광주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "*만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n*만기후 1개월 초과: 0.1%",
+        "max_limit": "5000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "▶ 최고우대금리 0.50%p  \n①이 예금가입시 VIP고객이거나 가입일 이후부터 만기일전일까지 VIP고객에 선정된 경험이 있는 경우 : 0.3%p \n②이 예금 가입일에 정기예금 500만원이상(만기 1년이상) 가입하고 만기일 전일까지 유지한 경우 : 0.2%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.3,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 15,
+    "model": "products.product",
+    "pk": 58,
     "fields": {
-        "product": 20,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010019",
+        "fin_prdt_cd": "TD11330032000",
+        "kor_co_nm": "광주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 만기일 당시 최초 가입 기간별 고시금리의 1/2 \n만기후 1개월 초과: 0.1%",
+        "max_limit": "500000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "▶ 최고우대금리 0.80%p  \n ①전전월말 기준 예적금 등 계좌 및 거래가 없는경우: 0.8%p \n ②당행 적금계좌 만기 해지일로부터 1개월 이내 이 예금으로 재가입한 고객: 0.5%p\n▶ 퀴즈이벤트금리 최고 2.00%p\n  - 최대 참여가능 횟수 20회 X 회당 우대금리 연 0.1%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.0,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 16,
+    "model": "products.product",
+    "pk": 59,
     "fields": {
-        "product": 21,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010020",
+        "fin_prdt_cd": "220002101",
+        "kor_co_nm": "제주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1개월 이내 : (일반)정기적금 기본이자율의 50%\n(단, 최저금리 0.1%)\n- 만기후 1개월 초과 3개월 이내 : (일반)정기적금 기본이자율의 25%\n(단, 최저금리 0.1%)\n- 만기후 3개월 초과 : 0.1%",
+        "max_limit": "500000",
+        "join_way": "인터넷,스마트폰",
+        "spcl_cnd": "* 거래조건에 따라 최고 2.1%p 우대금리 적용\n① 자투리 출금계좌 평잔 50만원 이상 유지 : 0.8%p\n② 첫거래고객 or JBANK저금통적금 1개월 내 재신규 : 0.5%p\n③ 신규가입 시점에서 적금 목표금액 최소 30만원 이상 설정하고, 적금 신규일로부터 3개월 내 잔액이 목표금액 이상인 경우 :0.5%p\n④ 추천인 우대금리 : 0.30%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.15,
         "month_12": 3.45,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 17,
+    "model": "products.product",
+    "pk": 60,
     "fields": {
-        "product": 22,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010020",
+        "fin_prdt_cd": "220002501",
+        "kor_co_nm": "제주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1개월 이내 : (일반)정기적금 기본이자율의 50%\n(단, 최저금리 0.1%)\n- 만기후 1개월 초과 3개월 이내 : (일반)정기적금 기본이자율의 25%\n(단, 최저금리 0.1%)\n- 만기후 3개월 초과 : 0.1%",
+        "max_limit": "300000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "①매월 1회이상 지속적 납입시:1년제: 0.50%\n② 목표 금액 달성:0.50%\n③ 신용카드,체크카드 합산 사용액 월10만원 이상 사용: 0.50%\n* 청년이니까응원합니다 이벤트 : 0.50%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.8,
         "month_24": 4.0,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 18,
+    "model": "products.product",
+    "pk": 61,
     "fields": {
-        "product": 23,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010020",
+        "fin_prdt_cd": "220002701",
+        "kor_co_nm": "제주은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기후 1개월 이내 : (일반)정기적금 기본이자율의 50%\n(단, 최저금리 0.1%)\n- 만기후 1개월 초과 3개월 이내 : (일반)정기적금 기본이자율의 25%\n(단, 최저금리 0.1%)\n- 만기후 3개월 초과 : 0.1%",
+        "max_limit": "1000000",
+        "join_way": "인터넷,스마트폰",
+        "spcl_cnd": "아래의 우대요건 충족시 최고 2.7%p 추가 우대(만기시 제공)\n(공통)매월 JBANK로그인 시 0.2%\n 한 가지라도 수행시 2.5% 제공\n①추천인 코드로 3명 이상 가입시 \n②탐나는전 체크카드 월30만원 이상 사용 유지 시 \n③탐나는전 선불카드 충전계좌를 당행 입출금계좌로 등록 후 평잔 50만원 이상 유지 시",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.3,
         "month_12": 2.5,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 19,
+    "model": "products.product",
+    "pk": 62,
     "fields": {
-        "product": 24,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010022",
+        "fin_prdt_cd": "10-01-30-031-0018-0000",
+        "kor_co_nm": "전북은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(자유적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
+        "max_limit": "10000000",
+        "join_way": "인터넷,스마트폰",
+        "spcl_cnd": "추가우대금리 :\n당행 계좌간 자동이체를 통해 이 예금으로 자동이체 된 금액에 0.1% 금리 우대",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.35,
         "month_24": 3.45,
-        "month_36": 3.45
+        "month_36": 3.45,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 20,
+    "model": "products.product",
+    "pk": 63,
     "fields": {
-        "product": 25,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010022",
+        "fin_prdt_cd": "10-01-30-031-0036",
+        "kor_co_nm": "전북은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
+        "max_limit": "5000000",
+        "join_way": "인터넷,스마트폰",
+        "spcl_cnd": "추가우대금리 :\n당행 계좌간 자동이체를 통해 6회이상 입금한 경우 \n연 0.1% 금리우대",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.45,
         "month_24": 3.55,
-        "month_36": 3.55
+        "month_36": 3.55,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 21,
+    "model": "products.product",
+    "pk": 64,
     "fields": {
-        "product": 26,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010022",
+        "fin_prdt_cd": "10-01-30-031-0038-0000",
+        "kor_co_nm": "전북은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
+        "max_limit": "500000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "우대조건 충족시 최고 연1.2% 이내(단, 우대이율은 만기해지시 제공)\n1. 6회이상 급여또는 연금이체 실적 연 0.50%\n2. JB카드 사용금액 조건을 충족한 경우 (연0.30% ~ 연0.50%)\n3. 신규시 당행 입출금 통장으로 자동해지를 신청한 경우 연 0.20%\n\n※거래실적 인정기준 세부내용은 홈페이지 참조",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.15,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 22,
+    "model": "products.product",
+    "pk": 65,
     "fields": {
-        "product": 27,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010022",
+        "fin_prdt_cd": "10-01-30-031-0048-0000",
+        "kor_co_nm": "전북은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
+        "max_limit": "1000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "우대조건 충족시 최고 연1.8% 이내(단, 우대이율은 만기해지시 제공)\n1. 전북현대모터스 득점골수 우대 (최고 0.40%)\n2. 전북현대모터스 우승우대(최고 1.00%우대)\n3. 전북현대 도움왕/득점왕 연 0.20%\n4. 6회이상 당행 자동이체 납부를 통해 월부금 납입시 연 0.20%\n\n※거래실적 인정기준 세부내용은 홈페이지 참조",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.2,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 23,
+    "model": "products.product",
+    "pk": 66,
     "fields": {
-        "product": 28,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010022",
+        "fin_prdt_cd": "10-01-30-031-0049-0000",
+        "kor_co_nm": "전북은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "√만기후 1개월이내 경과분 : 만기일 현재 계약기간별 정기적금(정액적립식) 실행이율의 1/2\n√만기후 1개월초과 경과분 : 연 0.1%",
+        "max_limit": "500000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "1. 만기 전전월까지 게임 50회 참여시 0.9%\n2. 3초 플레이 적금 게임에 참여하여 획득한 점수 총 합에 따라 추가 우대금리 (연0.5% ~ 연3.0%)\n3. 가입기간 내 오픈뱅킹을 통해 계좌 추가 등록/유지시 우대 0.1%\n\n※거래실적 인정기준 세부내용은 홈페이지 참조",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.0,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 24,
+    "model": "products.product",
+    "pk": 67,
     "fields": {
-        "product": 29,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010024",
+        "fin_prdt_cd": "21000111",
+        "kor_co_nm": "경남은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "①신규일로부터 6개월전까지 당행 적금 미보유 0.2%\n②월부금이 50만원 이상인 경우 0.20%\n③이 예금을 자동이체로 납입하는 경우 0.2%\n④신용(체크)카드 최초발급 후 10만원 이내 이용 0.2%\n⑤ 전자명함을 통한 신규 시 0.2%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.6,
         "month_24": 3.7,
-        "month_36": 3.8
+        "month_36": 3.8,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 25,
+    "model": "products.product",
+    "pk": 68,
     "fields": {
-        "product": 30,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010024",
+        "fin_prdt_cd": "21001116",
+        "kor_co_nm": "경남은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
+        "max_limit": "5000000",
+        "join_way": "인터넷,스마트폰",
+        "spcl_cnd": "①오픈뱅킹서비스 가입 0.20%(만기까지 유지)\n②당행 입출금통장에서 자동이체시 입금건별 0.20%\n③이 상품 신규시 금리우대쿠폰을 등록할 경우 0.30%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.45,
         "month_12": 3.75,
         "month_24": 3.85,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 26,
+    "model": "products.product",
+    "pk": 69,
     "fields": {
-        "product": 31,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010024",
+        "fin_prdt_cd": "21001199",
+        "kor_co_nm": "경남은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
+        "max_limit": "1000000",
+        "join_way": "영업점,인터넷,스마트폰,기타",
+        "spcl_cnd": "①ESG 실천 우대금리 0.50%\n②신규고객 우대금리 0.50%\n- 당행 1년 이내예적금(청약포함)신규해지 이력미보유\n③공동가입우대금리 1.50%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.75,
         "month_12": 3.05,
         "month_24": 3.15,
-        "month_36": 3.25
+        "month_36": 3.25,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 27,
+    "model": "products.product",
+    "pk": 70,
     "fields": {
-        "product": 32,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010024",
+        "fin_prdt_cd": "21001236",
+        "kor_co_nm": "경남은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "①주거래우대 0.50%\n②공과금 자동이체 0.40~0.60%\n③신규고객 0.20%\n④주택청약종합저축 보유 0.10%\n⑤ 전자명함을 통한 신규 시 0.2%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.55,
         "month_24": 3.6,
-        "month_36": 3.65
+        "month_36": 3.65,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 28,
+    "model": "products.product",
+    "pk": 71,
     "fields": {
-        "product": 33,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010024",
+        "fin_prdt_cd": "21001259",
+        "kor_co_nm": "경남은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
+        "max_limit": null,
+        "join_way": "인터넷,스마트폰,기타",
+        "spcl_cnd": "①마케팅동의 0.15%\n②목돈마련 축하이율 0.30~1.00%\n③친구 추천번호 0.30~0.60%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.45,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 29,
+    "model": "products.product",
+    "pk": 72,
     "fields": {
-        "product": 35,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010024",
+        "fin_prdt_cd": "21001268",
+        "kor_co_nm": "경남은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1개월 이내: 일반정기예금 기본이율의 50%\n만기후 1개월 초과: 일반정기예금 기본이율의 20%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "①첫거래고객(적금가입 전일기준 당행 활동계좌 미보유) 2.50%\n②기간내 적금 입금일마다 0.10%씩 우대(최대2.50%)\n③마케팅동의 및 모바일메세지 수신동의 만기유지 시 0.50%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 73,
+    "fields": {
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010026",
+        "fin_prdt_cd": "01211210113",
+        "kor_co_nm": "중소기업은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기일 당시 정기적금 만기후금리 적용\n- 1개월 이내: 만기일 당시 약정금리x50%\n- 1월 초과 6개월 이내: 만기일 당시 약정금리x30%\n- 6개월 초과: 만기일 당시 약정금리x20%",
+        "max_limit": "600000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "최고 연 1.5%p\n1. 목표달성 축하금리 : 연 1.0%p\n  - 당행 입출금식 계좌에서 이 적금으로 자동이체를 통해 3회 이상 납입하고 만기일 전일까지 목표금액(신규 시 직접 설정) 이상 납입하는 경우\n2. 최초거래고객 우대금리 : 연 0.5%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.4,
         "month_12": 3.6,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 30,
+    "model": "products.product",
+    "pk": 74,
     "fields": {
-        "product": 36,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010026",
+        "fin_prdt_cd": "01211210121",
+        "kor_co_nm": "중소기업은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기일 당시 정기적금 만기후금리 적용\n- 1개월 이내: 만기일 당시 약정금리x50%\n- 1월 초과 6개월 이내: 만기일 당시 약정금리x30%\n- 6개월 초과: 만기일 당시 약정금리x20%",
+        "max_limit": "1000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "최고 연 4.00%p\n1. 에너지 절감 우대금리 : 최대 연 0.20%p\n2. 최초거래고객 우대금리 : 연 0.10%p\n3. 지로 또는 공과금 자동이체 우대금리 : 연 1.00%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.0,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 31,
+    "model": "products.product",
+    "pk": 75,
     "fields": {
-        "product": 37,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010026",
+        "fin_prdt_cd": "01211210122",
+        "kor_co_nm": "중소기업은행",
+        "fin_prdt_nm": "",
+        "join_deny": "3",
+        "mtrt_int": "만기일 당시 정기적금 만기후금리 적용\n- 1개월 이내: 만기일 당시 약정금리x50%\n- 1월 초과 6개월 이내: 만기일 당시 약정금리x30%\n- 6개월 초과: 만기일 당시 약정금리x20%",
+        "max_limit": "1000000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "최고 연 2.20%p\n1. 가입시점 중소기업 근로자로 확인된 경우 : 재직기간에 따라 최고 연 1.2%p\n2. 당행 급여이체 실적(월50만원 이상) 6개월 이상\n   인 경우 : 연 1.0%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.5,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 32,
+    "model": "products.product",
+    "pk": 76,
     "fields": {
-        "product": 38,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010030",
+        "fin_prdt_cd": "03101",
+        "kor_co_nm": "한국산업은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내 : 만기일 현재 고시된 일반 정기적금 해당예금기간 기본이율의 1/2\n* 만기후 1년 초과 : 만기일 현재 고시된 보통예금 이율",
+        "max_limit": null,
+        "join_way": "영업점,인터넷",
+        "spcl_cnd": "해당없음",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.88,
         "month_12": 2.87,
         "month_24": 2.91,
-        "month_36": 2.96
+        "month_36": 2.96,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 33,
+    "model": "products.product",
+    "pk": 77,
     "fields": {
-        "product": 39,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010030",
+        "fin_prdt_cd": "03700",
+        "kor_co_nm": "한국산업은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내 : 만기일 현재 고시된 일반 정기적금 해당예금기간 기본이율의 1/2\n* 만기후 1년 초과 : 만기일 현재 고시된 보통예금 이율",
+        "max_limit": "5000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "해당없음",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.28,
         "month_12": 3.37,
         "month_24": 3.41,
-        "month_36": 3.46
+        "month_36": 3.46,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 34,
+    "model": "products.product",
+    "pk": 78,
     "fields": {
-        "product": 40,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010927",
+        "fin_prdt_cd": "010200100051",
+        "kor_co_nm": "국민은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰,전화(텔레뱅킹)",
+        "spcl_cnd": "① 단체가입/나라사랑/쿠폰 우대이율: \n    1년: 연 0.6%p, 2년: 연 0.7%p,\n    3년: 연 0.9%p, 5년: 연 1.0%p \n   (중복적용되지 않음, 계약기간별차등적용)\n② 교차거래 우대이율: 연 0.3%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 2.75,
         "month_24": 2.95,
-        "month_36": 3.05
+        "month_36": 3.05,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 35,
+    "model": "products.product",
+    "pk": 79,
     "fields": {
-        "product": 41,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010927",
+        "fin_prdt_cd": "010200100084",
+        "kor_co_nm": "국민은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
+        "max_limit": null,
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "맑은하늘을 위한 미션별 제공조건을 달성하는 경우 각 미션별 우대이율 제공\n -1년제 최고 연 0.8%p, 2년제 최고 연 0.9%p, 3년제 최고 연 1.0%p\n① 종이통장 줄이기 미션: 연 0.1%p\n② 종이서식 줄이기 미션: 연 0.2%p\n③ 대중교통 미션: 1년제 연 0.4%p, 2년제 연 0.5%p, 3년제 연 0.6%p\n④ 퀴즈미션: 연 0.1%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 2.55,
         "month_24": 2.75,
-        "month_36": 3.05
+        "month_36": 3.05,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 36,
+    "model": "products.product",
+    "pk": 80,
     "fields": {
-        "product": 42,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010927",
+        "fin_prdt_cd": "010200100092",
+        "kor_co_nm": "국민은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "항목별 적용 조건 충족시, 최고 연 1.5%p\n① 반려동물 등록: 연 0.2%p\n② 미지(유기)입양: 연 0.2%p\n③ 반려동물애정활동: 연 0.2%p\n④ 반려동물요금제: 연 0.2%p\n⑤ KB거래감사: 연 0.2%p\n⑥ KB첫거래: 연 0.5%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.0,
         "month_24": 3.3,
-        "month_36": 3.5
+        "month_36": 3.5,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 37,
+    "model": "products.product",
+    "pk": 81,
     "fields": {
-        "product": 43,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010927",
+        "fin_prdt_cd": "010200100104",
+        "kor_co_nm": "국민은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "항목별 적용 조건 충족시, 최고 연 4.0%p\n① 목표달성 축하 우대이율: 최고 연 1.0%p\n    50만원 이하: 연 0.5%p, 50만원 초과: 연 1.0%p \n② 별 모으기 우대이율 : 최고 연 1.0%p\n    10개: 연 0.5%p, 20개: 연 1.0%p\n③ 함께해요 우대이율: 최고 연 2.0%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.0,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 38,
+    "model": "products.product",
+    "pk": 82,
     "fields": {
-        "product": 44,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0010927",
+        "fin_prdt_cd": "010200100109",
+        "kor_co_nm": "국민은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 1개월 이내 : 기본이율 X 50%\n- 1개월 초과  ~ 3개월 이내 : 기본이율 X 30%\n- 3개월 초과 : 0.1%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "항목별 적용 조건 충족시, 최고 연 5.5%p\n① 혜택수신 우대이율: 연 1.0%p\n② KB패밀리 우대이율: 연 1.0%p\n③ KB국민인증 우대이율: 연0.5%p \n④ 내차든든 우대이율: 연 3.0%P",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 2.5,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 39,
+    "model": "products.product",
+    "pk": 83,
     "fields": {
-        "product": 45,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0011625",
+        "fin_prdt_cd": "230-0118-14",
+        "kor_co_nm": "신한은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "-1개월 이하:(일반) 정기적금 기본금리 1/2\n(단, 최저금리 0.10%)\n-1개월 초과~6개월 이하: (일반) 정기적금 기본금리의 1/4\n(단, 최저금리 0.10%)\n-6개월 초과 0.10%",
+        "max_limit": "100000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "※가산금리 최고 연 2.0%\n- 주 납입: 총 납입 회차의 90%이상 납입 달성",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.5,
         "month_12": 2.5,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 40,
+    "model": "products.product",
+    "pk": 84,
     "fields": {
-        "product": 46,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0011625",
+        "fin_prdt_cd": "230-0119-85",
+        "kor_co_nm": "신한은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "-1개월 이하:(일반) 정기적금 기본금리 1/2\n(단, 최저금리 0.10%)\n-1개월 초과~6개월 이하: (일반) 정기적금 기본금리의 1/4\n(단, 최저금리 0.10%)\n-6개월 초과 0.10%",
+        "max_limit": "3000000",
+        "join_way": "영업점,스마트폰",
+        "spcl_cnd": "※가산금리 최고 연 1.30%\n- 소득이체 : 연 0.6%\n- 카드이용 : 연 0.3%\n- 오픈뱅킹 : 연 0.6%\n- 청약보유 : 연 0.3%\n- 마케팅동의 : 연 0.1%\n※ 우대금리 항목별 자세한 적용 조건은 상품설명서 참조",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.0,
         "month_24": 3.1,
-        "month_36": 3.2
+        "month_36": 3.2,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 41,
+    "model": "products.product",
+    "pk": 85,
     "fields": {
-        "product": 47,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013175",
+        "fin_prdt_cd": "10-047-1360-0002",
+        "kor_co_nm": "농협은행주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 자유로우대적금 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
+        "max_limit": "1550000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "1. 자동이체 입금횟수 우대금리 : 최고 0.5%p\n - 5회이상 : 0.2%p, 10회이상 : 0.3%p, 15회이상 0.5%p\n2. 목표금액 달성 축하금리  : 0.5%p\n3. MZ세대(만 19~34세)) 우대금리 : 0.5%p\n4. 직전 1년간 당행 예적금(청약포함) 미보유 고객 : 0.2%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.0,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 42,
+    "model": "products.product",
+    "pk": 86,
     "fields": {
-        "product": 48,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013175",
+        "fin_prdt_cd": "10-047-1365-0001",
+        "kor_co_nm": "농협은행주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "3",
+        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
+        "max_limit": "500000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "1. 급여실적 : 1.0%p (①/② 중복 적용 불가)\n ① 급여이체 실적 : 1.0%p\n ② 개인사업자 계좌 실적 :1.0%p\n2. 비대면 채널 이체 실적 : 0.3%p\n3. 마케팅 동의 : 0.2%p\n4. 농업계고 및 청년농부사관학교 졸업자 : 2.0%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.0,
         "month_12": 3.1,
         "month_24": 3.15,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 43,
+    "model": "products.product",
+    "pk": 87,
     "fields": {
-        "product": 49,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013175",
+        "fin_prdt_cd": "10-047-1381-0001",
+        "kor_co_nm": "농협은행주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
+        "max_limit": "500000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "※ 우대금리 최대한도 : 1.0%p(연%, 세전)\n1. 온실가스 줄이기 실천서약서 동의 : 0.1%p\n2. 통장미발급 : 0.3%p\n3. 손하나로인증 서비스 등록 : 0.2%p\n4. 대중교통이용 : 0.2%p\n5. NH내가Green초록세상예금 동시 보유 : 0.2%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.1,
         "month_24": 3.15,
-        "month_36": 3.4
+        "month_36": 3.4,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 44,
+    "model": "products.product",
+    "pk": 88,
     "fields": {
-        "product": 50,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013175",
+        "fin_prdt_cd": "10-047-1387-0001",
+        "kor_co_nm": "농협은행주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기후 1년 이내 : 만기시점 계약기간별 기본금리의 1/2\n만기후 1년 초과 : 보통예금 금리",
+        "max_limit": "500000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "1. 고향사랑기부금 납부고객 우대 : 0.5%p\n\n2-1. 만 65세 이상 고령자 우대 : 0.1%p\n2-2. 만 19~34세 MZ고객 우대 : 0.3%p\n\n3. NH채움카드 또는 [zgm.고향으로 카드] 이용실적 우대 : 0.1%p\n\n4. 고향사랑특별금리 : 0.1%p(금리시장상황에 따라 변동 가능)\n - 고향사랑특별금리는 상품 가입고객 모두에게 적용",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.4,
         "month_24": 3.45,
-        "month_36": 3.7
+        "month_36": 3.7,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 45,
+    "model": "products.product",
+    "pk": 89,
     "fields": {
-        "product": 51,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013175",
+        "fin_prdt_cd": "10-059-1264-0001",
+        "kor_co_nm": "농협은행주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "3",
+        "mtrt_int": "만기후 3개월 이내 : 만기시점 국고채 1년물 금리\n만기후 1년 이내 : 만기시점 채움적금 계약기간별 고시금리의 50%\n만기후 1년 초과 : 만기시점 보통예금 금리",
+        "max_limit": "3000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "1. 급여입금실적 보유 고객 중\n - 가입기간 중 3개월 이상 급여이체시 : 0.3%p\n - 주택청약종합저축 또는 펀드가입 : 0.2%p\n - NH채움카드 결제실적 1백만원 이상 : 0.2%p\n2. 인터넷(스마트)뱅킹 또는 올원뱅크로 가입 : 0.1%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.38,
         "month_24": 3.25,
-        "month_36": 3.42
+        "month_36": 3.42,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 46,
+    "model": "products.product",
+    "pk": 90,
     "fields": {
-        "product": 52,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013909",
+        "fin_prdt_cd": "52",
+        "kor_co_nm": "하나은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "1개월 이내 : 지급당시 해당기간별 일반정기적금 기본금리 1/2\n1개월 초과 : 지급당시 해당기간별 일반정기적금 기본금리 1/4",
+        "max_limit": "3000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "최고 연1.0%\n- 주거래하나우대(연 0.5%) : 적금만기 전전월말기준 본인명의 당행입출금통장을 통해 계약기간 1/2이상 이체된 주거래실적 1종  - 주거래플러스우대(연 0.9%) : 주거래 하나우대와 동일요건의 거래실적 2종이상 경우 \n- 온라인.재예치우대 연 최대 0.1%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.55,
         "month_24": 3.65,
-        "month_36": 3.75
+        "month_36": 3.75,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 47,
+    "model": "products.product",
+    "pk": 91,
     "fields": {
-        "product": 53,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0013909",
+        "fin_prdt_cd": "53",
+        "kor_co_nm": "하나은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "1개월 이내 : 지급당시 해당기간별 일반정기적금 기본금리 1/2\n1개월 초과 : 지급당시 해당기간별 일반정기적금 기본금리 1/4",
+        "max_limit": "10000000",
+        "join_way": "영업점,인터넷,스마트폰,전화(텔레뱅킹)",
+        "spcl_cnd": "하나은행 통장에서 계약기간의 1/2이상 월부금 자동이체실적 충족 시 연 0.50%",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.2,
         "month_12": 3.3,
         "month_24": 3.45,
-        "month_36": 3.55
+        "month_36": 3.55,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 48,
+    "model": "products.product",
+    "pk": 92,
     "fields": {
-        "product": 54,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014674",
+        "fin_prdt_cd": "01012000200000000003",
+        "kor_co_nm": "주식회사 케이뱅크",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후 \n- 1개월 이내: 만기시점 기본금리 X 50% \n- 1개월 초과 ~ 6개월 이내: 만기시점 기본금리 X 30%\n- 6개월 초과: 연 0.20%",
+        "max_limit": "300000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "금리우대 코드를 입력하는 경우 우대금리 적용",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.6,
         "month_12": 4.2,
         "month_24": 4.25,
-        "month_36": 4.3
+        "month_36": 4.3,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 49,
+    "model": "products.product",
+    "pk": 93,
     "fields": {
-        "product": 55,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014674",
+        "fin_prdt_cd": "01012000210000000000",
+        "kor_co_nm": "주식회사 케이뱅크",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "만기 후 \n- 1개월 이내: 만기시점 기본금리 X 50% \n- 1개월 초과 ~ 6개월 이내: 만기시점 기본금리 X 30%\n- 6개월 초과: 연 0.20%",
+        "max_limit": "3000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "급여이체 또는 통신비 자동이체, 체크카드 고객에게 우대금리 제공 (최고 연 0.6%)",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.5,
         "month_12": 4.1,
         "month_24": 4.15,
-        "month_36": 4.2
+        "month_36": 4.2,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 50,
+    "model": "products.product",
+    "pk": 94,
     "fields": {
-        "product": 56,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014807",
+        "fin_prdt_cd": "10140110400011",
+        "kor_co_nm": "수협은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 정기적금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
+        "max_limit": "1000000",
+        "join_way": "영업점",
+        "spcl_cnd": "*최대우대금리:1.2%\n신규시적용금리\n-자동이체출금3건이상:0.2%\n-최초예적금고객/재예치/장기거래각0.05%(최대0.1%)\n만기시적용금리:최대0.9%\n-급여,연금이체/수협카드결제각0.3%\n-공과금이체최대0.3%\n※단위:연%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 2.6,
         "month_24": 2.7,
-        "month_36": 2.8
+        "month_36": 2.8,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 51,
+    "model": "products.product",
+    "pk": 95,
     "fields": {
-        "product": 57,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014807",
+        "fin_prdt_cd": "10140114300011",
+        "kor_co_nm": "수협은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 정기적금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
+        "max_limit": "1000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "* 최대우대금리:0.5%\n1. 해양플라스틱감축서약 : 0.1% (신규시) \n2. 봉사활동 또는 상품홍보 : 0.2% (만기시) \n3. 입출금통장 최초신규 : 0.2% (만기시)\n4. 자동이체 출금실적 : 0.2% (만기시)\n - 수협신용카드 / 당행 펀드 / 수협체크카드\n※단위:연%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.5,
         "month_24": 3.0,
-        "month_36": 3.3
+        "month_36": 3.3,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 52,
+    "model": "products.product",
+    "pk": 96,
     "fields": {
-        "product": 58,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014807",
+        "fin_prdt_cd": "10140114700031",
+        "kor_co_nm": "수협은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 정기적금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
+        "max_limit": "1000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "* 최대우대금리:0.9%\n1. 마케팅동의 : 0.1% (신규시) \n2. 자동이체 납입 : 0.8% (만기시) \n\n※단위:연%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.6,
         "month_12": 3.6,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 53,
+    "model": "products.product",
+    "pk": 97,
     "fields": {
-        "product": 59,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014807",
+        "fin_prdt_cd": "10141109800021",
+        "kor_co_nm": "수협은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 상호부금\n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
+        "max_limit": "1000000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "*최대우대금리:0.7%\n-첫거래고객:0.3%\n-카드거래:최대0.3%\n-복수거래:0.1%\n-요구불거래:최대0.2%\n-인터넷뱅킹고객:0.1%\n-자동이체실적:0.1%\n※단위:연%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 2.2,
         "month_24": 1.8,
-        "month_36": 1.9
+        "month_36": 1.9,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 54,
+    "model": "products.product",
+    "pk": 98,
     "fields": {
-        "product": 60,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014807",
+        "fin_prdt_cd": "10141114300011",
+        "kor_co_nm": "수협은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 상호부금 \n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
+        "max_limit": "200000",
+        "join_way": "영업점,인터넷,스마트폰",
+        "spcl_cnd": "* 최대우대금리:0.5%\n1. 해양플라스틱감축서약 : 0.1% (신규시) \n2. 봉사활동 또는 상품홍보 : 0.2% (만기시) \n3. 입출금통장 최초신규 : 0.2% (만기시)\n4. 자동이체 출금실적 : 0.2% (만기시)\n - 수협신용카드 / 당행 펀드 / 수협체크카드\n※단위:연%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.15,
         "month_24": 2.35,
-        "month_36": 2.35
+        "month_36": 2.35,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 55,
+    "model": "products.product",
+    "pk": 99,
     "fields": {
-        "product": 61,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0014807",
+        "fin_prdt_cd": "10141114700031",
+        "kor_co_nm": "수협은행",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "* 만기후 1년 이내\n - 만기당시 상호부금\n계약기간별 기본금리 1/2\n* 만기후 1년 초과\n - 만기당시 보통예금 기본금리",
+        "max_limit": "1000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "* 최대우대금리:0.9%\n1. 마케팅동의 : 0.1% (신규시) \n2. 자동이체 납입 : 0.8% (만기시) \n\n※단위:연%p",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.6,
         "month_12": 3.6,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 56,
+    "model": "products.product",
+    "pk": 100,
     "fields": {
-        "product": 62,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0015130",
+        "fin_prdt_cd": "10-01-30-355-0002",
+        "kor_co_nm": "주식회사 카카오뱅크",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기 후 1개월 이내 : 가입(또는 자동연장)시점 기본금리x50%\n- 만기 후 1개월초과 3개월 이내 : 가입(또는 자동연장)시점 기본금리x30%\n- 만기 후 3개월 초과 : 0.20%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "자동이체시 우대금리 제공 : 연 0.20%p\n - 제공조건 : 전체 계약월수의 1/2이상을 자동이체로 납입하고 만기 해지하는 경우\n - 유의사항 : 만기 자동연장된 원리금은 우대금리를 제공하지 않음",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 3.3,
         "month_12": 3.5,
         "month_24": 3.5,
-        "month_36": 3.5
+        "month_36": 3.5,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 57,
+    "model": "products.product",
+    "pk": 101,
     "fields": {
-        "product": 63,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0015130",
+        "fin_prdt_cd": "10-01-30-355-0005",
+        "kor_co_nm": "주식회사 카카오뱅크",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기 후 1개월 이내 : 가입시점 기본금리x50%\n- 만기 후 1개월초과 3개월 이내 : 가입시점 기본금리x30%\n- 만기 후 3개월 초과 : 0.20%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "자동이체 연속 성공 우대금리 제공 : 최고 연 3.00%p\n- 제공조건\n① 7주차까지 자동이체 납입을 연속 성공하고 만기해지 하는 경우 연 1.00%p 제공\n② 26주차까지 자동이체 납입을 연속 성공하고 만기해지 하는 경우 연 2.00%p 추가 제공\n- 유의사항 : 자동이체 실패한 주차를 빈자리채우기 하여도 성공으로 인정되지 않음",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.5,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 58,
+    "model": "products.product",
+    "pk": 102,
     "fields": {
-        "product": 65,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0015130",
+        "fin_prdt_cd": "10-01-30-355-0006",
+        "kor_co_nm": "주식회사 카카오뱅크",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "- 만기 후 1개월 이내 : 가입시점 기본금리x50%\n- 만기 후 1개월초과 3개월 이내 : 가입시점 기본금리x30%\n- 만기 후 3개월 초과 : 0.20%",
+        "max_limit": null,
+        "join_way": "스마트폰",
+        "spcl_cnd": "매일/보너스 우대금리 제공 : 최고 연 5.50%p\n- 제공조건\n① 매일 우대금리 : 매 입금 시 마다 연 0.10%p 제공(최대 연 3.10%p)\n② 보너스 우대금리 : 누적하여 5/10/15/20/25/31회 입금 시 해당 우대금리 제공(최대 연 2.40%p)\n- 유의사항 : 만기 해지하는 경우에만 제공",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
+        "month_6": null,
+        "month_12": null,
+        "month_24": null,
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
+    }
+},
+{
+    "model": "products.product",
+    "pk": 103,
+    "fields": {
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0017801",
+        "fin_prdt_cd": "1001303001001",
+        "kor_co_nm": "토스뱅크 주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
+        "max_limit": "1000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "· 적금 가입 시 설정되는 주 단위 자동이체를 통하여 25회 이상 적립한 경우 : 연 2.00% 제공",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.0,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 59,
+    "model": "products.product",
+    "pk": 104,
     "fields": {
-        "product": 66,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0017801",
+        "fin_prdt_cd": "1001303001003",
+        "kor_co_nm": "토스뱅크 주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
+        "max_limit": "300000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "· 만기 해지 시 : 연 2.50% 제공",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.0,
         "month_12": null,
         "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 60,
+    "model": "products.product",
+    "pk": 105,
     "fields": {
-        "product": 67,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0017801",
+        "fin_prdt_cd": "1001303001004",
+        "kor_co_nm": "토스뱅크 주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "1",
+        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
+        "max_limit": "3000000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "· 적금 가입 시 설정되는 월 단위 자동이체를 모두 성공하는 경우 : 연 0.50% 제공",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": 2.0,
         "month_12": 3.0,
         "month_24": 3.0,
-        "month_36": 3.0
+        "month_36": 3.0,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
-    "model": "products.productoption",
-    "pk": 61,
+    "model": "products.product",
+    "pk": 106,
     "fields": {
-        "product": 68,
+        "type": 2,
+        "dcls_month": "202404",
+        "fin_co_no": "0017801",
+        "fin_prdt_cd": "1001303001005",
+        "kor_co_nm": "토스뱅크 주식회사",
+        "fin_prdt_nm": "",
+        "join_deny": "3",
+        "mtrt_int": "· 만기 후 1개월 이내 : 만기시점 기본금리 X 50% \n· 만기 후 1개월 초과 3개월 이내 : 만기시점 기본금리 X 20% \n· 만기 후 3개월 초과 : 연 0.10%",
+        "max_limit": "200000",
+        "join_way": "스마트폰",
+        "spcl_cnd": "· 적금 가입 시 설정되는 월 단위 자동이체를 모두 성공하는 경우 : 연 2.50% 제공",
+        "pnsn_kind_nm": null,
+        "btrm_prft_rate_1": null,
+        "btrm_prft_rate_2": null,
+        "btrm_prft_rate_3": null,
+        "prdt_type_nm": null,
+        "avg_prft_rate": null,
         "month_6": null,
         "month_12": 3.0,
         "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 62,
-    "fields": {
-        "product": 69,
-        "month_6": 3.5,
-        "month_12": 3.55,
-        "month_24": 3.0,
-        "month_36": 3.0
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 63,
-    "fields": {
-        "product": 70,
-        "month_6": 3.4,
-        "month_12": 3.4,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 64,
-    "fields": {
-        "product": 71,
-        "month_6": 2.46,
-        "month_12": 3.2,
-        "month_24": 3.22,
-        "month_36": 3.24
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 65,
-    "fields": {
-        "product": 72,
-        "month_6": 2.42,
-        "month_12": 3.16,
-        "month_24": 3.18,
-        "month_36": 3.2
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 66,
-    "fields": {
-        "product": 73,
-        "month_6": null,
-        "month_12": 3.35,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 67,
-    "fields": {
-        "product": 74,
-        "month_6": 3.25,
-        "month_12": 3.4,
-        "month_24": 3.2,
-        "month_36": 3.2
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 68,
-    "fields": {
-        "product": 75,
-        "month_6": 2.55,
-        "month_12": 2.75,
-        "month_24": 2.8,
-        "month_36": 2.8
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 69,
-    "fields": {
-        "product": 76,
-        "month_6": 3.0,
-        "month_12": 3.0,
-        "month_24": 2.25,
-        "month_36": 1.95
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 70,
-    "fields": {
-        "product": 77,
-        "month_6": null,
-        "month_12": 3.41,
-        "month_24": 3.41,
-        "month_36": 3.36
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 71,
-    "fields": {
-        "product": 78,
-        "month_6": 3.23,
-        "month_12": 3.31,
-        "month_24": 3.31,
-        "month_36": 3.26
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 72,
-    "fields": {
-        "product": 79,
-        "month_6": null,
-        "month_12": 3.21,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 73,
-    "fields": {
-        "product": 80,
-        "month_6": 3.45,
-        "month_12": 3.45,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 74,
-    "fields": {
-        "product": 81,
-        "month_6": 2.85,
-        "month_12": 3.05,
-        "month_24": 3.15,
-        "month_36": 3.25
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 75,
-    "fields": {
-        "product": 82,
-        "month_6": 3.0,
-        "month_12": 3.1,
-        "month_24": 3.0,
-        "month_36": 3.0
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 76,
-    "fields": {
-        "product": 83,
-        "month_6": 2.75,
-        "month_12": 2.95,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 77,
-    "fields": {
-        "product": 84,
-        "month_6": 3.55,
-        "month_12": 3.4,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 78,
-    "fields": {
-        "product": 85,
-        "month_6": null,
-        "month_12": 3.4,
-        "month_24": 3.4,
-        "month_36": 3.4
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 79,
-    "fields": {
-        "product": 86,
-        "month_6": 2.6,
-        "month_12": 2.95,
-        "month_24": 3.05,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 80,
-    "fields": {
-        "product": 87,
-        "month_6": 3.15,
-        "month_12": 3.4,
-        "month_24": 3.45,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 81,
-    "fields": {
-        "product": 88,
-        "month_6": 2.55,
-        "month_12": 2.55,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 82,
-    "fields": {
-        "product": 89,
-        "month_6": 2.55,
-        "month_12": 2.55,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 83,
-    "fields": {
-        "product": 90,
-        "month_6": null,
-        "month_12": 3.45,
-        "month_24": 3.5,
-        "month_36": 3.6
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 84,
-    "fields": {
-        "product": 91,
-        "month_6": 3.33,
-        "month_12": 3.35,
-        "month_24": 3.36,
-        "month_36": 3.33
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 85,
-    "fields": {
-        "product": 92,
-        "month_6": 3.4,
-        "month_12": 3.6,
-        "month_24": 3.35,
-        "month_36": 3.35
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 86,
-    "fields": {
-        "product": 93,
-        "month_6": 2.3,
-        "month_12": 2.6,
-        "month_24": 2.7,
-        "month_36": 2.8
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 87,
-    "fields": {
-        "product": 94,
-        "month_6": 2.75,
-        "month_12": 2.9,
-        "month_24": 2.95,
-        "month_36": 3.0
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 88,
-    "fields": {
-        "product": 95,
-        "month_6": 3.35,
-        "month_12": 3.5,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 89,
-    "fields": {
-        "product": 96,
-        "month_6": null,
-        "month_12": 3.1,
-        "month_24": 3.15,
-        "month_36": 3.4
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 90,
-    "fields": {
-        "product": 97,
-        "month_6": 3.45,
-        "month_12": 3.6,
-        "month_24": 3.23,
-        "month_36": 3.4
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 91,
-    "fields": {
-        "product": 98,
-        "month_6": null,
-        "month_12": 3.1,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 92,
-    "fields": {
-        "product": 99,
-        "month_6": 2.3,
-        "month_12": 2.6,
-        "month_24": 2.7,
-        "month_36": 2.8
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 93,
-    "fields": {
-        "product": 100,
-        "month_6": 3.55,
-        "month_12": 3.55,
-        "month_24": 3.2,
-        "month_36": 3.2
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 94,
-    "fields": {
-        "product": 101,
-        "month_6": null,
-        "month_12": 2.4,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 95,
-    "fields": {
-        "product": 102,
-        "month_6": 3.4,
-        "month_12": 3.4,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 96,
-    "fields": {
-        "product": 103,
-        "month_6": 3.65,
-        "month_12": 3.65,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 97,
-    "fields": {
-        "product": 104,
-        "month_6": null,
-        "month_12": 2.85,
-        "month_24": null,
-        "month_36": null
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 98,
-    "fields": {
-        "product": 105,
-        "month_6": 3.3,
-        "month_12": 3.3,
-        "month_24": 3.0,
-        "month_36": 3.0
-    }
-},
-{
-    "model": "products.productoption",
-    "pk": 99,
-    "fields": {
-        "product": 106,
-        "month_6": 3.0,
-        "month_12": null,
-        "month_24": null,
-        "month_36": null
+        "month_36": null,
+        "like_users": [],
+        "joined_users": []
     }
 },
 {
@@ -3680,539 +3121,503 @@
     "model": "auth.permission",
     "pk": 5,
     "fields": {
-        "name": "Can add product option",
+        "name": "Can add user",
         "content_type": 2,
-        "codename": "add_productoption"
+        "codename": "add_customuser"
     }
 },
 {
     "model": "auth.permission",
     "pk": 6,
     "fields": {
-        "name": "Can change product option",
+        "name": "Can change user",
         "content_type": 2,
-        "codename": "change_productoption"
+        "codename": "change_customuser"
     }
 },
 {
     "model": "auth.permission",
     "pk": 7,
     "fields": {
-        "name": "Can delete product option",
+        "name": "Can delete user",
         "content_type": 2,
-        "codename": "delete_productoption"
+        "codename": "delete_customuser"
     }
 },
 {
     "model": "auth.permission",
     "pk": 8,
     "fields": {
-        "name": "Can view product option",
+        "name": "Can view user",
         "content_type": 2,
-        "codename": "view_productoption"
+        "codename": "view_customuser"
     }
 },
 {
     "model": "auth.permission",
     "pk": 9,
     "fields": {
-        "name": "Can add user",
+        "name": "Can add Token",
         "content_type": 3,
-        "codename": "add_customuser"
+        "codename": "add_token"
     }
 },
 {
     "model": "auth.permission",
     "pk": 10,
     "fields": {
-        "name": "Can change user",
+        "name": "Can change Token",
         "content_type": 3,
-        "codename": "change_customuser"
+        "codename": "change_token"
     }
 },
 {
     "model": "auth.permission",
     "pk": 11,
     "fields": {
-        "name": "Can delete user",
+        "name": "Can delete Token",
         "content_type": 3,
-        "codename": "delete_customuser"
+        "codename": "delete_token"
     }
 },
 {
     "model": "auth.permission",
     "pk": 12,
     "fields": {
-        "name": "Can view user",
+        "name": "Can view Token",
         "content_type": 3,
-        "codename": "view_customuser"
+        "codename": "view_token"
     }
 },
 {
     "model": "auth.permission",
     "pk": 13,
     "fields": {
-        "name": "Can add Token",
+        "name": "Can add token",
         "content_type": 4,
-        "codename": "add_token"
+        "codename": "add_tokenproxy"
     }
 },
 {
     "model": "auth.permission",
     "pk": 14,
     "fields": {
-        "name": "Can change Token",
+        "name": "Can change token",
         "content_type": 4,
-        "codename": "change_token"
+        "codename": "change_tokenproxy"
     }
 },
 {
     "model": "auth.permission",
     "pk": 15,
     "fields": {
-        "name": "Can delete Token",
+        "name": "Can delete token",
         "content_type": 4,
-        "codename": "delete_token"
+        "codename": "delete_tokenproxy"
     }
 },
 {
     "model": "auth.permission",
     "pk": 16,
     "fields": {
-        "name": "Can view Token",
+        "name": "Can view token",
         "content_type": 4,
-        "codename": "view_token"
+        "codename": "view_tokenproxy"
     }
 },
 {
     "model": "auth.permission",
     "pk": 17,
     "fields": {
-        "name": "Can add token",
+        "name": "Can add site",
         "content_type": 5,
-        "codename": "add_tokenproxy"
+        "codename": "add_site"
     }
 },
 {
     "model": "auth.permission",
     "pk": 18,
     "fields": {
-        "name": "Can change token",
+        "name": "Can change site",
         "content_type": 5,
-        "codename": "change_tokenproxy"
+        "codename": "change_site"
     }
 },
 {
     "model": "auth.permission",
     "pk": 19,
     "fields": {
-        "name": "Can delete token",
+        "name": "Can delete site",
         "content_type": 5,
-        "codename": "delete_tokenproxy"
+        "codename": "delete_site"
     }
 },
 {
     "model": "auth.permission",
     "pk": 20,
     "fields": {
-        "name": "Can view token",
+        "name": "Can view site",
         "content_type": 5,
-        "codename": "view_tokenproxy"
+        "codename": "view_site"
     }
 },
 {
     "model": "auth.permission",
     "pk": 21,
     "fields": {
-        "name": "Can add site",
+        "name": "Can add email address",
         "content_type": 6,
-        "codename": "add_site"
+        "codename": "add_emailaddress"
     }
 },
 {
     "model": "auth.permission",
     "pk": 22,
     "fields": {
-        "name": "Can change site",
+        "name": "Can change email address",
         "content_type": 6,
-        "codename": "change_site"
+        "codename": "change_emailaddress"
     }
 },
 {
     "model": "auth.permission",
     "pk": 23,
     "fields": {
-        "name": "Can delete site",
+        "name": "Can delete email address",
         "content_type": 6,
-        "codename": "delete_site"
+        "codename": "delete_emailaddress"
     }
 },
 {
     "model": "auth.permission",
     "pk": 24,
     "fields": {
-        "name": "Can view site",
+        "name": "Can view email address",
         "content_type": 6,
-        "codename": "view_site"
+        "codename": "view_emailaddress"
     }
 },
 {
     "model": "auth.permission",
     "pk": 25,
     "fields": {
-        "name": "Can add email address",
+        "name": "Can add email confirmation",
         "content_type": 7,
-        "codename": "add_emailaddress"
+        "codename": "add_emailconfirmation"
     }
 },
 {
     "model": "auth.permission",
     "pk": 26,
     "fields": {
-        "name": "Can change email address",
+        "name": "Can change email confirmation",
         "content_type": 7,
-        "codename": "change_emailaddress"
+        "codename": "change_emailconfirmation"
     }
 },
 {
     "model": "auth.permission",
     "pk": 27,
     "fields": {
-        "name": "Can delete email address",
+        "name": "Can delete email confirmation",
         "content_type": 7,
-        "codename": "delete_emailaddress"
+        "codename": "delete_emailconfirmation"
     }
 },
 {
     "model": "auth.permission",
     "pk": 28,
     "fields": {
-        "name": "Can view email address",
+        "name": "Can view email confirmation",
         "content_type": 7,
-        "codename": "view_emailaddress"
+        "codename": "view_emailconfirmation"
     }
 },
 {
     "model": "auth.permission",
     "pk": 29,
     "fields": {
-        "name": "Can add email confirmation",
+        "name": "Can add social account",
         "content_type": 8,
-        "codename": "add_emailconfirmation"
+        "codename": "add_socialaccount"
     }
 },
 {
     "model": "auth.permission",
     "pk": 30,
     "fields": {
-        "name": "Can change email confirmation",
+        "name": "Can change social account",
         "content_type": 8,
-        "codename": "change_emailconfirmation"
+        "codename": "change_socialaccount"
     }
 },
 {
     "model": "auth.permission",
     "pk": 31,
     "fields": {
-        "name": "Can delete email confirmation",
+        "name": "Can delete social account",
         "content_type": 8,
-        "codename": "delete_emailconfirmation"
+        "codename": "delete_socialaccount"
     }
 },
 {
     "model": "auth.permission",
     "pk": 32,
     "fields": {
-        "name": "Can view email confirmation",
+        "name": "Can view social account",
         "content_type": 8,
-        "codename": "view_emailconfirmation"
+        "codename": "view_socialaccount"
     }
 },
 {
     "model": "auth.permission",
     "pk": 33,
     "fields": {
-        "name": "Can add social account",
+        "name": "Can add social application",
         "content_type": 9,
-        "codename": "add_socialaccount"
+        "codename": "add_socialapp"
     }
 },
 {
     "model": "auth.permission",
     "pk": 34,
     "fields": {
-        "name": "Can change social account",
+        "name": "Can change social application",
         "content_type": 9,
-        "codename": "change_socialaccount"
+        "codename": "change_socialapp"
     }
 },
 {
     "model": "auth.permission",
     "pk": 35,
     "fields": {
-        "name": "Can delete social account",
+        "name": "Can delete social application",
         "content_type": 9,
-        "codename": "delete_socialaccount"
+        "codename": "delete_socialapp"
     }
 },
 {
     "model": "auth.permission",
     "pk": 36,
     "fields": {
-        "name": "Can view social account",
+        "name": "Can view social application",
         "content_type": 9,
-        "codename": "view_socialaccount"
+        "codename": "view_socialapp"
     }
 },
 {
     "model": "auth.permission",
     "pk": 37,
     "fields": {
-        "name": "Can add social application",
+        "name": "Can add social application token",
         "content_type": 10,
-        "codename": "add_socialapp"
+        "codename": "add_socialtoken"
     }
 },
 {
     "model": "auth.permission",
     "pk": 38,
     "fields": {
-        "name": "Can change social application",
+        "name": "Can change social application token",
         "content_type": 10,
-        "codename": "change_socialapp"
+        "codename": "change_socialtoken"
     }
 },
 {
     "model": "auth.permission",
     "pk": 39,
     "fields": {
-        "name": "Can delete social application",
+        "name": "Can delete social application token",
         "content_type": 10,
-        "codename": "delete_socialapp"
+        "codename": "delete_socialtoken"
     }
 },
 {
     "model": "auth.permission",
     "pk": 40,
     "fields": {
-        "name": "Can view social application",
+        "name": "Can view social application token",
         "content_type": 10,
-        "codename": "view_socialapp"
+        "codename": "view_socialtoken"
     }
 },
 {
     "model": "auth.permission",
     "pk": 41,
     "fields": {
-        "name": "Can add social application token",
+        "name": "Can add log entry",
         "content_type": 11,
-        "codename": "add_socialtoken"
+        "codename": "add_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 42,
     "fields": {
-        "name": "Can change social application token",
+        "name": "Can change log entry",
         "content_type": 11,
-        "codename": "change_socialtoken"
+        "codename": "change_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 43,
     "fields": {
-        "name": "Can delete social application token",
+        "name": "Can delete log entry",
         "content_type": 11,
-        "codename": "delete_socialtoken"
+        "codename": "delete_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 44,
     "fields": {
-        "name": "Can view social application token",
+        "name": "Can view log entry",
         "content_type": 11,
-        "codename": "view_socialtoken"
+        "codename": "view_logentry"
     }
 },
 {
     "model": "auth.permission",
     "pk": 45,
     "fields": {
-        "name": "Can add log entry",
+        "name": "Can add permission",
         "content_type": 12,
-        "codename": "add_logentry"
+        "codename": "add_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 46,
     "fields": {
-        "name": "Can change log entry",
+        "name": "Can change permission",
         "content_type": 12,
-        "codename": "change_logentry"
+        "codename": "change_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 47,
     "fields": {
-        "name": "Can delete log entry",
+        "name": "Can delete permission",
         "content_type": 12,
-        "codename": "delete_logentry"
+        "codename": "delete_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 48,
     "fields": {
-        "name": "Can view log entry",
+        "name": "Can view permission",
         "content_type": 12,
-        "codename": "view_logentry"
+        "codename": "view_permission"
     }
 },
 {
     "model": "auth.permission",
     "pk": 49,
     "fields": {
-        "name": "Can add permission",
+        "name": "Can add group",
         "content_type": 13,
-        "codename": "add_permission"
+        "codename": "add_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 50,
     "fields": {
-        "name": "Can change permission",
+        "name": "Can change group",
         "content_type": 13,
-        "codename": "change_permission"
+        "codename": "change_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 51,
     "fields": {
-        "name": "Can delete permission",
+        "name": "Can delete group",
         "content_type": 13,
-        "codename": "delete_permission"
+        "codename": "delete_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 52,
     "fields": {
-        "name": "Can view permission",
+        "name": "Can view group",
         "content_type": 13,
-        "codename": "view_permission"
+        "codename": "view_group"
     }
 },
 {
     "model": "auth.permission",
     "pk": 53,
     "fields": {
-        "name": "Can add group",
+        "name": "Can add content type",
         "content_type": 14,
-        "codename": "add_group"
+        "codename": "add_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 54,
     "fields": {
-        "name": "Can change group",
+        "name": "Can change content type",
         "content_type": 14,
-        "codename": "change_group"
+        "codename": "change_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 55,
     "fields": {
-        "name": "Can delete group",
+        "name": "Can delete content type",
         "content_type": 14,
-        "codename": "delete_group"
+        "codename": "delete_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 56,
     "fields": {
-        "name": "Can view group",
+        "name": "Can view content type",
         "content_type": 14,
-        "codename": "view_group"
+        "codename": "view_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 57,
     "fields": {
-        "name": "Can add content type",
+        "name": "Can add session",
         "content_type": 15,
-        "codename": "add_contenttype"
+        "codename": "add_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 58,
     "fields": {
-        "name": "Can change content type",
+        "name": "Can change session",
         "content_type": 15,
-        "codename": "change_contenttype"
+        "codename": "change_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 59,
     "fields": {
-        "name": "Can delete content type",
+        "name": "Can delete session",
         "content_type": 15,
-        "codename": "delete_contenttype"
+        "codename": "delete_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 60,
     "fields": {
-        "name": "Can view content type",
-        "content_type": 15,
-        "codename": "view_contenttype"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 61,
-    "fields": {
-        "name": "Can add session",
-        "content_type": 16,
-        "codename": "add_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 62,
-    "fields": {
-        "name": "Can change session",
-        "content_type": 16,
-        "codename": "change_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 63,
-    "fields": {
-        "name": "Can delete session",
-        "content_type": 16,
-        "codename": "delete_session"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 64,
-    "fields": {
         "name": "Can view session",
-        "content_type": 16,
+        "content_type": 15,
         "codename": "view_session"
     }
 },
@@ -4228,21 +3633,13 @@
     "model": "contenttypes.contenttype",
     "pk": 2,
     "fields": {
-        "app_label": "products",
-        "model": "productoption"
-    }
-},
-{
-    "model": "contenttypes.contenttype",
-    "pk": 3,
-    "fields": {
         "app_label": "accounts",
         "model": "customuser"
     }
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 4,
+    "pk": 3,
     "fields": {
         "app_label": "authtoken",
         "model": "token"
@@ -4250,7 +3647,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 5,
+    "pk": 4,
     "fields": {
         "app_label": "authtoken",
         "model": "tokenproxy"
@@ -4258,7 +3655,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 6,
+    "pk": 5,
     "fields": {
         "app_label": "sites",
         "model": "site"
@@ -4266,7 +3663,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 7,
+    "pk": 6,
     "fields": {
         "app_label": "account",
         "model": "emailaddress"
@@ -4274,7 +3671,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 8,
+    "pk": 7,
     "fields": {
         "app_label": "account",
         "model": "emailconfirmation"
@@ -4282,7 +3679,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 9,
+    "pk": 8,
     "fields": {
         "app_label": "socialaccount",
         "model": "socialaccount"
@@ -4290,7 +3687,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 10,
+    "pk": 9,
     "fields": {
         "app_label": "socialaccount",
         "model": "socialapp"
@@ -4298,7 +3695,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 11,
+    "pk": 10,
     "fields": {
         "app_label": "socialaccount",
         "model": "socialtoken"
@@ -4306,7 +3703,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 12,
+    "pk": 11,
     "fields": {
         "app_label": "admin",
         "model": "logentry"
@@ -4314,7 +3711,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 13,
+    "pk": 12,
     "fields": {
         "app_label": "auth",
         "model": "permission"
@@ -4322,7 +3719,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 14,
+    "pk": 13,
     "fields": {
         "app_label": "auth",
         "model": "group"
@@ -4330,7 +3727,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 15,
+    "pk": 14,
     "fields": {
         "app_label": "contenttypes",
         "model": "contenttype"
@@ -4338,7 +3735,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 16,
+    "pk": 15,
     "fields": {
         "app_label": "sessions",
         "model": "session"
