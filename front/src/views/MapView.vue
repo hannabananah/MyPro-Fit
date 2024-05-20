@@ -1,19 +1,18 @@
 <template>
-  <div class="py-12">
+  <div class="py-12 h-screen">
     <div
       style="
         border-radius: 60px;
         overflow: hidden;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
       "
-      class="container mx-auto w-4/5 flex flex-col"
+      class="container mx-auto w-4/5 flex flex-col pb-6"
     >
       <img style="width: 100%" src="@/assets/images/map.svg" alt="" />
-      <div></div>
-      <div class="flex flex-row mb-4">
+      <div class="flex flex-row mb-4 h-[600px]">
         <div
           id="map-container"
-          style="width: 70%; height: 600px"
+          style="width: 70%; height: 100%"
           class="flex flex-col items-center"
         >
           <form
@@ -25,8 +24,8 @@
             >
               <input
                 type="text"
-                class="bg-transparent w-5/6 ml-5"
-                placeholder="(예시) 역삼역"
+                class="bg-transparent w-5/6 ml-5 focus:outline-none"
+                placeholder="(예시) 역삼역 OO은행"
                 v-model="keyWord"
               />
               <button>
@@ -39,9 +38,9 @@
           </form>
           <div ref="mapContainer" style="width: 100%; height: 100%"></div>
         </div>
-        <div id="bank-list" class="mt-6 ml-3">
+        <div id="bank-list" class="h-[510px] mt-6 ml-3 w-1/3">
           <p class="text-xl text-gray-900 my-5">목록 보기</p>
-          <div id="menu_wrap">
+          <div id="menu_wrap" class="h-full overflow-auto">
             <ul class="" id="placesList"></ul>
             <div class="hidden" id="pagination"></div>
           </div>
@@ -178,7 +177,7 @@ function getListItem(index, places) {
       '<span class="markerbg marker_' +
       (index + 1) +
       '"></span>' +
-      '<div class="info bg-slate-50 mb-3 p-2">' +
+      '<div class="info bg-slate-50 mb-3 p-2 mr-3">' +
       '   <h5 class="text-gray-900 text-sm">' +
       places.place_name +
       '</h5>';
