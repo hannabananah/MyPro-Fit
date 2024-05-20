@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>예적금 금리 비교</p>
+    <h1>연금리스트</h1>
   </div>
 </template>
 

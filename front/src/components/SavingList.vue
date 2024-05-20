@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <p>예적금 금리 비교</p>
-  </div>
+  <div><h1>적금 리스트</h1></div>
 </template>
 
 <script setup></script>
