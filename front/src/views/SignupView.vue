@@ -136,9 +136,6 @@
               {{ store.errorFields.username }}
             </p>
           </div>
-          <p class="text-xs underline text-sky-700 text-end">
-            비밀번호를 잊어버리셨습니까?
-          </p>
         </div>
         <div class="flex flex-col gap-2">
           <input type="submit" class="btn-active" value="Sign up" />

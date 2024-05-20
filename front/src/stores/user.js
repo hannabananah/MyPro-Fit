@@ -141,7 +141,7 @@ export const useUserStore = defineStore(
     const logOut = function () {
       token.value = null;
       username.value = null;
-      router.push({ name: 'home' });
+      router.push({ name: 'login' });
     };
 
     const deleteAccount = function () {
@@ -172,6 +172,7 @@ export const useUserStore = defineStore(
       isLogin,
       username,
       deleteAccount,
+      API_URL,
     };
   },
   { persist: true },
