@@ -5,6 +5,7 @@ from rest_framework import status
 from django.conf import settings
 import requests, json
 from .models import Product
+from .serializers import ProductListSerializer, PrdtListSerializer
 
 # Create your views here.
 PRODUCT_KEY = settings.PRODUCT_KEY
@@ -156,5 +157,9 @@ def fetch_annuity(request):
     # 모든 시도에서 데이터를 찾지 못한 경우
     return Response({"error": "데이터를 찾지 못 했습니다."}, status=404)
 
+@api_view(['GET'])
 def product_list(request):
-    pass
+    products = Product.objects.all()
+        # JSON 으로 포장 -> return
+    serializer = ProductListSerializer(products, many=True)
+    return Response(serializer.data)
