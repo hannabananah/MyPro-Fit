@@ -4,6 +4,7 @@ import LoginView from '@/views/LoginView.vue';
 import SignupView from '@/views/SignupView.vue';
 import ExchangeView from '@/views/ExchangeView.vue';
 import MapView from '@/views/MapView.vue';
+import ProfileView from '@/views/ProfileView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/around-bank',
       name: 'map',
       component: MapView,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: ProfileView,
     },
   ],
 });
