@@ -17,6 +17,7 @@ environ.Env.read_env(
 #     'django-insecure-9=ddj!=3xc#7o82t0c9a-f8lpaoxlv&84f=35t*n%hn=!vefw6'
 # )
 SECRET_KEY = env('SECRET_KEY')
+PRODUCT_KEY = env('PRODUCT_KEY')
 DEBUG = env('DEBUG')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -27,6 +28,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'products',
     'exchange_rates',
     'articles',
     'accounts',
