@@ -37,15 +37,15 @@
             />
             <input
               type="text"
-              v-model.trim="email"
+              v-model.trim="username"
               placeholder="이메일 형식의 아이디를 입력해주세요."
               class="text-input"
             />
             <p
               class="pt-[1.5px] pl-2 text-xs text-red-500"
-              v-if="store.shouldShowError('email')"
+              v-if="store.shouldShowError('username')"
             >
-              {{ store.errorFields.email }}
+              {{ store.errorFields.username }}
             </p>
           </div>
           <div class="relative h-14">
@@ -124,16 +124,16 @@
             />
             <input
               type="text"
-              v-model.trim="username"
+              v-model.trim="nickname"
               placeholder="닉네임을 입력해주세요."
               maxLength="20"
               class="text-input"
             />
             <p
               class="pt-[1.5px] pl-2 text-xs text-red-500"
-              v-if="store.shouldShowError('username')"
+              v-if="store.shouldShowError('nickname')"
             >
-              {{ store.errorFields.username }}
+              {{ store.errorFields.nickname }}
             </p>
           </div>
         </div>
@@ -180,10 +180,10 @@ import Eye from 'vue-material-design-icons/EyeOutline.vue';
 import EyeOff from 'vue-material-design-icons/EyeOffOutline.vue';
 import Account from 'vue-material-design-icons/AccountOutline.vue';
 
-const email = ref(null);
 const username = ref(null);
 const password1 = ref(null);
 const password2 = ref(null);
+const nickname = ref(null);
 const password1Visible = ref(false);
 const password2Visible = ref(false);
 const isLg = ref(window.innerWidth >= 1024);
@@ -206,10 +206,10 @@ onUnmounted(() => {
 
 const signUp = () => {
   const payload = {
-    email: email.value,
     username: username.value,
     password1: password1.value,
     password2: password2.value,
+    nickname: nickname.value,
   };
   store.signUp(payload);
 };

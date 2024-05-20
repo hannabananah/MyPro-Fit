@@ -33,16 +33,16 @@
             />
             <input
               type="text"
-              v-model.trim="email"
+              v-model.trim="username"
               placeholder="이메일 형식의 아이디를 입력해주세요."
               class="text-input"
             />
             <div class="h-4">
               <p
                 class="pt-[1.5px] pl-2 text-xs text-red-500"
-                v-if="store.shouldShowError('email')"
+                v-if="store.shouldShowError('username')"
               >
-                {{ store.errorFields.email }}
+                {{ store.errorFields.username }}
               </p>
             </div>
           </div>
@@ -153,7 +153,7 @@ import EyeOff from 'vue-material-design-icons/EyeOffOutline.vue';
 import axios from 'axios';
 import CustomModal from '@/components/Modal.vue';
 
-const email = ref(null);
+const username = ref(null);
 const password = ref(null);
 const passwordVisible = ref(false);
 const isLg = ref(window.innerWidth >= 1024);
@@ -177,7 +177,7 @@ onUnmounted(() => {
 
 const logIn = () => {
   const payload = {
-    email: email.value,
+    username: username.value,
     password: password.value,
   };
   store.logIn(payload);
@@ -190,7 +190,7 @@ const resetPwd = () => {
     method: 'post',
     url: `${store.API_URL}/accounts/password/reset/`,
     data: {
-      email: pwdEmail.value,
+      username: pwdEmail.value,
     },
   })
     .then(response => {

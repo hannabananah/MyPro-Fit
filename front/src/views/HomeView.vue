@@ -5,6 +5,10 @@
     >
     <button v-if="isLogin" @click="logOut">Log out</button>
     <h1 class="text-blue-600">Main</h1>
+    <p>
+      <strong>{{ nickname }}</strong
+      >님 안녕하세요!
+    </p>
     <button v-if="isLogin" @click="openModal">회원탈퇴</button>
   </div>
   <CustomModal
@@ -24,10 +28,11 @@ import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
 import { useExchangeStore } from '@/stores/exchange';
 import CustomModal from '@/components/Modal.vue';
+import { onMounted } from 'vue';
 
 const userStore = useUserStore();
 const isLogin = userStore.isLogin;
-
+const nickname = userStore.nickname;
 const isModalOpen = ref(false);
 
 const logOut = () => {
@@ -53,4 +58,11 @@ const handleCancel = () => {
 
 const store = useExchangeStore();
 store.fetchExchangeRate();
+
+onMounted(() => {
+  if (isLogin) {
+    console.log(userStore.getUserInfo());
+    userStore.getUserInfo();
+  }
+});
 </script>
