@@ -10,7 +10,7 @@ export const useProductStore = defineStore(
     const annuities = ref();
     const fetchDeposit = function () {
       axios({
-        url: 'http://127.0.0.1:8000/products/depo/',
+        url: 'http://127.0.0.1:8000/products/deposit-list/',
         method: 'get',
       })
         .then(res => {
@@ -20,7 +20,39 @@ export const useProductStore = defineStore(
           console.log(err);
         });
     };
-    return {};
+    const fetchSaving = function () {
+      axios({
+        url: 'http://127.0.0.1:8000/products/saving-list/',
+        method: 'get',
+      })
+        .then(res => {
+          savings.value = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+
+    const fetchAnnuity = function () {
+      axios({
+        url: 'http://127.0.0.1:8000/products/annuity-list/',
+        method: 'get',
+      })
+        .then(res => {
+          annuities.value = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    return {
+      deposits,
+      savings,
+      annuities,
+      fetchDeposit,
+      fetchAnnuity,
+      fetchSaving,
+    };
   },
   { persist: true },
 );
