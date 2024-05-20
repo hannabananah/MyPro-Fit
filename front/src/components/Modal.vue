@@ -22,14 +22,13 @@
       }}</v-button>
     </div>
     <button class="absolute top-0 right-0 mt-3 mr-3" @click="close">
-      <mdi-close><Close /></mdi-close>
+      <span class="text-lg cursor-pointer">&times;</span>
     </button>
   </vue-final-modal>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
-import Close from 'vue-material-design-icons/WindowClose.vue';
 
 const props = defineProps({
   modalTitle: String,
@@ -37,9 +36,9 @@ const props = defineProps({
   cancelText: String,
 });
 
-const CustomModal = {
-  name: 'CustomModal',
-  inheritAttrs: false,
-  emits: ['cancel', 'confirm'],
-};
+// const CustomModal = {
+//   name: 'CustomModal',
+//   inheritAttrs: false,
+//   emits: ['cancel', 'confirm'],
+// };
 </script>
