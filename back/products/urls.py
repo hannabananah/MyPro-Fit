@@ -6,5 +6,7 @@ urlpatterns = [
     path('api/v1/deposit/', views.fetch_deposit),
     path('api/v1/saving/', views.fetch_saving),
     path('api/v1/annuity/', views.fetch_annuity),
-    path('list/', views.product_list)
+    path('deposit-list/', views.deposit_list),
+    path('saving-list/', views.saving_list),
+    path('annuity-list/', views.annuity_list),
 ]
