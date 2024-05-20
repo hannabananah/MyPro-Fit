@@ -13,7 +13,7 @@
       <div class="flex flex-row mb-4">
         <div
           id="map-container"
-          style="width: 50%; height: 400px"
+          style="width: 70%; height: 600px"
           class="flex flex-col items-center"
         >
           <form
@@ -26,7 +26,7 @@
               <input
                 type="text"
                 class="bg-transparent w-5/6 ml-5"
-                placeholder="은행 찾기 : 지역명을 입력하세요."
+                placeholder="(예시) 역삼역"
                 v-model="keyWord"
               />
               <button>
@@ -37,13 +37,13 @@
               </button>
             </div>
           </form>
-          <div ref="mapContainer" style="width: 100%; height: 80%"></div>
+          <div ref="mapContainer" style="width: 100%; height: 100%"></div>
         </div>
-        <div id="bank-list" class="mt-6 ml-5">
-          <p class="text-xl text-gray-900">목록 보기</p>
+        <div id="bank-list" class="mt-6 ml-3">
+          <p class="text-xl text-gray-900 my-5">목록 보기</p>
           <div id="menu_wrap">
             <ul class="" id="placesList"></ul>
-            <div id="pagination"></div>
+            <div class="hidden" id="pagination"></div>
           </div>
         </div>
       </div>
@@ -88,12 +88,13 @@ const loadMap = container => {
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
   if (!keyWord.value.replace(/^\s+|\s+$/g, '')) {
-    alert('키워드를 입력해주세요!');
+    alert('키워드를 입력해주세요.');
     return false;
   }
 
   // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
   ps.keywordSearch(keyWord.value + '은행', placesSearchCB);
+  keyWord.value = '';
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -177,24 +178,32 @@ function getListItem(index, places) {
       '<span class="markerbg marker_' +
       (index + 1) +
       '"></span>' +
-      '<div class="info">' +
-      '   <h5>' +
+      '<div class="info bg-slate-50 mb-3 p-2">' +
+      '   <h5 class="text-gray-900 text-sm">' +
       places.place_name +
       '</h5>';
 
   if (places.road_address_name) {
     itemStr +=
-      '    <span>' +
+      '    <span class="text-gray-500 text-xs">' +
       places.road_address_name +
-      '</span>' +
-      '   <span class="jibun gray">' +
+      '</span>';
+    // +
+    // '   <p class="text-gray-500">' +
+    // places.address_name +
+    // '</p>';
+  } else {
+    itemStr +=
+      '    <span class="text-gray-500 text-xs">' +
       places.address_name +
       '</span>';
-  } else {
-    itemStr += '    <span>' + places.address_name + '</span>';
   }
 
-  itemStr += '  <span class="tel">' + places.phone + '</span>' + '</div>';
+  itemStr +=
+    '  <span class="tel text-sky-700 text-xs">' +
+    places.phone +
+    '</span>' +
+    '</div>';
 
   el.innerHTML = itemStr;
   el.className = 'item';
