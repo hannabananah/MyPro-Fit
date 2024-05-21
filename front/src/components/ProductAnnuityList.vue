@@ -153,10 +153,11 @@ const sortedAnnuities = computed(() => {
 // 클릭 시 디테일 페이지로 이동
 const goDetail = function (event) {
   // data-deposit 속성을 읽어옴
-  const depositId = event.target.dataset.annuity;
+  const annuityId = event.currentTarget.dataset.annuity;
+  console.log(event.currentTarget.dataset);
   router.push({
     name: 'product-detail',
-    params: { type: 'annuity', code: `${depositId}` },
+    params: { type: 'annuity', code: `${annuityId}` },
   });
   //
 };
