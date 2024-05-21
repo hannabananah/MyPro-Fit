@@ -207,28 +207,32 @@ const convertToForeign = function () {
   }
 };
 
-watch([foreignAmount, thisCountryRate], () => {
+// 외화가 바뀌었을 때 동작 -> 한화 변경
+watch([foreignAmount, thisCountryRate, isKwrToFor], () => {
+  if (isKwrToFor.value === false){
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
     if (!isNaN(parseNumberWithCommas(foreignAmount.value)) && !isNaN(exchangeRate)) {
       krwAmount.value = formatNumberWithCommas(
-        (parseNumberWithCommas(foreignAmount.value) * exchangeRate).toFixed(2)
+        (parseNumberWithCommas(inputForeignAmount.value) / exchangeRate).toFixed(2)
       );
     }
-  }
+  }}
 });
 
-watch([krwAmount, thisCountryRate], () => {
+// 한화가 바뀌었을 때 동작 -> 외화 변경
+watch([krwAmount, thisCountryRate, isKwrToFor], () => {
+  if (isKwrToFor.value === true) {
   const exchangeRateString = thisCountryRate.value.today;
   if (exchangeRateString) {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
     if (!isNaN(parseNumberWithCommas(krwAmount.value)) && !isNaN(exchangeRate)) {
       foreignAmount.value = formatNumberWithCommas(
-        (parseNumberWithCommas(krwAmount.value) / exchangeRate).toFixed(2)
+        (parseNumberWithCommas(inputKrwAmount.value) * exchangeRate).toFixed(2)
       );
     }
-  }
+  }}
 });
 
 const inputForeignToKwr = function () {
@@ -242,10 +246,13 @@ const inputKwrToForeign = function () {
 };
 
 watch(selectedCur, newVal => {
-  const thisCountry = store.today.find(obj => obj.cur_unit === newVal);
+  const thisCountry = store.today.find(obj => obj.cur_unit == newVal);
   if (thisCountry) {
+    console.log(thisCountry.cur_nm.split(' ').length) 
+    if (thisCountry.cur_nm.split(' ').length > 1) {
     const parts = thisCountry.cur_nm.split(' ');
     selectedCurName.value = parts.slice(1).join(' ');
+  } else {selectedCurName.value = thisCountry.cur_nm;}
   } else {
     selectedCurName.value = 'Unknown Currency';
   }

@@ -14,7 +14,7 @@ export const useExchangeStore = defineStore(
       })
         .then(res => {
           // console.log(res.data);
-          today.value = res.data;
+          today.value = res.data.filter(item => item.cur_unit !== 'KRW');
         })
         .catch(err => {
           console.log(err);
