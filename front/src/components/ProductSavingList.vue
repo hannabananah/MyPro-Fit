@@ -1,40 +1,81 @@
 <template>
-  <div>
-    <h1>적금 리스트</h1>
-    <form id="select-bank">
-      <select name="bank" id="bank" v-model="selectedBank">
-        <option value="all">전체 목록</option>
-        <option v-for="bank in banks" :value="bank">
-          {{ bank }}
-        </option>
-      </select>
-    </form>
-    <form id="select-duration">
-      <select name="duration" id="duration" v-model="selectedDuration">
-        <option value="all">전체 기간</option>
-        <option v-for="duration in durations" :value="duration">
-          {{ duration }}
-        </option>
-      </select>
-    </form>
-    <div>
-      <div @click="onClick">
-        <span>공시기준월 </span> <span>금융 회사명</span> <span>상품명</span>
-        <button value="month_6">6개월</button>
-        <button value="month_12">12개월</button>
-        <button value="month_24">24개월</button>
-        <button value="month_36">36개월</button>
-      </div>
-      <div>
-        <p
+  <div class="flex flex-col">
+    <h1 class="text-xl font-bold">정기 적금</h1>
+    <div class="ml-auto">
+      <form class="inline-block mr-3" id="select-bank">
+        <select
+          class="btn-inactive bg-white px-2 hover:bg-white text-start"
+          name="bank"
+          id="bank"
+          v-model="selectedBank"
+        >
+          <option value="all">전체 목록</option>
+          <option v-for="bank in banks" :value="bank">
+            {{ bank }}
+          </option>
+        </select>
+      </form>
+      <form class="inline-block" id="select-duration">
+        <select
+          class="btn-inactive bg-white py-0 px-2 hover:bg-white text-start"
+          name="duration"
+          id="duration"
+          v-model="selectedDuration"
+        >
+          <option value="all">전체 기간</option>
+          <option v-for="duration in durations" :value="duration">
+            {{ duration }}
+          </option>
+        </select>
+      </form>
+    </div>
+    <hr class="mt-4" />
+    <div class="h-[600px] overflow-y-auto pb-6">
+      <table class="border border-slate-400 w-full">
+        <tr @click="onClick">
+          <th class="border border-slate-300 w-[10%]">공시기준월</th>
+          <th class="border border-slate-300 w-[10%]">금융 회사명</th>
+          <th class="border border-slate-300 w-[30%]">상품명</th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_6">6개월</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_12">12개월</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_24">24개월</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_36">36개월</button>
+          </th>
+        </tr>
+
+        <tr
+          class="w-full"
           @click="goDetail"
           v-for="saving in sortedSavings"
           :key="saving.fin_prdt_cd"
           :data-saving="saving.fin_prdt_cd"
         >
-          {{ saving }}
-        </p>
-      </div>
+          <td class="border border-slate-300 p-2">
+            {{ saving.dcls_month }}
+          </td>
+          <td class="border border-slate-300 p-2">{{ saving.kor_co_nm }}</td>
+          <td class="border border-slate-300 p-2">{{ saving.fin_prdt_nm }}</td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_6 !== null ? saving.month_6 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_12 !== null ? saving.month_12 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_24 !== null ? saving.month_24 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_36 !== null ? saving.month_36 : '-' }}
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
@@ -133,7 +174,7 @@ const sortedSavings = computed(() => {
 // 클릭 시 디테일 페이지로 이동
 const goDetail = function (event) {
   // data-deposit 속성을 읽어옴
-  const savingId = event.target.dataset.saving;
+  const savingId = event.currentTarget.dataset.saving;
   router.push({
     name: 'product-detail',
     params: { type: 'saving', code: `${savingId}` },
