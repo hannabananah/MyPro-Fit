@@ -49,7 +49,7 @@
             role="tabpanel"
           >
             <div>
-              <h2 class="mb-2 text-lg font-bold text-gray-900">프로필</h2>
+              <h2 class="mb-2 text-2xl font-bold text-gray-900">프로필</h2>
               <small
                 class="font-light leading-relaxed tracking-wide text-gray-900"
               >
@@ -61,7 +61,7 @@
               class="flex flex-col h-full gap-y-4"
               @submit.prevent="handleSubmit"
             >
-              <label for="username">아이디</label>
+              <label class="font-bold" for="username">아이디</label>
               <div class="relative h-14">
                 <Email
                   class="absolute top-1 left-3"
@@ -77,7 +77,7 @@
                 />
               </div>
 
-              <label for="nickname">닉네임</label>
+              <label class="font-bold" for="nickname">닉네임</label>
 
               <div class="relative h-14">
                 <Account
@@ -101,7 +101,7 @@
             role="tabpanel"
           >
             <div>
-              <h2 class="mb-2 text-lg font-bold text-gray-900">추가 정보</h2>
+              <h2 class="mb-2 text-2xl font-bold text-gray-900">추가 정보</h2>
               <p
                 class="text-sm font-light leading-relaxed tracking-wide text-gray-900"
               >
@@ -118,7 +118,7 @@
               class="flex flex-col h-full gap-y-4"
               @submit.prevent="handleSubmit"
             >
-              <label for="gender">성별</label>
+              <label class="font-bold" for="gender">성별</label>
               <div class="flex space-x-4">
                 <label
                   v-for="(option, index) in genderOptions"
@@ -151,18 +151,32 @@
                 </label>
               </div>
 
-              <label for="age">나이</label>
+              <label class="font-bold" for="age">나이</label>
 
-              <div class="relative h-14">
+              <div class="relative">
                 <input
                   type="number"
                   id="age"
-                  class="w-20 px-6 -mt-2 text-right text-input box-sizing"
+                  class="w-20 px-6 -mt-[6px] text-right text-input box-sizing"
                   v-model="userStore.age"
                   value="userStore.age"
                 />
-                <span class="absolute text-sm left-14 top-1">세</span>
+                <span class="absolute text-sm left-[55px] top-1">세</span>
               </div>
+
+              <label class="font-bold" for="asset">보유 자산</label>
+
+              <div class="relative">
+                <input
+                  type="text"
+                  id="asset"
+                  class="w-40 pl-3 pr-10 -mt-[6px] text-right text-input box-sizing"
+                  v-model="formattedAsset"
+                  @input="handleAssetInput"
+                />
+                <span class="absolute text-sm left-[130px] top-1">원</span>
+              </div>
+
               <div class="flex flex-col w-4/5">
                 <div
                   class="flex justify-between w-full mt-4"
@@ -178,9 +192,15 @@
                   />
                   <label
                     :for="option.id"
-                    class="flex items-center justify-between w-full font-bold cursor-pointer"
+                    class="flex items-center justify-between w-full h-12 font-bold cursor-pointer"
                   >
-                    <span>{{ option.label }}</span>
+                    <p>
+                      {{ option.label }}<br /><span
+                        class="text-[0.8rem] text-gray-600 font-light"
+                        v-if="option.subLabel"
+                        >{{ option.subLabel }}</span
+                      >
+                    </p>
                     <div class="w-6 h-6 mr-2">
                       <CheckboxBlank
                         v-if="!userStore[option.model]"
@@ -194,7 +214,7 @@
             </form>
           </div>
         </div>
-        <div class="flex w-1/2 md:w-full">
+        <div class="flex w-1/2 mt-14 md:w-full md:mt-0">
           <button
             v-if="activeTab === 'profile'"
             class="btn-active"
@@ -217,7 +237,7 @@
     v-model="isModalOpen"
     @confirm="handleConfirm"
     @cancel="handleCancel"
-    :modalTitle="'계정 정보를 수정하시겠습니까?'"
+    :modalTitle="'계정 정보를 등록 또는 수정하시겠습니까?'"
     :confirmText="'확인'"
     :cancelText="'취소'"
     >확인을 누르면 계정에 대한 정보가 변경됩니다.</CustomModal
@@ -225,7 +245,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, computed } from 'vue';
 import Profile from 'vue-material-design-icons/AccountCog.vue';
 import Wallet from 'vue-material-design-icons/WalletPlus.vue';
 import Email from 'vue-material-design-icons/EmailOutline.vue';
@@ -237,6 +257,11 @@ import Checkbox from 'vue-material-design-icons/CheckboxOutline.vue';
 import axios from 'axios';
 import CustomModal from '@/components/Modal.vue';
 import { useUserStore } from '@/stores/user';
+import {
+  formatNumberWithCommas,
+  parseNumberWithCommas,
+} from '@/utils/formatNumber';
+
 const userStore = useUserStore();
 const activeTab = ref('profile');
 const isModalOpen = ref(false);
@@ -345,6 +370,7 @@ const updateMoreInfo = () => {
     data: {
       gender: userStore.mapping,
       age: userStore.age,
+      asset: parseNumberWithCommas(userStore.asset),
       is_pension: userStore.is_pension,
       is_internet: userStore.is_internet,
       is_BLSR: userStore.is_BLSR,
@@ -369,5 +395,20 @@ const handleConfirm = () => {
 
 const handleCancel = () => {
   isModalOpen.value = false;
+};
+
+const formattedAsset = computed({
+  get() {
+    return formatNumberWithCommas(userStore.asset);
+  },
+  set(value) {
+    userStore.asset = parseNumberWithCommas(value);
+  },
+});
+
+const handleAssetInput = event => {
+  const value = event.target.value;
+  userStore.asset = parseNumberWithCommas(value);
+  event.target.value = formatNumberWithCommas(userStore.asset);
 };
 </script>

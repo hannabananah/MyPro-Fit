@@ -11,9 +11,10 @@ class User(AbstractUser):
     username = models.EmailField(unique=True, null=False, blank=False)
     nickname = models.CharField(max_length=50,default='unknown')
     age=models.IntegerField(null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
+    asset=models.IntegerField(null=True)
     is_pension=models.BooleanField(null=True)
     is_internet=models.BooleanField(null=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
     is_BLSR=models.BooleanField(null=True)
     is_free=models.BooleanField(null=True)
     email = models.EmailField(unique=True, null=True, blank=True)
@@ -26,9 +27,10 @@ class CustomAccountAdapter(DefaultAccountAdapter):
         username = data.get("username")
         nickname = data.get("nickname")
         age = data.get("age")
+        gender= data.get("gender")
+        asset=data.get("asset")
         is_pension = data.get("is_pension")
         is_internet = data.get("is_internet")
-        gender= data.get("gender")
         is_BLSR = data.get("is_BLSR")
         is_free = data.get("is_free")
         user_username(user, username)
@@ -44,12 +46,14 @@ class CustomAccountAdapter(DefaultAccountAdapter):
             user.set_unusable_password()
         if age:
             user_field(user, "age", age)
+        if gender:
+            user_field(user,"gender",gender)
+        if asset:
+            user_field(user,"asset",asset)
         if is_pension:
             user_field(user, "is_pension", is_pension)
         if is_internet:
             user_field(user, "is_internet", is_internet)
-        if gender:
-            user_field(user,"gender",gender)
         if is_BLSR:
             user_field(user,"is_BLSR",is_BLSR)
         if is_free:
