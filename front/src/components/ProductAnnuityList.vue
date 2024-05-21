@@ -42,6 +42,7 @@
           v-for="annuity in sortedAnnuities"
           :key="annuity.fin_prdt_cd"
           :data-annuity="annuity.fin_prdt_cd"
+          class="w-full hover:cursor-pointer"
         >
           <td class="border border-slate-300 p-2">
             {{ annuity.dcls_month }}

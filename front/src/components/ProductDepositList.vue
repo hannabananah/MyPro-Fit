@@ -50,7 +50,7 @@
           </th>
         </tr>
         <tr
-          class="w-full"
+          class="w-full hover:cursor-pointer"
           @click="goDetail"
           v-for="deposit in sortedDeposits"
           :key="deposit.fin_prdt_cd"

@@ -51,7 +51,7 @@
         </tr>
 
         <tr
-          class="w-full"
+          class="w-full hover:cursor-pointer"
           @click="goDetail"
           v-for="saving in sortedSavings"
           :key="saving.fin_prdt_cd"
