@@ -215,7 +215,7 @@ watch([foreignAmount, thisCountryRate, isKwrToFor], () => {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
     if (!isNaN(parseNumberWithCommas(foreignAmount.value)) && !isNaN(exchangeRate)) {
       krwAmount.value = formatNumberWithCommas(
-        (parseNumberWithCommas(inputForeignAmount.value) / exchangeRate).toFixed(2)
+        (parseNumberWithCommas(inputForeignAmount.value) * exchangeRate).toFixed(2)
       );
     }
   }}
@@ -229,7 +229,7 @@ watch([krwAmount, thisCountryRate, isKwrToFor], () => {
     const exchangeRate = parseFloat(exchangeRateString.replace(/,/g, ''));
     if (!isNaN(parseNumberWithCommas(krwAmount.value)) && !isNaN(exchangeRate)) {
       foreignAmount.value = formatNumberWithCommas(
-        (parseNumberWithCommas(inputKrwAmount.value) * exchangeRate).toFixed(2)
+        (parseNumberWithCommas(inputKrwAmount.value) / exchangeRate).toFixed(2)
       );
     }
   }}
