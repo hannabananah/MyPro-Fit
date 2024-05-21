@@ -2,6 +2,14 @@
   <div>
     <h1>연금리스트</h1>
     <div>
+      <form id="select-bank">
+        <select name="bank" id="bank" v-model="selectedBank">
+          <option value="all">전체 목록</option>
+          <option v-for="bank in banks" :value="bank">
+            {{ bank }}
+          </option>
+        </select>
+      </form>
       <div @click="onClick">
         <span>공시제출월</span>
         <span>금융 회사명</span>
@@ -24,9 +32,14 @@ import { useProductStore } from '@/stores/products';
 
 const isSorted = ref(true);
 const sortedBy = ref('avg_prft_rate');
-const selectedBank = ref(null);
-const selectedDuration = ref(null);
+const selectedBank = ref('all');
+const selectedDuration = ref('all');
 const store = useProductStore();
+const banks = [
+  '미래에셋자산운용',
+  '케이씨지아이자산운용 주식회사',
+  '엔에이치아문디자산운용주식회사',
+];
 
 // 마운트될때 연금 불러오는 함수 실행
 onMounted(() => {
@@ -63,23 +76,24 @@ const sortedAnnuities = computed(() => {
   };
 
   // 선택한 은행이나 기간이 있으면 필터링 후 정렬
-  if (selectedBank.value === null && selectedDuration.value === null) {
+  if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
     return [...annuities].sort(compare);
-  } else if (selectedBank.value !== null && selectedDuration.value === null) {
+  } else if (selectedBank.value !== 'all' && selectedDuration.value === 'all') {
     const filteredAnnuities = annuities.filter(
       obj => obj.kor_co_nm === selectedBank.value,
     );
     return [...filteredAnnuities].sort(compare);
-  } else if (selectedBank.value === null && selectedDuration.value !== null) {
+  } else if (selectedBank.value === 'all' && selectedDuration.value !== 'all') {
     const filteredAnnuities = annuities.filter(
-      obj => obj.selectedDuration !== null,
+      obj => obj[selectedDuration.value] !== null,
     );
     return [...filteredAnnuities].sort(compare);
   } else {
     // 필요에 따라 모든 조건을 처리하는 추가 로직
     const filteredAnnuities = annuities.filter(
       obj =>
-        obj.kor_co_nm === selectedBank.value && obj.selectedDuration !== null,
+        obj.kor_co_nm === selectedBank.value &&
+        obj[selectedDuration.value] !== null,
     );
     return [...filteredAnnuities].sort(compare);
   }

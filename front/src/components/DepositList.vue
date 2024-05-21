@@ -1,6 +1,23 @@
 <template>
   <div>
     <h1>예금리스트</h1>
+
+    <form id="select-bank">
+      <select name="bank" id="bank" v-model="selectedBank">
+        <option value="all">전체 목록</option>
+        <option v-for="bank in banks" :value="bank">
+          {{ bank }}
+        </option>
+      </select>
+    </form>
+    <form id="select-duration">
+      <select name="duration" id="duration" v-model="selectedDuration">
+        <option value="all">전체 기간</option>
+        <option v-for="duration in durations" :value="duration">
+          {{ duration }}
+        </option>
+      </select>
+    </form>
     <div @click="onClick">
       <span>공시기준월 </span> <span>금융 회사명</span> <span>상품명</span>
       <button value="month_6">6개월</button>
@@ -20,10 +37,29 @@ import { useProductStore } from '@/stores/products';
 
 const store = useProductStore();
 const isSorted = ref(true);
-const selectedBank = ref(null);
-const selectedDuration = ref(null);
+const selectedBank = ref('all');
+const selectedDuration = ref('all');
 const sortedBy = ref('month_12');
-
+const banks = [
+  '경남은행',
+  '국민은행',
+  '광주은행',
+  '농협은행주식회사',
+  '대구은행',
+  '부산은행',
+  '수협은행',
+  '신한은행',
+  '우리은행',
+  '전북은행',
+  '제주은행',
+  '중소기업은행',
+  '주식회사 카카오뱅크',
+  '주식회사 케이뱅크',
+  '토스뱅크 주식회사',
+  '하나은행',
+  '한국스탠다드차타드은행',
+];
+const durations = ['month_6', 'month_12', 'month_24', 'month_36'];
 onMounted(() => {
   store.fetchDeposit();
 });
@@ -58,23 +94,24 @@ const sortedDeposits = computed(() => {
   };
 
   // 선택한 은행이나 기간이 있으면 필터링 후 정렬
-  if (selectedBank.value === null && selectedDuration.value === null) {
+  if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
     return [...deposits].sort(compare);
-  } else if (selectedBank.value !== null && selectedDuration.value === null) {
+  } else if (selectedBank.value !== 'all' && selectedDuration.value === 'all') {
     const filteredDeposits = deposits.filter(
       obj => obj.kor_co_nm === selectedBank.value,
     );
     return [...filteredDeposits].sort(compare);
-  } else if (selectedBank.value === null && selectedDuration.value !== null) {
+  } else if (selectedBank.value === 'all' && selectedDuration.value !== 'all') {
     const filteredDeposits = deposits.filter(
-      obj => obj.selectedDuration !== null,
+      obj => obj[selectedDuration.value] !== null,
     );
     return [...filteredDeposits].sort(compare);
   } else {
     // 필요에 따라 모든 조건을 처리하는 추가 로직
     const filteredDeposits = deposits.filter(
       obj =>
-        obj.kor_co_nm === selectedBank.value && obj.selectedDuration !== null,
+        obj.kor_co_nm === selectedBank.value &&
+        obj[selectedDuration.value] !== null,
     );
     return [...filteredDeposits].sort(compare);
   }
