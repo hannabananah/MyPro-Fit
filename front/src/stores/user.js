@@ -8,6 +8,7 @@ export const useUserStore = defineStore(
   () => {
     const API_URL = 'http://127.0.0.1:8000';
     const token = ref(null);
+    const username = ref(null);
     const nickname = ref(null);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const errorFields = ref({
@@ -20,7 +21,6 @@ export const useUserStore = defineStore(
     });
     const isLogin = computed(() => token.value !== null);
     const router = useRouter();
-
     const clearErrors = () => {
       Object.keys(errorFields.value).forEach(field => {
         errorFields.value[field] = '';
@@ -161,6 +161,11 @@ export const useUserStore = defineStore(
     };
 
     const getUserInfo = function () {
+      if (!token.value) {
+        console.error('Token is not set');
+        return;
+      }
+
       axios({
         method: 'get',
         url: `${API_URL}/accounts/user/`,
@@ -170,13 +175,14 @@ export const useUserStore = defineStore(
       })
         .then(response => {
           nickname.value = response.data.nickname;
+          username.value = response.data.username;
           console.log('유저 정보 가져오기 성공:', response.data);
         })
         .catch(error => {
           console.error('유저 정보 가져오기 중 오류 발생:', error);
+          throw error;
         });
     };
-
     return {
       signUp,
       logIn,
@@ -186,10 +192,11 @@ export const useUserStore = defineStore(
       errorFields,
       token,
       isLogin,
-      nickname,
       deleteAccount,
       API_URL,
       getUserInfo,
+      username,
+      nickname,
     };
   },
   { persist: true },

@@ -31,7 +31,6 @@ import CustomModal from '@/components/Modal.vue';
 import { onMounted } from 'vue';
 
 const userStore = useUserStore();
-const isLogin = userStore.isLogin;
 const nickname = userStore.nickname;
 const isModalOpen = ref(false);
 
