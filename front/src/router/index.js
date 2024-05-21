@@ -10,7 +10,10 @@ import ProductDepositList from '@/components/ProductDepositList.vue';
 import ProductSavingList from '@/components/ProductSavingList.vue';
 import ProductAnnuityList from '@/components/ProductAnnuityList.vue';
 import ProductDetail from '@/components/ProductDetail.vue';
+import CreateArticle from '@/components/CreateArticle.vue';
 import BoardView from '@/views/BoardView.vue';
+import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
+import UpdateArticle from '@/components/UpdateArticle.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +66,11 @@ const router = createRouter({
       ],
     },
     {
+      path: '/create-article',
+      name: 'create-article',
+      component: CreateArticle,
+    },
+    {
       path: '/product/:type/:code',
       name: 'product-detail',
       component: ProductDetail,
@@ -76,6 +84,16 @@ const router = createRouter({
       path: '/board',
       name: 'board',
       component: BoardView,
+    },
+    {
+      path: '/board/:id',
+      name: 'board-detail',
+      component: BoardArticleDetail,
+    },
+    {
+      path: '/board/:id/update',
+      name: 'update-article',
+      component: UpdateArticle,
     },
   ],
 });
