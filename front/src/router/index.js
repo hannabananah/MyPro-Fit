@@ -5,9 +5,9 @@ import SignupView from '@/views/SignupView.vue';
 import ExchangeView from '@/views/ExchangeView.vue';
 import MapView from '@/views/MapView.vue';
 import ProductsView from '@/views/ProductsView.vue';
-import DepositList from '@/components/DepositList.vue';
-import AnnuityList from '@/components/AnnuityList.vue';
-import SavingList from '@/components/SavingList.vue';
+import DepositList from '@/components/ProductDepositList.vue';
+import SavingList from '@/components/ProductSavingList.vue';
+import AnnuityList from '@/components/ProductAnnuityList.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,17 +45,17 @@ const router = createRouter({
         {
           path: '',
           name: 'deposit',
-          component: DepositList,
+          component: ProductDepositList,
         },
         {
           path: 'saving',
           name: 'saving',
-          component: SavingList,
+          component: ProductSavingList,
         },
         {
           path: 'annuity',
           name: 'annuity',
-          component: AnnuityList,
+          component: ProductAnnuityList,
         },
       ],
     },

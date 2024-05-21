@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>예금리스트</h1>
-
     <form id="select-bank">
       <select name="bank" id="bank" v-model="selectedBank">
         <option value="all">전체 목록</option>
