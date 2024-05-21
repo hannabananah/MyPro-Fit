@@ -31,12 +31,14 @@ class CustomUserDetailsSerializer(UserDetailsSerializer):
             extra_fields.append('nickname') 
         if hasattr(UserModel, 'age'):
             extra_fields.append('age')
+        if hasattr(UserModel,'gender'):
+            extra_fields.append('gender')
+        if hasattr(UserModel,'asset'):
+            extra_fields.append('asset')
         if hasattr(UserModel, 'is_pension'):
             extra_fields.append('is_pension')
         if hasattr(UserModel, 'is_internet'):
             extra_fields.append('is_internet')
-        if hasattr(UserModel,'gender'):
-            extra_fields.append('gender')
         if hasattr(UserModel,'is_BLSR'):
             extra_fields.append('is_BLSR')
         if hasattr(UserModel,'is_free'):

@@ -6,6 +6,6 @@ export function formatNumberWithCommas(number) {
 }
 
 export function parseNumberWithCommas(string) {
-  if (!string) return 0;
-  return parseFloat(string.replace(/,/g, ''));
+  if (!string && string !== 0) return 0;
+  return parseFloat(string.toString().replace(/,/g, ''));
 }

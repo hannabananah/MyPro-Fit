@@ -12,6 +12,7 @@ export const useUserStore = defineStore(
     const nickname = ref(null);
     const age = ref(null);
     const gender = ref(null);
+    const asset = ref(null);
     const is_pension = ref(null);
     const is_internet = ref(null);
     const is_BLSR = ref(null);
@@ -184,6 +185,7 @@ export const useUserStore = defineStore(
           username.value = response.data.username;
           age.value = response.data.age;
           gender.value = response.data.gender;
+          asset.value = response.data.asset;
           is_pension.value = response.data.is_pension;
           is_internet.value = response.data.is_internet;
           is_BLSR.value = response.data.is_BLSR;
@@ -211,6 +213,7 @@ export const useUserStore = defineStore(
       nickname,
       age,
       gender,
+      asset,
       is_pension,
       is_internet,
       is_BLSR,
