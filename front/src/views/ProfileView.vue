@@ -75,12 +75,6 @@
                   class="-mt-2 text-gray-500 bg-gray-100 border-gray-300 md:w-2/3 text-input"
                   disabled
                 />
-                <!-- <p
-                class="pt-[1.5px] pl-2 text-xs text-red-500"
-                v-if="store.shouldShowError('username')"
-              >
-                {{ store.errorFields.username }}
-              </p> -->
               </div>
 
               <label for="nickname">닉네임</label>
@@ -97,12 +91,6 @@
                   v-model="userStore.nickname"
                   class="-mt-2 md:w-2/3 text-input"
                 />
-                <!-- <p
-                  class="pt-[1.5px] pl-2 text-xs text-red-500"
-                  v-if="store.shouldShowError('nickname')"
-                >
-                  {{ store.errorFields.nickname }}
-                </p> -->
               </div>
             </form>
           </div>
@@ -159,50 +147,6 @@
                     class="hidden form-radio"
                   />
                 </label>
-                <label
-                  class="flex items-center justify-center w-10 p-2 border cursor-pointer rounded-xl"
-                  :class="{
-                    'bg-white': userStore.gender === 'female',
-                    'bg-custom-pink': userStore.gender !== 'female',
-                  }"
-                  @click="userStore.gender = 'female'"
-                >
-                  <Female
-                    :fillColor="
-                      userStore.gender === 'female' ? '#fff' : '#F8ACFF'
-                    "
-                    :size="24"
-                  />
-                  <input
-                    type="radio"
-                    id="female"
-                    value="female"
-                    v-model="userStore.gender"
-                    class="hidden form-radio"
-                  />
-                </label>
-                <label
-                  class="flex items-center justify-center w-10 p-2 border cursor-pointer rounded-xl"
-                  :class="{
-                    'bg-custom-blue shadow-inner': userStore.gender === 'male',
-                    'bg-slate-50': userStore.gender !== 'male',
-                  }"
-                  @click="userStore.gender = 'male'"
-                >
-                  <Male
-                    :fillColor="
-                      userStore.gender === 'male' ? '#fff' : '#7DD3FC'
-                    "
-                    :size="24"
-                  />
-                  <input
-                    type="radio"
-                    id="male"
-                    value="male"
-                    v-model="userStore.gender"
-                    class="hidden form-radio"
-                  />
-                </label>
               </div>
 
               <label for="age">나이</label>
@@ -212,8 +156,7 @@
                   type="number"
                   id="age"
                   class="w-20 px-6 -mt-2 text-right text-input box-sizing"
-                  :value="userStore.age || 29"
-                  placeholder="29"
+                  v-model="userStore.age"
                 />
                 <span class="absolute text-sm left-14 top-1">세</span>
               </div>
@@ -242,85 +185,6 @@
                       />
                       <Checkbox v-else class="text-gray-900" />
                     </div>
-                  </label>
-                </div>
-
-                <div class="flex flex-row-reverse justify-between w-full">
-                  <input
-                    type="checkbox"
-                    name="pension"
-                    id="pension"
-                    class="sr-only peer"
-                    v-model="userStore.is_pension"
-                  />
-                  <label for="pension" class="flex items-center cursor-pointer">
-                    <CheckboxBlank
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:hidden"
-                    />
-                    <Checkbox
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:block"
-                    />
-                    <span>연금 저축 상품을 추천받으시겠습니까?</span>
-                  </label>
-                </div>
-                <div class="flex flex-row-reverse justify-between w-full">
-                  <input
-                    type="checkbox"
-                    name="pension"
-                    id="pension"
-                    class="sr-only peer"
-                    v-model="userStore.is_pension"
-                  />
-                  <label for="pension" class="flex items-center cursor-pointer">
-                    <CheckboxBlank
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:hidden"
-                    />
-                    <Checkbox
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:block"
-                    />
-                    <span>온라인 가입가능한 상품을 추천받으시겠습니까?</span>
-                  </label>
-                </div>
-                <div class="flex flex-row-reverse justify-between w-full">
-                  <input
-                    type="checkbox"
-                    name="pension"
-                    id="pension"
-                    class="sr-only peer"
-                    v-model="userStore.is_pension"
-                  />
-                  <label for="pension" class="flex cursor-pointer">
-                    <CheckboxBlank
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:hidden"
-                    />
-                    <Checkbox
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:block"
-                    />
-                    <div class="flex flex-col">
-                      <span>기초생활수급자이십니까?</span>
-                      <small class="text-[0 75rem] font-light"
-                        >*국민기초생활보장제도를 통해 지원받을 수 있는 상품을
-                        추천해드리기 위한 질문입니다.</small
-                      >
-                    </div>
-                  </label>
-                </div>
-                <div class="flex flex-row-reverse justify-between w-full">
-                  <input
-                    type="checkbox"
-                    name="pension"
-                    id="pension"
-                    class="sr-only peer"
-                    v-model="userStore.is_pension"
-                  />
-                  <label for="pension" class="flex items-center cursor-pointer">
-                    <CheckboxBlank
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:hidden"
-                    />
-                    <Checkbox
-                      class="w-6 h-6 mr-2 text-gray-600 peer-checked:text-gray-900 peer-checked:block"
-                    />
-                    <span>자유납입상품을 추천받으시겠습니까?</span>
                   </label>
                 </div>
               </div>
@@ -371,9 +235,50 @@ import axios from 'axios';
 import CustomModal from '@/components/Modal.vue';
 import { useUserStore } from '@/stores/user';
 const userStore = useUserStore();
-// const activeTab = ref('profile');
-const activeTab = ref('moreInfo');
+const activeTab = ref('profile');
 const isModalOpen = ref(false);
+
+const genderOptions = [
+  {
+    value: 'female',
+    icon: Female,
+    bgColor: 'bg-custom-pink shadow-inner',
+    defaultBgColor: 'bg-slate-50',
+    defaultIconColor: '#F8ACFF',
+  },
+  {
+    value: 'male',
+    icon: Male,
+    bgColor: 'bg-custom-blue shadow-inner',
+    defaultBgColor: 'bg-slate-50',
+    defaultIconColor: '#7DD3FC',
+  },
+];
+
+const checkboxOptions = [
+  {
+    id: 'is_pension',
+    model: 'is_pension',
+    label: '연금 저축 상품을 추천받으시겠습니까?',
+  },
+  {
+    id: 'is_internet',
+    model: 'is_internet',
+    label: '온라인 가입가능한 상품을 추천받으시겠습니까?',
+  },
+  {
+    id: 'is_BLSR',
+    model: 'is_BLSR',
+    label: '기초생활수급자이십니까?',
+    subLabel:
+      '*국민기초생활보장제도를 통해 지원받을 수 있는 상품을 추천해드리기 위한 질문입니다.',
+  },
+  {
+    id: 'is_free',
+    model: 'is_free',
+    label: '자유납입상품을 추천받으시겠습니까?',
+  },
+];
 
 onMounted(() => {
   userStore.getUserInfo();
@@ -445,6 +350,9 @@ const updateMoreInfo = () => {
       is_internet: userStore.is_internet,
       is_BLSR: userStore.is_BLSR,
       is_free: userStore.is_free,
+    },
+    headers: {
+      Authorization: `Token ${userStore.token}`,
     },
   })
     .then(response => {
