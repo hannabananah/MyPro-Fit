@@ -3,13 +3,17 @@ from django.contrib.auth.models import AbstractUser
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.account.utils import  user_field, user_username
 
+GENDER_CHOICES = [
+    ('M', 'Male'),
+    ('F', 'Female'),
+]
 class User(AbstractUser):
     username = models.EmailField(unique=True, null=False, blank=False)
     nickname = models.CharField(max_length=50,default='unknown')
     age=models.IntegerField(null=True)
     is_pension=models.BooleanField(null=True)
     is_internet=models.BooleanField(null=True)
-    gender=models.IntegerField(null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
     is_BLSR=models.BooleanField(null=True)
     is_free=models.BooleanField(null=True)
     email = models.EmailField(unique=True, null=True, blank=True)
