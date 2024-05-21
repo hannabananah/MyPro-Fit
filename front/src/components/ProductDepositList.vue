@@ -170,8 +170,7 @@ const sortedDeposits = computed(() => {
 // 클릭 시 디테일 페이지로 이동
 const goDetail = function (event) {
   // data-deposit 속성을 읽어옴
-  const depositId = event.target.dataset.deposit;
-  console.log(event.target.dataset);
+  const depositId = event.currentTarget.dataset.deposit;
   router.push({
     name: 'product-detail',
     params: { type: 'deposit', code: `${depositId}` },
