@@ -11,7 +11,7 @@
     <button v-show="!isLiked" @click="doLike">
       <heartOutline class="inline-block h-[20px]"></heartOutline></button
     >{{ numberOfLikes }}
-
+    <p>가입 여부: {{ isJoined }}</p>
     <hr />
     <p>
       만기 후 이자율: {{ product.mtrt_int !== null ? product.mtrt_int : '-' }}
@@ -56,8 +56,9 @@
     <p>2년전 수익률: {{ product.btrm_prft_rate_2 }}</p>
     <p>3년전 수익률: {{ product.btrm_prft_rate_3 }}</p>
   </div>
+  <p>가입 여부: {{ isJoined }}</p>
   <button @click="doLike">즐겨찾기 등록</button> |
-  <button>가입상품 목록에 추가</button>
+  <button @click="doJoin">가입상품 목록에 추가</button>
 </template>
 
 <script setup>
@@ -120,4 +121,30 @@ const isLiked = computed(() => {
     : [];
   return likeUsers.includes(userStore.userPk);
 });
+
+// 현재 유저가 가입 했는지 확인
+const isJoined = computed(() => {
+  const joinUsers = product.value
+    ? product.value[`${route.params.type}_joined_users`]
+    : [];
+  return joinUsers.includes(userStore.userPk);
+});
+
+// 상품 가입하기
+const doJoin = function () {
+  axios({
+    url: `http://127.0.0.1:8000/products/${route.params.type}/${route.params.code}/joins/`,
+    method: 'POST',
+    headers: {
+      Authorization: `Token ${userStore.token}`,
+    },
+  })
+    .then(res => {
+      console.log('가입 성공');
+      location.reload();
+    })
+    .catch(err => {
+      console.log('가입 실패');
+    });
+};
 </script>

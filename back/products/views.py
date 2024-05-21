@@ -212,7 +212,6 @@ def deposit_detail(req,code):
 @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 def saving_detail(req,code):
     saving=get_object_or_404(Saving,fin_prdt_cd=code)
-    print(saving)
     if req.method=='GET':
         serializer=SavingDetailSerializer(saving)
         return Response(serializer.data)
@@ -288,3 +287,39 @@ def annuity_likes(request, code):
     serializer = AnnuityDetailSerializer(annuity)
     return Response(serializer.data)
 
+# 상품 가입
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def annuity_joins(request, code):
+    annuity = Annuity.objects.get(fin_prdt_cd=code)
+    # 역참조
+    if request.user in annuity.annuity_joined_users.all():
+        annuity.annuity_joined_users.remove(request.user)
+    else:
+        annuity.annuity_joined_users.add(request.user)
+    serializer = AnnuityDetailSerializer(annuity)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def saving_joins(request, code):
+    saving = Saving.objects.get(fin_prdt_cd=code)
+    # 역참조
+    if request.user in saving.saving_joined_users.all():
+        saving.saving_joined_users.remove(request.user)
+    else:
+        saving.saving_joined_users.add(request.user)
+    serializer = SavingDetailSerializer(saving)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def deposit_joins(request, code):
+    deposit = Deposit.objects.get(fin_prdt_cd=code)
+    # 역참조
+    if request.user in deposit.deposit_joined_users.all():
+        deposit.deposit_joined_users.remove(request.user)
+    else:
+        deposit.deposit_joined_users.add(request.user)
+    serializer = DepositDetailSerializer(deposit)
+    return Response(serializer.data)
