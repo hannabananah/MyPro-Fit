@@ -11,6 +11,7 @@ environ.Env.read_env(
 
 
 SECRET_KEY = env('SECRET_KEY')
+PRODUCT_KEY = env('PRODUCT_KEY')
 DEBUG = env('DEBUG')
 
 DEBUG = True
@@ -19,6 +20,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'products',
     'exchange_rates',
     'articles',
     'accounts',

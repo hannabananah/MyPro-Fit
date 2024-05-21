@@ -5,6 +5,11 @@ import SignupView from '@/views/SignupView.vue';
 import ExchangeView from '@/views/ExchangeView.vue';
 import MapView from '@/views/MapView.vue';
 import ProfileView from '@/views/ProfileView.vue';
+import ProductsView from '@/views/ProductsView.vue';
+import ProductDepositList from '@/components/ProductDepositList.vue';
+import ProductSavingList from '@/components/ProductSavingList.vue';
+import ProductAnnuityList from '@/components/ProductAnnuityList.vue';
+import ProductDetail from '@/components/ProductDetail.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,9 +35,36 @@ const router = createRouter({
       component: ExchangeView,
     },
     {
-      path: '/around-bank',
+      path: '/bank',
       name: 'map',
       component: MapView,
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: ProductsView,
+      children: [
+        {
+          path: '',
+          name: 'deposit',
+          component: ProductDepositList,
+        },
+        {
+          path: 'saving',
+          name: 'saving',
+          component: ProductSavingList,
+        },
+        {
+          path: 'annuity',
+          name: 'annuity',
+          component: ProductAnnuityList,
+        },
+      ],
+    },
+    {
+      path: '/product/:type/:code',
+      name: 'product-detail',
+      component: ProductDetail,
     },
     {
       path: '/profile',
