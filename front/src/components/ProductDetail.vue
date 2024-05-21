@@ -41,7 +41,7 @@
     <p>2년전 수익률: {{ product.btrm_prft_rate_2 }}</p>
     <p>3년전 수익률: {{ product.btrm_prft_rate_3 }}</p>
   </div>
-  <button>상품 저장</button>
+  <button>즐겨찾기 등록</button> |
   <button>가입상품 목록에 추가</button>
 </template>
 
