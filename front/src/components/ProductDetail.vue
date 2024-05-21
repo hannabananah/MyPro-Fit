@@ -41,6 +41,13 @@
     <p>공시기준월: {{ product.dcls_month }}</p>
     <p>상품명: {{ product.fin_prdt_nm }}</p>
     <p>기관명: {{ product.kor_co_nm }}</p>
+    <button v-show="isLiked" @click="doLike">
+      <heart class="inline-block h-[20px]"></heart>
+    </button>
+    <button v-show="!isLiked" @click="doLike">
+      <heartOutline class="inline-block h-[20px]"></heartOutline></button
+    >{{ numberOfLikes }}
+    <hr />
     <p>상품 유형: {{ product.prdt_type_nm }}</p>
     <p>가입 방법: {{ product.join_way !== null ? product.join_way : '-' }}</p>
     <hr />
@@ -75,9 +82,7 @@ onMounted(() => {
     },
   })
     .then(res => {
-      console.log(res.data);
       product.value = res.data;
-      console.log(product.value);
     })
     .catch(err => {
       router.go(-1);

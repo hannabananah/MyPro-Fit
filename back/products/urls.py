@@ -13,4 +13,6 @@ urlpatterns = [
     path('saving/<str:code>/', views.saving_detail),
     path('annuity/<str:code>/', views.annuity_detail),
     path('deposit/<str:code>/likes/', views.deposit_likes),
+    path('saving/<str:code>/likes/', views.saving_likes),
+    path('annuity/<str:code>/likes/', views.annuity_likes),
 ]

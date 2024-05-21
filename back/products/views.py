@@ -263,3 +263,28 @@ def deposit_likes(request, code):
         deposit.deposit_like_users.add(request.user)
     serializer = DepositDetailSerializer(deposit)
     return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def saving_likes(request, code):
+    saving = Saving.objects.get(fin_prdt_cd=code)
+    # 역참조
+    if request.user in saving.saving_like_users.all():
+        saving.saving_like_users.remove(request.user)
+    else:
+        saving.saving_like_users.add(request.user)
+    serializer = SavingDetailSerializer(saving)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def annuity_likes(request, code):
+    annuity = Annuity.objects.get(fin_prdt_cd=code)
+    # 역참조
+    if request.user in annuity.annuity_like_users.all():
+        annuity.annuity_like_users.remove(request.user)
+    else:
+        annuity.annuity_like_users.add(request.user)
+    serializer = AnnuityDetailSerializer(annuity)
+    return Response(serializer.data)
+
