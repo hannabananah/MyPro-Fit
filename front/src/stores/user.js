@@ -8,6 +8,7 @@ export const useUserStore = defineStore(
   () => {
     const API_URL = 'http://127.0.0.1:8000';
     const token = ref(null);
+    const userPk = ref(null);
     const username = ref(null);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const errorFields = ref({
@@ -126,7 +127,24 @@ export const useUserStore = defineStore(
       })
         .then(response => {
           console.log('로그인 성공!');
+
           token.value = response.data.key;
+
+          // 로그인 하면 유저 정보 저장하기
+          axios({
+            url: 'http://127.0.0.1:8000/accounts/user/',
+            method: 'get',
+            headers: {
+              Authorization: `Token ${response.data.key}`,
+            },
+          })
+            .then(res => {
+              userPk.value = res.data.pk;
+              // username.value = res.data.username;
+            })
+            .catch(err => {
+              console.log('정보 가져오기 실패');
+            });
           router.push({ name: 'home' });
         })
         .catch(error => {
@@ -141,6 +159,7 @@ export const useUserStore = defineStore(
     const logOut = function () {
       token.value = null;
       username.value = null;
+      userPk.value = null;
       router.push({ name: 'login' });
     };
 
@@ -154,6 +173,7 @@ export const useUserStore = defineStore(
       token,
       isLogin,
       username,
+      userPk,
     };
   },
   { persist: true },

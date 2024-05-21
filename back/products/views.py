@@ -250,3 +250,16 @@ def annuity_detail(req,code):
             'delete':f'적금 {code}이/가 삭제되었습니다.'
         }
         return Response(data,status=status.HTTP_204_NO_CONTENT)
+
+# 찜하기 기능
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def deposit_likes(request, code):
+    deposit = Deposit.objects.get(fin_prdt_cd=code)
+    # 역참조
+    if request.user in deposit.deposit_like_users.all():
+        deposit.deposit_like_users.remove(request.user)
+    else:
+        deposit.deposit_like_users.add(request.user)
+    serializer = DepositDetailSerializer(deposit)
+    return Response(serializer.data)

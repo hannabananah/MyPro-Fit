@@ -5,6 +5,11 @@
     <p>공시기준월: {{ product.dcls_month }}</p>
     <p>상품명: {{ product.fin_prdt_nm }}</p>
     <p>기관명: {{ product.kor_co_nm }}</p>
+    <span
+      ><heart class="inline-block h-[20px]"></heart> {{ numberOfLikes }}</span
+    >
+
+    <hr />
     <p>
       만기 후 이자율: {{ product.mtrt_int !== null ? product.mtrt_int : '-' }}
     </p>
@@ -41,15 +46,16 @@
     <p>2년전 수익률: {{ product.btrm_prft_rate_2 }}</p>
     <p>3년전 수익률: {{ product.btrm_prft_rate_3 }}</p>
   </div>
-  <button>즐겨찾기 등록</button> |
+  <button @click="doLike">즐겨찾기 등록</button> |
   <button>가입상품 목록에 추가</button>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
+import heart from 'vue-material-design-icons/heartOutline.vue';
 
 const product = ref(null);
 const userStore = useUserStore();
@@ -73,5 +79,26 @@ onMounted(() => {
       router.go(-1);
       alert('로그인 한 사용자만 이용 가능합니다.');
     });
+});
+
+// 상품 찜하기
+const doLike = function () {
+  axios({
+    url: `http://127.0.0.1:8000/products/${route.params.type}/${route.params.code}/likes/`,
+    method: 'POST',
+    headers: {
+      Authorization: `Token ${userStore.token}`,
+    },
+  })
+    .then(res => {
+      console.log('찜하기 성공');
+    })
+    .catch(err => {
+      console.log('찜하기 실패');
+    });
+};
+console.log(product.deposit_like_users);
+const numberOfLikes = computed(() => {
+  return product.value[`${route.params.type}_like_users`].length;
 });
 </script>
