@@ -18,7 +18,12 @@
         <button value="btrm_prft_rate_1">작년 수익률</button>
         <button value="btrm_prft_rate_2">2년 전 수익률</button>
         <button value="btrm_prft_rate_3">3년 전 수익률</button>
-        <p v-for="annuity in sortedAnnuities" :key="annuity.fin_prdt_cd">
+        <p
+          @click="goDetail"
+          v-for="annuity in sortedAnnuities"
+          :key="annuity.fin_prdt_cd"
+          :data-annuity="annuity.fin_prdt_cd"
+        >
           {{ annuity }}
         </p>
       </div>
@@ -29,7 +34,9 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const isSorted = ref(true);
 const sortedBy = ref('avg_prft_rate');
 const selectedBank = ref('all');
@@ -98,6 +105,17 @@ const sortedAnnuities = computed(() => {
     return [...filteredAnnuities].sort(compare);
   }
 });
+
+// 클릭 시 디테일 페이지로 이동
+const goDetail = function (event) {
+  // data-deposit 속성을 읽어옴
+  const depositId = event.target.dataset.annuity;
+  router.push({
+    name: 'product-detail',
+    params: { type: 'annuity', code: `${depositId}` },
+  });
+  //
+};
 </script>
 
 <style scoped></style>
