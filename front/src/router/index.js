@@ -8,6 +8,7 @@ import ProductsView from '@/views/ProductsView.vue';
 import ProductDepositList from '@/components/ProductDepositList.vue';
 import ProductSavingList from '@/components/ProductSavingList.vue';
 import ProductAnnuityList from '@/components/ProductAnnuityList.vue';
+import ProductDetail from '@/components/ProductDetail.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -58,6 +59,11 @@ const router = createRouter({
           component: ProductAnnuityList,
         },
       ],
+    },
+    {
+      path: '/product/:name',
+      name: 'product-detail',
+      component: ProductDetail,
     },
   ],
 });

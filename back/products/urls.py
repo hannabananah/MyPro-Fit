@@ -9,4 +9,7 @@ urlpatterns = [
     path('deposit-list/', views.deposit_list),
     path('saving-list/', views.saving_list),
     path('annuity-list/', views.annuity_list),
+    path('deposit/<str:code>/', views.deposit_detail),
+    path('saving/<str:code>/', views.saving_detail),
+    path('annuity/<str:code>/', views.annuity_detail),
 ]

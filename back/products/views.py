@@ -1,15 +1,33 @@
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404, get_list_or_404
+from django.conf import settings
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated, BasePermission, IsAdminUser
 from rest_framework import status
-from django.conf import settings
-import requests, json
 from .models import Deposit, Saving, Annuity
-from .serializers import DepositListSerializer, SavingListSerializer, AnnuityListSerializer
+from .serializers import DepositListSerializer, SavingListSerializer, AnnuityListSerializer, DepositDetailSerializer, SavingDetailSerializer, AnnuityDetailSerializer
+
+import requests, json
 
 # Create your views here.
 PRODUCT_KEY = settings.PRODUCT_KEY
+
+# 관리자가 아니면 GET 요청만 허용
+class IsAdminOrReadOnly(BasePermission):
+    def has_permission(self, request, view):
+        # GET 요청은 모든 인증된 사용자에게 허용
+        if request.method in ['GET']:
+            return request.user and request.user.is_authenticated
+        # PUT, DELETE 요청은 관리자에게만 허용
+        if request.method in ['PUT', 'DELETE']:
+            return request.user and request.user.is_staff
+        return False
+    
+# 데이터 DB로 저장 -> 관리자만
 @api_view(['GET'])
+@permission_classes([IsAdminUser])
 def fetch_deposit(request):
     # 예금 가져오기
     for page in range(1,4):
@@ -56,6 +74,7 @@ def fetch_deposit(request):
     return Response({"error": "데이터를 찾지 못 했습니다."}, status=404)
 
 @api_view(['GET'])
+@permission_classes([IsAdminUser])
 def fetch_saving(request):
     # 적금 가져오기
     for page in range(1,4):
@@ -103,6 +122,7 @@ def fetch_saving(request):
     return Response({"error": "데이터를 찾지 못 했습니다."}, status=404)
 
 @api_view(['GET'])
+@permission_classes([IsAdminUser])
 def fetch_annuity(request):
     # 연금 가져오기
     for page in range(1,4):
@@ -165,3 +185,68 @@ def annuity_list(request):
         # JSON 으로 포장 -> return
     serializer = AnnuityListSerializer(annuities, many=True)
     return Response(serializer.data)
+
+# 상세정보 출력
+# @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
+@api_view(['GET', 'PUT', 'DELETE'])
+def deposit_detail(req,code):
+    deposit=get_object_or_404(Deposit,fin_prdt_cd=code)
+    if req.method=='GET':
+        serializer=DepositDetailSerializer(deposit)
+        return Response(serializer.data)
+    
+    elif req.method=='PUT':
+        serializer=DepositDetailSerializer(deposit,data=req.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response(serializer.data)
+    
+    elif req.method=='DELETE':
+        deposit.delete()
+        data={
+            'delete':f'예금 {code}이/가 삭제되었습니다.'
+        }
+        return Response(data,status=status.HTTP_204_NO_CONTENT)
+
+# @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
+@api_view(['GET', 'PUT', 'DELETE'])
+def saving_detail(req,code):
+    saving=get_object_or_404(Saving,fin_prdt_cd=code)
+    print(saving)
+    if req.method=='GET':
+        serializer=SavingDetailSerializer(saving)
+        return Response(serializer.data)
+    
+    elif req.method=='PUT':
+        serializer=SavingDetailSerializer(saving,data=req.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response(serializer.data)
+    
+    elif req.method=='DELETE':
+        saving.delete()
+        data={
+            'delete':f'적금 {code}이/가 삭제되었습니다.'
+        }
+        return Response(data,status=status.HTTP_204_NO_CONTENT)
+    
+# @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
+@api_view(['GET', 'PUT', 'DELETE'])
+def annuity_detail(req,code):
+    annuity=get_object_or_404(Annuity,fin_prdt_cd=code)
+    if req.method=='GET':
+        serializer=AnnuityDetailSerializer(annuity)
+        return Response(serializer.data)
+    
+    elif req.method=='PUT':
+        serializer=AnnuityDetailSerializer(annuity,data=req.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+        return Response(serializer.data)
+    
+    elif req.method=='DELETE':
+        annuity.delete()
+        data={
+            'delete':f'적금 {code}이/가 삭제되었습니다.'
+        }
+        return Response(data,status=status.HTTP_204_NO_CONTENT)
