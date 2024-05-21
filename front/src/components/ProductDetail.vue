@@ -5,9 +5,12 @@
     <p>공시기준월: {{ product.dcls_month }}</p>
     <p>상품명: {{ product.fin_prdt_nm }}</p>
     <p>기관명: {{ product.kor_co_nm }}</p>
-    <span
-      ><heart class="inline-block h-[20px]"></heart> {{ numberOfLikes }}</span
-    >
+    <button v-show="isLiked" @click="doLike">
+      <heart class="inline-block h-[20px]"></heart>
+    </button>
+    <button v-show="!isLiked" @click="doLike">
+      <heartOutline class="inline-block h-[20px]"></heartOutline></button
+    >{{ numberOfLikes }}
 
     <hr />
     <p>
@@ -55,7 +58,8 @@ import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
-import heart from 'vue-material-design-icons/heartOutline.vue';
+import heartOutline from 'vue-material-design-icons/heartOutline.vue';
+import heart from 'vue-material-design-icons/heart.vue';
 
 const product = ref(null);
 const userStore = useUserStore();
@@ -92,13 +96,23 @@ const doLike = function () {
   })
     .then(res => {
       console.log('찜하기 성공');
+      location.reload();
     })
     .catch(err => {
       console.log('찜하기 실패');
     });
 };
-console.log(product.deposit_like_users);
+
+// 상품 찜한 사람 수 계산
 const numberOfLikes = computed(() => {
   return product.value[`${route.params.type}_like_users`].length;
+});
+
+// 현재 유저가 좋아요 했는지 확인
+const isLiked = computed(() => {
+  const likeUsers = product.value
+    ? product.value[`${route.params.type}_like_users`]
+    : [];
+  return likeUsers.includes(userStore.userPk);
 });
 </script>

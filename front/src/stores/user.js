@@ -139,6 +139,8 @@ export const useUserStore = defineStore(
             },
           })
             .then(res => {
+              console.log('유저 정보 가져오기 성공');
+              // console.log(res.data);
               userPk.value = res.data.pk;
               // username.value = res.data.username;
             })
