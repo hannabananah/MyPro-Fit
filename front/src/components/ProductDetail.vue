@@ -48,17 +48,21 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/user';
 
 const product = ref(null);
-
+const userStore = useUserStore();
 const route = useRoute();
-console.log(route.params.type);
-console.log(route.params.code);
+const router = useRouter();
+
 onMounted(() => {
   axios({
     url: `http://127.0.0.1:8000/products/${route.params.type}/${route.params.code}/`,
     method: 'GET',
+    headers: {
+      Authorization: `Token ${userStore.token}`,
+    },
   })
     .then(res => {
       console.log(res.data);
@@ -66,7 +70,8 @@ onMounted(() => {
       console.log(product.value);
     })
     .catch(err => {
-      console.log(err, '에러메세지');
+      router.go(-1);
+      alert('로그인 한 사용자만 이용 가능합니다.');
     });
 });
 </script>

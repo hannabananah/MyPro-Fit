@@ -187,8 +187,8 @@ def annuity_list(request):
     return Response(serializer.data)
 
 # 상세정보 출력
-# @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 def deposit_detail(req,code):
     deposit=get_object_or_404(Deposit,fin_prdt_cd=code)
     if req.method=='GET':
@@ -208,8 +208,8 @@ def deposit_detail(req,code):
         }
         return Response(data,status=status.HTTP_204_NO_CONTENT)
 
-# @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 def saving_detail(req,code):
     saving=get_object_or_404(Saving,fin_prdt_cd=code)
     print(saving)
@@ -230,8 +230,8 @@ def saving_detail(req,code):
         }
         return Response(data,status=status.HTTP_204_NO_CONTENT)
     
-# @permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated, IsAdminOrReadOnly])
 def annuity_detail(req,code):
     annuity=get_object_or_404(Annuity,fin_prdt_cd=code)
     if req.method=='GET':
