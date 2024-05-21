@@ -19,10 +19,8 @@
 
 <script setup>
 import { useBoardStore } from '@/stores/board';
-import { useUserStore } from '@/stores/user';
 import { useRouter } from 'vue-router';
 import { computed, ref } from 'vue';
-import axios from 'axios';
 
 const colors = [
   '#fff0f2',
@@ -39,7 +37,6 @@ const colors = [
 ];
 
 const router = useRouter();
-const userStore = useUserStore();
 const boardStore = useBoardStore();
 const randColor = ref(colors[Math.floor(Math.random() * colors.length)]);
 
@@ -47,25 +44,8 @@ const props = defineProps({
   article: Object,
 });
 
-const getDetailArticle = function (articleId) {
-  axios({
-    method: 'get',
-    url: `${userStore.API_URL}/articles/${articleId}/`,
-    headers: {
-      Authorization: `Token ${userStore.token}`,
-    },
-  })
-    .then(res => {
-      props.article.value = res.data;
-      console.log('게시글 정보', props.article.value);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-};
-
 const handleClickDetail = () => {
-  getDetailArticle(props.article.id);
+  boardStore.getDetailArticle(props.article.id);
   router.push({ name: 'board-detail', params: { id: props.article.id } });
 };
 

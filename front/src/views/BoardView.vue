@@ -20,7 +20,7 @@
         >
           Create
         </button>
-        <BoardArticleList :articles="articles" />
+        <BoardArticleList :articles="boardStore.articles" />
       </div>
     </div>
   </div>
@@ -28,36 +28,15 @@
 
 <script setup>
 import BoardArticleList from '@/components/BoardArticleList.vue';
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/stores/user';
-import axios from 'axios';
+import { useBoardStore } from '@/stores/board';
 
-const userStore = useUserStore();
+const boardStore = useBoardStore();
 const router = useRouter();
 
-const articles = ref([]);
-
-const fetchArticles = () => {
-  axios({
-    method: 'get',
-    url: `${userStore.API_URL}/articles/`,
-    headers: {
-      Authorization: `Token ${userStore.token}`,
-    },
-  })
-    .then(res => {
-      console.log('전체게시글', res.data);
-      articles.value = res.data;
-    })
-    .catch(err => {
-      console.log('userStore.API_URL', userStore.API_URL);
-      console.log(err);
-    });
-};
-
 onMounted(() => {
-  fetchArticles();
+  boardStore.fetchArticles();
 });
 
 const handleClickCreate = () => {
