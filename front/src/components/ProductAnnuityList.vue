@@ -1,32 +1,76 @@
 <template>
-  <div>
-    <h1>연금리스트</h1>
-    <div>
-      <form id="select-bank">
-        <select name="bank" id="bank" v-model="selectedBank">
+  <div class="flex flex-col">
+    <h1 class="text-xl font-bold">연금 저축</h1>
+    <div class="ml-auto">
+      <form class="inline-block" id="select-bank">
+        <select
+          class="btn-inactive bg-white px-2 hover:bg-white text-start"
+          name="bank"
+          id="bank"
+          v-model="selectedBank"
+        >
           <option value="all">전체 목록</option>
           <option v-for="bank in banks" :value="bank">
             {{ bank }}
           </option>
         </select>
       </form>
-      <div @click="onClick">
-        <span>공시제출월</span>
-        <span>금융 회사명</span>
-        <span>상품명</span> <span>상품 유형</span>
-        <button value="avg_prft_rate">평균 수익률</button>
-        <button value="btrm_prft_rate_1">작년 수익률</button>
-        <button value="btrm_prft_rate_2">2년 전 수익률</button>
-        <button value="btrm_prft_rate_3">3년 전 수익률</button>
-        <p
+    </div>
+    <hr class="mt-4" />
+    <div class="h-[600px] overflow-y-auto pb-6">
+      <table class="border border-slate-400 w-full">
+        <tr @click="onClick">
+          <th class="border border-slate-300 w-[10%]">공시기준월</th>
+          <th class="border border-slate-300 w-[10%]">금융 회사명</th>
+          <th class="border border-slate-300 w-[30%]">상품명</th>
+          <th class="border border-slate-300 w-[10%]">상품 유형</th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="avg_prft_rate">평균 수익률</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="btrm_prft_rate_1">작년 수익률</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="btrm_prft_rate_2">2년 전 수익률</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="btrm_prft_rate_3">3년 전 수익률</button>
+          </th>
+        </tr>
+        <tr
           @click="goDetail"
           v-for="annuity in sortedAnnuities"
           :key="annuity.fin_prdt_cd"
           :data-annuity="annuity.fin_prdt_cd"
         >
-          {{ annuity }}
-        </p>
-      </div>
+          <td class="border border-slate-300 p-2">
+            {{ annuity.dcls_month }}
+          </td>
+          <td class="border border-slate-300 p-2">{{ annuity.kor_co_nm }}</td>
+          <td class="border border-slate-300 p-2">{{ annuity.fin_prdt_nm }}</td>
+          <td class="border border-slate-300 p-2">
+            {{ annuity.prdt_type_nm }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ annuity.avg_prft_rate !== null ? annuity.avg_prft_rate : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              annuity.btrm_prft_rate_1 !== null ? annuity.btrm_prft_rate_1 : '-'
+            }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              annuity.btrm_prft_rate_2 !== null ? annuity.btrm_prft_rate_2 : '-'
+            }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              annuity.btrm_prft_rate_3 !== null ? annuity.btrm_prft_rate_3 : '-'
+            }}
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>

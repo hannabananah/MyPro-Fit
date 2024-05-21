@@ -31,7 +31,7 @@
           >적금 조회</router-link
         >
 
-        <!-- <router-link :to="{ name: 'annuity' }">연금 비교</router-link> -->
+        <router-link :to="{ name: 'annuity' }">연금 비교</router-link>
       </fieldset>
       <RouterView />
     </div>
