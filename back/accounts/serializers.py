@@ -1,49 +1,47 @@
 from dj_rest_auth.registration.serializers import RegisterSerializer
-from dj_rest_auth.serializers import LoginSerializer
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from django.contrib.auth.password_validation import validate_password
+from rest_framework import serializers
+from dj_rest_auth.serializers import UserDetailsSerializer
+from .models import User
 
-User = get_user_model()
 class CustomRegisterSerializer(RegisterSerializer):
-    username = serializers.CharField(required=True)
-    
-    def validate_password1(self, password):
-            validate_password(password)
-            return password
-        
+    username = serializers.EmailField(required=True, allow_blank=False)
+    nickname = serializers.CharField(
+        required=True,
+        allow_blank=False,
+        max_length=50
+    )
     def get_cleaned_data(self):
-        super(CustomRegisterSerializer, self).get_cleaned_data()
         return {
-            'username': self.validated_data.get('username', ''),
-            'password1': self.validated_data.get('password1', ''),
-            'email': self.validated_data.get('email', ''),
-        }
-
-class CustomLoginSerializer(LoginSerializer):
-    username = None
-
-    def validate(self, attrs):
-        email = attrs.get('email')
-        password = attrs.get('password')
-
-        if email and password:
-            if self.user_exists(email, password):
-                return attrs
-            else:
-                msg = self.error_messages['no_matching_account']
-                raise serializers.ValidationError(msg)
-        else:
-            msg = self.error_messages['missing_fields']
-            raise serializers.ValidationError(msg)
-
-    def user_exists(self, email, password):
-        self.user = self.authenticate(self.context['request'], email=email, password=password)
-        return self.user is not None
-
-    def authenticate(self, request, email=None, password=None):
-        credentials = {
-            'username': email, 
-            'password': password
-        }
-        return super().authenticate(request, **credentials)
+        'username': self.validated_data.get('username', ''),
+        'password1': self.validated_data.get('password1', ''),
+        'nickname': self.validated_data.get('nickname', ''),
+    }
+        
+UserModel = get_user_model()
+class CustomUserDetailsSerializer(UserDetailsSerializer):
+ class Meta:
+        extra_fields = []
+        if hasattr(UserModel, 'USERNAME_FIELD'):
+            extra_fields.append(UserModel.USERNAME_FIELD)
+        if hasattr(UserModel, 'EMAIL_FIELD'):
+            extra_fields.append(UserModel.EMAIL_FIELD)
+        if hasattr(UserModel, 'nickname'):
+            extra_fields.append('nickname') 
+        if hasattr(UserModel, 'age'):
+            extra_fields.append('age')
+        if hasattr(UserModel, 'is_pension'):
+            extra_fields.append('is_pension')
+        if hasattr(UserModel, 'is_internet'):
+            extra_fields.append('is_internet')
+        if hasattr(UserModel,'gender'):
+            extra_fields.append('gender')
+        if hasattr(UserModel,'is_BLSR'):
+            extra_fields.append('is_BLSR')
+        if hasattr(UserModel,'is_free'):
+            extra_fields.append('is_free')
+        model = UserModel
+        fields = ('pk', *extra_fields)
+        read_only_fields = ('username', 'email')
+        

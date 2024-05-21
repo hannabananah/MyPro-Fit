@@ -71,14 +71,20 @@
 
 @layer components {
   .btn-active {
-    @apply h-10 box-border w-full text-sm py-2 cursor-pointer rounded-lg bg-sky-700 text-sky-50 hover:bg-[#093e5d];
+    @apply h-10 box-border w-full text-sm py-2 cursor-pointer text-center rounded-lg bg-sky-700 text-sky-50 content-center hover:bg-[#093e5d] select-none;
   }
 
   .btn-inactive {
-    @apply h-10 box-border border border-sky-700 w-full text-sm py-2 cursor-pointer rounded-lg bg-sky-50 text-sky-900 hover:bg-sky-100;
+    @apply h-10 box-border border border-sky-700 w-full text-sm py-2 cursor-pointer rounded-lg bg-sky-50 content-center text-sky-900 hover:bg-sky-100 text-center select-none;
   }
 
   .text-input {
-    @apply w-full h-10 box-border px-10 py-2 outline-none caret-gray-900 rounded-lg text-gray-900 border border-sky-200 bg-slate-50 focus:border-sky-700 focus:ring-1 focus:ring-sky-500 focus:ring-opacity-50 placeholder-gray-500 text-sm;
+    @apply w-full h-10 box-border px-10 py-2 outline-none caret-gray-900 rounded-lg text-gray-900 border border-sky-200 bg-slate-50 focus:border-sky-700 placeholder-gray-500 text-sm;
   }
+}
+
+#age:-webkit-inner-spin-button,
+#age:-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button;
+  opacity: 1;
 }

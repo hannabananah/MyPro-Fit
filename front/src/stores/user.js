@@ -9,37 +9,43 @@ export const useUserStore = defineStore(
     const API_URL = 'http://127.0.0.1:8000';
     const token = ref(null);
     const username = ref(null);
+    const nickname = ref(null);
+    const age = ref(null);
+    const gender = ref(null);
+    const is_pension = ref(null);
+    const is_internet = ref(null);
+    const is_BLSR = ref(null);
+    const is_free = ref(null);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const errorFields = ref({
-      email: '',
+      username: '',
       password: '',
       password1: '',
       password2: '',
-      username: '',
+      nickname: '',
       general: '',
     });
     const isLogin = computed(() => token.value !== null);
     const router = useRouter();
-
     const clearErrors = () => {
       Object.keys(errorFields.value).forEach(field => {
         errorFields.value[field] = '';
       });
     };
 
-    const validateSignup = ({ email, password1, password2, username }) => {
+    const validateSignup = ({ username, password1, password2, nickname }) => {
       clearErrors();
 
-      if (!email || !password1 || !password2 || !username) {
+      if (!username || !password1 || !password2 || !nickname) {
         errorFields.value.general = '모든 필드를 입력해주세요.';
-        if (!email) errorFields.value.email = '필수 입력 필드입니다.';
+        if (!username) errorFields.value.username = '필수 입력 필드입니다.';
         if (!password1) errorFields.value.password1 = '필수 입력 필드입니다.';
         if (!password2) errorFields.value.password2 = '필수 입력 필드입니다.';
-        if (!username) errorFields.value.username = '필수 입력 필드입니다.';
+        if (!nickname) errorFields.value.nickname = '필수 입력 필드입니다.';
         return false;
       }
-      if (!emailRegex.test(email)) {
-        errorFields.value.email = '올바른 이메일 주소를 입력해주세요.';
+      if (!emailRegex.test(username)) {
+        errorFields.value.username = '올바른 이메일 주소를 입력해주세요.';
         return false;
       }
       if (password1.length < 8) {
@@ -54,30 +60,30 @@ export const useUserStore = defineStore(
         errorFields.value.password2 = '비밀번호가 일치하지 않습니다.';
         return false;
       }
-      if (username.length < 2) {
-        errorFields.value.username = '닉네임은 최소 두 글자 이상이어야 합니다.';
+      if (nickname.length < 2) {
+        errorFields.value.nickname = '닉네임은 최소 두 글자 이상이어야 합니다.';
         return false;
       }
-      if (username.length > 20) {
-        errorFields.value.username = '닉네임은 최대 20자 이하이어야 합니다.';
+      if (nickname.length > 20) {
+        errorFields.value.nickname = '닉네임은 최대 20자 이하이어야 합니다.';
         return false;
       }
 
       return true;
     };
 
-    const validateLogin = ({ email, password }) => {
+    const validateLogin = ({ username, password }) => {
       clearErrors();
 
-      if (!email || !password) {
+      if (!username || !password) {
         errorFields.value.general = '모든 필드를 입력해주세요.';
-        if (!email) errorFields.value.email = '필수 입력 필드입니다.';
+        if (!username) errorFields.value.username = '필수 입력 필드입니다.';
         if (!password) errorFields.value.password = '필수 입력 필드입니다.';
         return false;
       }
 
-      if (!emailRegex.test(email)) {
-        errorFields.value.email = '올바른 이메일 주소를 입력해주세요.';
+      if (!emailRegex.test(username)) {
+        errorFields.value.username = '올바른 이메일 주소를 입력해주세요.';
         return false;
       }
 
@@ -93,21 +99,20 @@ export const useUserStore = defineStore(
         method: 'post',
         url: `${API_URL}/accounts/signup/`,
         data: {
-          email: payload.email,
+          username: payload.username,
           password1: payload.password1,
           password2: payload.password2,
-          username: payload.username,
+          nickname: payload.nickname,
         },
       })
         .then(res => {
           console.log('회원가입 성공!');
-          logIn({ email: payload.email, password: payload.password1 });
+          logIn({ username: payload.username, password: payload.password1 });
         })
         .catch(error => {
           if (error.response && error.response.status === 500) {
             errorFields.value.general = '이미 존재하는 이메일 주소입니다.';
           } else {
-            console.log('response', error.message);
             errorFields.value.general = error.message;
           }
         });
@@ -120,7 +125,7 @@ export const useUserStore = defineStore(
         method: 'post',
         url: `${API_URL}/accounts/login/`,
         data: {
-          email: payload.email,
+          username: payload.username,
           password: payload.password,
         },
       })
@@ -140,10 +145,56 @@ export const useUserStore = defineStore(
 
     const logOut = function () {
       token.value = null;
-      username.value = null;
+      nickname.value = null;
       router.push({ name: 'login' });
     };
 
+    const deleteAccount = function () {
+      axios({
+        method: 'delete',
+        url: `${API_URL}/accounts/delete/`,
+        headers: {
+          Authorization: `Token ${token.value}`,
+        },
+      })
+        .then(() => {
+          console.log('계정 삭제 성공!');
+          logOut();
+        })
+        .catch(error => {
+          console.error('계정 삭제 중 오류 발생:', error);
+        });
+    };
+
+    const getUserInfo = function () {
+      if (!token.value) {
+        console.error('Token is not set');
+        return;
+      }
+
+      axios({
+        method: 'get',
+        url: `${API_URL}/accounts/user/`,
+        headers: {
+          Authorization: `Token ${token.value}`,
+        },
+      })
+        .then(response => {
+          nickname.value = response.data.nickname;
+          username.value = response.data.username;
+          age.value = response.data.age;
+          gender.value = response.data.gender;
+          is_pension.value = response.data.is_pension;
+          is_internet.value = response.data.is_internet;
+          is_BLSR.value = response.data.is_BLSR;
+          is_free.value = response.data.is_free;
+          console.log('유저 정보 가져오기 성공:', response.data);
+        })
+        .catch(error => {
+          console.error('유저 정보 가져오기 중 오류 발생:', error);
+          throw error;
+        });
+    };
     return {
       signUp,
       logIn,
@@ -153,7 +204,17 @@ export const useUserStore = defineStore(
       errorFields,
       token,
       isLogin,
+      deleteAccount,
+      API_URL,
+      getUserInfo,
       username,
+      nickname,
+      age,
+      gender,
+      is_pension,
+      is_internet,
+      is_BLSR,
+      is_free,
     };
   },
   { persist: true },
