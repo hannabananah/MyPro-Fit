@@ -4,7 +4,7 @@
     <div class="ml-auto">
       <form class="inline-block mr-3" id="select-bank">
         <select
-          class="btn-inactive bg-white py-0 px-3 hover:bg-white"
+          class="btn-inactive bg-white px-2 hover:bg-white text-start"
           name="bank"
           id="bank"
           v-model="selectedBank"
@@ -17,7 +17,7 @@
       </form>
       <form class="inline-block" id="select-duration">
         <select
-          class="btn-inactive bg-white py-0 px-3 text-center hover:bg-white"
+          class="btn-inactive bg-white py-0 px-2 hover:bg-white text-start"
           name="duration"
           id="duration"
           v-model="selectedDuration"
@@ -29,21 +29,53 @@
         </select>
       </form>
     </div>
-    <div @click="onClick">
-      <span>공시기준월 </span> <span>금융 회사명</span> <span>상품명</span>
-      <button value="month_6">6개월</button>
-      <button value="month_12">12개월</button>
-      <button value="month_24">24개월</button>
-      <button value="month_36">36개월</button>
+    <hr class="mt-4" />
+    <div class="h-[600px] overflow-y-auto pb-6">
+      <table class="border border-slate-400 w-full">
+        <tr @click="onClick">
+          <th class="border border-slate-300 w-[10%]">공시기준월</th>
+          <th class="border border-slate-300 w-[10%]">금융 회사명</th>
+          <th class="border border-slate-300 w-[30%]">상품명</th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_6">6개월</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_12">12개월</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_24">24개월</button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button value="month_36">36개월</button>
+          </th>
+        </tr>
+        <tr
+          class="w-full"
+          @click="goDetail"
+          v-for="deposit in sortedDeposits"
+          :key="deposit.fin_prdt_cd"
+          :data-deposit="deposit.fin_prdt_cd"
+        >
+          <td class="border border-slate-300 p-2">
+            {{ deposit.dcls_month }}
+          </td>
+          <td class="border border-slate-300 p-2">{{ deposit.kor_co_nm }}</td>
+          <td class="border border-slate-300 p-2">{{ deposit.fin_prdt_nm }}</td>
+          <td class="border border-slate-300 text-center">
+            {{ deposit.month_6 !== null ? deposit.month_6 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ deposit.month_12 !== null ? deposit.month_12 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ deposit.month_24 !== null ? deposit.month_24 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ deposit.month_36 !== null ? deposit.month_36 : '-' }}
+          </td>
+        </tr>
+      </table>
     </div>
-    <p
-      @click="goDetail"
-      v-for="deposit in sortedDeposits"
-      :key="deposit.fin_prdt_cd"
-      :data-deposit="deposit.fin_prdt_cd"
-    >
-      {{ deposit }}
-    </p>
   </div>
 </template>
 
@@ -139,6 +171,7 @@ const sortedDeposits = computed(() => {
 const goDetail = function (event) {
   // data-deposit 속성을 읽어옴
   const depositId = event.target.dataset.deposit;
+  console.log(event.target.dataset);
   router.push({
     name: 'product-detail',
     params: { type: 'deposit', code: `${depositId}` },

@@ -1,13 +1,13 @@
 <template>
   <div class="py-12">
-    <h1 class="ml-[15%] text-2xl mb-4 font-bold">예적금 금리 비교</h1>
+    <h1 class="ml-[14%] text-2xl mb-4 font-bold">예적금 금리 비교</h1>
     <div
       style="
         border-radius: 60px;
         overflow: hidden;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
       "
-      class="container mx-auto w-4/5 flex flex-col pl-6"
+      class="container mx-auto w-4/5 flex flex-col px-6 border border-solid border-slate-200"
     >
       <fieldset class="mt-12 mb-8 text-l">
         <legend class="my-1">조회하실 상품을 선택하세요.</legend>
