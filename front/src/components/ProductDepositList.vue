@@ -1,22 +1,34 @@
 <template>
-  <div>
-    <h1>예금리스트</h1>
-    <form id="select-bank">
-      <select name="bank" id="bank" v-model="selectedBank">
-        <option value="all">전체 목록</option>
-        <option v-for="bank in banks" :value="bank">
-          {{ bank }}
-        </option>
-      </select>
-    </form>
-    <form id="select-duration">
-      <select name="duration" id="duration" v-model="selectedDuration">
-        <option value="all">전체 기간</option>
-        <option v-for="duration in durations" :value="duration">
-          {{ duration }}
-        </option>
-      </select>
-    </form>
+  <div class="flex flex-col">
+    <h1 class="text-xl font-bold">정기 예금</h1>
+    <div class="ml-auto">
+      <form class="inline-block mr-3" id="select-bank">
+        <select
+          class="btn-inactive bg-white py-0 px-3 hover:bg-white"
+          name="bank"
+          id="bank"
+          v-model="selectedBank"
+        >
+          <option value="all">전체 목록</option>
+          <option v-for="bank in banks" :value="bank">
+            {{ bank }}
+          </option>
+        </select>
+      </form>
+      <form class="inline-block" id="select-duration">
+        <select
+          class="btn-inactive bg-white py-0 px-3 text-center hover:bg-white"
+          name="duration"
+          id="duration"
+          v-model="selectedDuration"
+        >
+          <option value="all">전체 기간</option>
+          <option v-for="duration in durations" :value="duration">
+            {{ duration }}
+          </option>
+        </select>
+      </form>
+    </div>
     <div @click="onClick">
       <span>공시기준월 </span> <span>금융 회사명</span> <span>상품명</span>
       <button value="month_6">6개월</button>
