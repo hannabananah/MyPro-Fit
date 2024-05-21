@@ -129,7 +129,6 @@
                     [option.defaultBgColor]:
                       userStore.gender !== option.mapping,
                   }"
-                  @click="userStore.gender = option.mapping"
                 >
                   <component
                     :is="option.icon"
@@ -145,7 +144,6 @@
                     :id="option.value"
                     :value="option.mapping"
                     v-model="userStore.gender"
-                    :checked="userStore.gender === option.mapping"
                     class="hidden form-radio"
                   />
                 </label>
@@ -157,6 +155,8 @@
                 <input
                   type="number"
                   id="age"
+                  :min="0"
+                  :max="99"
                   class="w-20 px-6 -mt-[6px] text-right text-input box-sizing"
                   v-model="userStore.age"
                   value="userStore.age"
@@ -368,7 +368,7 @@ const updateMoreInfo = () => {
     method: 'patch',
     url: `${userStore.API_URL}/accounts/user/`,
     data: {
-      gender: userStore.mapping,
+      gender: userStore.gender,
       age: userStore.age,
       asset: parseNumberWithCommas(userStore.asset),
       is_pension: userStore.is_pension,
@@ -381,7 +381,7 @@ const updateMoreInfo = () => {
     },
   })
     .then(response => {
-      console.log('More info 업데이트 성공', response);
+      console.log('More info 업데이트 성공', response.data.gender);
     })
     .catch(error => {
       console.error('More info 업데이트 실패', error);
