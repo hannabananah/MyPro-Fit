@@ -211,7 +211,6 @@ export const useUserStore = defineStore(
           is_internet.value = response.data.is_internet;
           is_BLSR.value = response.data.is_BLSR;
           is_free.value = response.data.is_free;
-          console.log('유저 정보 가져오기 성공:', response.data);
         })
         .catch(error => {
           console.error('유저 정보 가져오기 중 오류 발생:', error);

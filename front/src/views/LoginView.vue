@@ -82,12 +82,6 @@
               </p>
             </div>
           </div>
-          <button
-            @click="openModal"
-            class="text-xs underline text-sky-700 text-end"
-          >
-            비밀번호를 잊어버리셨습니까?
-          </button>
         </div>
         <div class="flex flex-col gap-2">
           <input type="submit" class="btn-active" value="Log in" />
@@ -117,27 +111,6 @@
       <img :src="LogoSvg" alt="Logo Icon" />
     </div>
   </div>
-  <CustomModal
-    v-model="isModalOpen"
-    @confirm="handleConfirm"
-    @cancel="handleCancel"
-    :modalTitle="'비밀번호 초기화를 하시겠습니까?'"
-    :confirmText="'확인'"
-    :cancelText="'취소'"
-  >
-    <div>
-      <p>
-        이메일로 비밀번호 초기화 링크를 보내드립니다. <br />이메일을
-        확인해주세요.
-      </p>
-      <input
-        v-model="pwdEmail"
-        type="email"
-        placeholder="이메일을 입력하세요"
-        class="px-4 mt-2 text-input"
-        maxlength="50"
-      /></div
-  ></CustomModal>
 </template>
 
 <script setup>
@@ -151,7 +124,6 @@ import Lock from 'vue-material-design-icons/LockOutline.vue';
 import Eye from 'vue-material-design-icons/EyeOutline.vue';
 import EyeOff from 'vue-material-design-icons/EyeOffOutline.vue';
 import axios from 'axios';
-import CustomModal from '@/components/Modal.vue';
 
 const username = ref(null);
 const password = ref(null);
@@ -199,18 +171,5 @@ const resetPwd = () => {
     .catch(error => {
       console.log('이메일 발송 실패', error);
     });
-};
-
-const openModal = () => {
-  isModalOpen.value = true;
-};
-
-const handleConfirm = () => {
-  resetPwd();
-  isModalOpen.value = false;
-};
-
-const handleCancel = () => {
-  isModalOpen.value = false;
 };
 </script>

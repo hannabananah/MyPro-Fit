@@ -3,14 +3,14 @@
     <div
       style="border-radius: 60px; overflow: hidden;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);"
-      class="container mx-auto w-4/5 flex items-center flex-col"
+      class="container flex flex-col items-center w-4/5 mx-auto"
     >
-      <img width="100%" src="@/assets/images/exchange.svg" alt="" />
-      <div style="width: 50%" class="my-8 flex flex-col items-center">
-        <p class="text-2xl text-center my-8">환율 계산기</p>
+      <img width="100%" src="@/assets/images/exchange.svg" alt="환율계산 페이지 헤더 이미지" />
+      <div style="width: 50%" class="flex flex-col items-center my-8">
+        <p class="my-8 text-2xl text-center">환율 계산기</p>
         <div style="width: 60%" class="flex justify-between">
           <div
-            class="border border-solid border-sky-700 min-h-10 flex items-center justify-center"
+            class="flex items-center justify-center border border-solid border-sky-700 min-h-10"
             style="border-radius: 16px;
             width:40%;"
           >
@@ -25,7 +25,7 @@
             </form>
           </div>
           <div
-            class="border border-solid border-sky-700 min-h-10 flex items-center justify-center px-5"
+            class="flex items-center justify-center px-5 border border-solid border-sky-700 min-h-10"
             style="border-radius: 16px; width:60%; margin-left:1px;"
           >
             <form>
@@ -51,7 +51,7 @@
         <!-- 사용자가 외화를 입력할 때 -->
         <form v-show="!isKwrToFor" style="width: 60%; margin-top: 1rem">
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-6"
+            class="flex items-center justify-between w-full p-3 mt-6 border border-solid border-sky-700"
             style="border-radius: 16px"
           >
             <input
@@ -71,7 +71,7 @@
             </div>
           </p>
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-4"
+            class="flex items-center justify-between w-full p-3 mt-4 border border-solid border-sky-700"
             style="border-radius: 16px"
           >
           <input
@@ -94,7 +94,7 @@
         <!-- 사용자가 원화를 입력할 때 -->
         <form v-show="isKwrToFor" style="width: 60%; margin-top: 1rem">
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-6"
+            class="flex items-center justify-between w-full p-3 mt-6 border border-solid border-sky-700"
             style="border-radius: 16px"
           >
             <input
@@ -113,7 +113,7 @@
             </div>
           </p>
           <div
-            class="border border-solid border-sky-700 p-3 w-full flex justify-between items-center mt-4"
+            class="flex items-center justify-between w-full p-3 mt-4 border border-solid border-sky-700"
             style="border-radius: 16px"
           >
           <input

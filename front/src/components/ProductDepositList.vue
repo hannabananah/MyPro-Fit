@@ -4,7 +4,7 @@
     <div class="ml-auto">
       <form class="inline-block mr-3" id="select-bank">
         <select
-          class="btn-inactive bg-white py-0 px-3 hover:bg-white"
+          class="px-3 py-0 bg-white btn-inactive hover:bg-white"
           name="bank"
           id="bank"
           v-model="selectedBank"
@@ -17,7 +17,7 @@
       </form>
       <form class="inline-block" id="select-duration">
         <select
-          class="btn-inactive bg-white py-0 px-3 text-center hover:bg-white"
+          class="px-3 py-0 text-center bg-white btn-inactive hover:bg-white"
           name="duration"
           id="duration"
           v-model="selectedDuration"

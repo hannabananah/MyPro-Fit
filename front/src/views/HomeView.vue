@@ -62,7 +62,6 @@ store.fetchExchangeRate();
 
 onMounted(() => {
   if (userStore.isLogin) {
-    console.log(userStore.getUserInfo());
     userStore.getUserInfo();
   }
 });

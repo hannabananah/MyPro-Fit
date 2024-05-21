@@ -1,9 +1,8 @@
-# app/broker.py
 from django.apps import AppConfig
 
 
 class MyAppConfig(AppConfig):
-    name = 'my_app'
+    name = "my_app"
     verbose_name = "My App"
 
     def ready(self):

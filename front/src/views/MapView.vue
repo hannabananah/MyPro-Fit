@@ -1,14 +1,18 @@
 <template>
-  <div class="py-12 h-screen">
+  <div class="h-screen py-12">
     <div
       style="
         border-radius: 60px;
         overflow: hidden;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
       "
-      class="container mx-auto w-4/5 flex flex-col pb-6"
+      class="container flex flex-col w-4/5 pb-6 mx-auto"
     >
-      <img style="width: 100%" src="@/assets/images/map.svg" alt="" />
+      <img
+        class="object-cover overflow-hidden max-h-56"
+        src="@/assets/images/map.jpg"
+        alt="지점검색 페이지 헤더 이미지"
+      />
       <div class="flex flex-row mb-4 h-[600px]">
         <div
           id="map-container"
@@ -24,14 +28,14 @@
             >
               <input
                 type="text"
-                class="bg-transparent w-5/6 ml-5 focus:outline-none"
+                class="w-5/6 ml-5 bg-transparent focus:outline-none"
                 placeholder="(예시) 역삼역 OO은행"
                 v-model="keyWord"
               />
               <button>
                 <img
                   src="@/assets/icons/search-icon-slate200.svg"
-                  class="h-3/5 mr-4"
+                  class="mr-4 h-3/5"
                 />
               </button>
             </div>
@@ -39,7 +43,7 @@
           <div ref="mapContainer" style="width: 100%; height: 100%"></div>
         </div>
         <div id="bank-list" class="h-[510px] mt-6 ml-3 w-1/3">
-          <p class="text-xl text-gray-900 my-5">목록 보기</p>
+          <p class="my-5 text-xl text-gray-900">목록 보기</p>
           <div id="menu_wrap" class="h-full overflow-auto">
             <ul class="" id="placesList"></ul>
             <div class="hidden" id="pagination"></div>
@@ -177,14 +181,14 @@ function getListItem(index, places) {
       '<span class="markerbg marker_' +
       (index + 1) +
       '"></span>' +
-      '<div class="info bg-slate-50 mb-3 p-2 mr-3">' +
-      '   <h5 class="text-gray-900 text-sm">' +
+      '<div class="p-2 mb-3 mr-3 info bg-slate-50">' +
+      '   <h5 class="text-sm text-gray-900">' +
       places.place_name +
       '</h5>';
 
   if (places.road_address_name) {
     itemStr +=
-      '    <span class="text-gray-500 text-xs">' +
+      '    <span class="text-xs text-gray-500">' +
       places.road_address_name +
       '</span>';
     // +
@@ -193,13 +197,13 @@ function getListItem(index, places) {
     // '</p>';
   } else {
     itemStr +=
-      '    <span class="text-gray-500 text-xs">' +
+      '    <span class="text-xs text-gray-500">' +
       places.address_name +
       '</span>';
   }
 
   itemStr +=
-    '  <span class="tel text-sky-700 text-xs">' +
+    '  <span class="text-xs tel text-sky-700">' +
     places.phone +
     '</span>' +
     '</div>';

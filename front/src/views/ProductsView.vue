@@ -7,7 +7,7 @@
         overflow: hidden;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
       "
-      class="container mx-auto w-4/5 flex flex-col pl-6"
+      class="container flex flex-col w-4/5 pl-6 mx-auto"
     >
       <fieldset class="mt-12 mb-8 text-l">
         <legend class="my-1">조회하실 상품을 선택하세요.</legend>

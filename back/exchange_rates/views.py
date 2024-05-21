@@ -1,27 +1,24 @@
-from django.shortcuts import render
+from datetime import datetime, timedelta
+
+import requests
+from django.conf import settings
+from django.utils.dateformat import DateFormat
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
-from django.conf import settings
-import requests, json
-from datetime import datetime, timedelta
-from django.utils.dateformat import DateFormat
 
 # 환율 가져오는 api
 SECRET_KEY = settings.SECRET_KEY
-@api_view(['GET'])
+
+
+@api_view(["GET"])
 def today_exchange(request):
     max_retries = 7  # 최대 7일 전까지 시도
     retries = 0
     today_datetime = datetime.now()
     while retries < max_retries:
-        today = DateFormat(today_datetime).format('Ymd')
-        url = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON/'
-        params = {
-            'authkey': SECRET_KEY,
-            'data': 'AP01',
-            'searchdate': today
-        }
+        today = DateFormat(today_datetime).format("Ymd")
+        url = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON/"
+        params = {"authkey": SECRET_KEY, "data": "AP01", "searchdate": today}
         response = requests.get(url, params=params)
 
         if response.status_code == 200:

@@ -6,8 +6,8 @@
     <p>상품명: {{ product.fin_prdt_nm }}</p>
     <p>기관명: {{ product.kor_co_nm }}</p>
     <button v-show="isLiked" @click="doLike">
-      <heart class="inline-block h-[20px]"></heart>
-    </button>
+      <heart class="inline-block h-[20px]"></heart></button
+    >s
     <button v-show="!isLiked" @click="doLike">
       <heartOutline class="inline-block h-[20px]"></heartOutline></button
     >{{ numberOfLikes }}
