@@ -25,9 +25,11 @@
         <button value="month_24">24개월</button>
         <button value="month_36">36개월</button>
       </div>
-      <p v-for="saving in sortedSavings" :key="saving.fin_prdt_nm">
-        {{ saving }}
-      </p>
+      <div>
+        <p v-for="saving in sortedSavings" :key="saving.fin_prdt_cd">
+          {{ saving }}
+        </p>
+      </div>
     </div>
   </div>
 </template>

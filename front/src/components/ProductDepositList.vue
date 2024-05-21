@@ -24,7 +24,12 @@
       <button value="month_24">24개월</button>
       <button value="month_36">36개월</button>
     </div>
-    <p v-for="deposit in sortedDeposits" :key="deposit.fin_prdt_nm">
+    <p
+      @click="goDetail"
+      v-for="deposit in sortedDeposits"
+      :key="deposit.fin_prdt_cd"
+      :data-deposit="deposit.fin_prdt_cd"
+    >
       {{ deposit }}
     </p>
   </div>
@@ -33,8 +38,10 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
+import { useRouter } from 'vue-router';
 
 const store = useProductStore();
+const router = useRouter();
 const isSorted = ref(true);
 const selectedBank = ref('all');
 const selectedDuration = ref('all');
@@ -115,6 +122,17 @@ const sortedDeposits = computed(() => {
     return [...filteredDeposits].sort(compare);
   }
 });
+
+// 클릭 시 디테일 페이지로 이동
+const goDetail = function (event) {
+  // data-deposit 속성을 읽어옴
+  const depositId = event.target.dataset.deposit;
+  router.push({
+    name: 'product-detail',
+    params: { type: 'deposit', code: `${depositId}` },
+  });
+  //
+};
 </script>
 
 <style scoped></style>

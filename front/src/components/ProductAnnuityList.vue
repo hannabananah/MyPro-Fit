@@ -18,7 +18,7 @@
         <button value="btrm_prft_rate_1">작년 수익률</button>
         <button value="btrm_prft_rate_2">2년 전 수익률</button>
         <button value="btrm_prft_rate_3">3년 전 수익률</button>
-        <p v-for="annuity in sortedAnnuities" :key="annuity.fin_prdt_nm">
+        <p v-for="annuity in sortedAnnuities" :key="annuity.fin_prdt_cd">
           {{ annuity }}
         </p>
       </div>
