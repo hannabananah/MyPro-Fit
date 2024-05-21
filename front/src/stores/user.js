@@ -10,6 +10,12 @@ export const useUserStore = defineStore(
     const token = ref(null);
     const username = ref(null);
     const nickname = ref(null);
+    const age = ref(null);
+    const gender = ref(null);
+    const is_pension = ref(null);
+    const is_internet = ref(null);
+    const is_BLSR = ref(null);
+    const is_free = ref(null);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const errorFields = ref({
       username: '',
@@ -176,6 +182,12 @@ export const useUserStore = defineStore(
         .then(response => {
           nickname.value = response.data.nickname;
           username.value = response.data.username;
+          age.value = response.data.age;
+          gender.value = response.data.gender;
+          is_pension.value = response.data.is_pension;
+          is_internet.value = response.data.is_internet;
+          is_BLSR.value = response.data.is_BLSR;
+          is_free.value = response.data.is_free;
           console.log('유저 정보 가져오기 성공:', response.data);
         })
         .catch(error => {
@@ -197,6 +209,12 @@ export const useUserStore = defineStore(
       getUserInfo,
       username,
       nickname,
+      age,
+      gender,
+      is_pension,
+      is_internet,
+      is_BLSR,
+      is_free,
     };
   },
   { persist: true },

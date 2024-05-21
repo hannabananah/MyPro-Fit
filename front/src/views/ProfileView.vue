@@ -125,15 +125,16 @@
                   :key="index"
                   class="flex items-center justify-center w-10 p-2 border cursor-pointer rounded-xl"
                   :class="{
-                    [option.bgColor]: userStore.gender === option.value,
-                    [option.defaultBgColor]: userStore.gender !== option.value,
+                    [option.bgColor]: userStore.gender === option.mapping,
+                    [option.defaultBgColor]:
+                      userStore.gender !== option.mapping,
                   }"
-                  @click="userStore.gender = option.value"
+                  @click="userStore.gender = option.mapping"
                 >
                   <component
                     :is="option.icon"
                     :fillColor="
-                      userStore.gender === option.value
+                      userStore.gender === option.mapping
                         ? '#fff'
                         : option.defaultIconColor
                     "
@@ -142,8 +143,9 @@
                   <input
                     type="radio"
                     :id="option.value"
-                    :value="option.value"
+                    :value="option.mapping"
                     v-model="userStore.gender"
+                    :checked="userStore.gender === option.mapping"
                     class="hidden form-radio"
                   />
                 </label>
@@ -157,6 +159,7 @@
                   id="age"
                   class="w-20 px-6 -mt-2 text-right text-input box-sizing"
                   v-model="userStore.age"
+                  value="userStore.age"
                 />
                 <span class="absolute text-sm left-14 top-1">세</span>
               </div>
@@ -241,6 +244,7 @@ const isModalOpen = ref(false);
 const genderOptions = [
   {
     value: 'female',
+    mapping: 'F',
     icon: Female,
     bgColor: 'bg-custom-pink shadow-inner',
     defaultBgColor: 'bg-slate-50',
@@ -248,6 +252,7 @@ const genderOptions = [
   },
   {
     value: 'male',
+    mapping: 'M',
     icon: Male,
     bgColor: 'bg-custom-blue shadow-inner',
     defaultBgColor: 'bg-slate-50',
@@ -330,12 +335,6 @@ const updateProfile = () => {
 };
 
 const updateMoreInfo = () => {
-  const genderMap = {
-    female: 'F',
-    male: 'M',
-  };
-  const genderValue = genderMap[userStore.gender];
-
   if (!userStore.token) {
     console.error('Token is not set');
     return;
@@ -344,7 +343,7 @@ const updateMoreInfo = () => {
     method: 'patch',
     url: `${userStore.API_URL}/accounts/user/`,
     data: {
-      gender: genderValue,
+      gender: userStore.mapping,
       age: userStore.age,
       is_pension: userStore.is_pension,
       is_internet: userStore.is_internet,
