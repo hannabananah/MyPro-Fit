@@ -26,7 +26,12 @@
         <button value="month_36">36개월</button>
       </div>
       <div>
-        <p v-for="saving in sortedSavings" :key="saving.fin_prdt_cd">
+        <p
+          @click="goDetail"
+          v-for="saving in sortedSavings"
+          :key="saving.fin_prdt_cd"
+          :data-saving="saving.fin_prdt_cd"
+        >
           {{ saving }}
         </p>
       </div>
@@ -37,11 +42,13 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
+import { useRouter } from 'vue-router';
 
 const isSorted = ref(true);
 const sortedBy = ref('month_12');
 const selectedBank = ref('all');
 const selectedDuration = ref('all');
+const router = useRouter();
 const store = useProductStore();
 const banks = [
   '경남은행',
@@ -122,6 +129,17 @@ const sortedSavings = computed(() => {
     return [...filteredSavings].sort(compare);
   }
 });
+
+// 클릭 시 디테일 페이지로 이동
+const goDetail = function (event) {
+  // data-deposit 속성을 읽어옴
+  const savingId = event.target.dataset.saving;
+  router.push({
+    name: 'product-detail',
+    params: { type: 'saving', code: `${savingId}` },
+  });
+  //
+};
 </script>
 
 <style scoped></style>
