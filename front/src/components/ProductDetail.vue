@@ -49,45 +49,39 @@
         v-if="route.params.type !== 'annuity' && product"
         class="flex border border-slate-300 rounded-[16px] w-full shadow"
       >
-        <thead class="text-start">
-          <tr>
-            <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
-            >
+        <thead class="divide-y text-start w-full">
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               공시기준월
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-slate-300 text-start pl-3">
               {{ product.dcls_month }}
             </td>
           </tr>
           <!-- <tr>
             <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+              class="border-r  border-slate-300 w-[30%] text-start pl-3"
             >
               상품명
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class=" border-slate-300 w-[70%] text-start pl-3">
               {{ product.fin_prdt_nm }}
             </td>
           </tr> -->
-          <tr>
-            <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
-            >
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               기관명
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-slate-300 text-start pl-3">
               {{ product.kor_co_nm }}
             </td>
           </tr>
-          <tr>
-            <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
-            >
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               만기 후 이자율
             </th>
             <td
-              class="border-b border-slate-300 w-[70%] text-start pl-3 whitespace-pre-line"
+              class="border-slate-300 text-start pl-3"
               v-html="
                 product.mtrt_int !== null
                   ? product.mtrt_int.replace(/(.*?-.*?)-/, '$1<br>')
@@ -95,43 +89,35 @@
               "
             ></td>
           </tr>
-          <tr>
-            <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
-            >
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               최고 한도
             </th>
-            <td
-              class="border-b border-slate-300 w-[70%] text-start pl-3 whitespace-pre-line"
-            >
+            <td class="border-slate-300 text-start pl-3 whitespace-pre-line">
               {{ product.max_limit !== null ? product.max_limit : '-' }}
             </td>
           </tr>
-          <tr>
-            <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
-            >
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               가입 조건
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-slate-300 text-start pl-3">
               {{ product.join_member !== null ? product.join_member : '-' }}
             </td>
           </tr>
-          <tr>
-            <th
-              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
-            >
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               가입 방법
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-slate-300 text-start pl-3">
               {{ product.join_way !== null ? product.join_way : '-' }}
             </td>
           </tr>
-          <tr>
+          <tr class="w-full">
             <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               우대 조건
             </th>
-            <td class="w-[70%] text-start pl-3 whitespace-pre-line">
+            <td class="text-start w-full pl-3">
               {{ product.spcl_cnd !== null ? product.spcl_cnd : '-' }}
             </td>
           </tr>
@@ -140,8 +126,11 @@
 
       <!-- 연금 -->
 
-      <div class="border border-slate-300 rounded-[16px] w-full shadow">
-        <table v-if="route.params.type === 'annuity' && product">
+      <div
+        v-if="route.params.type === 'annuity' && product"
+        class="border border-slate-300 rounded-[16px] w-full shadow"
+      >
+        <table>
           <tr class="w-full">
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
