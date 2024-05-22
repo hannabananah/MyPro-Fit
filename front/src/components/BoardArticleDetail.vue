@@ -4,7 +4,24 @@
       :style="`background-color: ${randColor}`"
       class="container relative flex flex-col items-center w-3/5 mx-auto overflow-hidden rounded-lg shadow-md bg-slate-100"
     >
-      <article class="flex flex-col w-full p-10 gap-y-3">
+      <article class="relative flex flex-col w-full px-10 pb-4 pt-14 gap-y-3">
+        <div
+          class="absolute flex right-4 top-4 gap-x-2"
+          v-if="boardStore.article.username === userStore.username"
+        >
+          <button
+            class="hover:drop-shadow transform-gpu hover:scale-110"
+            @click="handleClickEdit"
+          >
+            <Edit />
+          </button>
+          <button
+            class="hover:drop-shadow transform-gpu hover:scale-110"
+            @click="handleClickDelete"
+          >
+            <Delete />
+          </button>
+        </div>
         <div class="flex justify-between w-full">
           <i class="text-gray-900">No.{{ boardStore.article.id }}</i>
           <span class="text-sm tracking-wide text-gray-500">
@@ -18,32 +35,36 @@
         <span class="inline-block text-sm text-right">
           {{ formattedCreatedAt }}
         </span>
-        <div
-          class="flex self-end w-1/3 gap-x-2"
-          v-if="boardStore.article.username === userStore.username"
-        >
-          <button class="btn-active" @click="handleClickEdit">UPDATE</button>
-          <button class="btn-inactive" @click="handleClickDelete">
-            DELETE
-          </button>
-        </div>
         <div>
-          <form @submit.prevent="createComment">
-            <label for="comment" class="mr-2">댓글 :</label>
-            <input
-              class="w-3/5 px-1 bg-transparent border-b border-gray-500 outline-none caret-gray-500"
-              type="text"
-              id="comment"
-              v-model="comment"
-            />
-          </form>
-          <ul class="list-none">
+          <ul class="py-2 mt-2 list-none border-t border-slate-300">
             <CommentsList
               v-for="comment in comments"
               :key="comment.id"
               :comment="comment"
             />
           </ul>
+          <form
+            @submit.prevent="createComment"
+            class="relative flex items-center gap-x-2"
+          >
+            <label
+              for="comment"
+              class="box-border flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 aspect-square"
+              ><Chat fillColor="#6B7280" :size="25"
+            /></label>
+            <textarea
+              class="flex h-auto pl-3 resize-none pr-9 text-input m-h-40"
+              type="text"
+              id="comment"
+              v-model="comment"
+            />
+            <button
+              type="submit"
+              class="absolute flex items-center justify-center right-3 hover:scale-110"
+            >
+              <Send />
+            </button>
+          </form>
         </div>
       </article>
     </div>
@@ -57,6 +78,10 @@ import { useRouter, useRoute } from 'vue-router';
 import CommentsList from '@/components/CommentsList.vue';
 import axios from 'axios';
 import { useUserStore } from '@/stores/user';
+import Edit from 'vue-material-design-icons/SquareEditOutline.vue';
+import Delete from 'vue-material-design-icons/TrashCanOutline.vue';
+import Chat from 'vue-material-design-icons/ChatOutline.vue';
+import Send from 'vue-material-design-icons/Send.vue';
 
 const boardStore = useBoardStore();
 const userStore = useUserStore();
