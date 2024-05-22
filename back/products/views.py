@@ -387,20 +387,52 @@ def recommend_products(request):
     # 현재 유저의 자산 정보 가져오기
     current_asset = request.user.asset
     
+    # 모든 적금 불러오기
+    all_savings = list(Saving.objects.all())
+
+    # 가입하지 못하는 상품 리스트
+    cannot_join = []
+    # 가입가능한 상품리스트
+    can_join = []
+    for saving in all_savings:
+        age_filter = saving.age_filter
+        gender_filter = saving.gender_filter
+        internet_filter = saving.internet_filter
+        # 나이제한에 걸리는경우 추가
+        if age_filter != 0 and not ((age_filter < 0 and request.user.age > abs(age_filter)) or (age_filter > 0 and request.user.age < age_filter)):
+            cannot_join.append(saving.pk)
+            print('나이제한통과')
+            continue
+        # 인터넷 가입상품만 원하는데, 인터넷가입불가 상품인경우
+        print(internet_filter, request.user.is_internet)
+        if request.user.is_internet and not internet_filter:
+            cannot_join.append(saving.pk)
+            print('인터넷 통과')
+            continue
+        # 자유납입 상품만 추천받고싶은데 자유납입 불가일경우
+        if request.user.is_free and gender_filter == 'N':
+            cannot_join.append(saving.pk)
+            continue
+        can_join.append(saving)
+    print('가입못하는것들',cannot_join)
     # 현재 유저와 나이 차이가 10살 미만인 유저 필터링
     similar_age_users = get_user_model().objects.filter(age__lte=request.user.age+10, age__gte=request.user.age-10).exclude(id=request.user.id)
     
-    # 현재 유저와 자산 차이가 15% 이하인 유저 선택
+    # 현재 유저와 자산 차이가 30% 이하인 유저 선택
     similar_salary_users = []
     for user in similar_age_users:
         user_asset = user.asset
         salary_difference = abs(current_asset - user_asset)
-        if salary_difference / current_asset <= 0.2:
+        if salary_difference / current_asset <= 0.50:
             similar_salary_users.append(user)
-    
-    # 가입한 상품이 많이 겹치는 상위 10명의 유저 선택
+    print('자산 비슷한유저', similar_salary_users)
+    # 가입한 상품이 많이 겹치는 상위 10명의 유저 선택 -> 상품 취향 비슷한 사람이 가입한 다른상품 추천
     similar_users_with_common_products = []
     for user in similar_salary_users:
+        # 가입상품이 0개인 유저는 pass
+        print(user.saving_join_products)
+        if len(user.saving_join_products.all()) < 1:
+            continue
         common_products_count = len(set(request.user.saving_join_products.all()) & set(user.saving_join_products.all()))
         similar_users_with_common_products.append((user, common_products_count))
     
@@ -408,16 +440,24 @@ def recommend_products(request):
     top_similar_users = [user for user, _ in similar_users_with_common_products[:10]]
     
     # 선택된 유저들이 가입한 다른 상품 중에서 현재 유저가 아직 가입하지 않은 상위 10개의 상품 추천
-    recommended_products = []
+    recommended_products_list = []
     for user in top_similar_users:
-        other_products = user.saving_join_products.exclude(id__in=request.user.saving_join_products.values_list('id', flat=True))
-        for product in other_products:
-            recommended_products.append(product)
-            if len(recommended_products) >= 10:
+        similar_users_joined_products = user.saving_join_products.all()
+        for product in similar_users_joined_products:
+            # 가입하지 못하는 상품이면 pass
+            if product.id in cannot_join:
+                continue
+            # 이미 가입한 상품이면 pass
+            if product in request.user.saving_join_products.all():
+                continue
+            if len(recommended_products_list) >= 10:
                 break
-        if len(recommended_products) >= 10:
+        if len(recommended_products_list) >= 10:
             break
-
+    print(recommended_products_list)
+    if len(recommended_products_list) == 0:
+        recommended_products_json = [{'id': product.id, 'name': product.fin_prdt_nm} for product in can_join[:10]]
+        return JsonResponse(recommended_products_json, safe=False)
     # JSON 형태로 변환하여 반환
-    recommended_products_json = [{'id': product.id, 'name': product.fin_prdt_nm} for product in recommended_products[:10]]
+    recommended_products_json = [{'id': product.id, 'name': product.fin_prdt_nm} for product in recommended_products_list[:10]]
     return JsonResponse(recommended_products_json, safe=False)

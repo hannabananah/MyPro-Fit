@@ -45,19 +45,25 @@ class Command(BaseCommand):
             for deposit in all_deposits:
                 age_filter = deposit.age_filter
                 internet_filter = deposit.internet_filter
+                gender_filter = deposit.gender_filter
 
-                if age_filter is None or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
-                    if internet_filter and user_is_internet:
-                        deposit.deposit_joined_users.add(user)
+                if age_filter == 0 or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
+                    if (internet_filter and user_is_internet) or not user_is_internet:
+                        if (user_is_free and not gender_filter) or not user_is_free:
+                            deposit.deposit_joined_users.add(user)
+                            deposit.deposit_like_users.add(user)
 
             # For savings
             for saving in all_savings:
                 age_filter = saving.age_filter
                 internet_filter = saving.internet_filter
+                gender_filter = saving.gender_filter
 
-                if age_filter is None or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
-                    if internet_filter and user_is_internet:
-                        saving.saving_joined_users.add(user)
+                if age_filter == 0 or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
+                    if (internet_filter and user_is_internet) or not user_is_internet:
+                        if (user_is_free and not gender_filter) or not user_is_free:
+                            saving.saving_joined_users.add(user)
+                            saving.saving_like_users.add(user)
 
             # For annuities
             for annuity in all_annuities:
@@ -65,7 +71,8 @@ class Command(BaseCommand):
                 internet_filter = annuity.internet_filter
                 gender_filter = annuity.gender_filter
 
-                if age_filter is None or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
-                    if internet_filter and user_is_internet:
-                        if not (user_is_free and gender_filter == 'N'):
+                if age_filter == 0 or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
+                    if (internet_filter and user_is_internet) or not internet_filter:
+                        if (user_is_free and not gender_filter) or not user_is_free:
                             annuity.annuity_joined_users.add(user)
+                            annuity.annuity_like_users.add(user)
