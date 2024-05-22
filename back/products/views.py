@@ -384,19 +384,18 @@ def deposit_joins(request, code):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def recommend_products(request):
-    # 현재 유저의 연봉 정보 가져오기
-    print('테스트@@@@@@@@@', request.user)
-    current_salary = request.user.asset
+    # 현재 유저의 자산 정보 가져오기
+    current_asset = request.user.asset
     
     # 현재 유저와 나이 차이가 10살 미만인 유저 필터링
     similar_age_users = get_user_model().objects.filter(age__lte=request.user.age+10, age__gte=request.user.age-10).exclude(id=request.user.id)
     
-    # 현재 유저와 연봉 차이가 15% 이하인 유저 선택
+    # 현재 유저와 자산 차이가 15% 이하인 유저 선택
     similar_salary_users = []
     for user in similar_age_users:
         user_asset = user.asset
-        salary_difference = abs(current_salary - user_asset)
-        if salary_difference / current_salary <= 0.2:
+        salary_difference = abs(current_asset - user_asset)
+        if salary_difference / current_asset <= 0.2:
             similar_salary_users.append(user)
     
     # 가입한 상품이 많이 겹치는 상위 10명의 유저 선택
