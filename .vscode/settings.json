@@ -4,5 +4,10 @@
     "prettier.requireConfig": true,
     "[vue]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "cSpell.ignoreWords": [
+        "axios",
+        "hahmlet",
+        "uniqolor"
+    ]
 }

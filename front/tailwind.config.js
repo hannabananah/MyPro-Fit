@@ -7,6 +7,9 @@ export default {
         'custom-pink': '#F8ACFF',
         'custom-blue': '#7DD3FC',
       },
+      fontFamily: {
+        hahmlet: ['Hahmlet', 'serif'],
+      },
     },
   },
   plugins: [],

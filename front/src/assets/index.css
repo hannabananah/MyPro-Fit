@@ -61,12 +61,45 @@
     url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/700_AppleSDGothicNeo-Bold.otf')
       format('opentype');
 }
+
+@font-face {
+  font-family: 'hahmlet';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap');
+}
+
+.hahmlet {
+  font-family: 'Hahmlet', serif;
+  font-optical-sizing: auto;
+}
+
 * {
   font-family:
     'Apple SD Gothic Neo',
     Trebuchet MS,
     sans-serif;
   color: #111;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @layer components {
@@ -81,10 +114,12 @@
   .text-input {
     @apply w-full h-10 box-border px-10 py-2 outline-none caret-gray-900 rounded-lg text-gray-900 border border-sky-200 bg-slate-50 focus:border-sky-700 placeholder-gray-500 text-sm;
   }
-}
 
-#age:-webkit-inner-spin-button,
-#age:-webkit-outer-spin-button {
-  -webkit-appearance: inner-spin-button;
-  opacity: 1;
+  .masonry {
+    @apply columns-1 gap-y-4 md:columns-2 lg:columns-3;
+  }
+
+  .masonry-item {
+    @apply break-inside-avoid mb-4;
+  }
 }
