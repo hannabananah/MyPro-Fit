@@ -120,9 +120,10 @@ onMounted(() => {
 
 // 정렬버튼 클릭 시 오름차순, 비오름차순 토글
 const onClick = function (event) {
-  if (event.target.value !== sortedBy.value) {
+  if (event.target.closest('button').value !== sortedBy.value) {
     isSorted.value = true;
-    sortedBy.value = event.target.value;
+    sortedBy.value = event.target.closest('button').value;
+    console.log(event.target.closest('button').value);
   } else {
     isSorted.value = !isSorted.value;
   }

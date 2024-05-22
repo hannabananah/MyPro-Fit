@@ -36,17 +36,85 @@
           <th class="border border-slate-300 w-[10%]">공시기준월</th>
           <th class="border border-slate-300 w-[10%]">금융 회사명</th>
           <th class="border border-slate-300 w-[30%]">상품명</th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="month_6">6개월</button>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_6"
+              class="flex items-center justify-center w-full"
+            >
+              <span>6개월</span>
+              <upDown
+                class="inline-block"
+                v-show="sortedBy !== 'month_6'"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_6' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_6' && !isSorted"
+              ></down>
+            </button>
           </th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="month_12">12개월</button>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_12"
+              class="flex items-center justify-center w-full"
+            >
+              <span>12개월</span>
+              <upDown
+                class="inline-block"
+                v-show="sortedBy !== 'month_12'"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_12' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_12' && !isSorted"
+              ></down>
+            </button>
           </th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="month_24">24개월</button>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_24"
+              class="flex items-center justify-center w-full"
+            >
+              <span>24개월</span>
+              <upDown
+                class="inline-block"
+                v-show="'month_24' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_24' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_24' && !isSorted"
+              ></down>
+            </button>
           </th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="month_36">36개월</button>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_36"
+              class="flex items-center justify-center w-full"
+            >
+              <span>36개월</span>
+              <upDown
+                class="inline-block"
+                v-show="'month_36' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_36' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_36' && !isSorted"
+              ></down>
+            </button>
           </th>
         </tr>
         <tr
@@ -83,6 +151,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { useRouter } from 'vue-router';
+import upDown from 'vue-material-design-icons/menuSwapOutline.vue';
+import up from 'vue-material-design-icons/menuUp.vue';
+import down from 'vue-material-design-icons/menuDown.vue';
 
 const store = useProductStore();
 const router = useRouter();
@@ -116,9 +187,10 @@ onMounted(() => {
 
 // 정렬버튼 클릭 시 오름차순, 비오름차순 토글
 const onClick = function (event) {
-  if (event.target.value !== sortedBy.value) {
+  if (event.target.closest('button').value !== sortedBy.value) {
     isSorted.value = true;
-    sortedBy.value = event.target.value;
+    sortedBy.value = event.target.closest('button').value;
+    console.log(event.target.closest('button').value);
   } else {
     isSorted.value = !isSorted.value;
   }
