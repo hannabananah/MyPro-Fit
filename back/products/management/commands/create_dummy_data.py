@@ -22,7 +22,7 @@ class Command(BaseCommand):
             'nickname': lambda x: seeder.faker.user_name(),
             'age': lambda x: random.randint(18, 80),
             'gender': lambda x: random.choice(['M', 'F']),
-            'asset': lambda x: random.randint(1000, 100000),
+            'asset': lambda x: random.randint(1000000, 1000000000),  # 100만원 ~ 10억원 사이의 랜덤값 설정
             'is_pension': lambda x: seeder.faker.boolean(),
             'is_internet': lambda x: seeder.faker.boolean(),
             'is_BLSR': lambda x: seeder.faker.boolean(),
@@ -36,19 +36,36 @@ class Command(BaseCommand):
         all_savings = list(Saving.objects.all())
         all_annuities = list(Annuity.objects.all())
 
-        num_users_to_add = lambda: random.randint(100, 150)
+        for user in all_users:
+            user_age = user.age
+            user_is_internet = user.is_internet
+            user_is_free = user.is_free
 
-        # For deposits
-        for deposit in all_deposits:
-            random_users = random.sample(all_users, k=num_users_to_add())
-            deposit.deposit_joined_users.add(*random_users)
+            # For deposits
+            for deposit in all_deposits:
+                age_filter = deposit.age_filter
+                internet_filter = deposit.internet_filter
 
-        # For savings
-        for saving in all_savings:
-            random_users = random.sample(all_users, k=num_users_to_add())
-            saving.saving_joined_users.add(*random_users)
+                if age_filter is None or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
+                    if internet_filter and user_is_internet:
+                        deposit.deposit_joined_users.add(user)
 
-        # For annuities
-        for annuity in all_annuities:
-            random_users = random.sample(all_users, k=num_users_to_add())
-            annuity.annuity_joined_users.add(*random_users)
+            # For savings
+            for saving in all_savings:
+                age_filter = saving.age_filter
+                internet_filter = saving.internet_filter
+
+                if age_filter is None or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
+                    if internet_filter and user_is_internet:
+                        saving.saving_joined_users.add(user)
+
+            # For annuities
+            for annuity in all_annuities:
+                age_filter = annuity.age_filter
+                internet_filter = annuity.internet_filter
+                gender_filter = annuity.gender_filter
+
+                if age_filter is None or ((age_filter < 0 and user_age <= abs(age_filter)) or (age_filter > 0 and user_age >= age_filter)):
+                    if internet_filter and user_is_internet:
+                        if not (user_is_free and gender_filter == 'N'):
+                            annuity.annuity_joined_users.add(user)
