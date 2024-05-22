@@ -7,7 +7,7 @@
       <article class="relative flex flex-col w-full px-10 pb-4 pt-14 gap-y-3">
         <div
           class="absolute flex right-4 top-4 gap-x-2"
-          v-if="boardStore.article.username === userStore.username"
+          v-if="boardStore.article.nickname === userStore.nickname"
         >
           <button
             class="hover:drop-shadow transform-gpu hover:scale-110"
@@ -25,7 +25,7 @@
         <div class="flex justify-between w-full">
           <i class="text-gray-900">No.{{ boardStore.article.id }}</i>
           <span class="text-sm tracking-wide text-gray-500">
-            {{ boardStore.article.username }}
+            {{ boardStore.article.nickname }}
           </span>
         </div>
         <h2 class="text-xl font-bold text-gray-900 hahmlet">
@@ -159,7 +159,7 @@ const createComment = function () {
       comment_content: comment.value,
     },
   }).then(res => {
-    fetchComments(articleId);
+    fetchComments(nextId);
     comment.value = '';
   });
 };

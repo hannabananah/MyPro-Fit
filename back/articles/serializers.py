@@ -2,31 +2,31 @@ from rest_framework import serializers
 from .models import Article, Comment
 
 class ArticleListSerializer(serializers.ModelSerializer):
-    # username = serializers.ReadOnlyField(source='user.username')
+    nickname = serializers.ReadOnlyField(source='user.nickname')
     class Meta:
         model = Article
-        fields = ('id', 'title', 'content')
-        read_only_fields = ('user',)
+        fields = ('id', 'title', 'content','nickname')
+        read_only_fields = ('user','nickname')
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
+    nickname = serializers.ReadOnlyField(source='user.nickname')
     class Meta:
         model = Article
         fields = '__all__'
-        read_only_fields = ('user',)
+        read_only_fields = ('user','nickname')
         
 
 class CommentListSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
+    nickname = serializers.ReadOnlyField(source='user.nickname')
     class Meta:
         model = Comment
-        fields = ('id', 'comment_content', 'username')
-        read_only_fields = ('user', 'username')
+        fields = ('id', 'comment_content','nickname')
+        read_only_fields = ('user','nickname')
 
 class CommentSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
+    nickname = serializers.ReadOnlyField(source='user.nickname')
     class Meta:
         model = Comment
         fields = '__all__'
-        read_only_fields = ('user', 'article', 'username')
+        read_only_fields = ('user', 'article','nickname')
