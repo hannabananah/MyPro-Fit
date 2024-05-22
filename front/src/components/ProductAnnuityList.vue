@@ -24,17 +24,85 @@
           <th class="border border-slate-300 w-[10%]">금융 회사명</th>
           <th class="border border-slate-300 w-[30%]">상품명</th>
           <th class="border border-slate-300 w-[10%]">상품 유형</th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="avg_prft_rate">평균 수익률</button>
+          <th class="border border-slate-300 w-[10%]">
+            <button
+              value="avg_prft_rate"
+              class="flex items-center justify-center w-full"
+            >
+              <span>평균 수익률</span>
+              <upDown
+                class="inline-block"
+                v-show="'avg_prft_rate' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'avg_prft_rate' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'avg_prft_rate' && !isSorted"
+              ></down>
+            </button>
           </th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="btrm_prft_rate_1">작년 수익률</button>
+          <th class="border border-slate-300 w-[10%]">
+            <button
+              value="btrm_prft_rate_1"
+              class="flex items-center justify-center w-full"
+            >
+              <span>작년 수익률</span>
+              <upDown
+                class="inline-block"
+                v-show="'btrm_prft_rate_1' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'btrm_prft_rate_1' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'btrm_prft_rate_1' && !isSorted"
+              ></down>
+            </button>
           </th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="btrm_prft_rate_2">2년 전 수익률</button>
+          <th class="border border-slate-300 w-[10%]">
+            <button
+              value="btrm_prft_rate_2"
+              class="flex items-center justify-center w-full"
+            >
+              <span>2년전 수익률</span>
+              <upDown
+                class="inline-block"
+                v-show="'btrm_prft_rate_2' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'btrm_prft_rate_2' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'btrm_prft_rate_2' && !isSorted"
+              ></down>
+            </button>
           </th>
-          <th class="border border-slate-300 w-[5%]">
-            <button value="btrm_prft_rate_3">3년 전 수익률</button>
+          <th class="border border-slate-300 w-[10%]">
+            <button
+              value="btrm_prft_rate_3"
+              class="flex items-center justify-center w-full"
+            >
+              <span>3년전 수익률</span>
+              <upDown
+                class="inline-block"
+                v-show="'btrm_prft_rate_3' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'btrm_prft_rate_3' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'btrm_prft_rate_3' && !isSorted"
+              ></down>
+            </button>
           </th>
         </tr>
         <tr
@@ -49,7 +117,7 @@
           </td>
           <td class="border border-slate-300 p-2">{{ annuity.kor_co_nm }}</td>
           <td class="border border-slate-300 p-2">{{ annuity.fin_prdt_nm }}</td>
-          <td class="border border-slate-300 p-2">
+          <td class="border border-slate-300 p-2 text-center">
             {{ annuity.prdt_type_nm }}
           </td>
           <td class="border border-slate-300 text-center">
@@ -80,6 +148,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { useRouter } from 'vue-router';
+import upDown from 'vue-material-design-icons/menuSwapOutline.vue';
+import up from 'vue-material-design-icons/menuUp.vue';
+import down from 'vue-material-design-icons/menuDown.vue';
 
 const router = useRouter();
 const isSorted = ref(true);
@@ -100,9 +171,10 @@ onMounted(() => {
 
 // 정렬버튼 클릭 시 오름차순, 비오름차순 토글
 const onClick = function (event) {
-  if (event.target.value !== sortedBy.value) {
+  if (event.target.closest('button').value !== sortedBy.value) {
     isSorted.value = true;
-    sortedBy.value = event.target.value;
+    sortedBy.value = event.target.closest('button').value;
+    console.log(event.target.closest('button').value);
   } else {
     isSorted.value = !isSorted.value;
   }
