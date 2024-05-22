@@ -133,22 +133,23 @@ export const useUserStore = defineStore(
       })
         .then(response => {
           console.log('로그인 성공!');
-
           token.value = response.data.key;
 
           // 로그인 하면 유저 정보 저장하기
           axios({
-            url: 'http://127.0.0.1:8000/accounts/user/',
             method: 'get',
+            url: `${API_URL}/accounts/user/`,
             headers: {
               Authorization: `Token ${response.data.key}`,
             },
           })
             .then(res => {
               console.log('유저 정보 가져오기 성공');
-              // console.log(res.data);
               userPk.value = res.data.pk;
-              // username.value = res.data.username;
+              nickname.value = res.data.nickname;
+              if (res.data.username === payload.username) {
+                localStorage.setItem('nickname', res.data.nickname);
+              }
             })
             .catch(err => {
               console.log('정보 가져오기 실패');
@@ -168,6 +169,7 @@ export const useUserStore = defineStore(
       token.value = null;
       username.value = null;
       userPk.value = null;
+      nickname.value = null;
       router.push({ name: 'login' });
     };
 
