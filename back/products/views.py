@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import BasePermission, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
+from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 
 from .models import Annuity, Deposit, Saving
 from .serializers import (
@@ -377,3 +379,46 @@ def deposit_joins(request, code):
         deposit.deposit_joined_users.add(request.user)
     serializer = DepositDetailSerializer(deposit)
     return Response(serializer.data)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def recommend_products(request):
+    # 현재 유저의 연봉 정보 가져오기
+    print('테스트@@@@@@@@@', request.user)
+    current_salary = request.user.asset
+    
+    # 현재 유저와 나이 차이가 10살 미만인 유저 필터링
+    similar_age_users = get_user_model().objects.filter(age__lte=request.user.age+10, age__gte=request.user.age-10).exclude(id=request.user.id)
+    
+    # 현재 유저와 연봉 차이가 15% 이하인 유저 선택
+    similar_salary_users = []
+    for user in similar_age_users:
+        user_asset = user.asset
+        salary_difference = abs(current_salary - user_asset)
+        if salary_difference / current_salary <= 0.2:
+            similar_salary_users.append(user)
+    
+    # 가입한 상품이 많이 겹치는 상위 10명의 유저 선택
+    similar_users_with_common_products = []
+    for user in similar_salary_users:
+        common_products_count = len(set(request.user.saving_join_products.all()) & set(user.saving_join_products.all()))
+        similar_users_with_common_products.append((user, common_products_count))
+    
+    similar_users_with_common_products.sort(key=lambda x: x[1], reverse=True)
+    top_similar_users = [user for user, _ in similar_users_with_common_products[:10]]
+    
+    # 선택된 유저들이 가입한 다른 상품 중에서 현재 유저가 아직 가입하지 않은 상위 10개의 상품 추천
+    recommended_products = []
+    for user in top_similar_users:
+        other_products = user.saving_join_products.exclude(id__in=request.user.saving_join_products.values_list('id', flat=True))
+        for product in other_products:
+            recommended_products.append(product)
+            if len(recommended_products) >= 10:
+                break
+        if len(recommended_products) >= 10:
+            break
+
+    # JSON 형태로 변환하여 반환
+    recommended_products_json = [{'id': product.id, 'name': product.fin_prdt_nm} for product in recommended_products[:10]]
+    return JsonResponse(recommended_products_json, safe=False)

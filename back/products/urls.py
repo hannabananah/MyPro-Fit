@@ -18,4 +18,5 @@ urlpatterns = [
     path("deposit/<str:code>/joins/", views.deposit_joins),
     path("saving/<str:code>/joins/", views.saving_joins),
     path("annuity/<str:code>/joins/", views.annuity_joins),
+    path("recommend-products/", views.recommend_products),
 ]
