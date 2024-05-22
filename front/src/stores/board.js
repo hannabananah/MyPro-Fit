@@ -30,8 +30,8 @@ export const useBoardStore = defineStore(
 
     const getDetailArticle = function (articleId) {
       axios({
-        url: `${userStore.API_URL}/articles/${articleId}/`,
         method: 'get',
+        url: `${userStore.API_URL}/articles/${articleId}/`,
         headers: {
           Authorization: `Token ${userStore.token}`,
         },
