@@ -1,6 +1,7 @@
 <template>
   <div class="bg-sky-50 h-screen flex flex-col items-center">
     <h1 class="text-center text-2xl font-bold pt-6">상품 상세 정보</h1>
+
     <div class="flex justify-between w-[35%] mb-3">
       <button
         class="border border-solid border-sky-600 px-2 rounded-[8px] bg-slate-50 hover:shadow-inner hover:bg-slate-100"
@@ -31,6 +32,19 @@
       "
       class="container mx-auto w-2/5 flex items-center flex-col bg-slate-50 p-6 py-8"
     >
+      <img
+        v-if="product"
+        style="height: 20px"
+        :src="getImageUrl(product.kor_co_nm)"
+        :alt="product.kor_co_nm"
+        class="mb-2"
+      />
+      <h1
+        v-if="product"
+        class="text-xl mb-3 font-bold flex justify-center items-center"
+      >
+        {{ product.fin_prdt_nm }}
+      </h1>
       <!-- 예금적금 -->
       <table
         v-if="route.params.type !== 'annuity' && product"
@@ -47,7 +61,7 @@
               {{ product.dcls_month }}
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
             >
@@ -56,7 +70,7 @@
             <td class="border-b border-slate-300 w-[70%] text-start pl-3">
               {{ product.fin_prdt_nm }}
             </td>
-          </tr>
+          </tr> -->
           <tr>
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
@@ -118,9 +132,7 @@
             <th class="border-r border-slate-300 w-[30%] text-start pl-3">
               우대 조건
             </th>
-            <td
-              class="border-l border-slate-300 w-[70%] text-start pl-3 whitespace-pre-line"
-            >
+            <td class="w-[70%] text-start pl-3 whitespace-pre-line">
               {{ product.spcl_cnd !== null ? product.spcl_cnd : '-' }}
             </td>
           </tr>
@@ -128,9 +140,10 @@
       </table>
 
       <!-- 연금 -->
+
       <div class="border border-slate-300 rounded-[16px] w-full shadow">
         <table v-if="route.params.type === 'annuity' && product">
-          <tr>
+          <tr class="w-full">
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
             >
@@ -140,7 +153,7 @@
               {{ product.dcls_month }}
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
             >
@@ -149,7 +162,7 @@
             <td class="border-b border-slate-300 w-[70%] text-start pl-3">
               {{ product.fin_prdt_nm }}
             </td>
-          </tr>
+          </tr> -->
           <tr>
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
@@ -289,5 +302,10 @@ const doJoin = function () {
       console.log('가입 실패');
     });
 };
+
+// 이미지 동적으로 불러오는 함수
+function getImageUrl(name) {
+  return new URL(`/src/assets/bankIcons/${name}.png`, import.meta.url).href;
+}
 </script>
 <style scoped></style>
