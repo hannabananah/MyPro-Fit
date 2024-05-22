@@ -29,7 +29,10 @@ class Deposit(models.Model):
     deposit_joined_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="deposit_join_products"
     )  # 가입한 유저
-
+    # 필터링을 위한 필드
+    age_filter = models.IntegerField()
+    gender_filter = models.TextField()
+    BLSR_filter = models.TextField()
 
 class Saving(models.Model):
     dcls_month = models.TextField(null=False)  # 공시제출월
@@ -55,7 +58,10 @@ class Saving(models.Model):
     saving_joined_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="saving_join_products"
     )  # 가입한 유저
-
+    # 필터링을 위한 필드
+    age_filter = models.IntegerField()
+    gender_filter = models.TextField()
+    BLSR_filter = models.TextField()
 
 class Annuity(models.Model):
     dcls_month = models.TextField(null=False)  # 공시제출월
@@ -78,3 +84,7 @@ class Annuity(models.Model):
     annuity_joined_users = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="annuity_join_products"
     )  # 장바구니 한 유저
+    # 필터링을 위한 필드
+    age_filter = models.IntegerField()
+    gender_filter = models.TextField()
+    BLSR_filter = models.TextField()

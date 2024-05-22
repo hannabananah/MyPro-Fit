@@ -19,6 +19,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
+    'django_seed',
     "products",
     "exchange_rates",
     "articles",
