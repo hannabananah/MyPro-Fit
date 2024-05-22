@@ -33,11 +33,10 @@
       class="container mx-auto w-2/5 flex items-center flex-col bg-slate-50 p-6 py-8"
     >
       <img
-        v-if="product"
-        style="height: 20px"
+        v-if="route.params.type !== 'annuity' && product"
         :src="getImageUrl(product.kor_co_nm)"
         :alt="product.kor_co_nm"
-        class="mb-2"
+        class="mb-2 max-w-[110px]"
       />
       <h1
         v-if="product"
