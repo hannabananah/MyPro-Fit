@@ -144,26 +144,34 @@ const sortedDeposits = computed(() => {
   };
 
   // 선택한 은행이나 기간이 있으면 필터링 후 정렬
-  if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
-    return [...deposits].sort(compare);
-  } else if (selectedBank.value !== 'all' && selectedDuration.value === 'all') {
-    const filteredDeposits = deposits.filter(
-      obj => obj.kor_co_nm === selectedBank.value,
-    );
-    return [...filteredDeposits].sort(compare);
-  } else if (selectedBank.value === 'all' && selectedDuration.value !== 'all') {
-    const filteredDeposits = deposits.filter(
-      obj => obj[selectedDuration.value] !== null,
-    );
-    return [...filteredDeposits].sort(compare);
-  } else {
-    // 필요에 따라 모든 조건을 처리하는 추가 로직
-    const filteredDeposits = deposits.filter(
-      obj =>
-        obj.kor_co_nm === selectedBank.value &&
-        obj[selectedDuration.value] !== null,
-    );
-    return [...filteredDeposits].sort(compare);
+  if (deposits) {
+    if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
+      return [...deposits].sort(compare);
+    } else if (
+      selectedBank.value !== 'all' &&
+      selectedDuration.value === 'all'
+    ) {
+      const filteredDeposits = deposits.filter(
+        obj => obj.kor_co_nm === selectedBank.value,
+      );
+      return [...filteredDeposits].sort(compare);
+    } else if (
+      selectedBank.value === 'all' &&
+      selectedDuration.value !== 'all'
+    ) {
+      const filteredDeposits = deposits.filter(
+        obj => obj[selectedDuration.value] !== null,
+      );
+      return [...filteredDeposits].sort(compare);
+    } else {
+      // 필요에 따라 모든 조건을 처리하는 추가 로직
+      const filteredDeposits = deposits.filter(
+        obj =>
+          obj.kor_co_nm === selectedBank.value &&
+          obj[selectedDuration.value] !== null,
+      );
+      return [...filteredDeposits].sort(compare);
+    }
   }
 });
 

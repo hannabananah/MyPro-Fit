@@ -32,70 +32,167 @@
       class="container mx-auto w-2/5 flex items-center flex-col bg-slate-50 p-6 py-8"
     >
       <!-- 예금적금 -->
-      <table v-if="route.params.type !== 'annuity' && product" class="flex">
-        <thead>
+      <table
+        v-if="route.params.type !== 'annuity' && product"
+        class="flex border border-slate-300 rounded-[16px] w-full shadow"
+      >
+        <thead class="text-start">
           <tr>
-            <td>공시기준월</td>
-            <td>상품명</td>
-            <td>기관명</td>
-            <td>만기 후 이자율</td>
-            <td>최고 한도</td>
-            <td>가입 조건</td>
-            <td>가입 방법</td>
-            <td>우대 조건</td>
-          </tr>
-        </thead>
-        <tbody class="flex">
-          <tr>
-            <td>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              공시기준월
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
               {{ product.dcls_month }}
             </td>
-            <td>{{ product.fin_prdt_nm }}</td>
-            <td>{{ product.kor_co_nm }}</td>
-            <td>
-              {{ product.mtrt_int !== null ? product.mtrt_int : '-' }}
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              상품명
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+              {{ product.fin_prdt_nm }}
             </td>
-            <td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              기관명
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+              {{ product.kor_co_nm }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              만기 후 이자율
+            </th>
+            <td
+              class="border-b border-slate-300 w-[70%] text-start pl-3 whitespace-pre-line"
+              v-html="
+                product.mtrt_int !== null
+                  ? product.mtrt_int.replace(/(.*?-.*?)-/, '$1<br>')
+                  : '-'
+              "
+            ></td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              최고 한도
+            </th>
+            <td
+              class="border-b border-slate-300 w-[70%] text-start pl-3 whitespace-pre-line"
+            >
               {{ product.max_limit !== null ? product.max_limit : '-' }}
             </td>
-            <td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              가입 조건
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
               {{ product.join_member !== null ? product.join_member : '-' }}
             </td>
-            <td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              가입 방법
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
               {{ product.join_way !== null ? product.join_way : '-' }}
             </td>
-            <td>
+          </tr>
+          <tr>
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              우대 조건
+            </th>
+            <td
+              class="border-l border-slate-300 w-[70%] text-start pl-3 whitespace-pre-line"
+            >
               {{ product.spcl_cnd !== null ? product.spcl_cnd : '-' }}
             </td>
           </tr>
-        </tbody>
+        </thead>
       </table>
 
       <!-- 연금 -->
-      <div v-if="route.params.type === 'annuity' && product">
-        <p>공시기준월: {{ product.dcls_month }}</p>
-        <p>상품명: {{ product.fin_prdt_nm }}</p>
-        <p>기관명: {{ product.kor_co_nm }}</p>
-        <button v-show="isLiked" @click="doLike">
-          <heart class="inline-block h-[20px]"></heart>
-        </button>
-        <button v-show="!isLiked" @click="doLike">
-          <heartOutline class="inline-block h-[20px]"></heartOutline></button
-        >{{ numberOfLikes }}
-        <hr />
-        <p>상품 유형: {{ product.prdt_type_nm }}</p>
-        <p>
-          가입 방법: {{ product.join_way !== null ? product.join_way : '-' }}
-        </p>
-        <hr />
-        <p>평균 수익률: {{ product.avg_prft_rate }}</p>
-        <p>전년도 수익률: {{ product.btrm_prft_rate_1 }}</p>
-        <p>2년전 수익률: {{ product.btrm_prft_rate_2 }}</p>
-        <p>3년전 수익률: {{ product.btrm_prft_rate_3 }}</p>
+      <div class="border border-slate-300 rounded-[16px] w-full shadow">
+        <table v-if="route.params.type === 'annuity' && product">
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              공시기준월
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+              {{ product.dcls_month }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              상품명
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+              {{ product.fin_prdt_nm }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              기관명
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+              {{ product.kor_co_nm }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              상품 유형
+            </th>
+            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+              {{ product.prdt_type_nm }}
+            </td>
+          </tr>
+          <tr>
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              가입 방법
+            </th>
+            <td class="text-start pl-3">
+              {{ product.join_way !== null ? product.join_way : '-' }}
+            </td>
+          </tr>
+        </table>
       </div>
-      <p>가입 여부: {{ isJoined }}</p>
-      <button @click="doLike">즐겨찾기 등록</button> |
-      <button @click="doJoin">가입상품 목록에 추가</button>
+      <p class="my-4 mt-6 italic text-gray-400" v-if="isJoined">
+        이미 가입 중인 상품입니다.
+      </p>
+      <button v-show="!isJoined" class="btn-active mt-6" @click="doJoin">
+        가입중인 상품 목록에 추가
+      </button>
+      <button
+        v-show="isJoined"
+        class="btn-inactive bg-gray-500 text-white border-gray-500 hover:bg-gray-400 hover:border-gray-400"
+        @click="doJoin"
+      >
+        가입중인 상품 목록에서 제거
+      </button>
     </div>
   </div>
 </template>
@@ -124,7 +221,7 @@ onMounted(() => {
   })
     .then(res => {
       product.value = res.data;
-      console.log(product.value);
+      // console.log(product.value);
     })
     .catch(err => {
       router.go(-1);
@@ -185,6 +282,7 @@ const doJoin = function () {
   })
     .then(res => {
       console.log('가입 성공');
+      // 페이지 다시 렌더링
       location.reload();
     })
     .catch(err => {
