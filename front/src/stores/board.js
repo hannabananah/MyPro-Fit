@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
@@ -21,7 +21,6 @@ export const useBoardStore = defineStore(
         },
       })
         .then(res => {
-          console.log('전체게시글', res.data);
           articles.value = res.data;
         })
         .catch(err => {
@@ -39,7 +38,6 @@ export const useBoardStore = defineStore(
       })
         .then(res => {
           article.value = res.data;
-          console.log('게시글 정보', article.value);
         })
         .catch(err => {
           console.log(err);
@@ -55,7 +53,6 @@ export const useBoardStore = defineStore(
         },
       })
         .then(res => {
-          console.log(res.data);
           fetchArticles();
           router.push({ name: 'board' });
         })
@@ -78,7 +75,6 @@ export const useBoardStore = defineStore(
         },
       })
         .then(res => {
-          console.log(res.data);
           fetchArticles();
           router.push({ name: 'board-detail', params: { id: id } });
         })
