@@ -43,7 +43,7 @@
           <div ref="mapContainer" style="width: 100%; height: 100%"></div>
         </div>
         <div id="bank-list" class="h-[510px] mt-6 ml-3 w-1/3">
-          <p class="my-5 text-xl text-gray-900">목록 보기</p>
+          <h2 class="my-5 text-xl font-bold text-gray-900">목록 보기</h2>
           <div id="menu_wrap" class="h-full overflow-auto">
             <ul class="" id="placesList"></ul>
             <div class="hidden" id="pagination"></div>

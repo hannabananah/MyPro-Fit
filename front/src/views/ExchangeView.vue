@@ -3,11 +3,11 @@
     <div
       style="border-radius: 60px; overflow: hidden;
       box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);"
-      class="container flex flex-col items-center w-4/5 mx-auto"
+      class="flex flex-col items-center w-4/5 mx-auto"
     >
       <img width="100%" src="@/assets/images/exchange.svg" alt="환율계산 페이지 헤더 이미지" />
       <div style="width: 50%" class="flex flex-col items-center my-8">
-        <p class="my-8 text-2xl text-center">환율 계산기</p>
+        <h2 class="my-8 text-2xl font-bold text-center">환율 계산기</h2>
         <div style="width: 60%" class="flex justify-between">
           <div
             class="flex items-center justify-center border border-solid border-sky-700 min-h-10"
@@ -134,7 +134,6 @@
         </form>
       </div>
     </div>
-
   </div>
 </template>
 
