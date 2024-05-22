@@ -171,8 +171,8 @@ def fetch_annuity(request):
             if data:  # 비어 있지 않으면 데이터를 반환
                 for pdt in data["result"]["baseList"]:
                     print(pdt)
-                    fin_prdt_cd = pdt["fin_prdt_cd"]
-                    if Annuity.objects.filter(fin_prdt_nm=fin_prdt_cd).exists():
+                    fin_prdt_cd = pdt['fin_prdt_cd']
+                    if Annuity.objects.filter(fin_prdt_cd = fin_prdt_cd).exists():
                         continue
                     dcls_month = pdt.get("dcls_month")
                     fin_co_no = pdt.get("fin_co_no")
