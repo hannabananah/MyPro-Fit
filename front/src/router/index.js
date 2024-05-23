@@ -14,7 +14,6 @@ import CreateArticle from '@/components/CreateArticle.vue';
 import BoardView from '@/views/BoardView.vue';
 import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
 import UpdateArticle from '@/components/UpdateArticle.vue';
-import ChatbotView from '@/views/ChatbotView.vue';
 import ProductsRecommendView from '@/views/ProductsRecommendView.vue';
 import ProductRecommendList from '@/components/ProductRecommendList.vue';
 import ErrorView from '@/views/ErrorView.vue';
@@ -100,11 +99,6 @@ const router = createRouter({
       component: UpdateArticle,
     },
     {
-      path: '/chatbot',
-      name: 'chatbot',
-      component: ChatbotView,
-    },
-    {
       path: '/products/recommend',
       name: 'recommend',
       component: ProductsRecommendView,
@@ -123,9 +117,10 @@ const router = createRouter({
 });
 
 import { useUserStore } from '@/stores/user';
-
+import { useBoardStore } from '@/stores/board';
 router.beforeEach((to, from) => {
   const store = useUserStore();
+  const boardStore = useBoardStore();
   if (
     (to.name == 'board-detail') |
       (to.name == 'create-article') |
@@ -144,9 +139,12 @@ router.beforeEach((to, from) => {
     return { name: 'home' };
   }
 
-  if (to.name === 'update-article' && store.user !== store.article.username) {
+  if (
+    to.name === 'update-article' &&
+    store.userPk !== boardStore.article.user
+  ) {
     window.alert('본인이 아닌 경우 수정할 수 없습니다.');
-    return { name: 'board-detail', params: { id: store.article.id } };
+    return { name: 'board-detail', params: { id: boardStore.article.id } };
   }
 });
 

@@ -106,8 +106,8 @@ const colors = [
 ];
 const randColor = ref(colors[Math.floor(Math.random() * colors.length)]);
 
+const articleId = route.params.id;
 const fetchComments = () => {
-  const articleId = route.params.id;
   axios({
     method: 'get',
     url: `${userStore.API_URL}/articles/${articleId}/comments/`,
@@ -142,7 +142,7 @@ const handleClickDelete = function () {
 const handleClickEdit = function () {
   router.push({
     name: 'update-article',
-    params: { id: boardStore.article.id },
+    params: { id: boardStore.articleId },
   });
 };
 
