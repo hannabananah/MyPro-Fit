@@ -6,13 +6,18 @@
         overflow: hidden;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
       "
-      class="container flex flex-col w-4/5 pb-6 mx-auto"
+      class="container relative flex flex-col w-4/5 pb-6 mx-auto"
     >
       <img
         class="object-cover overflow-hidden max-h-56"
         src="@/assets/images/map.jpg"
         alt="지점검색 페이지 헤더 이미지"
       />
+      <h1
+        class="absolute text-xl font-bold tracking-widest text-center text-white transition-all transform -translate-x-1/2 lg:text-5xl md:text-3xl top-24 left-1/2 sm:text-2xl"
+      >
+        주변 은행 지점 찾기
+      </h1>
       <div class="flex flex-row mb-4 h-[600px]">
         <div
           id="map-container"
