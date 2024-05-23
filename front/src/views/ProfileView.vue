@@ -126,6 +126,11 @@
                 </div>
               </div>
             </div>
+            <!-- 차트 -->
+            <div>
+              <h1 class="font-bold">가입한 상품 금리</h1>
+              <BarChart class="mb-8" />
+            </div>
           </div>
           <div
             class="flex flex-col gap-10"
@@ -287,6 +292,7 @@ import Female from 'vue-material-design-icons/GenderFemale.vue';
 import Male from 'vue-material-design-icons/GenderMale.vue';
 import CheckboxBlank from 'vue-material-design-icons/CheckboxBlankOutline.vue';
 import Checkbox from 'vue-material-design-icons/CheckboxOutline.vue';
+import BarChart from '@/components/BarChart.vue';
 import axios from 'axios';
 import CustomModal from '@/components/Modal.vue';
 import { useUserStore } from '@/stores/user';
@@ -295,7 +301,24 @@ import {
   parseNumberWithCommas,
 } from '@/utils/formatNumber';
 import { useRoute, useRouter } from 'vue-router';
-
+import { Bar } from 'vue-chartjs';
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from 'chart.js';
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+);
 const route = useRoute();
 const router = useRouter();
 const userStore = useUserStore();
