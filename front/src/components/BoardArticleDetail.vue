@@ -1,6 +1,7 @@
 <template>
   <div class="py-12">
     <div
+      v-if="boardStore.article"
       :style="`background-color: ${randColor}`"
       class="container relative flex flex-col items-center w-3/5 mx-auto overflow-hidden rounded-lg shadow-md bg-slate-100"
     >
@@ -35,7 +36,7 @@
         <span class="inline-block text-sm text-right">
           {{ formattedCreatedAt }}
         </span>
-        <div>
+        <div v-if="comments">
           <ul class="py-2 mt-2 list-none border-t border-slate-300">
             <CommentsList
               v-for="comment in comments"

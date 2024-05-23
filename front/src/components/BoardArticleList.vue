@@ -1,5 +1,5 @@
 <template>
-  <div class="masonry">
+  <div class="masonry" v-if="articles">
     <BoardArticleListItem
       v-for="article in articles"
       :key="article.id"

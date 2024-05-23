@@ -19,7 +19,10 @@
       >
         Create
       </button>
-      <BoardArticleList :articles="boardStore.articles" />
+      <BoardArticleList
+        v-if="boardStore.articles"
+        :articles="boardStore.articles"
+      />
     </div>
   </div>
 </template>
