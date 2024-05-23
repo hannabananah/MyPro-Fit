@@ -23,8 +23,8 @@
           v-model="selectedDuration"
         >
           <option value="all">전체 기간</option>
-          <option v-for="duration in durations" :value="duration">
-            {{ duration }}
+          <option v-for="duration in durations" :value="duration.value">
+            {{ duration.name }}
           </option>
         </select>
       </form>
@@ -182,7 +182,12 @@ const banks = [
   '한국산업은행',
   '한국스탠다드차타드은행',
 ];
-const durations = ['month_6', 'month_12', 'month_24', 'month_36'];
+const durations = [
+  { value: 'month_6', name: '6개월' },
+  { value: 'month_12', name: '12개월' },
+  { value: 'month_24', name: '24개월' },
+  { value: 'month_36', name: '36개월' },
+];
 
 // 마운트될때 연금 불러오는 함수 실행
 onMounted(() => {
@@ -228,12 +233,14 @@ const sortedSavings = computed(() => {
     );
     return [...filteredSavings].sort(compare);
   } else if (selectedBank.value === 'all' && selectedDuration.value !== 'all') {
+    sortedBy.value = selectedDuration.value;
     const filteredSavings = savings.filter(
       obj => obj[selectedDuration.value] !== null,
     );
     return [...filteredSavings].sort(compare);
   } else {
     // 필요에 따라 모든 조건을 처리하는 추가 로직
+    sortedBy.value = selectedDuration.value;
     const filteredSavings = savings.filter(
       obj =>
         obj.kor_co_nm === selectedBank.value &&
