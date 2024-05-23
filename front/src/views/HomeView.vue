@@ -13,6 +13,52 @@
       >님 안녕하세요!
     </p>
     <button v-if="userStore.isLogin" @click="openModal">회원탈퇴</button>
+
+    <!-- 예금 베스트 상품 -->
+    <div
+      v-if="productstore.bestDeposit"
+      @click="
+        router.push({
+          name: 'product-detail',
+          params: {
+            type: 'deposit',
+            code: productstore.bestDeposit.fin_prdt_cd,
+          },
+        })
+      "
+    >
+      {{ productstore.bestDeposit.fin_prdt_nm }}
+    </div>
+    <!-- 적금 베스트 상품 -->
+    <div
+      v-if="productstore.bestSaving"
+      @click="
+        router.push({
+          name: 'product-detail',
+          params: {
+            type: 'saving',
+            code: productstore.bestSaving.fin_prdt_cd,
+          },
+        })
+      "
+    >
+      {{ productstore.bestSaving.fin_prdt_nm }}
+    </div>
+    <!-- 연금 베스트 상품 -->
+    <div
+      v-if="productstore.bestAnnuity"
+      @click="
+        router.push({
+          name: 'product-detail',
+          params: {
+            type: 'annuity',
+            code: productstore.bestAnnuity.fin_prdt_cd,
+          },
+        })
+      "
+    >
+      {{ productstore.bestAnnuity.fin_prdt_nm }}
+    </div>
   </div>
   <CustomModal
     v-model="isModalOpen"
@@ -33,9 +79,11 @@ import { useExchangeStore } from '@/stores/exchange';
 import { useProductStore } from '@/stores/products';
 import CustomModal from '@/components/Modal.vue';
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 const userStore = useUserStore();
 const productstore = useProductStore();
+const router = useRouter();
 const isModalOpen = ref(false);
 
 const logOut = () => {
