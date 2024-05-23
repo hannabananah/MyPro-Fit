@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <nav
+    v-if="
+      $route.name !== 'product-detail' &&
+      $route.name !== 'login' &&
+      $route.name !== 'error' &&
+      $route.name !== 'signup'
+    "
+  >
     <RouterLink :to="{ name: 'home' }">Home</RouterLink>
     <RouterLink :to="{ name: 'deposit' }">예적금 금리 비교</RouterLink>
     <RouterLink :to="{ name: 'exchange' }">환율 계산기</RouterLink>
@@ -10,13 +17,14 @@
       >마이 페이지</RouterLink
     >
     <RouterLink :to="{ name: 'recommend' }">상품 추천 받기</RouterLink>
-    <RouterView />
-  </div>
+  </nav>
+  <RouterView />
 </template>
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
 import { useUserStore } from '@/stores/user';
+import { useRoute } from 'vue-router';
 const userStore = useUserStore();
 const isLogin = userStore.isLogin;
 </script>

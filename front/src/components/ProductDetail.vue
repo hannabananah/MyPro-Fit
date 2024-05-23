@@ -1,6 +1,6 @@
 <template>
   <div class="bg-sky-50 h-screen flex flex-col items-center">
-    <h1 class="text-center text-2xl font-bold pt-6">상품 상세 정보</h1>
+    <h1 class="text-center text-2xl font-bold py-8">상품 상세 정보</h1>
 
     <div class="flex justify-between w-[35%] mb-3">
       <button

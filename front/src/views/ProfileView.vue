@@ -93,9 +93,9 @@
                 />
               </div>
             </form>
-            <div id="joinedProduct">
+            <div id="joinedProduct" v-if="userStore.joinedProdudcts">
               <h1 class="font-bold mb-1">가입한 상품</h1>
-              <div>
+              <div v-if="userStore.joinedProdudcts">
                 <div
                   class="hover:cursor-pointer"
                   v-for="deposit in userStore.joinedProdudcts
@@ -127,7 +127,7 @@
               </div>
             </div>
             <!-- 차트 -->
-            <div>
+            <div v-if="userStore.joinedProdudcts">
               <h1 class="font-bold">가입한 상품 금리</h1>
               <BarChart class="mb-8" />
             </div>
