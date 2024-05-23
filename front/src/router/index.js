@@ -119,8 +119,7 @@ router.beforeEach((to, from) => {
       (to.name == 'create-article') |
       (to.name == 'product-detail') |
       (to.name == 'update-article') |
-      (to.name == 'recommend-list') |
-      (to.name == 'recommend') &&
+      (to.name == 'recommend-list') &&
     store.isLogin === false
   ) {
     window.alert('로그인이 필요합니다.');

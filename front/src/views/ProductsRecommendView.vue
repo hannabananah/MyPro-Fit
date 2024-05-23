@@ -16,14 +16,28 @@
 
       <p class="text-l text-center">
         입력하신 정보를 바탕으로 <br />
-        <span class="font-bold">{{ userStore.nickname }}</span>
-        님에게
+        <span v-if="userStore.isLogin" class="font-bold">{{
+          userStore.nickname
+        }}</span>
+        <span v-if="!userStore.isLogin">회원</span>님에게
         <span class="font-bold text-sky-700 text-xl italic">Fit</span> 한 금융
         상품을 추천해드립니다.
       </p>
-      <button class="btn-active w-[50%] my-6" @click="onClick">
+      <button
+        v-if="userStore.isLogin"
+        class="btn-active w-[50%] my-6"
+        @click="onClick"
+      >
         상품 추천 받기
       </button>
+      <button
+        v-if="!userStore.isLogin"
+        class="btn-active w-[50%] my-6"
+        @click="router.push({ name: 'login' })"
+      >
+        로그인 후 상품 추천 받기
+      </button>
+
       <img class="mb-4" src="@/assets/images/logo.svg" alt="" />
     </div>
   </div>
@@ -33,7 +47,9 @@
 import { useUserStore } from '@/stores/user';
 import { useRecommendStore } from '@/stores/recommend';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const userStore = useUserStore();
 const recommendStore = useRecommendStore();
 
