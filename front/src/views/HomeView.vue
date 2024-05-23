@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col gap-y-3">
     <!-- <p>
       <strong>{{ userStore.nickname }}</strong
       >님 안녕하세요!
@@ -8,7 +8,10 @@
 
     <!-- 캐러셀 -->
     <Banner />
-
+    <!-- 인트로 섹션 -->
+    <Intro />
+    <!-- 주요 서비스 -->
+    <Service />
     <!-- 예금 베스트 상품 -->
     <div
       v-if="productstore.bestDeposit"
@@ -75,6 +78,8 @@ import { useProductStore } from '@/stores/products';
 import CustomModal from '@/components/Modal.vue';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import Intro from '@/components/Intro.vue';
+import Service from '@/components/Service.vue';
 
 const userStore = useUserStore();
 const productstore = useProductStore();
