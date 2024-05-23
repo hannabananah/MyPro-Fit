@@ -16,11 +16,11 @@
       :to="{ name: 'profile', params: { tab: 'basicInfo' } }"
       >마이 페이지</RouterLink
     >
-    <div class="relative w-full h-[calc(100vh-114px)]">
-      <RouterView />
-      <ChatbotFloatingBtn class="sticky bottom-0 right-0" />
-    </div>
   </nav>
+  <div class="relative w-full h-[calc(100vh-114px)]">
+    <RouterView />
+    <ChatbotFloatingBtn class="sticky bottom-0 right-0" />
+  </div>
 </template>
 
 <script setup>

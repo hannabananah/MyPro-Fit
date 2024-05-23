@@ -11,7 +11,12 @@
         hidden: !isLg,
       }"
     >
-      <img :src="LogoSvg" alt="Logo Icon" class="w-1/5 h-auto lg:w-64" />
+      <img
+        :src="LogoSvg"
+        alt="Logo Icon"
+        class="w-1/5 h-auto cursor-pointer lg:w-64"
+        @click="router.push({ name: 'home' })"
+      />
       <img
         :src="SignupSvg"
         alt="Login Icon"
@@ -161,6 +166,8 @@
         hidden: isLg,
         'flex items-center justify-center w-full h-20 bg-sky-100': !isLg,
       }"
+      @click="router.push({ name: 'home' })"
+      class="cursor-pointer"
     >
       <img :src="LogoSvg" alt="Logo Icon" />
     </div>

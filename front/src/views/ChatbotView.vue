@@ -82,6 +82,7 @@ import Send from 'vue-material-design-icons/Send.vue';
 import axios from 'axios';
 import { useUserStore } from '@/stores/user';
 import Copy from 'vue-material-design-icons/ContentCopy.vue';
+import { useRouter } from 'vue-router';
 
 const userStore = useUserStore();
 
@@ -91,6 +92,7 @@ const userInput = ref('');
 const handleClickCopy = message => {
   navigator.clipboard.writeText(message.content);
 };
+const router = useRouter();
 
 onMounted(() => {
   axios({
@@ -107,6 +109,7 @@ onMounted(() => {
     })
     .catch(error => {
       alert('프롱이와의 통신에 문제가 발생했습니다🫠 다시 시도해주세요.');
+      router.push({ name: 'login' });
       console.error('Error:', error);
     });
 });
