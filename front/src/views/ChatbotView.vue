@@ -14,18 +14,18 @@
           class="absolute w-32 transition-all -translate-x-1/2 -translate-y-1/2 sm:w-52 left-1/2 top-1/2"
         />
       </div>
-      <div class="flex flex-col justify-between w-full h-full">
-        <div class="p-6">
+      <div class="flex flex-col justify-between w-full h-[calc(100%-224px)]">
+        <div class="flex-1 p-6 pl-3 overflow-y-auto">
           <div
             v-for="(message, index) in chatHistory"
             :key="index"
             class="relative"
-            :class="message.role === 'user' ? 'text-right mb-2' : 'mb-2 pl-10'"
+            :class="message.role === 'user' ? 'text-right mb-2' : 'mb-2 pl-12'"
           >
             <img
               v-if="message.role === 'assistant'"
               src="@/assets/icons/bot.svg"
-              class="absolute -left-5 -top-1"
+              class="absolute -left-2 -top-1"
             />
             <div
               class="relative p-2 pr-10 text-xs text-gray-900 rounded-lg shadow sm:text-sm"
@@ -46,8 +46,11 @@
           </div>
         </div>
 
-        <form @submit.prevent="sendMessage" class="relative p-6 pr-12">
-          <label for="chat" class="absolute top-8 left-9"
+        <form
+          @submit.prevent="sendMessage"
+          class="relative h-20 px-6 py-4 pr-12"
+        >
+          <label for="chat" class="absolute top-6 left-9"
             ><Chat fillColor="#6B7280" :size="25"
           /></label>
           <input
@@ -60,7 +63,7 @@
           />
           <button
             type="submit"
-            class="absolute flex items-center justify-center top-8 right-4 hover:scale-110"
+            class="absolute flex items-center justify-center top-6 right-4 hover:scale-110"
           >
             <Send />
           </button>
