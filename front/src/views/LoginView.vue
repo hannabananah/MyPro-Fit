@@ -11,7 +11,12 @@
         hidden: !isLg,
       }"
     >
-      <img :src="LogoSvg" alt="Logo Icon" class="w-1/5 h-auto lg:w-64" />
+      <img
+        :src="LogoSvg"
+        alt="Logo Icon"
+        class="w-1/5 h-auto cursor-pointer lg:w-64"
+        @click="router.push({ name: 'home' })"
+      />
       <img :src="LoginSvg" alt="Login Icon" class="w-1/5 h-auto lg:w-[30rem]" />
     </div>
     <div
@@ -107,6 +112,8 @@
         hidden: isLg,
         'flex items-center justify-center w-full h-20 bg-sky-100': !isLg,
       }"
+      @click="router.push({ name: 'home' })"
+      class="cursor-pointer"
     >
       <img :src="LogoSvg" alt="Logo Icon" />
     </div>
@@ -124,7 +131,8 @@ import Lock from 'vue-material-design-icons/LockOutline.vue';
 import Eye from 'vue-material-design-icons/EyeOutline.vue';
 import EyeOff from 'vue-material-design-icons/EyeOffOutline.vue';
 import axios from 'axios';
-
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const username = ref(null);
 const password = ref(null);
 const passwordVisible = ref(false);

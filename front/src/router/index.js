@@ -14,6 +14,7 @@ import CreateArticle from '@/components/CreateArticle.vue';
 import BoardView from '@/views/BoardView.vue';
 import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
 import UpdateArticle from '@/components/UpdateArticle.vue';
+import ChatbotView from '@/views/ChatbotView.vue';
 import ProductsRecommendView from '@/views/ProductsRecommendView.vue';
 import ProductRecommendList from '@/components/ProductRecommendList.vue';
 import ErrorView from '@/views/ErrorView.vue';
@@ -97,6 +98,11 @@ const router = createRouter({
       path: '/board/:id/update',
       name: 'update-article',
       component: UpdateArticle,
+    },
+    {
+      path: '/chatbot',
+      name: 'chatbot',
+      component: ChatbotView,
     },
     {
       path: '/products/recommend',

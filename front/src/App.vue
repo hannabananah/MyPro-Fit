@@ -16,15 +16,17 @@
       :to="{ name: 'profile', params: { tab: 'basicInfo' } }"
       >마이 페이지</RouterLink
     >
-    <RouterLink :to="{ name: 'recommend' }">상품 추천 받기</RouterLink>
   </nav>
-  <RouterView />
+  <div class="relative w-full h-[calc(100vh-114px)]">
+    <RouterView />
+    <ChatbotFloatingBtn class="sticky bottom-0 right-0" />
+  </div>
 </template>
 
 <script setup>
+import ChatbotFloatingBtn from '@/components/ChatbotFloatingBtn.vue';
 import { RouterLink, RouterView } from 'vue-router';
 import { useUserStore } from '@/stores/user';
-import { useRoute } from 'vue-router';
 const userStore = useUserStore();
 const isLogin = userStore.isLogin;
 </script>

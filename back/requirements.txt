@@ -1,3 +1,5 @@
+annotated-types==0.7.0
+anyio==4.3.0
 asgiref==3.7.2
 black==23.3.0
 certifi==2023.7.22
@@ -9,6 +11,7 @@ colorama==0.4.6
 cryptography==41.0.3
 defusedxml==0.7.1
 distlib==0.3.8
+distro==1.9.0
 dj-rest-auth==5.0.2
 Django==4.2.8
 django-allauth==0.59.0
@@ -19,6 +22,9 @@ djangorestframework==3.14.0
 Faker==25.2.0
 filelock==3.14.0
 flake8==6.1.0
+h11==0.14.0
+httpcore==1.0.5
+httpx==0.27.0
 identify==2.5.36
 idna==3.4
 isort==5.12.0
@@ -26,6 +32,7 @@ mccabe==0.7.0
 mypy-extensions==1.0.0
 nodeenv==1.8.0
 oauthlib==3.2.2
+openai==1.30.2
 packaging==24.0
 pathspec==0.12.1
 platformdirs==4.2.2
@@ -33,18 +40,23 @@ pre-commit==3.4.0
 psycopg2==2.9.9
 pycodestyle==2.11.1
 pycparser==2.21
+pydantic==2.7.1
+pydantic_core==2.18.2
 pyflakes==3.1.0
 PyJWT==2.8.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
 python3-openid==3.2.0
 pytz==2023.3
 PyYAML==6.0.1
 requests==2.31.0
 requests-oauthlib==1.3.1
 six==1.16.0
+sniffio==1.3.1
 sqlparse==0.4.4
 tomli==2.0.1
 toposort==1.10
+tqdm==4.66.4
 typing_extensions==4.7.1
 tzdata==2023.3
 urllib3==2.0.4

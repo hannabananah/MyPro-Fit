@@ -1,33 +1,31 @@
 <template>
-  <div class="relative">
-    <li
-      class="w-full"
-      :class="{
-        'comment-hover': props.comment.username === userStore.username,
-      }"
-      @click="toggleEditForm"
+  <li
+    class="relative w-full"
+    :class="{
+      'comment-hover': props.comment.nickname === userStore.nickname,
+    }"
+    @click="toggleEditForm"
+  >
+    <span class="block font-bold lg:inline-block lg:mr-3 text-md">{{
+      props.comment.nickname
+    }}</span>
+    <p
+      v-if="!editing"
+      class="w-full text-xs font-light truncate lg:inline lg:text-sm"
     >
-      <span class="block font-bold lg:inline-block lg:mr-3 text-md">{{
-        props.comment.username
-      }}</span>
-      <p
-        v-if="!editing"
-        class="w-full text-xs font-light truncate lg:inline lg:text-sm"
-      >
-        {{ props.comment.comment_content }}
-      </p>
-      <input
-        v-else
-        class="w-10/12 h-8 px-3 text-xs font-light text-blue-400 truncate outline-none text-input lg:inline lg:text-sm bg-slate-50"
-        type="text"
-        v-model="inputValue"
-        @keydown.enter.stop.prevent="editComment"
-        @click.stop
-      />
-    </li>
+      {{ props.comment.comment_content }}
+    </p>
+    <input
+      v-else
+      class="w-10/12 h-8 px-3 text-xs font-light text-blue-400 truncate outline-none text-input lg:inline-block lg:text-sm bg-slate-50 max-w-[40rem]"
+      type="text"
+      v-model="inputValue"
+      @keydown.enter.stop.prevent="editComment"
+      @click.stop
+    />
     <div
-      v-if="editing && props.comment.username === userStore.username"
-      class="absolute right-0 flex flex-row top-5 gap-x-2"
+      v-if="editing && props.comment.nickname === userStore.nickname"
+      class="absolute right-0 flex flex-row -translate-y-3 top-4 gap-x-2"
       @click.stop
     >
       <button
@@ -43,7 +41,7 @@
         <Delete />
       </button>
     </div>
-  </div>
+  </li>
 </template>
 
 <script setup>
@@ -100,7 +98,6 @@ const deleteComment = function () {
       Authorization: `Token ${userStore.token}`,
     },
   }).then(res => {
-    console.log(res.data);
     editing.value = false;
     const reload = () => {
       router.go(0);

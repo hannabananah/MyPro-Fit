@@ -5,7 +5,7 @@
     class="p-4 transition-transform bg-white rounded-lg shadow-md cursor-pointer masonry-item hover:drop-shadow transform-gpu hover:scale-105"
   >
     <span class="text-xs text-gray-500 select-none">{{
-      article.username
+      article.nickname
     }}</span>
     <h2 class="text-xl font-bold text-gray-900 hahmlet">
       {{ article.title }}
@@ -19,6 +19,7 @@
 
 <script setup>
 import { useBoardStore } from '@/stores/board';
+import { useUserStore } from '@/stores/user';
 import { useRouter } from 'vue-router';
 import { computed, ref } from 'vue';
 
