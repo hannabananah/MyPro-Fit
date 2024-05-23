@@ -2,6 +2,7 @@ import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { useRecommendStore } from '@/stores/recommend';
 
 export const useUserStore = defineStore(
   'counter',
@@ -19,6 +20,7 @@ export const useUserStore = defineStore(
     const is_BLSR = ref(null);
     const is_free = ref(null);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const recommendStore = useRecommendStore();
     const errorFields = ref({
       username: '',
       password: '',
@@ -165,9 +167,18 @@ export const useUserStore = defineStore(
     };
 
     const logOut = function () {
+      // 유저 정보 초기화
       token.value = null;
       username.value = null;
       userPk.value = null;
+      recommendStore.recommendedProducts = null;
+      nickname.value = null;
+      age.value = null;
+      gender.value = null;
+      asset.value = null;
+      is_pension.value = null;
+      is_internet.value = null;
+      is_free.value = null;
       router.push({ name: 'login' });
     };
 

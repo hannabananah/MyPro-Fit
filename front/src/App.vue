@@ -7,6 +7,7 @@
     <RouterLink v-if="isLogin" :to="{ name: 'profile' }"
       >마이 페이지</RouterLink
     >
+    <RouterLink :to="{ name: 'recommend' }">상품 추천 받기</RouterLink>
     <RouterView />
   </div>
 </template>

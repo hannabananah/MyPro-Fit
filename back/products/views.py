@@ -461,7 +461,7 @@ def recommend_products(request):
             # 상품 정보 담기
             values = [product.month_6, product.month_12, product.month_24, product.month_36]
             filtered_values = [v for v in values if v is not None]
-            recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(filtered_values) })
+            recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(filtered_values), 'bank': product.kor_co_nm, 'code' : product.fin_prdt_cd})
 
         # 연금 상품 추가
         annuity_exist = False
@@ -479,17 +479,17 @@ def recommend_products(request):
                 # 수익률이 0이상인 상품만 추천
                 r = max(annuity.avg_prft_rate, annuity.btrm_prft_rate_1, annuity.btrm_prft_rate_2, annuity.btrm_prft_rate_3)
                 if r > 0:
-                    recommended_products_json.append({'id': annuity.id, 'name': annuity.fin_prdt_nm, 'type': 'annuity', 'r': r})
+                    recommended_products_json.append({'id': annuity.id, 'name': annuity.fin_prdt_nm, 'type': 'annuity', 'r': r, 'bank': annuity.kor_co_nm, 'code': annuity.fin_prdt_cd})
                     if not annuity_exist:
                         annuity_exist = True
         if not annuity_exist:
-            recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 })
+            recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 , 'bank': '', 'code': ''})
         return JsonResponse(recommended_products_json[:10], safe=False)
     
     # JSON 형태로 변환하여 반환
     recommended_products_json = []
     for product in recommended_products_list:
-        recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(product.month_6, product.month_12, product.month_24, product.month_36) })
+        recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(product.month_6, product.month_12, product.month_24, product.month_36), 'bank' : product.kor_co_nm, 'code': product.fin_prdt_cd })
 
     # 연금 상품 추가
     annuity_exist = False
