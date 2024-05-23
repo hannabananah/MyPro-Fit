@@ -10,7 +10,10 @@
           class="absolute flex right-4 top-4 gap-x-2"
           v-if="boardStore.article.nickname === userStore.nickname"
         >
-          <button class="px-2 rounded-[8px]" @click="$router.go(-1)">
+          <button
+            class="px-2 rounded-[8px]"
+            @click="router.push({ name: 'board' })"
+          >
             <undo></undo>
           </button>
           <button
