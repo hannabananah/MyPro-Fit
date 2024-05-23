@@ -34,12 +34,12 @@
             >은행 지점찾기</RouterLink
           >
           <RouterLink
-            :to="{ name: 'map' }"
+            :to="{ name: 'recommend' }"
             class="text-gray-600 hover:text-black"
             >상품 추천 서비스</RouterLink
           >
           <RouterLink
-            :to="{ name: 'map' }"
+            :to="{ name: 'board' }"
             class="text-gray-600 hover:text-black"
             >커뮤니티</RouterLink
           >
@@ -150,8 +150,23 @@
             @click="toggleMenu"
             >커뮤니티</RouterLink
           >
+          <button
+            @click="openDeleteModal"
+            class="px-3 text-xs text-gray-200 hover:underline"
+          >
+            회원탈퇴를 하시겠습니까?
+          </button>
         </div>
       </div>
+      <CustomModal
+        v-model="isDeleteModalOpen"
+        @confirm="handleDeleteConfirm"
+        @cancel="handleDeleteCancel"
+        :modalTitle="'회원탈퇴를 하시겠습니까?'"
+        :confirmText="'확인'"
+        :cancelText="'취소'"
+        >확인을 누르면 계정에 대한 모든 정보가 삭제됩니다.</CustomModal
+      >
     </div>
   </nav>
 </template>
@@ -162,6 +177,7 @@ import { RouterLink } from 'vue-router';
 import { useUserStore } from '@/stores/user';
 import Menu from 'vue-material-design-icons/Menu.vue';
 import Profile from 'vue-material-design-icons/AccountCircle.vue';
+import CustomModal from '@/components/Modal.vue';
 
 const userStore = useUserStore();
 const isLogin = userStore.isLogin;
@@ -180,5 +196,22 @@ const toggleProfileMenu = () => {
 const logOut = () => {
   userStore.logOut();
   isProfileMenuOpen.value = false;
+};
+
+const deleteAccount = () => {
+  userStore.deleteAccount();
+};
+
+const openDeleteModal = () => {
+  isDeleteModalOpen.value = true;
+};
+
+const handleDeleteConfirm = () => {
+  deleteAccount();
+  isDeleteModalOpen.value = false;
+};
+
+const handleDeleteCancel = () => {
+  isDeleteModalOpen.value = false;
 };
 </script>

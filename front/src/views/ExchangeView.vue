@@ -1,7 +1,7 @@
 <template>
-  <div class="py-12">
+  <div class="h-[calc(100vh-64px)] py-12">
     <div
-    class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-t-[80px] shadow-md bg-slate-100"
+    class="h-full container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-[80px] shadow-md bg-slate-100 flex-1"
     >
       <img width="100%" src="@/assets/images/exchange.svg" alt="환율계산 페이지 헤더 이미지"   class="object-cover w-full overflow-hidden grayscale-[40%] h-56 blur-[3px]"/>
       <h1
@@ -9,7 +9,7 @@
       >
         환율 계산기
       </h1>
-      <div style="width: 50%" class="flex flex-col items-center my-8">
+      <div style="width: 50%" class="flex flex-col items-center justify-center h-full">
         <div style="width: 60%" class="flex justify-between">
           <div
             class="flex items-center justify-center border border-solid border-sky-700 min-h-10"
@@ -63,6 +63,7 @@
               :value="formatNumberWithCommas(krwAmount)"
               @input="e => { krwAmount = e.target.value.replace(/,/g, ''); inputForeignToKwr(); }"
               style="width: 70%; padding-left: 10%"
+              class="bg-transparent"
             />
             <label style="padding-right: 10%" for="kor">원</label>
           </div>
@@ -83,6 +84,7 @@
               :value="formatNumberWithCommas(inputForeignAmount)"
               @input.prevent="e => { inputForeignAmount = e.target.value.replace(/,/g, ''); convertToKrw(); }"
               style="width: 70%; padding-left: 10%"
+              class="bg-transparent"
             />
             <label style="padding-right: 10%" for="foreign">{{
               selectedCurName

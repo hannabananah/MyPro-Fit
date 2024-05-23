@@ -1,53 +1,53 @@
 <template>
-  <div class="h-screen py-12">
-    <div
-      style="
-        border-radius: 60px;
-        overflow: hidden;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
-      "
-      class="container flex flex-col w-4/5 pb-6 mx-auto"
+  <div
+    style="
+      border-radius: 60px;
+      overflow: hidden;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    "
+    class="container relative flex flex-col w-4/5 pb-6 mx-auto"
+  >
+    <img
+      class="object-cover w-full overflow-hidden grayscale-[40%] h-56 blur-[3px]"
+      src="@/assets/images/map.jpg"
+      alt="지점검색 페이지 헤더 이미지"
+    />
+    <h1
+      class="absolute text-xl font-bold tracking-widest text-center text-white transition-all transform -translate-x-1/2 lg:text-5xl md:text-3xl top-24 left-1/2 sm:text-2xl"
     >
-      <img
-        class="object-cover overflow-hidden max-h-56"
-        src="@/assets/images/map.jpg"
-        alt="지점검색 페이지 헤더 이미지"
-      />
-      <div class="flex flex-row mb-4 h-[600px]">
-        <div
-          id="map-container"
-          style="width: 70%; height: 100%"
-          class="flex flex-col items-center"
-        >
-          <form
-            class="flex justify-center w-full"
-            @submit.prevent="searchPlaces"
+      주변 은행 지점 찾기
+    </h1>
+    <div class="flex flex-row mb-4 h-[600px]">
+      <div
+        id="map-container"
+        style="width: 70%; height: 100%"
+        class="flex flex-col items-center"
+      >
+        <form class="flex justify-center w-full" @submit.prevent="searchPlaces">
+          <div
+            class="flex justify-between border border-slate-400 rounded-2xl mb-4 w-1/2 h-[5vh] mt-6"
           >
-            <div
-              class="flex justify-between border border-slate-400 rounded-2xl mb-4 w-1/2 h-[5vh] mt-6"
-            >
-              <input
-                type="text"
-                class="w-5/6 ml-5 bg-transparent focus:outline-none"
-                placeholder="(예시) 역삼역 OO은행"
-                v-model="keyWord"
+            <input
+              type="text"
+              class="w-5/6 ml-5 bg-transparent focus:outline-none"
+              placeholder="(예시) 역삼역 OO은행"
+              v-model="keyWord"
+            />
+            <button>
+              <img
+                src="@/assets/icons/search-icon-slate200.svg"
+                class="mr-4 h-3/5"
               />
-              <button>
-                <img
-                  src="@/assets/icons/search-icon-slate200.svg"
-                  class="mr-4 h-3/5"
-                />
-              </button>
-            </div>
-          </form>
-          <div ref="mapContainer" style="width: 100%; height: 100%"></div>
-        </div>
-        <div id="bank-list" class="h-[510px] mt-6 ml-3 w-1/3">
-          <h2 class="my-5 text-xl font-bold text-gray-900">목록 보기</h2>
-          <div id="menu_wrap" class="h-full overflow-auto">
-            <ul class="" id="placesList"></ul>
-            <div class="hidden" id="pagination"></div>
+            </button>
           </div>
+        </form>
+        <div ref="mapContainer" style="width: 100%; height: 100%"></div>
+      </div>
+      <div id="bank-list" class="h-[510px] mt-6 ml-3 w-1/3">
+        <h2 class="my-5 text-xl font-bold text-gray-900">목록 보기</h2>
+        <div id="menu_wrap" class="h-full overflow-auto">
+          <ul class="" id="placesList"></ul>
+          <div class="hidden" id="pagination"></div>
         </div>
       </div>
     </div>

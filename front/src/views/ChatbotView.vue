@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full py-12">
+  <div>
     <div
-      class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-t-[80px] shadow-md bg-slate-100 h-full"
+      class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-t-[80px] shadow-md bg-slate-100"
     >
       <div class="relative w-full">
         <img
@@ -14,8 +14,8 @@
           class="absolute w-32 transition-all -translate-x-1/2 -translate-y-1/2 sm:w-52 left-1/2 top-1/2"
         />
       </div>
-      <div class="flex flex-col justify-between w-full h-[calc(100%-224px)]">
-        <div class="flex-1 p-6 pl-3 overflow-y-auto">
+      <div class="flex flex-col justify-between w-full h-[600px]">
+        <div class="p-6 pl-3 overflow-y-auto">
           <div
             v-for="(message, index) in chatHistory"
             :key="index"

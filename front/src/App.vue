@@ -1,9 +1,11 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <Navbar />
-    <div class="relative flex-grow bg-blue-100">
-      <RouterView />
-      <ChatbotFloatingBtn class="fixed bottom-4 right-4" />
+    <div class="flex-grow">
+      <div class="relative mx-auto">
+        <RouterView />
+        <ChatbotFloatingBtn class="fixed bottom-4 right-4" />
+      </div>
     </div>
   </div>
 </template>
