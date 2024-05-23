@@ -14,6 +14,7 @@ import CreateArticle from '@/components/CreateArticle.vue';
 import BoardView from '@/views/BoardView.vue';
 import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
 import UpdateArticle from '@/components/UpdateArticle.vue';
+import ChatbotView from '@/views/ChatbotView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -94,6 +95,11 @@ const router = createRouter({
       path: '/board/:id/update',
       name: 'update-article',
       component: UpdateArticle,
+    },
+    {
+      path: '/chatbot',
+      name: 'chatbot',
+      component: ChatbotView,
     },
   ],
 });
