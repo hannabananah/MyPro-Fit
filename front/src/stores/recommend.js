@@ -21,7 +21,8 @@ export const useRecommendStore = defineStore(
       })
         .then(res => {
           console.log('상품 추천 가져오기 성공');
-          recommendedProducts.value = res.data;
+
+          recommendedProducts.value = res.data.sort((a, b) => b.r - a.r);
           router.push({ name: 'recommend-list' });
         })
         .catch(err => {
