@@ -20,6 +20,7 @@ export const useUserStore = defineStore(
     const is_BLSR = ref(null);
     const is_free = ref(null);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const joinedProdudcts = ref(null);
     const recommendStore = useRecommendStore();
     const errorFields = ref({
       username: '',
@@ -172,6 +173,7 @@ export const useUserStore = defineStore(
       username.value = null;
       userPk.value = null;
       recommendStore.recommendedProducts = null;
+      joinedProdudcts.value = null;
       nickname.value = null;
       age.value = null;
       gender.value = null;
@@ -228,6 +230,23 @@ export const useUserStore = defineStore(
           throw error;
         });
     };
+
+    const getJoinedProducts = function () {
+      axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/joined-products/',
+        headers: {
+          Authorization: `Token ${token.value}`,
+        },
+      })
+        .then(response => {
+          console.log('유저가 가입한 상품 가져오기 성공');
+          joinedProdudcts.value = response.data;
+        })
+        .catch(error => {
+          console.log('유저가 가입한 상품 가져오기 실패');
+        });
+    };
     return {
       signUp,
       logIn,
@@ -250,6 +269,8 @@ export const useUserStore = defineStore(
       is_BLSR,
       is_free,
       userPk,
+      joinedProdudcts,
+      getJoinedProducts,
     };
   },
   { persist: true },

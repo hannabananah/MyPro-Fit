@@ -2,6 +2,7 @@ from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.serializers import UserDetailsSerializer
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from products.models import Annuity, Deposit, Saving
 
 
 class CustomRegisterSerializer(RegisterSerializer):
@@ -45,3 +46,28 @@ class CustomUserDetailsSerializer(UserDetailsSerializer):
         model = UserModel
         fields = ("pk", *extra_fields)
         read_only_fields = ("username", "email")
+
+class UserProductSerializer(serializers.ModelSerializer):
+    class DepositSerizer(serializers.ModelSerializer):
+        class Meta:
+            model = Deposit
+            fields = '__all__'
+        
+    deposit_join_products = DepositSerizer(many=True)
+
+    class SavingSerizer(serializers.ModelSerializer):
+        class Meta:
+            model = Saving
+            fields = '__all__'
+    saving_join_products = SavingSerizer(many=True)
+
+
+    class AnnuitySerizer(serializers.ModelSerializer):
+        class Meta:
+            model = Annuity
+            fields = '__all__'
+    annuity_join_products = AnnuitySerizer(many=True)
+
+    class Meta:
+        model = get_user_model()
+        fields = ('nickname', 'username', 'annuity_join_products', 'saving_join_products', 'deposit_join_products',)

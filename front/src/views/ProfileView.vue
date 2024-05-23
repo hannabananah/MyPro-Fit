@@ -93,6 +93,39 @@
                 />
               </div>
             </form>
+            <div id="joinedProduct">
+              <h1 class="font-bold mb-1">가입한 상품</h1>
+              <div>
+                <div
+                  class="hover:cursor-pointer"
+                  v-for="deposit in userStore.joinedProdudcts
+                    .deposit_join_products"
+                  :key="deposit.fin_prdt_cd"
+                  @click="
+                    router.push({
+                      name: 'product-detail',
+                      params: { type: 'deposit', code: deposit.fin_prdt_cd },
+                    })
+                  "
+                >
+                  <p>{{ deposit.fin_prdt_nm }}</p>
+                </div>
+                <div
+                  class="hover:cursor-pointer"
+                  v-for="saving in userStore.joinedProdudcts
+                    .saving_join_products"
+                  :key="saving.fin_prdt_cd"
+                  @click="
+                    router.push({
+                      name: 'product-detail',
+                      params: { type: 'saving', code: saving.fin_prdt_cd },
+                    })
+                  "
+                >
+                  <p>{{ saving.fin_prdt_nm }}</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="flex flex-col gap-10"
@@ -261,10 +294,12 @@ import {
   formatNumberWithCommas,
   parseNumberWithCommas,
 } from '@/utils/formatNumber';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
+const router = useRouter();
 const userStore = useUserStore();
+
 const activeTab = ref(route.params.tab);
 const isModalOpen = ref(false);
 
@@ -314,6 +349,7 @@ const checkboxOptions = [
 
 onMounted(() => {
   userStore.getUserInfo();
+  userStore.getJoinedProducts();
 });
 
 watch(
