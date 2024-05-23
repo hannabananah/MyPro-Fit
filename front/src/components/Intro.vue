@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex flex-col w-10/12 mx-auto my-16 text-center select-none gap-y-2"
+    class="flex flex-col w-10/12 px-4 mx-auto my-16 text-center select-none max-w-7xl sm:px-6 lg:px-8 gap-y-2"
   >
     <p>내게 Fit한 금융상품, 비교하기 힘드시죠?</p>
     <h2 class="text-2xl font-bold hahmlet">
