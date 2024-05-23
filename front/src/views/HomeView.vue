@@ -1,10 +1,13 @@
 <template>
   <div>
-    <p>
+    <!-- <p>
       <strong>{{ userStore.nickname }}</strong
       >님 안녕하세요!
     </p>
-    <button v-if="userStore.isLogin" @click="openModal">회원탈퇴</button>
+    <button v-if="userStore.isLogin" @click="openModal">회원탈퇴</button> -->
+
+    <!-- 캐러셀 -->
+    <Banner />
 
     <!-- 예금 베스트 상품 -->
     <div
@@ -64,6 +67,7 @@
 </template>
 
 <script setup>
+import Banner from '@/components/Banner.vue';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
 import { useExchangeStore } from '@/stores/exchange';
