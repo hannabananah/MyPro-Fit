@@ -1,5 +1,5 @@
 <template>
-  <carousel :items-to-show="1" :autoplay="5000" :wrap-around="true">
+  <carousel :items-to-show="1" :autoplay="4000" :wrap-around="true">
     <slide v-for="index in images" :key="index">
       <img
         :src="getImageUrl(index)"
