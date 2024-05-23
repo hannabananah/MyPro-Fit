@@ -27,28 +27,30 @@
               src="@/assets/icons/bot.svg"
               class="absolute -left-2 -top-1"
             />
-            <div
-              class="relative p-2 pr-10 text-xs text-gray-900 rounded-lg shadow sm:text-sm"
-              :class="
-                message.role === 'user'
-                  ? 'inline-block bg-slate-50'
-                  : 'inline-block bg-violet-100'
-              "
-            >
-              {{ message.content }}
-              <button
-                class="absolute right-4 bottom-[11px] hover:scale-110"
-                @click="handleClickCopy(message)"
+            <div class="relative group">
+              <div
+                class="relative p-2 text-xs text-gray-900 rounded-lg shadow pr-7 sm:text-sm"
+                :class="
+                  message.role === 'user'
+                    ? 'inline-block bg-slate-50'
+                    : 'inline-block bg-violet-100'
+                "
               >
-                <Copy :size="15" fillColor="#666" />
-              </button>
+                {{ message.content }}
+                <button
+                  class="absolute right-2 bottom-[6px] hover:scale-110 opacity-0 group-hover:opacity-100 transition-opacity"
+                  @click="handleClickCopy(message)"
+                >
+                  <Copy :size="15" fillColor="#666" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <form
           @submit.prevent="sendMessage"
-          class="relative h-20 px-6 py-4 pr-12"
+          class="relative h-20 px-6 py-4 pr-12 bg-gradient-to-t from-slate-300"
         >
           <label for="chat" class="absolute top-6 left-9"
             ><Chat fillColor="#6B7280" :size="25"
@@ -142,3 +144,9 @@ const sendMessage = () => {
   userInput.value = '';
 };
 </script>
+
+<style scoped>
+.group:hover .group-hover\\:opacity-100 {
+  opacity: 1;
+}
+</style>
