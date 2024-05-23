@@ -30,10 +30,12 @@ import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
 import { useExchangeStore } from '@/stores/exchange';
+import { useProductStore } from '@/stores/products';
 import CustomModal from '@/components/Modal.vue';
 import { onMounted } from 'vue';
 
 const userStore = useUserStore();
+const productstore = useProductStore();
 const isModalOpen = ref(false);
 
 const logOut = () => {
@@ -64,5 +66,8 @@ onMounted(() => {
   if (userStore.isLogin) {
     userStore.getUserInfo();
   }
+  productstore.fetchDeposit();
+  productstore.fetchAnnuity();
+  productstore.fetchSaving();
 });
 </script>

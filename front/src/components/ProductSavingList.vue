@@ -116,6 +116,26 @@
               ></down>
             </button>
           </th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="saving_like_users.length"
+              class="flex items-center justify-center w-full"
+            >
+              <span>인기순</span>
+              <upDown
+                class="inline-block"
+                v-show="'saving_like_users.length' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'saving_like_users.length' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'saving_like_users.length' && !isSorted"
+              ></down>
+            </button>
+          </th>
         </tr>
 
         <tr
@@ -141,6 +161,13 @@
           </td>
           <td class="border border-slate-300 text-center">
             {{ saving.month_36 !== null ? saving.month_36 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              saving.saving_like_users.length !== null
+                ? saving.saving_like_users.length
+                : '-'
+            }}
           </td>
         </tr>
       </table>
@@ -210,43 +237,64 @@ const sortedSavings = computed(() => {
   const savings = store.savings;
   const field = sortedBy.value;
   const compare = (a, b) => {
-    const valueA = a[field];
-    const valueB = b[field];
+    if (field === 'saving_like_users.length') {
+      const valueA = a['saving_like_users'].length;
+      const valueB = b['saving_like_users'].length;
 
-    // null 값을 뒤로 보내기 위한 비교 로직
-    if (valueA === null) return 1;
-    if (valueB === null) return -1;
+      if (valueA === null) return 1;
+      if (valueB === null) return -1;
 
-    if (isSorted.value) {
-      return valueA > valueB ? 1 : -1;
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     } else {
-      return valueA < valueB ? 1 : -1;
+      const valueA = a[field];
+      const valueB = b[field];
+      if (valueA === null) return 1;
+      if (valueB === null) return -1;
+
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     }
+    // null 값을 뒤로 보내기 위한 비교 로직
   };
 
   // 선택한 은행이나 기간이 있으면 필터링 후 정렬
-  if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
-    return [...savings].sort(compare);
-  } else if (selectedBank.value !== 'all' && selectedDuration.value === 'all') {
-    const filteredSavings = savings.filter(
-      obj => obj.kor_co_nm === selectedBank.value,
-    );
-    return [...filteredSavings].sort(compare);
-  } else if (selectedBank.value === 'all' && selectedDuration.value !== 'all') {
-    sortedBy.value = selectedDuration.value;
-    const filteredSavings = savings.filter(
-      obj => obj[selectedDuration.value] !== null,
-    );
-    return [...filteredSavings].sort(compare);
-  } else {
-    // 필요에 따라 모든 조건을 처리하는 추가 로직
-    sortedBy.value = selectedDuration.value;
-    const filteredSavings = savings.filter(
-      obj =>
-        obj.kor_co_nm === selectedBank.value &&
-        obj[selectedDuration.value] !== null,
-    );
-    return [...filteredSavings].sort(compare);
+  if (savings) {
+    if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
+      return [...savings].sort(compare);
+    } else if (
+      selectedBank.value !== 'all' &&
+      selectedDuration.value === 'all'
+    ) {
+      const filteredSavings = savings.filter(
+        obj => obj.kor_co_nm === selectedBank.value,
+      );
+      return [...filteredSavings].sort(compare);
+    } else if (
+      selectedBank.value === 'all' &&
+      selectedDuration.value !== 'all'
+    ) {
+      sortedBy.value = selectedDuration.value;
+      const filteredSavings = savings.filter(
+        obj => obj[selectedDuration.value] !== null,
+      );
+      return [...filteredSavings].sort(compare);
+    } else {
+      // 필요에 따라 모든 조건을 처리하는 추가 로직
+      sortedBy.value = selectedDuration.value;
+      const filteredSavings = savings.filter(
+        obj =>
+          obj.kor_co_nm === selectedBank.value &&
+          obj[selectedDuration.value] !== null,
+      );
+      return [...filteredSavings].sort(compare);
+    }
   }
 });
 

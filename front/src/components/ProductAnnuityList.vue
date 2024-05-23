@@ -20,11 +20,11 @@
     <div class="h-[600px] overflow-y-auto pb-6">
       <table class="border border-slate-400 w-full">
         <tr @click="onClick">
-          <th class="border border-slate-300 w-[10%]">공시기준월</th>
+          <th class="border border-slate-300 w-[7%]">공시기준월</th>
           <th class="border border-slate-300 w-[10%]">금융 회사명</th>
-          <th class="border border-slate-300 w-[30%]">상품명</th>
-          <th class="border border-slate-300 w-[10%]">상품 유형</th>
-          <th class="border border-slate-300 w-[10%]">
+          <th class="border border-slate-300 w-[20%]">상품명</th>
+          <th class="border border-slate-300 w-[5%]">상품 유형</th>
+          <th class="border border-slate-300 w-[5%]">
             <button
               value="avg_prft_rate"
               class="flex items-center justify-center w-full"
@@ -44,7 +44,7 @@
               ></down>
             </button>
           </th>
-          <th class="border border-slate-300 w-[10%]">
+          <th class="border border-slate-300 w-[5%]">
             <button
               value="btrm_prft_rate_1"
               class="flex items-center justify-center w-full"
@@ -64,7 +64,7 @@
               ></down>
             </button>
           </th>
-          <th class="border border-slate-300 w-[10%]">
+          <th class="border border-slate-300 w-[5%]">
             <button
               value="btrm_prft_rate_2"
               class="flex items-center justify-center w-full"
@@ -84,7 +84,7 @@
               ></down>
             </button>
           </th>
-          <th class="border border-slate-300 w-[10%]">
+          <th class="border border-slate-300 w-[5%]">
             <button
               value="btrm_prft_rate_3"
               class="flex items-center justify-center w-full"
@@ -101,6 +101,26 @@
               <down
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_3' && !isSorted"
+              ></down>
+            </button>
+          </th>
+          <th class="border border-slate-300 w-[5%]">
+            <button
+              value="annuity_like_users.length"
+              class="flex items-center justify-center w-full"
+            >
+              <span>인기순</span>
+              <upDown
+                class="inline-block"
+                v-show="'annuity_like_users.length' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'annuity_like_users.length' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'annuity_like_users.length' && !isSorted"
               ></down>
             </button>
           </th>
@@ -136,6 +156,13 @@
           <td class="border border-slate-300 text-center">
             {{
               annuity.btrm_prft_rate_3 !== null ? annuity.btrm_prft_rate_3 : '-'
+            }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              annuity.annuity_like_users.length !== null
+                ? annuity.annuity_like_users.length
+                : '-'
             }}
           </td>
         </tr>
@@ -185,17 +212,26 @@ const sortedAnnuities = computed(() => {
   const annuities = store.annuities;
   const field = sortedBy.value;
   const compare = (a, b) => {
-    const valueA = a[field];
-    const valueB = b[field];
+    if (field === 'annuity_like_users.length') {
+      const valueA = a['annuity_like_users'].length;
+      const valueB = b['annuity_like_users'].length;
 
-    // null 값을 뒤로 보내기 위한 비교 로직
-    if (valueA === null) return 1;
-    if (valueB === null) return -1;
-
-    if (isSorted.value) {
-      return valueA > valueB ? 1 : -1;
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     } else {
-      return valueA < valueB ? 1 : -1;
+      const valueA = a[field];
+      const valueB = b[field];
+      if (valueA === null) return 1;
+      if (valueB === null) return -1;
+
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     }
   };
 

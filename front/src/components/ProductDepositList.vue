@@ -35,7 +35,7 @@
         <tr @click="onClick">
           <th class="border border-slate-300 w-[10%]">공시기준월</th>
           <th class="border border-slate-300 w-[10%]">금융 회사명</th>
-          <th class="border border-slate-300 w-[30%]">상품명</th>
+          <th class="border border-slate-300 w-[20%]">상품명</th>
           <th class="border border-slate-300 w-[8%]">
             <button
               value="month_6"
@@ -116,6 +116,26 @@
               ></down>
             </button>
           </th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="deposit_like_users.length"
+              class="flex items-center justify-center w-full"
+            >
+              <span>인기순</span>
+              <upDown
+                class="inline-block"
+                v-show="'deposit_like_users.length' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'deposit_like_users.length' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'deposit_like_users.length' && !isSorted"
+              ></down>
+            </button>
+          </th>
         </tr>
         <tr
           class="w-full hover:cursor-pointer"
@@ -140,6 +160,13 @@
           </td>
           <td class="border border-slate-300 text-center">
             {{ deposit.month_36 !== null ? deposit.month_36 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              deposit.deposit_like_users.length !== null
+                ? deposit.deposit_like_users.length
+                : '-'
+            }}
           </td>
         </tr>
       </table>
@@ -206,17 +233,26 @@ const sortedDeposits = computed(() => {
   const deposits = store.deposits;
   const field = sortedBy.value;
   const compare = (a, b) => {
-    const valueA = a[field];
-    const valueB = b[field];
+    if (field === 'deposit_like_users.length') {
+      const valueA = a['deposit_like_users'].length;
+      const valueB = b['deposit_like_users'].length;
 
-    // null 값을 뒤로 보내기 위한 비교 로직
-    if (valueA === null) return 1;
-    if (valueB === null) return -1;
-
-    if (isSorted.value) {
-      return valueA > valueB ? 1 : -1;
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     } else {
-      return valueA < valueB ? 1 : -1;
+      const valueA = a[field];
+      const valueB = b[field];
+      if (valueA === null) return 1;
+      if (valueB === null) return -1;
+
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     }
   };
 
