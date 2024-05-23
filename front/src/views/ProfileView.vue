@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex justify-center w-10/12 h-screen max-w-screen-lg py-12 m-auto"
+    class="flex justify-center w-10/12 h-[calc(100vh-64px)] max-w-screen-lg m-auto"
   >
     <div class="w-full md:flex">
       <!-- 사이드 메뉴 -->
@@ -39,7 +39,7 @@
       </ul>
       <!-- 패널 -->
       <div
-        class="flex flex-col items-end justify-between w-full text-gray-500 rounded-lg basis-3/4 text-medium min-h-72"
+        class="flex flex-col items-end justify-between w-full pb-10 text-gray-500 rounded-lg basis-3/4 text-medium min-h-72"
       >
         <div class="w-full">
           <div
@@ -94,7 +94,7 @@
               </div>
             </form>
             <div id="joinedProduct" v-if="userStore.joinedProdudcts">
-              <h1 class="font-bold mb-1">가입한 상품</h1>
+              <h1 class="mb-1 font-bold">가입한 상품</h1>
               <div v-if="userStore.joinedProdudcts">
                 <div
                   class="hover:cursor-pointer"

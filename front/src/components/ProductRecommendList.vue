@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12">
+  <div class="h-[calc(100vh-64px)] py-6 border-box">
     <div
       style="
         border-radius: 60px;
@@ -8,14 +8,14 @@
       "
       class="flex flex-col items-center w-3/5 mx-auto"
     >
-      <h1 class="text-2xl pt-6 font-bold">추천 상품 목록 출력</h1>
+      <h1 class="pt-6 text-2xl font-bold">추천 상품 목록 출력</h1>
       <p class="text-sm text-gray-600">
         {{ userStore.nickname }}님의 자산 상태와 가입 상품을 바탕으로 추천도가
         높은 상품을 추천해드립니다.
       </p>
       <div
         v-if="recommendStore.recommendedProducts"
-        class="w-full grid grid-cols-3 gap-5 px-12 pt-8"
+        class="grid w-full grid-cols-3 gap-5 px-12 pt-8"
       >
         <div
           v-for="(product, index) in recommendStore.recommendedProducts"
@@ -42,14 +42,14 @@
             <p class="text-lg font-bold text-gray-600">{{ index + 1 }}</p>
             <p>{{ product.bank }} - {{ product.name }}</p>
             <p
-              class="text-lg text-end font-bold text-sky-600 absolute bottom-3 right-4"
+              class="absolute text-lg font-bold text-end text-sky-600 bottom-3 right-4"
               v-if="product.type !== 'annuity'"
             >
               최고 {{ product.r }}%
             </p>
             <p
               v-if="product.type == 'annuity'"
-              class="text-lg text-end font-bold text-sky-600 absolute bottom-3 right-4"
+              class="absolute text-lg font-bold text-end text-sky-600 bottom-3 right-4"
             >
               최고 {{ product.r }}
             </p>
@@ -68,7 +68,7 @@
           >
         </button>
       </div>
-      <img class="mb-4 mt-6" src="@/assets/images/logo.svg" alt="" />
+      <img class="mt-6 mb-4" src="@/assets/images/logo.svg" alt="" />
     </div>
   </div>
 </template>

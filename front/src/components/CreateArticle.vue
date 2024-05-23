@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen py-12">
+  <div class="h-[calc(100vh-64px)] py-12">
     <div class="flex flex-col w-3/5 h-full mx-auto gap-y-4">
       <h2 class="text-3xl font-bold">게시물 작성</h2>
       <form

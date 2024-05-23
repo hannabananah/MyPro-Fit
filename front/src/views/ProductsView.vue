@@ -1,5 +1,5 @@
 <template>
-  <h1 class="ml-[14%] text-2xl mb-3 font-bold -mt-1">예적금 금리 비교</h1>
+  <h1 class="ml-[14%] text-2xl mb-3 font-bold mt-1">예적금 금리 비교</h1>
   <div
     class="flex flex-col w-4/5 px-6 mx-auto overflow-y-auto border shadow-lg rounded-3xl border-slate-200 border-box"
   >
