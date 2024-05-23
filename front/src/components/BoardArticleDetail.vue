@@ -10,6 +10,9 @@
           class="absolute flex right-4 top-4 gap-x-2"
           v-if="boardStore.article.nickname === userStore.nickname"
         >
+          <button class="px-2 rounded-[8px]" @click="$router.go(-1)">
+            <undo></undo>
+          </button>
           <button
             class="hover:drop-shadow transform-gpu hover:scale-110"
             @click="handleClickEdit"
@@ -83,6 +86,7 @@ import Edit from 'vue-material-design-icons/SquareEditOutline.vue';
 import Delete from 'vue-material-design-icons/TrashCanOutline.vue';
 import Chat from 'vue-material-design-icons/ChatOutline.vue';
 import Send from 'vue-material-design-icons/Send.vue';
+import undo from 'vue-material-design-icons/undo.vue';
 
 const boardStore = useBoardStore();
 const userStore = useUserStore();

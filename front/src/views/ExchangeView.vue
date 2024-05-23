@@ -108,6 +108,7 @@
               :value="formatNumberWithCommas(inputKrwAmount)"
               @input="e => { inputKrwAmount = e.target.value.replace(/,/g, ''); convertToForeign(); }"
               style="width: 70%; padding-left: 10%"
+              class="bg-transparent"
             /><label style="padding-right: 10%" for="kor">원</label>
           </div>
           <p style="margin-top: 1rem" class="text-center text-gray-500">
@@ -124,6 +125,7 @@
               id="foreign"
               type="text"
               placeholder="외화"
+              class="bg-transparent"
               :value="formatNumberWithCommas(foreignAmount)"
               @input="e => { foreignAmount = e.target.value.replace(/,/g, ''); inputKwrToForeign(); }"
               style="width: 70%; padding-left: 10%"
