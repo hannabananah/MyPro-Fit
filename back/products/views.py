@@ -415,12 +415,12 @@ def recommend_products(request):
     # 현재 유저와 나이 차이가 10살 미만인 유저 필터링
     similar_age_users = get_user_model().objects.filter(age__lte=request.user.age+10, age__gte=request.user.age-10).exclude(id=request.user.id)
     
-    # 현재 유저와 자산 차이가 50% 이하인 유저 선택
+    # 현재 유저와 자산 차이가 본인의 자산보다 덜 나는 유저 선택
     similar_salary_users = []
     for user in similar_age_users:
         user_asset = user.asset
         salary_difference = abs(current_asset - user_asset)
-        if salary_difference / current_asset <= 0.50:
+        if salary_difference / current_asset <= 2:
             similar_salary_users.append(user)
     print('자산 비슷한유저', similar_salary_users)
     # 가입한 상품이 많이 겹치는 상위 10명의 유저 선택 -> 상품 취향 비슷한 사람이 가입한 다른상품 추천
@@ -475,8 +475,8 @@ def recommend_products(request):
                     recommended_products_json.append({'id': annuity.id, 'name': annuity.fin_prdt_nm, 'type': 'annuity', 'r': r, 'bank': annuity.kor_co_nm, 'code': annuity.fin_prdt_cd})
                     if not annuity_exist:
                         annuity_exist = True
-        if not annuity_exist:
-            recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 , 'bank': '', 'code': ''})
+            if not annuity_exist:
+                recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 , 'bank': '', 'code': ''})
 
         for product in can_join[:10]:
             # 상품 정보 담기
@@ -513,6 +513,6 @@ def recommend_products(request):
         recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(product.month_6, product.month_12, product.month_24, product.month_36), 'bank' : product.kor_co_nm, 'code': product.fin_prdt_cd })
 
  
-    if not annuity_exist:
-        recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 })
+        if not annuity_exist:
+            recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 })
     return JsonResponse(recommended_products_json[:10], safe=False)
