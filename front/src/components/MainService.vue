@@ -1,9 +1,11 @@
 <template>
-  <section class="w-full">
+  <section
+    class="flex flex-col w-10/12 px-4 mx-auto elect-none max-w-7xl sm:px-6 lg:px-8 gap-y-2"
+  >
     <h2 class="mb-4 text-lg font-bold">주요 서비스</h2>
     <div class="flex gap-x-4">
       <div
-        v-for="(service, index) in services"
+        v-for="service in services"
         :key="service.name"
         class="flex flex-col items-center justify-center w-24 h-32"
       >
