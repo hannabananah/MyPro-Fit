@@ -12,11 +12,11 @@
         <li class="z-30 flex-auto text-center">
           <a
             class="inline-flex items-center w-full px-5 py-2 text-gray-600 rounded cursor-pointer"
-            @click="activeTab = 'profile'"
-            :class="{ 'bg-slate-100 text-gray-900': activeTab === 'profile' }"
+            @click="activeTab = 'basicInfo'"
+            :class="{ 'bg-slate-100 text-gray-900': activeTab === 'basicInfo' }"
             role="tab"
-            :aria-selected="activeTab === 'profile'"
-            aria-controls="profile"
+            :aria-selected="activeTab === 'basicInfo'"
+            aria-controls="basicInfo"
           >
             <Profile fillColor="#6B7280" :size="20" class="mr-3" />
             <span class="mt-1 tracking-wider">프로필</span>
@@ -44,7 +44,7 @@
         <div class="w-full">
           <div
             class="flex flex-col gap-10"
-            v-show="activeTab === 'profile'"
+            v-show="activeTab === 'basicInfo'"
             id="profile"
             role="tabpanel"
           >
@@ -216,7 +216,7 @@
         </div>
         <div class="flex w-1/2 mt-14 md:w-full md:mt-0">
           <button
-            v-if="activeTab === 'profile'"
+            v-if="activeTab === 'basicInfo'"
             class="btn-active"
             @click="openModal"
           >
@@ -261,9 +261,11 @@ import {
   formatNumberWithCommas,
   parseNumberWithCommas,
 } from '@/utils/formatNumber';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const userStore = useUserStore();
-const activeTab = ref('profile');
+const activeTab = ref(route.params.tab);
 const isModalOpen = ref(false);
 
 const genderOptions = [
@@ -390,7 +392,7 @@ const updateMoreInfo = () => {
 
 const handleConfirm = () => {
   isModalOpen.value = false;
-  activeTab.value === 'profile' ? updateProfile() : updateMoreInfo();
+  activeTab.value === 'basicInfo' ? updateProfile() : updateMoreInfo();
 };
 
 const handleCancel = () => {

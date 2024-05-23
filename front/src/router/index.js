@@ -78,7 +78,7 @@ const router = createRouter({
       component: ProductDetail,
     },
     {
-      path: '/profile',
+      path: '/profile/:tab',
       name: 'profile',
       component: ProfileView,
     },
