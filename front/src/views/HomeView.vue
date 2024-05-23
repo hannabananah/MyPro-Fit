@@ -1,13 +1,5 @@
 <template>
   <div>
-    <RouterLink
-      v-if="!userStore.isLogin"
-      :to="{ name: 'login' }"
-      class="text-orange-600"
-      >Login</RouterLink
-    >
-    <button v-if="userStore.isLogin" @click="logOut">Log out</button>
-    <h1 class="text-blue-600">Main</h1>
     <p>
       <strong>{{ userStore.nickname }}</strong
       >님 안녕하세요!
@@ -72,7 +64,6 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import { useUserStore } from '@/stores/user';
 import { useExchangeStore } from '@/stores/exchange';
@@ -85,10 +76,6 @@ const userStore = useUserStore();
 const productstore = useProductStore();
 const router = useRouter();
 const isModalOpen = ref(false);
-
-const logOut = () => {
-  userStore.logOut();
-};
 
 const deleteAccount = () => {
   userStore.deleteAccount();

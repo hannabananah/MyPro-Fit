@@ -53,9 +53,29 @@ export default {
             transform: 'translate(-1px, 1px)',
           },
         },
+        slideIn: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideOut: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        fadeOut: {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
       },
       animation: {
         glitch: 'glitch 0.3s infinite',
+        slideIn: 'slideIn 0.5s forwards',
+        slideOut: 'slideOut 0.5s forwards',
+        fadeIn: 'fadeIn 0.5s forwards',
+        fadeOut: 'fadeOut 0.5s forwards',
       },
     },
   },
