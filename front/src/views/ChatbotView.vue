@@ -1,44 +1,72 @@
 <template>
-  <div class="flex flex-col justify-between min-h-screen pt-12 bg-gray-100">
-    <div class="p-6 bg-red-200">
-      <div
-        v-for="(message, index) in chatHistory"
-        :key="index"
-        :class="message.role === 'user' ? 'text-right mb-2' : 'mb-2'"
-      >
-        <div
-          :class="
-            message.role === 'user'
-              ? 'inline-block bg-blue-500 text-white rounded-lg p-2'
-              : message.role === 'assistant'
-                ? 'inline-block bg-gray-300 text-gray-800 rounded-lg p-2'
-                : 'inline-block bg-gray-300 text-gray-800 rounded-lg p-2'
-          "
-        >
-          {{ message.content }}
+  <div class="h-full py-12">
+    <div
+      class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-t-[80px] shadow-md bg-slate-100 h-full"
+    >
+      <div class="relative w-full">
+        <img
+          class="object-cover w-full overflow-hidden grayscale-[40%] h-56 blur-[3px]"
+          src="@/assets/images/chatbot3.jpg"
+          alt="챗봇 페이지 헤더 이미지"
+        />
+        <img
+          src="@/assets/icons/bot.svg"
+          class="absolute w-32 transition-all -translate-x-1/2 -translate-y-1/2 sm:w-52 left-1/2 top-1/2"
+        />
+      </div>
+      <div class="flex flex-col justify-between w-full h-full">
+        <div class="p-6">
+          <div
+            v-for="(message, index) in chatHistory"
+            :key="index"
+            class="relative"
+            :class="message.role === 'user' ? 'text-right mb-2' : 'mb-2 pl-10'"
+          >
+            <img
+              v-if="message.role === 'assistant'"
+              src="@/assets/icons/bot.svg"
+              class="absolute -left-5 -top-1"
+            />
+            <div
+              class="relative p-2 pr-10 text-xs text-gray-900 rounded-lg shadow sm:text-sm"
+              :class="
+                message.role === 'user'
+                  ? 'inline-block bg-slate-50'
+                  : 'inline-block bg-violet-100'
+              "
+            >
+              {{ message.content }}
+              <button
+                class="absolute right-4 bottom-[11px] hover:scale-110"
+                @click="handleClickCopy(message)"
+              >
+                <Copy :size="15" fillColor="#666" />
+              </button>
+            </div>
+          </div>
         </div>
+
+        <form @submit.prevent="sendMessage" class="relative p-6 pr-12">
+          <label for="chat" class="absolute top-8 left-9"
+            ><Chat fillColor="#6B7280" :size="25"
+          /></label>
+          <input
+            id="chat"
+            name="chat"
+            v-model="userInput"
+            type="text"
+            class="truncate text-input"
+            placeholder="추천받고 싶은 금융상품에 대해서 검색해보세요."
+          />
+          <button
+            type="submit"
+            class="absolute flex items-center justify-center top-8 right-4 hover:scale-110"
+          >
+            <Send />
+          </button>
+        </form>
       </div>
     </div>
-
-    <form @submit.prevent="sendMessage" class="relative px-10 py-6 bg-gray-200">
-      <label for="chat" class="absolute top-8 left-12"
-        ><Chat fillColor="#6B7280" :size="25"
-      /></label>
-      <input
-        id="chat"
-        name="chat"
-        v-model="userInput"
-        type="text"
-        class="text-input"
-        placeholder="메시지를 입력하세요."
-      />
-      <button
-        type="submit"
-        class="absolute flex items-center justify-center top-8 right-2 hover:scale-110"
-      >
-        <Send />
-      </button>
-    </form>
   </div>
 </template>
 
@@ -48,10 +76,16 @@ import Chat from 'vue-material-design-icons/ChatOutline.vue';
 import Send from 'vue-material-design-icons/Send.vue';
 import axios from 'axios';
 import { useUserStore } from '@/stores/user';
+import Copy from 'vue-material-design-icons/ContentCopy.vue';
+
 const userStore = useUserStore();
 
 const chatHistory = ref([]);
 const userInput = ref('');
+
+const handleClickCopy = message => {
+  navigator.clipboard.writeText(message.content);
+};
 
 onMounted(() => {
   axios({
@@ -67,14 +101,20 @@ onMounted(() => {
       });
     })
     .catch(error => {
+      alert('프롱이와의 통신에 문제가 발생했습니다🫠 다시 시도해주세요.');
       console.error('Error:', error);
     });
 });
 
 const sendMessage = () => {
+  if (userInput.value.trim() === '') {
+    alert('메시지를 입력해주세요.');
+    return;
+  }
+
   chatHistory.value.push({
     role: 'user',
-    content: userInput.value,
+    content: userInput.value.trim(),
   });
 
   axios({
@@ -82,7 +122,7 @@ const sendMessage = () => {
     url: `${userStore.API_URL}/chatbot/commend/`,
     headers: { Authorization: `Token ${userStore.token}` },
     data: {
-      commend: userInput.value,
+      commend: userInput.value.trim(),
     },
   })
     .then(response => {
@@ -92,6 +132,7 @@ const sendMessage = () => {
       });
     })
     .catch(error => {
+      alert('프롱이와의 통신에 문제가 발생했습니다🫠 다시 시도해주세요.');
       console.error('Error:', error);
     });
 

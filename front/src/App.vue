@@ -4,7 +4,7 @@
   <RouterLink :to="{ name: 'exchange' }">환율 계산기</RouterLink>
   <RouterLink :to="{ name: 'map' }">은행 지점찾기</RouterLink>
   <RouterLink v-if="isLogin" :to="{ name: 'profile' }">마이 페이지</RouterLink>
-  <div class="relative w-full">
+  <div class="relative w-full h-[calc(100vh-114px)]">
     <RouterView />
     <ChatbotFloatingBtn class="sticky bottom-0 right-0" />
   </div>

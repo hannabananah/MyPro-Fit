@@ -1,7 +1,7 @@
 <template>
   <div class="py-12">
     <div
-      class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-lg shadow-md bg-slate-100"
+      class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-t-[80px] shadow-md bg-slate-100"
     >
       <img
         class="object-cover w-full overflow-hidden grayscale-[40%] h-56 blur-[3px]"

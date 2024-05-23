@@ -1,13 +1,15 @@
 <template>
   <div class="py-12">
     <div
-      style="border-radius: 60px; overflow: hidden;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);"
-      class="flex flex-col items-center w-4/5 mx-auto"
+    class="container relative flex flex-col items-center w-4/5 mx-auto overflow-hidden rounded-t-[80px] shadow-md bg-slate-100"
     >
-      <img width="100%" src="@/assets/images/exchange.svg" alt="환율계산 페이지 헤더 이미지" />
+      <img width="100%" src="@/assets/images/exchange.svg" alt="환율계산 페이지 헤더 이미지"   class="object-cover w-full overflow-hidden grayscale-[40%] h-56 blur-[3px]"/>
+      <h1
+        class="absolute text-5xl font-bold tracking-widest text-center text-white top-24"
+      >
+        환율 계산기
+      </h1>
       <div style="width: 50%" class="flex flex-col items-center my-8">
-        <h2 class="my-8 text-2xl font-bold text-center">환율 계산기</h2>
         <div style="width: 60%" class="flex justify-between">
           <div
             class="flex items-center justify-center border border-solid border-sky-700 min-h-10"
