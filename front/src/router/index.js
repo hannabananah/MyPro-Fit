@@ -16,6 +16,7 @@ import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
 import UpdateArticle from '@/components/UpdateArticle.vue';
 import ProductsRecommendView from '@/views/ProductsRecommendView.vue';
 import ProductRecommendList from '@/components/ProductRecommendList.vue';
+import ErrorView from '@/views/ErrorView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -106,6 +107,11 @@ const router = createRouter({
       path: '/products/recommend/list',
       name: 'recommend-list',
       component: ProductRecommendList,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'error',
+      component: ErrorView,
     },
   ],
 });
