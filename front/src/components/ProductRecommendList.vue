@@ -21,7 +21,8 @@
           "
         >
           <p>{{ product.bank }} - {{ product.name }}</p>
-          <p>최고 금리 : {{ product.r }}</p>
+          <p v-if="product.type !== 'annuity'">최고 금리 : {{ product.r }}</p>
+          <p v-if="product.type == 'annuity'">최고 수익률 : {{ product.r }}</p>
         </div>
         <hr />
       </div>

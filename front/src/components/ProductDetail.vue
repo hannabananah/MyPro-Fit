@@ -94,7 +94,7 @@
               최고 한도
             </th>
             <td class="border-slate-300 text-start pl-3 whitespace-pre-line">
-              {{ product.max_limit !== null ? product.max_limit : '-' }}
+              {{ product.max_limit !== '' ? product.max_limit : '-' }}
             </td>
           </tr>
           <tr class="w-full">
@@ -121,6 +121,38 @@
               {{ product.spcl_cnd !== null ? product.spcl_cnd : '-' }}
             </td>
           </tr>
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              6개월 금리
+            </th>
+            <td class="text-start w-full pl-3">
+              {{ product.month_6 !== null ? product.month_6 + ' %' : '-' }}
+            </td>
+          </tr>
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              12개월 금리
+            </th>
+            <td class="text-start w-full pl-3">
+              {{ product.month_12 !== null ? product.month_12 + ' %' : '-' }}
+            </td>
+          </tr>
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              24개월 금리
+            </th>
+            <td class="text-start w-full pl-3">
+              {{ product.month_24 !== null ? product.month_24 + ' %' : '-' }}
+            </td>
+          </tr>
+          <tr class="w-full">
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              36개월 금리
+            </th>
+            <td class="text-start w-full pl-3">
+              {{ product.month_36 !== null ? product.month_36 + ' %' : '-' }}
+            </td>
+          </tr>
         </thead>
       </table>
 
@@ -130,14 +162,14 @@
         v-if="route.params.type === 'annuity' && product"
         class="border border-slate-300 rounded-[16px] w-full shadow"
       >
-        <table>
+        <table class="w-full">
           <tr class="w-full">
             <th
               class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
             >
               공시기준월
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-b border-slate-300 text-start pl-3">
               {{ product.dcls_month }}
             </td>
           </tr>
@@ -147,7 +179,7 @@
             >
               상품명
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-b border-slate-300 text-start pl-3">
               {{ product.fin_prdt_nm }}
             </td>
           </tr> -->
@@ -157,7 +189,7 @@
             >
               기관명
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-b border-slate-300 text-start pl-3">
               {{ product.kor_co_nm }}
             </td>
           </tr>
@@ -167,16 +199,72 @@
             >
               상품 유형
             </th>
-            <td class="border-b border-slate-300 w-[70%] text-start pl-3">
+            <td class="border-b border-slate-300 text-start pl-3">
               {{ product.prdt_type_nm }}
             </td>
           </tr>
           <tr>
-            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
               가입 방법
             </th>
-            <td class="text-start pl-3">
+            <td class="text-start pl-3 border-b border-slate-300">
               {{ product.join_way !== null ? product.join_way : '-' }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              평균 수익률
+            </th>
+            <td class="text-start pl-3 border-b border-slate-300">
+              {{
+                product.avg_prft_rate !== null
+                  ? product.avg_prft_rate + ' %'
+                  : '-'
+              }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              1년 전 수익률
+            </th>
+            <td class="text-start pl-3 border-b border-slate-300">
+              {{
+                product.btrm_prft_rate_1 !== null
+                  ? product.btrm_prft_rate_1 + ' %'
+                  : '-'
+              }}
+            </td>
+          </tr>
+          <tr>
+            <th
+              class="border-r border-b border-slate-300 w-[30%] text-start pl-3"
+            >
+              2년 전 수익률
+            </th>
+            <td class="text-start pl-3 border-b border-slate-300">
+              {{
+                product.btrm_prft_rate_2 !== null
+                  ? product.btrm_prft_rate_2 + ' %'
+                  : '-'
+              }}
+            </td>
+          </tr>
+          <tr>
+            <th class="border-r border-slate-300 w-[30%] text-start pl-3">
+              3년 전 수익률
+            </th>
+            <td class="text-start pl-3">
+              {{
+                product.btrm_prft_rate_3 !== null
+                  ? product.btrm_prft_rate_3 + ' %'
+                  : '-'
+              }}
             </td>
           </tr>
         </table>
