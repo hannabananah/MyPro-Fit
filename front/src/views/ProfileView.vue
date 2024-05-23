@@ -12,11 +12,11 @@
         <li class="z-30 flex-auto text-center">
           <a
             class="inline-flex items-center w-full px-5 py-2 text-gray-600 rounded cursor-pointer"
-            @click="activeTab = 'profile'"
-            :class="{ 'bg-slate-100 text-gray-900': activeTab === 'profile' }"
+            @click="activeTab = 'basicInfo'"
+            :class="{ 'bg-slate-100 text-gray-900': activeTab === 'basicInfo' }"
             role="tab"
-            :aria-selected="activeTab === 'profile'"
-            aria-controls="profile"
+            :aria-selected="activeTab === 'basicInfo'"
+            aria-controls="basicInfo"
           >
             <Profile fillColor="#6B7280" :size="20" class="mr-3" />
             <span class="mt-1 tracking-wider">프로필</span>
@@ -44,7 +44,7 @@
         <div class="w-full">
           <div
             class="flex flex-col gap-10"
-            v-show="activeTab === 'profile'"
+            v-show="activeTab === 'basicInfo'"
             id="profile"
             role="tabpanel"
           >
@@ -93,6 +93,44 @@
                 />
               </div>
             </form>
+            <div id="joinedProduct" v-if="userStore.joinedProdudcts">
+              <h1 class="font-bold mb-1">가입한 상품</h1>
+              <div v-if="userStore.joinedProdudcts">
+                <div
+                  class="hover:cursor-pointer"
+                  v-for="deposit in userStore.joinedProdudcts
+                    .deposit_join_products"
+                  :key="deposit.fin_prdt_cd"
+                  @click="
+                    router.push({
+                      name: 'product-detail',
+                      params: { type: 'deposit', code: deposit.fin_prdt_cd },
+                    })
+                  "
+                >
+                  <p>{{ deposit.fin_prdt_nm }}</p>
+                </div>
+                <div
+                  class="hover:cursor-pointer"
+                  v-for="saving in userStore.joinedProdudcts
+                    .saving_join_products"
+                  :key="saving.fin_prdt_cd"
+                  @click="
+                    router.push({
+                      name: 'product-detail',
+                      params: { type: 'saving', code: saving.fin_prdt_cd },
+                    })
+                  "
+                >
+                  <p>{{ saving.fin_prdt_nm }}</p>
+                </div>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div v-if="userStore.joinedProdudcts">
+              <h1 class="font-bold">가입한 상품 금리</h1>
+              <BarChart class="mb-8" />
+            </div>
           </div>
           <div
             class="flex flex-col gap-10"
@@ -216,7 +254,7 @@
         </div>
         <div class="flex w-1/2 mt-14 md:w-full md:mt-0">
           <button
-            v-if="activeTab === 'profile'"
+            v-if="activeTab === 'basicInfo'"
             class="btn-active"
             @click="openModal"
           >
@@ -254,6 +292,7 @@ import Female from 'vue-material-design-icons/GenderFemale.vue';
 import Male from 'vue-material-design-icons/GenderMale.vue';
 import CheckboxBlank from 'vue-material-design-icons/CheckboxBlankOutline.vue';
 import Checkbox from 'vue-material-design-icons/CheckboxOutline.vue';
+import BarChart from '@/components/BarChart.vue';
 import axios from 'axios';
 import CustomModal from '@/components/Modal.vue';
 import { useUserStore } from '@/stores/user';
@@ -261,9 +300,30 @@ import {
   formatNumberWithCommas,
   parseNumberWithCommas,
 } from '@/utils/formatNumber';
-
+import { useRoute, useRouter } from 'vue-router';
+import { Bar } from 'vue-chartjs';
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from 'chart.js';
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+);
+const route = useRoute();
+const router = useRouter();
 const userStore = useUserStore();
-const activeTab = ref('profile');
+
+const activeTab = ref(route.params.tab);
 const isModalOpen = ref(false);
 
 const genderOptions = [
@@ -312,6 +372,7 @@ const checkboxOptions = [
 
 onMounted(() => {
   userStore.getUserInfo();
+  userStore.getJoinedProducts();
 });
 
 watch(
@@ -390,7 +451,7 @@ const updateMoreInfo = () => {
 
 const handleConfirm = () => {
   isModalOpen.value = false;
-  activeTab.value === 'profile' ? updateProfile() : updateMoreInfo();
+  activeTab.value === 'basicInfo' ? updateProfile() : updateMoreInfo();
 };
 
 const handleCancel = () => {

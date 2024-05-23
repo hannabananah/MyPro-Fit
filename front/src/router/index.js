@@ -15,6 +15,9 @@ import BoardView from '@/views/BoardView.vue';
 import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
 import UpdateArticle from '@/components/UpdateArticle.vue';
 import ChatbotView from '@/views/ChatbotView.vue';
+import ProductsRecommendView from '@/views/ProductsRecommendView.vue';
+import ProductRecommendList from '@/components/ProductRecommendList.vue';
+import ErrorView from '@/views/ErrorView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,7 +80,7 @@ const router = createRouter({
       component: ProductDetail,
     },
     {
-      path: '/profile',
+      path: '/profile/:tab',
       name: 'profile',
       component: ProfileView,
     },
@@ -101,7 +104,50 @@ const router = createRouter({
       name: 'chatbot',
       component: ChatbotView,
     },
+    {
+      path: '/products/recommend',
+      name: 'recommend',
+      component: ProductsRecommendView,
+    },
+    {
+      path: '/products/recommend/list',
+      name: 'recommend-list',
+      component: ProductRecommendList,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'error',
+      component: ErrorView,
+    },
   ],
+});
+
+import { useUserStore } from '@/stores/user';
+
+router.beforeEach((to, from) => {
+  const store = useUserStore();
+  if (
+    (to.name == 'board-detail') |
+      (to.name == 'create-article') |
+      (to.name == 'product-detail') |
+      (to.name == 'update-article') |
+      (to.name == 'recommend-list') &&
+    store.isLogin === false
+  ) {
+    window.alert('로그인이 필요합니다.');
+    return { name: 'login' };
+  }
+
+  // 인증 o 로그인x 회원가입x
+  if ((to.name == 'signup') | (to.name == 'login') && store.isLogin === true) {
+    window.alert('이미 로그인 되어있습니다.');
+    return { name: 'home' };
+  }
+
+  if (to.name === 'update-article' && store.user !== store.article.username) {
+    window.alert('본인이 아닌 경우 수정할 수 없습니다.');
+    return { name: 'board-detail', params: { id: store.article.id } };
+  }
 });
 
 export default router;

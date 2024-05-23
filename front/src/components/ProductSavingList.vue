@@ -1,40 +1,176 @@
 <template>
-  <div>
-    <h1>적금 리스트</h1>
-    <form id="select-bank">
-      <select name="bank" id="bank" v-model="selectedBank">
-        <option value="all">전체 목록</option>
-        <option v-for="bank in banks" :value="bank">
-          {{ bank }}
-        </option>
-      </select>
-    </form>
-    <form id="select-duration">
-      <select name="duration" id="duration" v-model="selectedDuration">
-        <option value="all">전체 기간</option>
-        <option v-for="duration in durations" :value="duration">
-          {{ duration }}
-        </option>
-      </select>
-    </form>
-    <div>
-      <div @click="onClick">
-        <span>공시기준월 </span> <span>금융 회사명</span> <span>상품명</span>
-        <button value="month_6">6개월</button>
-        <button value="month_12">12개월</button>
-        <button value="month_24">24개월</button>
-        <button value="month_36">36개월</button>
-      </div>
-      <div>
-        <p
+  <div class="flex flex-col">
+    <h1 class="text-xl font-bold">정기 적금</h1>
+    <div class="ml-auto">
+      <form class="inline-block mr-3" id="select-bank">
+        <select
+          class="btn-inactive bg-white px-2 hover:bg-white text-start"
+          name="bank"
+          id="bank"
+          v-model="selectedBank"
+        >
+          <option value="all">전체 목록</option>
+          <option v-for="bank in banks" :value="bank">
+            {{ bank }}
+          </option>
+        </select>
+      </form>
+      <form class="inline-block" id="select-duration">
+        <select
+          class="btn-inactive bg-white py-0 px-2 hover:bg-white text-start"
+          name="duration"
+          id="duration"
+          v-model="selectedDuration"
+        >
+          <option value="all">전체 기간</option>
+          <option v-for="duration in durations" :value="duration.value">
+            {{ duration.name }}
+          </option>
+        </select>
+      </form>
+    </div>
+    <hr class="mt-4" />
+    <div class="h-[600px] overflow-y-auto pb-6">
+      <table class="border border-slate-400 w-full">
+        <tr @click="onClick">
+          <th class="border border-slate-300 w-[10%]">공시기준월</th>
+          <th class="border border-slate-300 w-[10%]">금융 회사명</th>
+          <th class="border border-slate-300 w-[30%]">상품명</th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_6"
+              class="flex items-center justify-center w-full"
+            >
+              <span>6개월</span>
+              <upDown
+                class="inline-block"
+                v-show="sortedBy !== 'month_6'"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_6' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_6' && !isSorted"
+              ></down>
+            </button>
+          </th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_12"
+              class="flex items-center justify-center w-full"
+            >
+              <span>12개월</span>
+              <upDown
+                class="inline-block"
+                v-show="sortedBy !== 'month_12'"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_12' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_12' && !isSorted"
+              ></down>
+            </button>
+          </th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_24"
+              class="flex items-center justify-center w-full"
+            >
+              <span>24개월</span>
+              <upDown
+                class="inline-block"
+                v-show="'month_24' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_24' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_24' && !isSorted"
+              ></down>
+            </button>
+          </th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="month_36"
+              class="flex items-center justify-center w-full"
+            >
+              <span>36개월</span>
+              <upDown
+                class="inline-block"
+                v-show="'month_36' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'month_36' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'month_36' && !isSorted"
+              ></down>
+            </button>
+          </th>
+          <th class="border border-slate-300 w-[8%]">
+            <button
+              value="saving_like_users.length"
+              class="flex items-center justify-center w-full"
+            >
+              <span>인기순</span>
+              <upDown
+                class="inline-block"
+                v-show="'saving_like_users.length' !== sortedBy"
+              ></upDown>
+              <up
+                class="inline-block"
+                v-show="sortedBy === 'saving_like_users.length' && isSorted"
+              ></up>
+              <down
+                class="inline-block"
+                v-show="sortedBy === 'saving_like_users.length' && !isSorted"
+              ></down>
+            </button>
+          </th>
+        </tr>
+
+        <tr
+          class="w-full hover:cursor-pointer"
           @click="goDetail"
           v-for="saving in sortedSavings"
           :key="saving.fin_prdt_cd"
           :data-saving="saving.fin_prdt_cd"
         >
-          {{ saving }}
-        </p>
-      </div>
+          <td class="border border-slate-300 p-2">
+            {{ saving.dcls_month }}
+          </td>
+          <td class="border border-slate-300 p-2">{{ saving.kor_co_nm }}</td>
+          <td class="border border-slate-300 p-2">{{ saving.fin_prdt_nm }}</td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_6 !== null ? saving.month_6 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_12 !== null ? saving.month_12 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_24 !== null ? saving.month_24 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{ saving.month_36 !== null ? saving.month_36 : '-' }}
+          </td>
+          <td class="border border-slate-300 text-center">
+            {{
+              saving.saving_like_users.length !== null
+                ? saving.saving_like_users.length
+                : '-'
+            }}
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
@@ -43,6 +179,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { useRouter } from 'vue-router';
+import upDown from 'vue-material-design-icons/menuSwapOutline.vue';
+import up from 'vue-material-design-icons/menuUp.vue';
+import down from 'vue-material-design-icons/menuDown.vue';
 
 const isSorted = ref(true);
 const sortedBy = ref('month_12');
@@ -70,7 +209,12 @@ const banks = [
   '한국산업은행',
   '한국스탠다드차타드은행',
 ];
-const durations = ['month_6', 'month_12', 'month_24', 'month_36'];
+const durations = [
+  { value: 'month_6', name: '6개월' },
+  { value: 'month_12', name: '12개월' },
+  { value: 'month_24', name: '24개월' },
+  { value: 'month_36', name: '36개월' },
+];
 
 // 마운트될때 연금 불러오는 함수 실행
 onMounted(() => {
@@ -79,9 +223,10 @@ onMounted(() => {
 
 // 정렬버튼 클릭 시 오름차순, 비오름차순 토글
 const onClick = function (event) {
-  if (event.target.value !== sortedBy.value) {
+  if (event.target.closest('button').value !== sortedBy.value) {
     isSorted.value = true;
-    sortedBy.value = event.target.value;
+    sortedBy.value = event.target.closest('button').value;
+    console.log(event.target.closest('button').value);
   } else {
     isSorted.value = !isSorted.value;
   }
@@ -92,48 +237,71 @@ const sortedSavings = computed(() => {
   const savings = store.savings;
   const field = sortedBy.value;
   const compare = (a, b) => {
-    const valueA = a[field];
-    const valueB = b[field];
+    if (field === 'saving_like_users.length') {
+      const valueA = a['saving_like_users'].length;
+      const valueB = b['saving_like_users'].length;
 
-    // null 값을 뒤로 보내기 위한 비교 로직
-    if (valueA === null) return 1;
-    if (valueB === null) return -1;
+      if (valueA === null) return 1;
+      if (valueB === null) return -1;
 
-    if (isSorted.value) {
-      return valueA > valueB ? 1 : -1;
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     } else {
-      return valueA < valueB ? 1 : -1;
+      const valueA = a[field];
+      const valueB = b[field];
+      if (valueA === null) return 1;
+      if (valueB === null) return -1;
+
+      if (isSorted.value) {
+        return valueA > valueB ? 1 : -1;
+      } else {
+        return valueA < valueB ? 1 : -1;
+      }
     }
+    // null 값을 뒤로 보내기 위한 비교 로직
   };
 
   // 선택한 은행이나 기간이 있으면 필터링 후 정렬
-  if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
-    return [...savings].sort(compare);
-  } else if (selectedBank.value !== 'all' && selectedDuration.value === 'all') {
-    const filteredSavings = savings.filter(
-      obj => obj.kor_co_nm === selectedBank.value,
-    );
-    return [...filteredSavings].sort(compare);
-  } else if (selectedBank.value === 'all' && selectedDuration.value !== 'all') {
-    const filteredSavings = savings.filter(
-      obj => obj[selectedDuration.value] !== null,
-    );
-    return [...filteredSavings].sort(compare);
-  } else {
-    // 필요에 따라 모든 조건을 처리하는 추가 로직
-    const filteredSavings = savings.filter(
-      obj =>
-        obj.kor_co_nm === selectedBank.value &&
-        obj[selectedDuration.value] !== null,
-    );
-    return [...filteredSavings].sort(compare);
+  if (savings) {
+    if (selectedBank.value === 'all' && selectedDuration.value === 'all') {
+      return [...savings].sort(compare);
+    } else if (
+      selectedBank.value !== 'all' &&
+      selectedDuration.value === 'all'
+    ) {
+      const filteredSavings = savings.filter(
+        obj => obj.kor_co_nm === selectedBank.value,
+      );
+      return [...filteredSavings].sort(compare);
+    } else if (
+      selectedBank.value === 'all' &&
+      selectedDuration.value !== 'all'
+    ) {
+      sortedBy.value = selectedDuration.value;
+      const filteredSavings = savings.filter(
+        obj => obj[selectedDuration.value] !== null,
+      );
+      return [...filteredSavings].sort(compare);
+    } else {
+      // 필요에 따라 모든 조건을 처리하는 추가 로직
+      sortedBy.value = selectedDuration.value;
+      const filteredSavings = savings.filter(
+        obj =>
+          obj.kor_co_nm === selectedBank.value &&
+          obj[selectedDuration.value] !== null,
+      );
+      return [...filteredSavings].sort(compare);
+    }
   }
 });
 
 // 클릭 시 디테일 페이지로 이동
 const goDetail = function (event) {
   // data-deposit 속성을 읽어옴
-  const savingId = event.target.dataset.saving;
+  const savingId = event.currentTarget.dataset.saving;
   router.push({
     name: 'product-detail',
     params: { type: 'saving', code: `${savingId}` },

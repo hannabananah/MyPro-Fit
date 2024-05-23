@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'chatbot',
+    'django_seed',
     "products",
     "exchange_rates",
     "articles",

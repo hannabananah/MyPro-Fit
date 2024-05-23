@@ -16,6 +16,7 @@ class DepositListSerializer(serializers.ModelSerializer):
             "month_12",
             "month_24",
             "month_36",
+            "deposit_like_users",
         ]
 
 
@@ -31,6 +32,7 @@ class SavingListSerializer(serializers.ModelSerializer):
             "month_12",
             "month_24",
             "month_36",
+            "saving_like_users",
         ]
 
 
@@ -47,6 +49,7 @@ class AnnuityListSerializer(serializers.ModelSerializer):
             "btrm_prft_rate_1",
             "btrm_prft_rate_2",
             "btrm_prft_rate_3",
+            "annuity_like_users",
         ]
 
 

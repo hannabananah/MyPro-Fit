@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import BasePermission, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
+from django.contrib.auth import get_user_model
+from django.http import JsonResponse
 
 from .models import Annuity, Deposit, Saving
 from .serializers import (
@@ -171,8 +173,8 @@ def fetch_annuity(request):
             if data:  # 비어 있지 않으면 데이터를 반환
                 for pdt in data["result"]["baseList"]:
                     print(pdt)
-                    fin_prdt_cd = pdt["fin_prdt_cd"]
-                    if Annuity.objects.filter(fin_prdt_nm=fin_prdt_cd).exists():
+                    fin_prdt_cd = pdt['fin_prdt_cd']
+                    if Annuity.objects.filter(fin_prdt_cd = fin_prdt_cd).exists():
                         continue
                     dcls_month = pdt.get("dcls_month")
                     fin_co_no = pdt.get("fin_co_no")
@@ -377,3 +379,140 @@ def deposit_joins(request, code):
         deposit.deposit_joined_users.add(request.user)
     serializer = DepositDetailSerializer(deposit)
     return Response(serializer.data)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def recommend_products(request):
+    # 현재 유저의 자산 정보 가져오기
+    current_asset = request.user.asset
+    
+    # 모든 적금 불러오기
+    all_savings = list(Saving.objects.all())
+
+    # 가입하지 못하는 상품 리스트
+    cannot_join = []
+    # 가입가능한 상품리스트
+    can_join = []
+    for saving in all_savings:
+        age_filter = saving.age_filter
+        gender_filter = saving.gender_filter
+        internet_filter = saving.internet_filter
+        # 나이제한에 걸리는경우 추가
+        if age_filter != 0 and ((age_filter < 0 and request.user.age > abs(age_filter)) or (age_filter > 0 and request.user.age < age_filter)):
+            cannot_join.append(saving.pk)
+            continue
+        # 인터넷 가입상품만 원하는데, 인터넷가입불가 상품인경우
+        print(internet_filter, request.user.is_internet)
+        if request.user.is_internet and not internet_filter:
+            cannot_join.append(saving.pk)
+            continue
+        # 자유납입 상품만 추천받고싶은데 자유납입 불가일경우
+        if request.user.is_free and gender_filter == 'N':
+            cannot_join.append(saving.pk)
+            continue
+        can_join.append(saving)
+    # 현재 유저와 나이 차이가 10살 미만인 유저 필터링
+    similar_age_users = get_user_model().objects.filter(age__lte=request.user.age+10, age__gte=request.user.age-10).exclude(id=request.user.id)
+    
+    # 현재 유저와 자산 차이가 본인의 자산보다 덜 나는 유저 선택
+    similar_salary_users = []
+    for user in similar_age_users:
+        user_asset = user.asset
+        salary_difference = abs(current_asset - user_asset)
+        if salary_difference / current_asset <= 2:
+            similar_salary_users.append(user)
+    print('자산 비슷한유저', similar_salary_users)
+    # 가입한 상품이 많이 겹치는 상위 10명의 유저 선택 -> 상품 취향 비슷한 사람이 가입한 다른상품 추천
+    similar_users_with_common_products = []
+    for user in similar_salary_users:
+        # 가입상품이 0개인 유저는 pass
+        print(user.saving_join_products)
+        if len(user.saving_join_products.all()) < 1:
+            continue
+        common_products_count = len(set(request.user.saving_join_products.all()) & set(user.saving_join_products.all()))
+        similar_users_with_common_products.append((user, common_products_count))
+    
+    similar_users_with_common_products.sort(key=lambda x: x[1], reverse=True)
+    top_similar_users = [user for user, _ in similar_users_with_common_products[:10]]
+    
+    # 선택된 유저들이 가입한 다른 상품 중에서 현재 유저가 아직 가입하지 않은 상위 10개의 상품 추천
+    recommended_products_list = []
+    for user in top_similar_users:
+        similar_users_joined_products = user.saving_join_products.all()
+        for product in similar_users_joined_products:
+            # 가입하지 못하는 상품이면 pass
+            if product.id in cannot_join:
+                continue
+            # 이미 가입한 상품이면 pass
+            if product in request.user.saving_join_products.all():
+                continue
+            if len(recommended_products_list) >= 10:
+                break
+        if len(recommended_products_list) >= 10:
+            break
+    # 추천 상품의 개수가 0인경우 가입가능한 상품 출력
+    if len(recommended_products_list) == 0:
+        recommended_products_json = []
+        # 연금 상품 추가
+        annuity_exist = False
+        if request.user.is_pension:
+            all_annuities = list(Annuity.objects.all())
+            for annuity in all_annuities:
+                age_filter = annuity.age_filter
+                internet_filter = annuity.internet_filter
+                # 나이제한에 걸리는 경우
+                if age_filter != 0 and ((age_filter < 0 and request.user.age > abs(age_filter)) or (age_filter > 0 and request.user.age < age_filter)):
+                    continue
+                # 인터넷 가입상품만 원하는데, 인터넷가입불가 상품인경우
+                print('인터넷필터 연금', request.user.is_internet, internet_filter)
+                if (request.user.is_internet ==True) and (internet_filter ==False):
+                    continue
+                # 수익률이 0이상인 상품만 추천
+                r = max(annuity.avg_prft_rate, annuity.btrm_prft_rate_1, annuity.btrm_prft_rate_2, annuity.btrm_prft_rate_3)
+                print('연금수익률', r)
+                if r > 0:
+                    recommended_products_json.append({'id': annuity.id, 'name': annuity.fin_prdt_nm, 'type': 'annuity', 'r': r, 'bank': annuity.kor_co_nm, 'code': annuity.fin_prdt_cd})
+                    if not annuity_exist:
+                        annuity_exist = True
+            if not annuity_exist:
+                recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 , 'bank': '', 'code': ''})
+
+        for product in can_join[:10]:
+            # 상품 정보 담기
+            values = [product.month_6, product.month_12, product.month_24, product.month_36]
+            filtered_values = [v for v in values if v is not None]
+            recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(filtered_values), 'bank': product.kor_co_nm, 'code' : product.fin_prdt_cd})
+
+
+        return JsonResponse(recommended_products_json[:10], safe=False)
+    
+    # JSON 형태로 변환하여 반환
+    recommended_products_json = []
+   # 연금 상품 추가
+    annuity_exist = False
+    if request.user.is_pension:
+        all_annuities = list(Annuity.objects.all())
+        for annuity in all_annuities:
+            age_filter = annuity.age_filter
+            internet_filter = annuity.internet_filter
+            # 나이제한에 걸리는 경우
+            if age_filter != 0 and ((age_filter < 0 and request.user.age > abs(age_filter)) or (age_filter > 0 and request.user.age < age_filter)):
+                continue
+            # 인터넷 가입상품만 원하는데, 인터넷가입불가 상품인경우
+            if request.user.is_internet and not internet_filter:
+                continue
+            # 수익률이 0이상인 상품만 추천
+            r = max(annuity.avg_prft_rate, annuity.btrm_prft_rate_1, annuity.btrm_prft_rate_2, annuity.btrm_prft_rate_3)
+            if r > 0:
+                recommended_products_json.append({'id': annuity.id, 'name': annuity.fin_prdt_nm, 'type': 'annuity', 'r': r})
+                if not annuity_exist:
+                    annuity_exist = True
+                    
+    for product in recommended_products_list:
+        recommended_products_json.append({'id': product.id, 'name': product.fin_prdt_nm, 'type': 'saving', 'r': max(product.month_6, product.month_12, product.month_24, product.month_36), 'bank' : product.kor_co_nm, 'code': product.fin_prdt_cd })
+
+ 
+        if not annuity_exist:
+            recommended_products_json.append({'id': -1, 'name': '추천 가능한 연금 상품이 없습니다.', 'type': 'annuity', 'r': 0 })
+    return JsonResponse(recommended_products_json[:10], safe=False)
