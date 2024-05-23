@@ -12,6 +12,7 @@ import ProductAnnuityList from '@/components/ProductAnnuityList.vue';
 import ProductDetail from '@/components/ProductDetail.vue';
 import CreateArticle from '@/components/CreateArticle.vue';
 import BoardView from '@/views/BoardView.vue';
+import ChatbotView from '@/views/ChatbotView.vue';
 import BoardArticleDetail from '@/components/BoardArticleDetail.vue';
 import UpdateArticle from '@/components/UpdateArticle.vue';
 import ProductsRecommendView from '@/views/ProductsRecommendView.vue';
@@ -112,6 +113,11 @@ const router = createRouter({
       path: '/:pathMatch(.*)*',
       name: 'error',
       component: ErrorView,
+    },
+    {
+      path: '/chatbot',
+      name: 'chatbot',
+      component: ChatbotView,
     },
   ],
 });
