@@ -184,6 +184,7 @@ const isLogin = userStore.isLogin;
 
 const isMenuOpen = ref(false);
 const isProfileMenuOpen = ref(false);
+const isDeleteModalOpen = ref(false);
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
