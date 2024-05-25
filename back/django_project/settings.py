@@ -1,14 +1,28 @@
+import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+import environ
 
-SECRET_KEY = "django-insecure-9=ddj!=3xc#7o82t0c9a-f8lpaoxlv&84f=35t*n%hn=!vefw6"
+BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env(DEBUG=(bool, True))
+
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
+
+
+SECRET_KEY = env("SECRET_KEY")
+PRODUCT_KEY = env("PRODUCT_KEY")
+DEBUG = env("DEBUG")
 
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 INSTALLED_APPS = [
+    'chatbot',
+    'django_seed',
+    "products",
+    "exchange_rates",
     "articles",
     "accounts",
     "rest_framework",
@@ -28,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
+
 SITE_ID = 1
 
 REST_FRAMEWORK = {
@@ -41,10 +56,19 @@ REST_FRAMEWORK = {
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
+REST_AUTH = {
+    "REGISTER_SERIALIZER": "accounts.serializers.CustomRegisterSerializer",
+    "USER_DETAILS_SERIALIZER": "accounts.serializers.CustomUserDetailsSerializer",
+}
+
+
+ACCOUNT_ADAPTER = "accounts.models.CustomAccountAdapter"
+
+
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -52,7 +76,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
-
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     "http://localhost:5173",
@@ -78,6 +101,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "django_project.wsgi.application"
 
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -85,7 +109,6 @@ DATABASES = {
     }
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -101,14 +124,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
+
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
 USE_TZ = True
+
 
 STATIC_URL = "static/"
 

@@ -1,3 +1,125 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local('Apple SD Gothic Neo Light'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/300_AppleSDGothicNeo-Light.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/300_AppleSDGothicNeo-Light.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Apple SD Gothic Neo Regular'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/500_AppleSDGothicNeo-Regular.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/500_AppleSDGothicNeo-Regular.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local('Apple SD Gothic Neo Medium'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/400_AppleSDGothicNeo-Medium.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/400_AppleSDGothicNeo-Medium.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local('Apple SD Gothic Neo SemiBold'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/600_AppleSDGothicNeo-SemiBold.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/600_AppleSDGothicNeo-SemiBold.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local('Apple SD Gothic Neo Bold'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/700_AppleSDGothicNeo-Bold.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/npm/font-applesdgothicneo@1.0/fonts/700_AppleSDGothicNeo-Bold.otf')
+      format('opentype');
+}
+
+@font-face {
+  font-family: 'hahmlet';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap');
+}
+
+.hahmlet {
+  font-family: 'Hahmlet', serif;
+  font-optical-sizing: auto;
+}
+
+* {
+  font-family:
+    'Apple SD Gothic Neo',
+    Trebuchet MS,
+    sans-serif;
+  color: #111;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@layer components {
+  .btn-active {
+    @apply h-10 box-border w-full text-sm py-2 cursor-pointer text-center rounded-lg bg-sky-700 text-sky-50 content-center hover:bg-[#093e5d] select-none;
+  }
+
+  .btn-inactive {
+    @apply h-10 box-border border border-sky-700 w-full text-sm py-2 cursor-pointer rounded-lg bg-sky-50 content-center text-sky-900 hover:bg-sky-100 text-center select-none;
+  }
+
+  .text-input {
+    @apply w-full h-10 box-border px-10 py-2 outline-none caret-gray-900 rounded-lg text-gray-900 border border-sky-200 bg-slate-50 focus:border-sky-700 placeholder-gray-500 text-sm;
+  }
+
+  .masonry {
+    @apply columns-1 gap-y-4 md:columns-2 lg:columns-3;
+  }
+
+  .masonry-item {
+    @apply break-inside-avoid mb-4;
+  }
+}
