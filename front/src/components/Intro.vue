@@ -49,6 +49,6 @@ const items = [
 ];
 
 const getIconPath = index => {
-  return `public/images/icons/desc-section${index}-icon.svg`;
+  return `images/icons/desc-section${index}-icon.svg`;
 };
 </script>

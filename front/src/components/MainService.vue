@@ -23,27 +23,27 @@
 <script setup>
 const services = [
   {
-    iconSrc: 'public/images/icons/service-section1-icon.svg',
+    iconSrc: 'images/icons/service-section1-icon.svg',
     label: '예금 상품',
     name: 'deposit',
   },
   {
-    iconSrc: 'public/images/icons/service-section2-icon.svg',
+    iconSrc: 'images/icons/service-section2-icon.svg',
     label: '적금 상품',
     name: 'saving',
   },
   {
-    iconSrc: 'public/images/icons/service-section3-icon.svg',
+    iconSrc: 'images/icons/service-section3-icon.svg',
     label: '연금 상품',
     name: 'annuity',
   },
   {
-    iconSrc: 'public/images/icons/service-section4-icon.svg',
+    iconSrc: 'images/icons/service-section4-icon.svg',
     label: '환율 계산',
     name: 'exchange',
   },
   {
-    iconSrc: 'public/images/icons/service-section5-icon.svg',
+    iconSrc: 'images/icons/service-section5-icon.svg',
     label: '근처 은행 찾기',
     name: 'map',
   },

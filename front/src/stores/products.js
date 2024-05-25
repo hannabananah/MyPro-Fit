@@ -47,8 +47,15 @@ export const useProductStore = defineStore(
     };
 
     const bestDeposit = computed(() => {
+      if (!deposits.value || deposits.value.length === 0) {
+        return null; // deposits.value가 비어있을 때 null 반환
+      }
+
       return deposits.value
-        .filter(deposit => deposit.deposit_like_users.length > 0) // 조건에 맞는 요소 필터링
+        .filter(
+          deposit =>
+            deposit.deposit_like_users && deposit.deposit_like_users.length > 0,
+        ) // deposit_like_users가 존재하고 길이가 0보다 큰 요소만 필터링
         .reduce(
           (max, deposit) =>
             deposit.deposit_like_users.length > max.deposit_like_users.length
@@ -59,8 +66,15 @@ export const useProductStore = defineStore(
     });
 
     const bestSaving = computed(() => {
+      if (!savings.value || savings.value.length === 0) {
+        return null; // savings.value가 비어있을 때 null 반환
+      }
+
       return savings.value
-        .filter(saving => saving.saving_like_users.length > 0) // 조건에 맞는 요소 필터링
+        .filter(
+          saving =>
+            saving.saving_like_users && saving.saving_like_users.length > 0,
+        ) // saving_like_users가 존재하고 길이가 0보다 큰 요소만 필터링
         .reduce(
           (max, saving) =>
             saving.saving_like_users.length > max.saving_like_users.length
@@ -71,8 +85,15 @@ export const useProductStore = defineStore(
     });
 
     const bestAnnuity = computed(() => {
+      if (!annuities.value || annuities.value.length === 0) {
+        return null; // annuities.value가 비어있을 때 null 반환
+      }
+
       return annuities.value
-        .filter(annuity => annuity.annuity_like_users.length > 0) // 조건에 맞는 요소 필터링
+        .filter(
+          annuity =>
+            annuity.annuity_like_users && annuity.annuity_like_users.length > 0,
+        ) // annuity_like_users가 존재하고 길이가 0보다 큰 요소만 필터링
         .reduce(
           (max, annuity) =>
             annuity.annuity_like_users.length > max.annuity_like_users.length

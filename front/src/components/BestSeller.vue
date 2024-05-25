@@ -53,7 +53,7 @@ const products = [
     title: productStore.bestDeposit ? productStore.bestDeposit.fin_prdt_nm : '',
     firm: productStore.bestDeposit ? productStore.bestDeposit.kor_co_nm : '',
     detail: '안전하게 키우는 든든한 자산 ',
-    iconSrc: 'public/images/icons/recom-section1-img.svg',
+    iconSrc: 'images/icons/recom-section1-img.svg',
   },
   {
     type: 'saving',
@@ -61,7 +61,7 @@ const products = [
     title: productStore.bestSaving ? productStore.bestSaving.fin_prdt_nm : '',
     firm: productStore.bestSaving ? productStore.bestSaving.kor_co_nm : '',
     detail: '차곡차곡 쌓는 나의 미래 자산',
-    iconSrc: 'public/images/icons/recom-section2-img.svg',
+    iconSrc: 'images/icons/recom-section2-img.svg',
   },
   {
     type: 'annuity',
@@ -69,7 +69,7 @@ const products = [
     title: productStore.bestAnnuity ? productStore.bestAnnuity.fin_prdt_nm : '',
     firm: productStore.bestAnnuity ? productStore.bestAnnuity.kor_co_nm : '',
     detail: '안정적으로 준비하는 행복한 노후',
-    iconSrc: 'public/images/icons/recom-section3-img.svg',
+    iconSrc: 'images/icons/recom-section3-img.svg',
   },
   {
     type: 'pring',
@@ -77,7 +77,7 @@ const products = [
     title: '최첨단 AI 프링이와 대화하며 더 많은 상품을 추천받아보세요',
     firm: '프링이',
     detail: '...더 많은 상품 추천받기',
-    iconSrc: 'public/images/icons/recom-section4-img.svg',
+    iconSrc: 'images/icons/recom-section4-img.svg',
   },
 ];
 

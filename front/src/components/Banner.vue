@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     getImageUrl(index) {
-      return `public/images/banners/banner${index}.jpg`;
+      return `images/banners/banner${index}.jpg`;
     },
     getAltText(index) {
       return `배너이미지${index}`;
