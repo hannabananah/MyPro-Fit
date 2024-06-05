@@ -10,7 +10,7 @@
     <h2 class="text-xl font-bold text-gray-900 hahmlet">
       {{ article.title }}
     </h2>
-    <p class="mt-2 text-sm font-light text-gray-900 hahmlet line-clamp-3">
+    <p class="mt-2 text-sm font-light text-gray-900 hahmlet line-clamp-5">
       {{ article.content }}
     </p>
     <p class="mt-2 text-xs text-gray-400 text-end">{{ formattedCreatedAt }}</p>
