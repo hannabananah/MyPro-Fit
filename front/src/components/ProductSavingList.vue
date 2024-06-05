@@ -42,18 +42,15 @@
               class="flex items-center justify-center w-full"
             >
               <span>6개월</span>
-              <upDown
-                class="inline-block"
-                v-show="sortedBy !== 'month_6'"
-              ></upDown>
-              <up
+              <Swap class="inline-block" v-show="sortedBy !== 'month_6'" />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'month_6' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'month_6' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[8%]">
@@ -62,18 +59,15 @@
               class="flex items-center justify-center w-full"
             >
               <span>12개월</span>
-              <upDown
-                class="inline-block"
-                v-show="sortedBy !== 'month_12'"
-              ></upDown>
-              <up
+              <Swap class="inline-block" v-show="sortedBy !== 'month_12'" />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'month_12' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'month_12' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[8%]">
@@ -82,18 +76,15 @@
               class="flex items-center justify-center w-full"
             >
               <span>24개월</span>
-              <upDown
-                class="inline-block"
-                v-show="'month_24' !== sortedBy"
-              ></upDown>
-              <up
+              <Swap class="inline-block" v-show="'month_24' !== sortedBy" />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'month_24' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'month_24' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[8%]">
@@ -102,18 +93,15 @@
               class="flex items-center justify-center w-full"
             >
               <span>36개월</span>
-              <upDown
-                class="inline-block"
-                v-show="'month_36' !== sortedBy"
-              ></upDown>
-              <up
+              <Swap class="inline-block" v-show="'month_36' !== sortedBy" />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'month_36' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'month_36' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[8%]">
@@ -122,18 +110,18 @@
               class="flex items-center justify-center w-full"
             >
               <span>인기순</span>
-              <upDown
+              <Swap
                 class="inline-block"
                 v-show="'saving_like_users.length' !== sortedBy"
-              ></upDown>
-              <up
+              />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'saving_like_users.length' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'saving_like_users.length' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
         </tr>
@@ -179,9 +167,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { useRouter } from 'vue-router';
-import upDown from 'vue-material-design-icons/menuSwapOutline.vue';
-import up from 'vue-material-design-icons/menuUp.vue';
-import down from 'vue-material-design-icons/menuDown.vue';
+import Swap from 'vue-material-design-icons/menuSwapOutline.vue';
+import Up from 'vue-material-design-icons/menuUp.vue';
+import Down from 'vue-material-design-icons/menuDown.vue';
 
 const isSorted = ref(true);
 const sortedBy = ref('month_12');

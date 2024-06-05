@@ -50,18 +50,18 @@
               class="flex items-center justify-center w-full"
             >
               <span>작년 수익률</span>
-              <upDown
+              <Swap
                 class="inline-block"
                 v-show="'btrm_prft_rate_1' !== sortedBy"
-              ></upDown>
-              <up
+              />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_1' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_1' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[5%]">
@@ -70,18 +70,18 @@
               class="flex items-center justify-center w-full"
             >
               <span>2년전 수익률</span>
-              <upDown
+              <Swap
                 class="inline-block"
                 v-show="'btrm_prft_rate_2' !== sortedBy"
-              ></upDown>
-              <up
+              />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_2' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_2' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[5%]">
@@ -90,18 +90,18 @@
               class="flex items-center justify-center w-full"
             >
               <span>3년전 수익률</span>
-              <upDown
+              <Swap
                 class="inline-block"
                 v-show="'btrm_prft_rate_3' !== sortedBy"
-              ></upDown>
-              <up
+              />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_3' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'btrm_prft_rate_3' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
           <th class="border border-slate-300 w-[5%]">
@@ -110,18 +110,18 @@
               class="flex items-center justify-center w-full"
             >
               <span>인기순</span>
-              <upDown
+              <Swap
                 class="inline-block"
                 v-show="'annuity_like_users.length' !== sortedBy"
-              ></upDown>
-              <up
+              />
+              <Up
                 class="inline-block"
                 v-show="sortedBy === 'annuity_like_users.length' && isSorted"
-              ></up>
-              <down
+              />
+              <Down
                 class="inline-block"
                 v-show="sortedBy === 'annuity_like_users.length' && !isSorted"
-              ></down>
+              />
             </button>
           </th>
         </tr>
@@ -175,9 +175,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { useRouter } from 'vue-router';
-import upDown from 'vue-material-design-icons/menuSwapOutline.vue';
-import up from 'vue-material-design-icons/menuUp.vue';
-import down from 'vue-material-design-icons/menuDown.vue';
+import Swap from 'vue-material-design-icons/menuSwapOutline.vue';
+import Up from 'vue-material-design-icons/menuUp.vue';
+import Down from 'vue-material-design-icons/menuDown.vue';
 
 const router = useRouter();
 const isSorted = ref(true);
