@@ -113,7 +113,7 @@
               <Swap
                 class="inline-block"
                 v-show="'deposit_like_users.length' !== sortedBy"
-              ></Swap>
+              />
               <Up
                 class="inline-block"
                 v-show="sortedBy === 'deposit_like_users.length' && isSorted"
