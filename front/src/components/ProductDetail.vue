@@ -11,16 +11,13 @@
       </button>
       <div>
         <button v-show="isLiked" @click="doLike">
-          <heart
-            fillColor="#FF6666"
-            class="inline-block h-[20px] ml-auto"
-          ></heart>
+          <Heart fillColor="#FF6666" class="inline-block h-[20px] ml-auto" />
         </button>
         <button v-show="!isLiked" @click="doLike">
-          <heartOutline
+          <HeartOutline
             fillColor="#FF6666"
             class="inline-block h-[20px] ml-auto"
-          ></heartOutline></button
+          /></button
         >{{ numberOfLikes }}
       </div>
     </div>
@@ -59,16 +56,6 @@
                 {{ product.dcls_month }}
               </td>
             </tr>
-            <!-- <tr>
-              <th
-                class="border-r  border-slate-300 w-[30%] text-start pl-3"
-              >
-                상품명
-              </th>
-              <td class=" border-slate-300 w-[70%] text-start pl-3">
-                {{ product.fin_prdt_nm }}
-              </td>
-            </tr> -->
             <tr class="w-full">
               <th class="border-r border-slate-300 w-[30%] text-start pl-3">
                 기관명
@@ -296,8 +283,8 @@ import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
 import Undo from 'vue-material-design-icons/Undo.vue';
-import heart from 'vue-material-design-icons/heart.vue';
-import heartOutline from 'vue-material-design-icons/heartOutline.vue';
+import Heart from 'vue-material-design-icons/Heart.vue';
+import HeartOutline from 'vue-material-design-icons/HeartOutline.vue';
 
 const product = ref(null);
 const userStore = useUserStore();
