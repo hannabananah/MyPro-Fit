@@ -3,7 +3,6 @@
     class="flex justify-center w-10/12 h-[calc(100vh-64px)] max-w-screen-lg m-auto"
   >
     <div class="w-full md:flex">
-      <!-- 사이드 메뉴 -->
       <ul
         class="flex-col mb-4 space-y-2 text-sm border-r-2 rounded basis-1/4 border-slate-100 space-y md:me-4 md:mb-0"
         data-tabs="tabs"
@@ -37,7 +36,7 @@
           </a>
         </li>
       </ul>
-      <!-- 패널 -->
+
       <div
         class="flex flex-col items-end justify-between w-full pb-10 text-gray-500 rounded-lg basis-3/4 text-medium min-h-72"
       >
@@ -126,7 +125,7 @@
                 </div>
               </div>
             </div>
-            <!-- 차트 -->
+
             <div v-if="userStore.joinedProdudcts">
               <h1 class="font-bold">가입한 상품 금리</h1>
               <BarChart class="mb-8" />
@@ -301,7 +300,6 @@ import {
   parseNumberWithCommas,
 } from '@/utils/formatNumber';
 import { useRoute, useRouter } from 'vue-router';
-import { Bar } from 'vue-chartjs';
 import {
   Chart as ChartJS,
   Title,
@@ -442,7 +440,7 @@ const updateMoreInfo = () => {
     },
   })
     .then(response => {
-      console.log('More info 업데이트 성공', response.data.gender);
+      console.log('More info 업데이트 성공');
     })
     .catch(error => {
       console.error('More info 업데이트 실패', error);

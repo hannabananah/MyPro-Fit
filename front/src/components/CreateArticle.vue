@@ -77,7 +77,6 @@ const createArticle = function () {
     },
   })
     .then(res => {
-      console.log(res.data);
       const nextId = res.data.id;
       router.push({ name: 'board-detail', params: { id: nextId } });
     })

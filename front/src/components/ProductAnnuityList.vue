@@ -4,7 +4,7 @@
     <div class="ml-auto">
       <form class="inline-block" id="select-bank">
         <select
-          class="btn-inactive bg-white px-2 hover:bg-white text-start"
+          class="px-2 bg-white btn-inactive hover:bg-white text-start"
           name="bank"
           id="bank"
           v-model="selectedBank"
@@ -18,7 +18,7 @@
     </div>
     <hr class="mt-4" />
     <div class="h-[600px] overflow-y-auto pb-6">
-      <table class="border border-slate-400 w-full">
+      <table class="w-full border border-slate-400">
         <tr @click="onClick">
           <th class="border border-slate-300 w-[7%]">공시기준월</th>
           <th class="border border-slate-300 w-[10%]">금융 회사명</th>
@@ -132,33 +132,33 @@
           :data-annuity="annuity.fin_prdt_cd"
           class="w-full hover:cursor-pointer"
         >
-          <td class="border border-slate-300 p-2">
+          <td class="p-2 border border-slate-300">
             {{ annuity.dcls_month }}
           </td>
-          <td class="border border-slate-300 p-2">{{ annuity.kor_co_nm }}</td>
-          <td class="border border-slate-300 p-2">{{ annuity.fin_prdt_nm }}</td>
-          <td class="border border-slate-300 p-2 text-center">
+          <td class="p-2 border border-slate-300">{{ annuity.kor_co_nm }}</td>
+          <td class="p-2 border border-slate-300">{{ annuity.fin_prdt_nm }}</td>
+          <td class="p-2 text-center border border-slate-300">
             {{ annuity.prdt_type_nm }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{ annuity.avg_prft_rate !== null ? annuity.avg_prft_rate : '-' }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{
               annuity.btrm_prft_rate_1 !== null ? annuity.btrm_prft_rate_1 : '-'
             }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{
               annuity.btrm_prft_rate_2 !== null ? annuity.btrm_prft_rate_2 : '-'
             }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{
               annuity.btrm_prft_rate_3 !== null ? annuity.btrm_prft_rate_3 : '-'
             }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{
               annuity.annuity_like_users.length !== null
                 ? annuity.annuity_like_users.length
@@ -201,7 +201,6 @@ const onClick = function (event) {
   if (event.target.closest('button').value !== sortedBy.value) {
     isSorted.value = true;
     sortedBy.value = event.target.closest('button').value;
-    console.log(event.target.closest('button').value);
   } else {
     isSorted.value = !isSorted.value;
   }
@@ -263,7 +262,6 @@ const sortedAnnuities = computed(() => {
 const goDetail = function (event) {
   // data-deposit 속성을 읽어옴
   const annuityId = event.currentTarget.dataset.annuity;
-  console.log(event.currentTarget.dataset);
   router.push({
     name: 'product-detail',
     params: { type: 'annuity', code: `${annuityId}` },

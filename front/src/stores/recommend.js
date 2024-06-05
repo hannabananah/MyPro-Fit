@@ -20,14 +20,10 @@ export const useRecommendStore = defineStore(
         },
       })
         .then(res => {
-          console.log('상품 추천 가져오기 성공');
-
           recommendedProducts.value = res.data.sort((a, b) => b.r - a.r);
           router.push({ name: 'recommend-list' });
         })
         .catch(err => {
-          console.log('상품가져오기 실패');
-          console.log(err.message);
           if (err.message === 'Request failed with status code 500') {
             alert('상품 추천에 필요한 회원 정보가 없습니다.');
             router.push({ name: 'profile', params: { tab: 'moreInfo' } });
