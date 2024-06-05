@@ -32,8 +32,8 @@
             <td><img style="width:100px;" src="https://avatars.githubusercontent.com/u/156263943?s=96&v=4"/></td>
         </tr>
         <tr>
-            <td><span>팀장&nbsp;&nbsp;&nbsp;</span><a href="https://github.com/hannabananah">강한나</a></td>
-            <td>팀원&nbsp;&nbsp;&nbsp;<a href="https://github.com/k1minchae">김민채</a></td>
+            <td>팀장&nbsp;&nbsp;&nbsp;<a href="https://github.com/hannabananah">강한나</a>&nbsp;&nbsp;<b>FE,BE</b></td>
+            <td>팀원&nbsp;&nbsp;&nbsp;<a href="https://github.com/k1minchae">김민채</a>&nbsp;&nbsp;<b>FE,BE</b></td>
         </tr>
         <tr>
             <td style="word-break: keep-all">UI설계, 프로젝트 초기세팅, 인증/인가, 메인페이지, 마이페이지, AI챗봇, 게시판</td>
