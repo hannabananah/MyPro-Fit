@@ -17,7 +17,7 @@
               class="px-2 rounded-[8px]"
               @click="router.push({ name: 'board' })"
             >
-              <undo></undo>
+              <Undo />
             </button>
             <button
               class="hover:drop-shadow transform-gpu hover:scale-110"
@@ -97,7 +97,7 @@ import Edit from 'vue-material-design-icons/SquareEditOutline.vue';
 import Delete from 'vue-material-design-icons/TrashCanOutline.vue';
 import Chat from 'vue-material-design-icons/ChatOutline.vue';
 import Send from 'vue-material-design-icons/Send.vue';
-import undo from 'vue-material-design-icons/undo.vue';
+import Undo from 'vue-material-design-icons/Undo.vue';
 
 const boardStore = useBoardStore();
 const userStore = useUserStore();
