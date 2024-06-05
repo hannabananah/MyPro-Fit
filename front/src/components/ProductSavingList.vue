@@ -167,9 +167,9 @@
 import { ref, onMounted, computed } from 'vue';
 import { useProductStore } from '@/stores/products';
 import { useRouter } from 'vue-router';
-import Swap from 'vue-material-design-icons/menuSwapOutline.vue';
-import Up from 'vue-material-design-icons/menuUp.vue';
-import Down from 'vue-material-design-icons/menuDown.vue';
+import Swap from 'vue-material-design-icons/MenuSwapOutline.vue';
+import Up from 'vue-material-design-icons/MenuUp.vue';
+import Down from 'vue-material-design-icons/MenuDown.vue';
 
 const isSorted = ref(true);
 const sortedBy = ref('month_12');
