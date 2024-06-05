@@ -7,7 +7,7 @@
         class="border border-solid border-sky-600 px-2 rounded-[8px] bg-slate-50 hover:shadow-inner hover:bg-slate-100"
         @click="$router.go(-1)"
       >
-        <undo fillColor="#4682B4"></undo>
+        <Undo fillColor="#4682B4" />
       </button>
       <div>
         <button v-show="isLiked" @click="doLike">
@@ -295,7 +295,7 @@ import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import { useRoute, useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
-import undo from 'vue-material-design-icons/undo.vue';
+import Undo from 'vue-material-design-icons/Undo.vue';
 import heart from 'vue-material-design-icons/heart.vue';
 import heartOutline from 'vue-material-design-icons/heartOutline.vue';
 
