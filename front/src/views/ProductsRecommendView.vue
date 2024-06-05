@@ -52,6 +52,5 @@ const recommendStore = useRecommendStore();
 
 const onClick = function () {
   recommendStore.fetchRecommendedProducts();
-  console.log('클릭!');
 };
 </script>

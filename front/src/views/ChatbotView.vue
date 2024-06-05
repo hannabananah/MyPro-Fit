@@ -6,7 +6,7 @@
       <div class="relative w-full">
         <img
           class="object-cover w-full overflow-hidden grayscale-[40%] h-56 blur-[3px]"
-          src="@/assets/images/chatbot3.jpg"
+          src="@/assets/images/chatbot.jpg"
           alt="챗봇 페이지 헤더 이미지"
         />
         <img

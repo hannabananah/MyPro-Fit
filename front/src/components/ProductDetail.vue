@@ -314,7 +314,6 @@ onMounted(() => {
   })
     .then(res => {
       product.value = res.data;
-      // console.log(product.value);
     })
     .catch(err => {
       router.go(-1);
@@ -332,7 +331,6 @@ const doLike = function () {
     },
   })
     .then(res => {
-      console.log('찜하기 성공');
       location.reload();
     })
     .catch(err => {
@@ -374,8 +372,6 @@ const doJoin = function () {
     },
   })
     .then(res => {
-      console.log('가입 성공');
-      // 페이지 다시 렌더링
       location.reload();
     })
     .catch(err => {

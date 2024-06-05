@@ -4,7 +4,7 @@
     <div class="ml-auto">
       <form class="inline-block mr-3" id="select-bank">
         <select
-          class="btn-inactive bg-white px-2 hover:bg-white text-start"
+          class="px-2 bg-white btn-inactive hover:bg-white text-start"
           name="bank"
           id="bank"
           v-model="selectedBank"
@@ -17,7 +17,7 @@
       </form>
       <form class="inline-block" id="select-duration">
         <select
-          class="btn-inactive bg-white py-0 px-2 hover:bg-white text-start"
+          class="px-2 py-0 bg-white btn-inactive hover:bg-white text-start"
           name="duration"
           id="duration"
           v-model="selectedDuration"
@@ -31,7 +31,7 @@
     </div>
     <hr class="mt-4" />
     <div class="h-[600px] overflow-y-auto pb-6">
-      <table class="border border-slate-400 w-full">
+      <table class="w-full border border-slate-400">
         <tr @click="onClick">
           <th class="border border-slate-300 w-[10%]">공시기준월</th>
           <th class="border border-slate-300 w-[10%]">금융 회사명</th>
@@ -144,24 +144,24 @@
           :key="deposit.fin_prdt_cd"
           :data-deposit="deposit.fin_prdt_cd"
         >
-          <td class="border border-slate-300 p-2">
+          <td class="p-2 border border-slate-300">
             {{ deposit.dcls_month }}
           </td>
-          <td class="border border-slate-300 p-2">{{ deposit.kor_co_nm }}</td>
-          <td class="border border-slate-300 p-2">{{ deposit.fin_prdt_nm }}</td>
-          <td class="border border-slate-300 text-center">
+          <td class="p-2 border border-slate-300">{{ deposit.kor_co_nm }}</td>
+          <td class="p-2 border border-slate-300">{{ deposit.fin_prdt_nm }}</td>
+          <td class="text-center border border-slate-300">
             {{ deposit.month_6 !== null ? deposit.month_6 : '-' }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{ deposit.month_12 !== null ? deposit.month_12 : '-' }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{ deposit.month_24 !== null ? deposit.month_24 : '-' }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{ deposit.month_36 !== null ? deposit.month_36 : '-' }}
           </td>
-          <td class="border border-slate-300 text-center">
+          <td class="text-center border border-slate-300">
             {{
               deposit.deposit_like_users.length !== null
                 ? deposit.deposit_like_users.length
@@ -222,7 +222,6 @@ const onClick = function (event) {
   if (event.target.closest('button').value !== sortedBy.value) {
     isSorted.value = true;
     sortedBy.value = event.target.closest('button').value;
-    console.log(event.target.closest('button').value);
   } else {
     isSorted.value = !isSorted.value;
   }

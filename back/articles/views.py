@@ -10,19 +10,19 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from .serializers import ArticleListSerializer, ArticleSerializer, CommentListSerializer, CommentSerializer
 from .models import Article, Comment
 
-@api_view(['GET','POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def articles(req):
-    if req.method=='GET':
-        articles=get_list_or_404(Article)
-        serializer=ArticleSerializer(articles, many=True)
+    if req.method == 'GET':
+        articles = get_list_or_404(Article)
+        serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data)
     
-    elif req.method=='POST':
-        serializer=ArticleListSerializer(data=req.data)
+    elif req.method == 'POST':
+        serializer = ArticleListSerializer(data=req.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save(user=req.user)
-    return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET','PUT','DELETE'])
 @permission_classes([IsAuthenticated])

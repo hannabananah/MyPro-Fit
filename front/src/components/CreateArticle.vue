@@ -64,9 +64,7 @@ const colors = [
 const randColor = ref(colors[Math.floor(Math.random() * colors.length)]);
 
 const createArticle = function () {
-  const nextId = boardStore.articles.length + 1;
   axios({
-    id: nextId,
     method: 'post',
     url: `${userStore.API_URL}/articles/`,
     data: {
@@ -75,14 +73,15 @@ const createArticle = function () {
     },
     headers: {
       Authorization: `Token ${userStore.token}`,
+      'Content-Type': 'application/json',
     },
   })
     .then(res => {
-      console.log(res.data);
+      const nextId = res.data.id;
       router.push({ name: 'board-detail', params: { id: nextId } });
     })
     .catch(err => {
-      console.log(err);
+      console.log(err.response.data);
     });
 };
 </script>

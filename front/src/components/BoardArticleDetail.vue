@@ -1,47 +1,55 @@
 <template>
-  <div class="py-12">
+  <div class="h-[calc(100vh-64px)] py-12">
     <div
       v-if="boardStore.article"
       :style="`background-color: ${randColor}`"
-      class="container relative flex flex-col items-center w-3/5 mx-auto overflow-hidden rounded-lg shadow-md bg-slate-100"
+      class="container relative flex flex-col items-center w-3/5 h-full mx-auto overflow-hidden rounded-lg shadow-md bg-slate-100"
     >
-      <article class="relative flex flex-col w-full px-10 pb-4 pt-14 gap-y-3">
-        <div
-          class="absolute flex right-4 top-4 gap-x-2"
-          v-if="boardStore.article.nickname === userStore.nickname"
-        >
-          <button
-            class="px-2 rounded-[8px]"
-            @click="router.push({ name: 'board' })"
+      <article
+        class="relative flex flex-col justify-between w-full h-full px-10 pb-4 pt-14 gap-y-3"
+      >
+        <div>
+          <div
+            class="absolute flex right-4 top-4 gap-x-2"
+            v-if="boardStore.article.nickname === userStore.nickname"
           >
-            <undo></undo>
-          </button>
-          <button
-            class="hover:drop-shadow transform-gpu hover:scale-110"
-            @click="handleClickEdit"
-          >
-            <Edit />
-          </button>
-          <button
-            class="hover:drop-shadow transform-gpu hover:scale-110"
-            @click="handleClickDelete"
-          >
-            <Delete />
-          </button>
+            <button
+              class="px-2 rounded-[8px]"
+              @click="router.push({ name: 'board' })"
+            >
+              <undo></undo>
+            </button>
+            <button
+              class="hover:drop-shadow transform-gpu hover:scale-110"
+              @click="handleClickEdit"
+            >
+              <Edit />
+            </button>
+            <button
+              class="hover:drop-shadow transform-gpu hover:scale-110"
+              @click="handleClickDelete"
+            >
+              <Delete />
+            </button>
+          </div>
+          <div class="flex justify-between w-full">
+            <i class="text-gray-900">No.{{ boardStore.article.id }}</i>
+            <div class="flex gap-4">
+              <span class="inline-block text-sm text-right">
+                {{ formattedCreatedAt }}
+              </span>
+              <span class="text-sm tracking-wide text-gray-500">
+                {{ boardStore.article.nickname }}
+              </span>
+            </div>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 hahmlet">
+            {{ boardStore.article.title }}
+          </h2>
+          <p class="my-5 overflow-y-auto font-light h-[200px] hahmlet">
+            {{ boardStore.article.content }}
+          </p>
         </div>
-        <div class="flex justify-between w-full">
-          <i class="text-gray-900">No.{{ boardStore.article.id }}</i>
-          <span class="text-sm tracking-wide text-gray-500">
-            {{ boardStore.article.nickname }}
-          </span>
-        </div>
-        <h2 class="text-xl font-bold text-gray-900 hahmlet">
-          {{ boardStore.article.title }}
-        </h2>
-        <p class="my-5 font-light hahmlet">{{ boardStore.article.content }}</p>
-        <span class="inline-block text-sm text-right">
-          {{ formattedCreatedAt }}
-        </span>
         <div v-if="comments">
           <ul class="py-2 mt-2 list-none border-t border-slate-300">
             <CommentsList

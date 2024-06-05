@@ -130,7 +130,6 @@ import Email from 'vue-material-design-icons/EmailOutline.vue';
 import Lock from 'vue-material-design-icons/LockOutline.vue';
 import Eye from 'vue-material-design-icons/EyeOutline.vue';
 import EyeOff from 'vue-material-design-icons/EyeOffOutline.vue';
-import axios from 'axios';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const username = ref(null);
@@ -138,7 +137,6 @@ const password = ref(null);
 const passwordVisible = ref(false);
 const isLg = ref(window.innerWidth >= 1024);
 const store = useUserStore();
-const isModalOpen = ref(false);
 
 const updateWidth = () => {
   isLg.value = window.innerWidth >= 1024;
@@ -161,23 +159,5 @@ const logIn = () => {
     password: password.value,
   };
   store.logIn(payload);
-};
-
-const pwdEmail = ref('');
-
-const resetPwd = () => {
-  axios({
-    method: 'post',
-    url: `${store.API_URL}/accounts/password/reset/`,
-    data: {
-      username: pwdEmail.value,
-    },
-  })
-    .then(response => {
-      console.log('이메일 발송 성공', response);
-    })
-    .catch(error => {
-      console.log('이메일 발송 실패', error);
-    });
 };
 </script>

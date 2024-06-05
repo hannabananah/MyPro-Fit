@@ -111,7 +111,6 @@ export const useUserStore = defineStore(
         },
       })
         .then(res => {
-          console.log('회원가입 성공!');
           logIn({ username: payload.username, password: payload.password1 });
         })
         .catch(error => {
@@ -135,7 +134,6 @@ export const useUserStore = defineStore(
         },
       })
         .then(response => {
-          console.log('로그인 성공!');
           token.value = response.data.key;
 
           // 로그인 하면 유저 정보 저장하기
@@ -147,7 +145,6 @@ export const useUserStore = defineStore(
             },
           })
             .then(res => {
-              console.log('유저 정보 가져오기 성공');
               userPk.value = res.data.pk;
               nickname.value = res.data.nickname;
               if (res.data.username === payload.username) {
@@ -160,7 +157,6 @@ export const useUserStore = defineStore(
           router.push({ name: 'home' });
         })
         .catch(error => {
-          console.log(error);
           const errorMessage =
             error.response?.data?.detail ||
             '존재하지 않는 ID이거나 올바르지 않은 비밀번호입니다. 다시 시도해주세요.';
@@ -195,7 +191,6 @@ export const useUserStore = defineStore(
         },
       })
         .then(() => {
-          console.log('계정 삭제 성공!');
           logOut();
         })
         .catch(error => {
@@ -242,7 +237,6 @@ export const useUserStore = defineStore(
         },
       })
         .then(response => {
-          console.log('유저가 가입한 상품 가져오기 성공');
           joinedProdudcts.value = response.data;
         })
         .catch(error => {
